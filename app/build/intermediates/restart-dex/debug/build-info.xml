@@ -4,27 +4,27 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="92127981972189"
+    timestamp="112108130198467"
     token="1787464339203140562" >
 
     <task
         name="javac"
-        duration="5989" />
+        duration="9003" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="4542" />
+        duration="7952" />
     <task
         name="verifier"
-        duration="1084" />
+        duration="2066" />
 
     <artifact
         location="D:\WorkSpace\MiaoDJ_Monitor\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="92127981972189" >
+    <build timestamp="112108130198467" >
         <artifact
             location="D:\WorkSpace\MiaoDJ_Monitor\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />

@@ -1,3 +1,369 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-android\4.48\afa06f539a4026c10b247386312aa67404b80a16\ormlite-android-4.48.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\ormlite-android-4.48_ded7b460da135cc8fa6fd75af1635fd9b1094e08\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.tencent.bugly\crashreport\2.2.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2dbdbaf63b66542a3227548b68c00706aa6b78ec">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.tencent.bugly-crashreport-2.2.0.0_3908612e7220bffb891843f5963eb6453ad7d7d5\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.flyco.tablayout\FlycoTabLayout_Lib\2.0.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5164d56ff46c543e6f824909f80f928a0cca8f8b">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.flyco.tablayout-FlycoTabLayout_Lib-2.0.6_07a83df89088d4ad146ef65780c43175a0c9c170\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_18c6bf4f154a0f40e92ec13a2aba02646d9fe815\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-analyzer\1.3\c5399b18a672f7973c8a9b9d6b731a3a36e590cc\leakcanary-analyzer-1.3.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c5399b18a672f7973c8a9b9d6b731a3a36e590cc">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\leakcanary-analyzer-1.3_5418c883966d1c609e0d6776f4096b4031e83ca5\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_49ebedf525ec14e9908e46d3311d2322cc67e2c4\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.jakewharton\butterknife\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d4ab8678882571a0a6f19c47a826ecbce5b4f42b">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jakewharton-butterknife-8.1.0_74f3fb9c1532cedda41dc7f7f0e0c4f23d61e7ce\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-core\4.48\e579bd2905d0399af5029aaaf9817d5fa0ca88a5\ormlite-core-4.48.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\ormlite-core-4.48_5db351cb189313d3412686ea2f83bcff4f9fd303\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_5a2a64f91956aaa63089ca0e41dc0bd81b79a777\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_6ab869b70f213cbade975d3bd24f5f2e9e87487b\classes.dex" />
+    </item>
+    <item
+        jar="D:\Android_SDK\android_sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_6912320584b20c468604934cfdc3573b47000244\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.google.android\flexbox\0.1.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="85a19f0f4e6408f225a5639131e42944bfa32bd6">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android-flexbox-0.1.3_0275e6003f26b71b085fa3c79b985c0215703971\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="6e1ed00013584399dbe27d45ac1fd6a9828c9fca">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-imagepipeline-0.10.0_cf44d127179945fbef85b939025e783b657510b1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.3.0_46d165e3c6048f348d805d15031e32e96769e999\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_d8699e1cd794e5ef557cae2bdbf95bbef819c375\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\adapter-rxjava\2.1.0\693eddc23e87ab13f9cf5001707ce8e7e1d1ff01\adapter-rxjava-2.1.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\adapter-rxjava-2.1.0_ec3b2263a30cac8258852a264343ee68cabac166\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="abc09d71e07f84fa75553943f57c5460553f6daa">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ea448d0e9b66f1803a3ac746eb85069d516d8924\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.7\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="41a4edf3c43fdbce6eba27da50b17ff9933987f1">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.pnikosis-materialish-progress-1.7_ba51fb3902a933bb5d0ac9c0d96d18f7598fe4c4\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.haha\haha\1.1\b7b2e61ee1ad2d1ac6ae3122de9c940fb0d0e635\haha-1.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b7b2e61ee1ad2d1ac6ae3122de9c940fb0d0e635">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\haha-1.1_9300b09505d64a90751d1e80ed271be6836b59b4\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\in.srain.cube\ptr-load-more\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b9582a7da86932348d4d567a5763794c87b7668">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\in.srain.cube-ptr-load-more-1.0.3_d4d97ce1ad4b857a375505e848a132cf96ea8af2\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\libs\jpush-android-2.1.7.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="38dd284400de7ff5fab09098a1b8fd30cc5980c7">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\2\jpush-android-2.1.7_47d811d8d9d65584238e9208cee6525ade7b8f34\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.kyleduo.switchbutton\library\1.4.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="51df8068d5bc0e16dd932359840c6c63b908502d">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kyleduo.switchbutton-library-1.4.1_45fb70f033a7b80d5515df4a90efde5eb36c3801\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.github.chrisbanes.photoview\library\1.2.4\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="98b5309c8d368a7c83ca5f90e0c905044c195edd">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.chrisbanes.photoview-library-1.2.4_5c43d7f067db5dcaa22428ac290314c3cd05bd3d\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\commons\0.8.5.9\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1e86bc736897abf1ec563cfb29267c7150db3a2e">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.afollestad.material-dialogs-commons-0.8.5.9_94658388685ff3dc5eca2560e1157a050bc7b03d\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_865cb0a3bb9d3b987e11dd456ae203c8b1b4d269\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_eb3ba73c4eff5dff89a91d26fa9874230723efee\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.facebook.fresco\drawee\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="65f0c887ee1f57cd0ea65b228e39b7f35372b798">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-drawee-0.10.0_cb17f7f138c258cc18b8f1df75d8e5007345d036\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.1.0\d6854f42bfb4098d3d2358d93201307b9f1cc95d\butterknife-annotations-8.1.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d6854f42bfb4098d3d2358d93201307b9f1cc95d">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.1.0_f4ab20dab6da4534ce6ab21caee5aa72d553423d\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\MiaoDJ_Monitor\lib-zxing\unspecified\jars\libs\zxing.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f8b4fa39cb22728acf112d2b43779d826fbeb4f0">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\8\zxing_d0c59e7a54d8c69c2c8a7d3bda8dbb9b9d2f5982\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_eb0c5cc6a0d68e02dc76050bee029ecbae0e9f28\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_a196e5deee3970c97fa49db6b0f071702fd0e9f7\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d323cf4983bdfce7136a1ce5e32710e1b36b20fe">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fbcore-0.10.0_e43e87b490ce71d617cfd6010d53c3a993df650e\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="857099e23430445aeb65cf703d5adf646ff280f1">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-fresco-0.10.0_097813afcfaeb44b0a57496def013b84ef21fa11\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.reactivex-rxandroid-1.1.0_e9808cbbf9055b9134c61fbc8a7c68a4dda01770\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.8.0_433b01a5f84d84f65ac019d1724c0ddb36749e46\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.tbruyelle.rxpermissions\rxpermissions\0.7.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="50fd38504119ea609c269abf98af75fb14e82f2c">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.tbruyelle.rxpermissions-rxpermissions-0.7.0_ffd8d76575b5e2e1bc1fb3cccf8092a95bfcc0fe\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.5\ece7b5d0870e66d8226dab6dcf47a2b12afff061\rxjava-1.1.5.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ece7b5d0870e66d8226dab6dcf47a2b12afff061">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.5_bad68b71d4775ca81ab8eb84e5153ebf690735fd\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\in.srain.cube\cube-sdk\1.0.44\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ab3e30bc50e6b7f859b4971bfc897cd107a7b6c5">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\in.srain.cube-cube-sdk-1.0.44_1c53459d70713e6599fd3f15233b18b26d28f75c\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_c053b909c5fd46e99d352e433857a58b210202cd\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-android-1.1.4_95904931d527e5ebc15c3a5fab9eb85d0b89be0a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.1.0_4690befd84ef09fef42ba3f5660457ceff9e52e2\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.afollestad.material-dialogs\core\0.8.5.9\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="04d4337de6ccd7e57aec621f41ee747976fca7d8">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.afollestad.material-dialogs-core-0.8.5.9_07ea1200ae3f5f0af72e1597641de3fa8306288f\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="35899dcd39aa8b7f4a35fd716a0617cbebce87e1">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_a85add56f0b182f00e439e202c096a5a71559a2a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_36a2926a3a3ca9c7b031c21b8237cec286544d4a\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\info.hoang8f\android-segmented\1.0.6\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="692a913dff3246e0cc5369c2508f5970ecfeca01">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\info.hoang8f-android-segmented-1.0.6_eaa95cee0b1692cfb42e63293524fa1ee35fb2f9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.1.0_fa7adca92080812f0821c266ae00f27a7f2698ff\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.zhy\flowlayout-lib\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fdaede6c3d2da36ba042f9db05a60d303e04045f">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.zhy-flowlayout-lib-1.0.3_fe4fc1f78ac2670a442b6047e6364a5279f0ddd0\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.facebook.fresco\imagepipeline-base\0.10.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5e88a2a26ac71cd7f8fd8bd9f9381fa06d1a47a3">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.fresco-imagepipeline-base-0.10.0_cc6efe1bd24e8deec9e266ec41e7c105e9255d12\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\systembartint-1.0.3_5cc89b2f006723e6bef6be9fab6edca4d52c8255\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.squareup.leakcanary\leakcanary-android\1.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f4e7adebf49e683db82fb6efac2caaf3d768b8d4">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.squareup.leakcanary-leakcanary-android-1.3_1f8f755e3fd347a9978521b1f9e023757f9d5c4e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\chong\.gradle\caches\modules-2\files-2.1\com.squareup.leakcanary\leakcanary-watcher\1.3\632482a61ad24b7ec864072945d221369f9a606\leakcanary-watcher-1.3.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0632482a61ad24b7ec864072945d221369f9a606">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\leakcanary-watcher-1.3_a84e93225e73aef4970087a7841347fdab2f4e4b\classes.dex" />
+    </item>
+    <item
+        jar="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_2cc19abf0796a4fde4313e509f3f5ab6590bbc86\classes.dex" />
+    </item>
+
+</items>
