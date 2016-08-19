@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="84px"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/item_iv_warn"
+            android:layout_width="33px"
+            android:layout_height="33px"
+            android:layout_marginLeft="32px"
+            android:layout_marginStart="32px"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_error_red"/>
+
+        <TextView
+            android:id="@+id/item_tv_content_disAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14px"
+            android:layout_marginStart="14px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:textColor="@color/text_color_red"
+            android:textSize="26px"
+            android:text="业主不确认"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/item_tv_content_common"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32px"
+            android:layout_marginStart="32px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:textColor="@color/text_color_black"
+            android:textSize="26px"
+            android:text="确认施工完成" />
+
+        <TextView
+            android:id="@+id/item_tv_Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginStart="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginEnd="30px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="20px"
+            android:text="2015-06-21 08:03"
+            android:textStyle="bold"
+            android:textColor="@color/text_color_black_2"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="610px"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42px"
+        android:layout_marginRight="49px"
+        android:background="@drawable/line_dot"/>
+
+    <!-- ******************************************************* -->
+</com.zhy.autolayout.AutoLinearLayout>

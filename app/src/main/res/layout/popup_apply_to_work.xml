@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/copy_cardview"
+    android:id="@+id/popup_apply">
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:layout_width="600px"
+        android:layout_height="540px">
+
+        <ImageView
+            android:layout_width="34px"
+            android:layout_height="34px"
+            android:layout_marginLeft="46px"
+            android:layout_marginStart="46px"
+            android:layout_marginTop="44px"
+            android:background="@drawable/ic_apply_work" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginStart="93px"
+            android:layout_marginTop="45px"
+            android:text="申请施工进场"
+            android:textSize="28px"
+            android:textColor="@color/btn_yellow"/>
+
+        <ImageButton
+            android:id="@+id/apply_img_close"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_marginLeft="523px"
+            android:layout_marginStart="523px"
+            android:layout_marginTop="47px"
+            android:background="@drawable/ic_apply_close" />
+
+
+        <View
+            android:layout_width="520px"
+            android:layout_height="1px"
+            android:layout_marginLeft="41px"
+            android:layout_marginStart="41px"
+            android:layout_marginTop="102px"
+            android:background="@color/divider_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45px"
+            android:layout_marginStart="45px"
+            android:layout_marginTop="139px"
+            android:text="请确定预计进场日期"
+            android:textSize="24px"
+            android:textColor="@color/text_color_black_light" />
+
+        <ImageView
+            android:layout_width="11px"
+            android:layout_height="11px"
+            android:layout_marginLeft="274px"
+            android:layout_marginStart="274px"
+            android:layout_marginTop="146px"
+            android:background="@drawable/ic_red_star" />
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:layout_width="521px"
+            android:layout_height="71px"
+            android:layout_marginLeft="41px"
+            android:layout_marginStart="41px"
+            android:layout_marginTop="194px"
+            android:background="@color/white_2">
+
+            <ImageView
+                android:layout_width="34px"
+                android:layout_height="34px"
+                android:layout_marginLeft="23px"
+                android:layout_marginStart="23px"
+                android:layout_marginTop="18px"
+                android:background="@drawable/ic_apply_date" />
+
+            <TextView
+                android:id="@+id/publish_tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="79px"
+                android:layout_marginStart="79px"
+                android:layout_marginTop="23px"
+                android:text="2016-05-01"
+                android:textSize="26px"
+                android:textColor="@color/text_color_black" />
+
+            <ImageView
+                android:layout_width="22px"
+                android:layout_height="20px"
+                android:layout_marginLeft="481px"
+                android:layout_marginStart="481px"
+                android:layout_marginTop="20px"
+                android:background="@drawable/ic_arrow_up" />
+            <ImageView
+                android:layout_width="22px"
+                android:layout_height="20px"
+                android:layout_marginLeft="481px"
+                android:layout_marginStart="481px"
+                android:layout_marginTop="37px"
+                android:background="@drawable/ic_arrow_down" />
+
+        </com.zhy.autolayout.AutoFrameLayout>
+
+
+        <Button
+            android:id="@+id/publish_btn"
+            style="?android:textAppearanceSmall"
+            android:layout_width="521px"
+            android:layout_height="89px"
+            android:layout_marginLeft="40px"
+            android:layout_marginStart="40px"
+            android:layout_marginTop="302px"
+            android:text="提交"
+            android:background="@drawable/btn_effect_bg_yellow"
+            android:textColor="@android:color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43px"
+            android:layout_marginStart="43px"
+            android:layout_marginTop="421px"
+            android:text="请先和业主沟通确认施工进场日期"
+            android:textSize="20px"
+            android:textColor="@color/text_color_black_light" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43px"
+            android:layout_marginStart="43px"
+            android:layout_marginTop="456px"
+            android:text="施工进场申请待业主确认后，施工节点将按日期自动生成"
+            android:textSize="20px"
+            android:textColor="@color/text_color_black_light" />
+
+    </com.zhy.autolayout.AutoFrameLayout>
+</com.zhy.autolayout.AutoFrameLayout>

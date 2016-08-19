@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\change_anim.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\change_anim.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\__picker_menu_preview.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\menu\\__picker_menu_preview.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\__picker_menu_picker.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\menu\\__picker_menu_picker.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\point_animation.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\point_animation.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\point_now.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\point_now.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\home_pop.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\home_pop.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\home.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\home.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\hierarchy.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\hierarchy.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\menu\\news.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\menu\\news.xml"
+    }
+]

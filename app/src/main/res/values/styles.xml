@@ -1,0 +1,200 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimary1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+        <!--android底色-->
+        <item name="android:windowBackground">@color/gray_light</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimary1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeTranslucent" parent="AppTheme.NoActionBar">
+        <!--<item name="android:windowTranslucentStatus">false</item>-->
+        <item name="colorPrimaryDark">@color/colorPrimary1</item>
+
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="actionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/primary_text_light</item>
+        <item name="actionBarSize">32dip</item>
+    </style>
+    <style name="customTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarTheme">@style/actionBarTheme</item>
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="actionBarSize">32dip</item>
+        <item name="colorPrimaryDark">@color/colorPrimary1</item>
+    </style>
+    <!-- **************************************主题*************************************** -->
+    <!--blueTheme-->
+    <style name="BlueTheme" parent="AppThemeTranslucent">
+        <item name="colorPrimary">@color/colorBluePrimary</item>
+        <item name="colorPrimaryDark">@color/colorBluePrimary</item>
+        <item name="colorAccent">@color/colorBlueAccent</item>
+        <item name="menuBackground">@drawable/background_blue</item>
+        <!--<item name="md_title_color">@color/colorBluePrimary</item>-->
+        <!--<item name="md_link_color">@color/colorBluePrimary</item>-->
+        <!--<item name="md_positive_color">@color/colorBluePrimary</item>-->
+    </style>
+
+    <!--redTheme-->
+    <style name="RedTheme" parent="AppThemeTranslucent">
+        <item name="colorPrimary">@color/colorRedPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorRedPrimaryDark</item>
+        <item name="colorAccent">@color/colorRedAccent</item>
+        <item name="menuBackground">@drawable/background_red</item>
+        <!--<item name="md_title_color">@color/colorRedPrimary</item>-->
+        <!--<item name="md_link_color">@color/colorRedPrimary</item>-->
+        <!--<item name="md_positive_color">@color/colorRedPrimary</item>-->
+    </style>
+
+    <!--greenTheme-->
+    <style name="GreenTheme" parent="AppThemeTranslucent">
+        <item name="colorPrimary">@color/colorGreenPrimary</item>
+        <item name="colorPrimaryDark">@color/colorGreenPrimary</item>
+        <item name="colorAccent">@color/colorGreenAccent</item>
+        <item name="menuBackground">@drawable/background_green</item>
+        <!--<item name="md_title_color">@color/colorGreenPrimary</item>-->
+        <!--<item name="md_link_color">@color/colorGreenPrimary</item>-->
+        <!--<item name="md_positive_color">@color/colorGreenPrimary</item>-->
+    </style>
+
+    <!--orange-->
+    <style name="OrangeTheme" parent="AppThemeTranslucent">
+        <item name="colorPrimary">@color/colorOrangePrimary</item>
+        <item name="colorPrimaryDark">@color/colorOrangePrimary</item>
+        <item name="colorAccent">@color/colorOrangeAccent</item>
+        <item name="menuBackground">@drawable/background_orange</item>
+        <!--<item name="md_title_color">@color/colorOrangePrimary</item>-->
+        <!--<item name="md_link_color">@color/colorOrangePrimary</item>-->
+        <!--<item name="md_positive_color">@color/colorOrangePrimary</item>-->
+    </style>
+
+    <!--black-->
+    <style name="BlackTheme" parent="AppThemeTranslucent">
+        <item name="colorPrimary">@color/colorBlackPrimary</item>
+        <item name="colorPrimaryDark">@color/colorBlackPrimary</item>
+        <item name="colorAccent">@color/colorBlackAccent</item>
+        <item name="menuBackground">@drawable/background_black</item>
+        <!--<item name="md_title_color">@color/colorOrangePrimary</item>-->
+        <!--<item name="md_link_color">@color/colorOrangePrimary</item>-->
+        <!--<item name="md_positive_color">@color/colorOrangePrimary</item>-->
+    </style>
+
+    <style name="MenuStyleImg">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_marginLeft">25dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="MenuStyleText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginRight">80dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- ********************************************************************************* -->
+
+    <style name="PopupAnimation" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+
+
+    <!--<style name="MaterialSearchViewStyle">-->
+        <!--<item name="searchBackground">@android:color/white</item>-->
+        <!--<item name="searchVoiceIcon">@drawable/ic_action_voice_search</item>-->
+        <!--<item name="searchCloseIcon">@drawable/ic_action_navigation_close</item>-->
+        <!--<item name="searchBackIcon">@drawable/ic_action_navigation_arrow_back</item>-->
+        <!--&lt;!&ndash;<item name="searchSuggestionBackground">...</item>&ndash;&gt;-->
+        <!--<item name="android:textColor">@android:color/black</item>-->
+        <!--<item name="android:textColorHint">@android:color/black</item>-->
+        <!--<item name="android:hint">"搜索图片"</item>-->
+    <!--</style>-->
+
+    <style name="LaunchTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <!--<item name="android:background">@drawable/ic_launch</item>-->
+        <!--<item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>-->
+        <!--<item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>-->
+        <item name="vpiCirclePageIndicatorStyle">@style/TabStyle</item>
+    </style>
+
+    <style name="TabStyle">
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/font_dark</item>
+    </style>
+
+    <style name="footer_bar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+        <item name="android:button">@null</item>
+    </style>
+    <style name="main_footer_bar_radio" parent="footer_bar">
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:textSize">@dimen/text_size_11</item>
+        <item name="android:textColor">@drawable/footer_text_color</item>
+    </style>
+
+    <style name="title_base_button">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/text_color_gray</item>
+    </style>
+    <style name="main_head_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_19</item>
+        <item name="android:textColor">@color/text_color_white</item>
+    </style>
+
+    <style name="SwitchButtonStyle">
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="customDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">#00000000</item> <!-- 设置自定义布局的背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent
+        </item> <!-- 设置window背景透明，也就是去边框 -->
+    </style>
+
+</resources>

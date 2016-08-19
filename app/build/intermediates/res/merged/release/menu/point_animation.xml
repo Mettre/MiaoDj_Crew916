@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".example.MainActivity">
+
+    <item
+        android:id="@+id/style_cube"
+        android:title="立方体"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_flip"
+        android:title="翻转"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_pushpull"
+        android:title="推拉"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_sides"
+        android:title="避让"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_movepull"
+        android:title="滑动"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,738 @@
+[
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\img_fail.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\img_fail.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_info.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_info.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_camera_n.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_camera_n.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_about.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_about.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\photo_fail.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\photo_fail.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\richpush_btn_selector.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\richpush_btn_selector.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\login_icon_eye_nor.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\login_icon_eye_nor.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_phone_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_phone_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\logo_color.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\logo_color.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_right.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_right.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_clock.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_clock.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_apply_work.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_apply_work.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_bank_card.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_bank_card.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\photo_error.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\photo_error.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_action_navigation_arrow_back.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\toolslibrary\\unspecified\\res\\drawable-hdpi-v4\\ic_action_navigation_arrow_back.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_red_star.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_red_star.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_setting.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_setting.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_delete_p.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_delete_p.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_action_voice_search.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\toolslibrary\\unspecified\\res\\drawable-hdpi-v4\\ic_action_voice_search.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_opinion.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_opinion.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head2_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head2_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\logo_gray.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\logo_gray.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_message.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_message.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_cloud_queue_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_cloud_queue_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_right2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_right2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head3_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head3_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_camera_p.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_camera_p.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\drop_down_selected_icon.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\drop_down_selected_icon.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_point_ok.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_point_ok.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_up.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_up.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head1_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head1_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_richpush_actionbar_back.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_richpush_actionbar_back.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_apply_close.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_apply_close.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_mail_outline_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_mail_outline_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_delete_n.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_delete_n.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_recommend_worker.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_recommend_worker.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_cached_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_cached_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_change_anim.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_change_anim.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_phone.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_phone.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_camera.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_camera.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_phone.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_phone.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_login_phone.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_login_phone.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_red_point.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_red_point.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_login_password.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_login_password.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_back_press.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\btn_back_press.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_login_name.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_login_name.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_empty_data.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_empty_data.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_auxi_delete.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_auxi_delete.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_p70.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_p70.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_scan.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_scan.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_photo_black_48dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_photo_black_48dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_point_nostart.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_point_nostart.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\login_icon_eye_pre.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\login_icon_eye_pre.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_checkbox_marked.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_checkbox_marked.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_status_4.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_status_4.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_down.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_down.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_joy_download.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_joy_download.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_apply_date.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_apply_date.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_ok_gray.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_ok_gray.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\star_comment_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\star_comment_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_login_code.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_login_code.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head1_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head1_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_error.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_error.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_close_gray.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_close_gray.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_man.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_man.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_color_lens_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_color_lens_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_daily.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_daily.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_selection_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_selection_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head2_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head2_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_ok_green.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_ok_green.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_status_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_status_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_error_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_error_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\jpush_notification_icon.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\jpush_notification_icon.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_joy_star.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_joy_star.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_miaodj.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_miaodj.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\star_comment_3.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\star_comment_3.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_status_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_status_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\drop_down_unselected_icon.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\drop_down_unselected_icon.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_error_red.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_error_red.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_error_white_24dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_error_white_24dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_my_place.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_my_place.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_left_white32.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_left_white32.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\message_news.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\message_news.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_login_invitation_code.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_login_invitation_code.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_point_red.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_point_red.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\logo_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\logo_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\actionbar_shadow_up.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\actionbar_shadow_up.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_status_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_status_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_p69.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_p69.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_recommend.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_recommend.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\drop_down_checked.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\drop_down_checked.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_orange.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\btn_orange.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\use_new_remind.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\use_new_remind.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\photo_nopic.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\photo_nopic.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_add.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_add.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_richpush_actionbar_divider.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_richpush_actionbar_divider.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_point_wait2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_point_wait2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_close_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_close_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\drop_down_selected_icon2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\drop_down_selected_icon2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\drop_down_checked2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\drop_down_checked2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_joy_share.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_joy_share.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_edit_pen.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_edit_pen.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_selection_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_selection_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_settings_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_settings_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\md_nav_back.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.afollestad.material-dialogs\\core\\0.8.5.9\\res\\drawable-hdpi-v4\\md_nav_back.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_status_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_status_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_loading.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_loading.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\logo_m.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\logo_m.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_content_paste_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_content_paste_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\star_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\star_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\photo_loading.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\photo_loading.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_left_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_left_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_up2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_up2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_action_action_search.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\toolslibrary\\unspecified\\res\\drawable-hdpi-v4\\ic_action_action_search.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_down2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_down2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_point_wait1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_point_wait1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_status_3.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_status_3.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_arrow_left_white48.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_arrow_left_white48.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\star_2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\star_2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_account_box_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_account_box_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\star_comment_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\star_comment_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_ok_orange.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_ok_orange.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_arrow_right.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_arrow_right.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_status_3.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_status_3.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_head3_1.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_head3_1.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_p71.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_p71.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_notifications_none_white.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_notifications_none_white.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_broken_image_black_48dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_broken_image_black_48dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\icon_empty_builder.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\icon_empty_builder.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\point_arrow_left.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\point_arrow_left.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_location.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_location.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_checkbox_n.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_checkbox_n.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_ok_gray2.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\ic_ok_gray2.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\ic_action_navigation_close.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\toolslibrary\\unspecified\\res\\drawable-hdpi-v4\\ic_action_navigation_close.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\btn_back_normal.9.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\btn_back_normal.9.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\__picker_ic_delete_black_24dp.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\PhotoPicker\\unspecified\\res\\drawable-hdpi-v4\\__picker_ic_delete_black_24dp.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\message_normal.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\drawable-hdpi\\message_normal.png"
+    }
+]

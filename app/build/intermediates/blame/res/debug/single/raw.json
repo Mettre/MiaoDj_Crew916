@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keep.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\src\\main\\res\\raw\\keep.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\app\\build\\intermediates\\exploded-aar\\MiaoDJ_Monitor\\lib-zxing\\unspecified\\res\\raw\\beep.ogg"
+    }
+]

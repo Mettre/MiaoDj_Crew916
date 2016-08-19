@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <include layout="@layout/include_toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <cn.chenhai.miaodj_monitor.view_custom.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:id="@+id/detail_Scroll">
+
+        <LinearLayout
+            android:id="@+id/detail_LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <cn.chenhai.miaodj_monitor.view_custom.AutoCardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginRight="26px"
+                android:layout_marginTop="22px"
+                android:layout_marginBottom="22px"
+                android:clickable="false"
+                android:foreground="?selectableItemBackground"
+                card_view:cardElevation="1dp"
+                card_view:cardCornerRadius="6dp">
+
+
+                <TextView
+                    android:id="@+id/detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="620px"
+                    android:layout_marginTop="49px"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginStart="38px"
+                    android:textColor="@color/text_color_black"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="32px"
+                    android:text="玲珑湾三期十二栋302装修项目"/>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="109px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="141px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="施工进度："/>
+
+
+                <TextView
+                    android:id="@+id/detail_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="500px"
+                    android:layout_marginLeft="182px"
+                    android:layout_marginStart="182px"
+                    android:layout_marginTop="141px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="未开始"
+                    android:textColor="@color/text_color_black"/>
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="199px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="230px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="户型："/>
+
+
+                <TextView
+                    android:id="@+id/detail_house_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="540px"
+                    android:layout_marginLeft="130px"
+                    android:layout_marginStart="130px"
+                    android:layout_marginTop="230px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="三室两厅一厨一卫一阳台"
+                    android:textColor="@color/text_color_black"/>
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="290px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="319px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="面积："/>
+
+
+                <TextView
+                    android:id="@+id/detail_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="210px"
+                    android:layout_marginLeft="133px"
+                    android:layout_marginStart="133px"
+                    android:layout_marginTop="319px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="118.56 ㎡"
+                    android:textColor="@color/text_color_black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="349px"
+                    android:layout_marginStart="349px"
+                    android:layout_marginTop="319px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="居住人数："/>
+
+
+                <TextView
+                    android:id="@+id/detail_people_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="210px"
+                    android:layout_marginLeft="479px"
+                    android:layout_marginStart="479px"
+                    android:layout_marginTop="319px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="3 人"
+                    android:textColor="@color/text_color_black"/>
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="373px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="406px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="业务经理："/>
+
+
+                <TextView
+                    android:id="@+id/detail_manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="150px"
+                    android:layout_marginLeft="180px"
+                    android:layout_marginStart="180px"
+                    android:layout_marginTop="406px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="张晓晓"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <TextView
+                    android:id="@+id/detail_manager_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="210px"
+                    android:layout_marginLeft="349px"
+                    android:layout_marginStart="349px"
+                    android:layout_marginTop="409px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="13852121258"
+                    android:textColor="@color/text_color_black"/>
+
+                <LinearLayout
+                    android:id="@+id/detail_manager_phone_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="590px"
+                    android:layout_marginTop="400px"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:paddingBottom="10px">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:background="@drawable/ic_phone"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="462px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="490px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="设计师："/>
+
+
+                <TextView
+                    android:id="@+id/detail_design"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="150px"
+                    android:layout_marginLeft="180px"
+                    android:layout_marginStart="180px"
+                    android:layout_marginTop="490px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="李明"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <TextView
+                    android:id="@+id/detail_design_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="210px"
+                    android:layout_marginLeft="349px"
+                    android:layout_marginStart="349px"
+                    android:layout_marginTop="490px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="13852121258"
+                    android:textColor="@color/text_color_black"/>
+
+                <LinearLayout
+                    android:id="@+id/detail_design_phone_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="590px"
+                    android:layout_marginTop="480px"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:paddingBottom="10px">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:background="@drawable/ic_phone"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="546px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="576px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="施工员："/>
+
+
+                <TextView
+                    android:id="@+id/detail_monitor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="150px"
+                    android:layout_marginLeft="180px"
+                    android:layout_marginStart="180px"
+                    android:layout_marginTop="576px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="沈丽丽"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <TextView
+                    android:id="@+id/detail_monitor_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="210px"
+                    android:layout_marginLeft="349px"
+                    android:layout_marginStart="349px"
+                    android:layout_marginTop="576px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="13852121258"
+                    android:textColor="@color/text_color_black"/>
+
+                <LinearLayout
+                    android:id="@+id/detail_monitor_phone_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="590px"
+                    android:layout_marginTop="566px"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px"
+                    android:paddingTop="10px"
+                    android:paddingBottom="10px">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:background="@drawable/ic_phone"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="630px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="660px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="合同签署时间："/>
+
+
+                <TextView
+                    android:id="@+id/detail_contract_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="150px"
+                    android:layout_marginLeft="235px"
+                    android:layout_marginStart="235px"
+                    android:layout_marginTop="660px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="2016-05-03"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:layout_width="171px"
+                    android:layout_height="51px"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="482px"
+                    android:layout_marginStart="482px"
+                    android:layout_marginTop="648px"
+                    android:background="@drawable/layout_selecter_deep"
+                    android:id="@+id/detail_layout_contract_info">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="17px"
+                        android:layout_marginStart="17px"
+                        android:layout_marginTop="14px"
+                        android:singleLine="true"
+                        android:textSize="20px"
+                        android:text="合同及付款信息"
+                        android:textColor="@color/colorPrimary1"/>
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="718px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="746px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="施工开始时间："/>
+
+
+                <TextView
+                    android:id="@+id/detail_work_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="400px"
+                    android:layout_marginLeft="235px"
+                    android:layout_marginStart="235px"
+                    android:layout_marginTop="746px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="未开始"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="805px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="835px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="工期："/>
+
+
+                <TextView
+                    android:id="@+id/detail_work_limit_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="400px"
+                    android:layout_marginLeft="135px"
+                    android:layout_marginStart="135px"
+                    android:layout_marginTop="835px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="26px"
+                    android:text="45 天"
+                    android:textColor="@color/text_color_black"/>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="891px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45px"
+                    android:layout_marginStart="45px"
+                    android:layout_marginTop="919px"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px"
+                    android:text="项目地址："/>
+
+
+                <TextView
+                    android:id="@+id/detail_project_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="410px"
+                    android:layout_marginLeft="180px"
+                    android:layout_marginStart="180px"
+                    android:layout_marginTop="919px"
+                    android:gravity="center_vertical"
+                    android:singleLine="false"
+                    android:textSize="26px"
+                    android:text="现代大道2315号玲珑湾三期16幢302室"
+                    android:textColor="@color/text_color_black"/>
+
+                <LinearLayout
+                    android:id="@+id/detail_project_addr_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="593px"
+                    android:layout_marginTop="944px"
+                    android:paddingLeft="20px"
+                    android:paddingRight="20px">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:background="@drawable/ic_location"/>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="610px"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="1019px"
+                    android:layout_marginLeft="42px"
+                    android:layout_marginRight="49px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="500px"
+                    android:layout_marginLeft="37px"
+                    android:layout_marginStart="37px"
+                    android:layout_marginTop="1055px"
+                    android:gravity="center_vertical"
+                    android:singleLine="false"
+                    android:textSize="20px"
+                    android:text="请确定您是否要成为该项目的施工员"
+                    android:textColor="@color/text_color_black_light"/>
+
+                <Button
+                    android:id="@+id/btn_OK"
+                    android:layout_width="641px"
+                    android:layout_height="89px"
+                    android:layout_marginLeft="29px"
+                    android:layout_marginStart="29px"
+                    android:layout_marginTop="1095px"
+                    android:background="@drawable/btn_effect_bg_blue"
+                    android:text="确认成为施工员"
+                    android:textColor="@color/white"
+                    android:textSize="26px"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btn_Cancel"
+                    android:layout_width="641px"
+                    android:layout_height="89px"
+                    android:layout_marginLeft="29px"
+                    android:layout_marginStart="29px"
+                    android:layout_marginTop="1211px"
+                    android:layout_marginBottom="32px"
+                    android:background="@drawable/btn_effect_bg_blue_contrary"
+                    android:text="拒 绝"
+                    android:textColor="@color/colorPrimary1"
+                    android:textSize="26px"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_OK_refuse"
+                    android:layout_width="641px"
+                    android:layout_height="89px"
+                    android:layout_marginLeft="29px"
+                    android:layout_marginStart="29px"
+                    android:layout_marginTop="1095px"
+                    android:gravity="center"
+                    android:text="您已拒绝成为该项目的施工员"
+                    android:textColor="@color/colorPrimary1"
+                    android:textSize="26px"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btn_Cancel_refuse"
+                    android:layout_width="641px"
+                    android:layout_height="89px"
+                    android:layout_marginLeft="29px"
+                    android:layout_marginStart="29px"
+                    android:layout_marginTop="1211px"
+                    android:layout_marginBottom="32px"
+                    android:background="@drawable/btn_effect_bg_blue_contrary"
+                    android:text="返 回"
+                    android:textColor="@color/colorPrimary1"
+                    android:textSize="26px"
+                    android:textStyle="bold"/>
+
+
+            </cn.chenhai.miaodj_monitor.view_custom.AutoCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+
+        </LinearLayout>
+    </cn.chenhai.miaodj_monitor.view_custom.BounceScrollView>
+
+</LinearLayout>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/copy_cardview"
+    android:id="@+id/popup_workerInfo">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="514px"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="117px"
+            android:orientation="horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv_popup_worker_portrait"
+                android:layout_width="70px"
+                android:layout_height="70px"
+                android:layout_marginLeft="44px"
+                android:layout_marginStart="44px"
+                android:layout_marginTop="30px"
+                android:layout_marginRight="18px"
+                android:layout_marginEnd="18px"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:placeholderImage="@drawable/img_circle"
+                fresco:placeholderImageScaleType="focusCrop"
+                fresco:failureImage="@drawable/img_fail"
+                fresco:failureImageScaleType="focusCrop"
+                fresco:backgroundImage="@color/colorPrimary1"
+                fresco:roundAsCircle="true"
+                fresco:roundingBorderColor="@color/colorAccent1" />
+
+
+            <TextView
+                android:id="@+id/tv_popup_worker_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55px"
+                android:layout_weight="1"
+                android:maxWidth="140px"
+                android:textColor="@color/text_color_black"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="24px"
+                android:text="张丽丽"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="65px"
+                android:layout_height="60px"
+                android:layout_marginRight="15px"
+                android:layout_marginEnd="15px"
+                android:layout_marginTop="19px"
+                android:id="@+id/ll_popup_close">
+
+                <ImageView
+                    android:layout_width="27px"
+                    android:layout_height="27px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginStart="15px"
+                    android:background="@drawable/ic_close_gray"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="电话："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:id="@+id/tv_popup_ownerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="28px"
+                android:text="13852141458"
+                android:textSize="26px"
+                android:textColor="@color/text_color_black"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="60px"
+                android:layout_height="70px"
+                android:layout_marginLeft="32px"
+                android:layout_marginStart="32px"
+                android:layout_marginRight="26px"
+                android:layout_marginEnd="26px"
+                android:layout_marginTop="8px"
+                android:id="@+id/ll_popup_phoneIcon">
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginStart="15px"
+                    android:background="@drawable/ic_phone"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="工种："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <GridView
+                android:id="@+id/grid_popup_workerType"
+                android:layout_width="320px"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:horizontalSpacing="3dp"
+                android:verticalSpacing="2dp"
+                android:numColumns="3"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="年龄："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:id="@+id/tv_popup_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="28px"
+                android:text="24"
+                android:textSize="28px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:layout_marginStart="15px"
+                android:layout_marginTop="28px"
+                android:text="工龄："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:id="@+id/tv_popup_workYears"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28px"
+                android:text="3"
+                android:textSize="28px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28px"
+                android:layout_marginLeft="8px"
+                android:layout_marginStart="8px"
+                android:layout_marginRight="70px"
+                android:layout_marginEnd="70px"
+                android:text="年"
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginRight="16px"
+                android:layout_marginEnd="16px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="已接单数："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:id="@+id/tv_popup_ordersCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="28px"
+                android:text="10"
+                android:textSize="28px"
+                android:textColor="@color/text_color_black"/>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginRight="16px"
+                android:layout_marginEnd="16px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="星级："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <cn.chenhai.miaodj_monitor.view_custom.RatingBar
+                android:id="@+id/rb_worker_ratingBar"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:starCount="5"
+                app:clickable="false"
+                app:starEmpty="@drawable/star_comment_2"
+                app:starHalf="@drawable/star_comment_3"
+                app:starFill="@drawable/star_comment_1"
+                app:starImageSize="17dp" />
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="450px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="34px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/line_dot" />
+
+        <!-- ******************************************************* -->
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55px"
+                android:layout_marginStart="55px"
+                android:layout_marginRight="16px"
+                android:layout_marginEnd="16px"
+                android:layout_marginTop="28px"
+                android:layout_marginBottom="26px"
+                android:text="注册时间："
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+            <TextView
+                android:id="@+id/tv_popup_registerTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="28px"
+                android:text="2016-05-05"
+                android:textSize="24px"
+                android:textColor="@color/text_color_black"/>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <!-- ******************************************************* -->
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

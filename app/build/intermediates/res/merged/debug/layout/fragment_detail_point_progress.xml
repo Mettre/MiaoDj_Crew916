@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <include layout="@layout/include_toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<cn.chenhai.miaodj_monitor.view_custom.BounceScrollView-->
+    <cn.chenhai.miaodj_monitor.view_custom.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:id="@+id/bounceScrollView">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="137px">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/ll_point_arrow_left"
+                    android:layout_width="90px"
+                    android:layout_height="100px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginStart="12px"
+                    android:layout_marginTop="40px"
+                    android:foreground="?selectableItemBackground">
+                    <ImageView
+                        android:id="@+id/iv_point_arrow_left"
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginStart="30px"
+                        android:layout_marginTop="36px"
+                        android:background="@drawable/point_arrow_left"/>
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="23px">
+                    <ImageView
+                        android:id="@+id/iv_point_circle"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:background="@drawable/ic_point_wait1" />
+                    <TextView
+                        android:id="@+id/tv_point_circle_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="01"
+                        android:textSize="28px"
+                        android:textColor="@color/white"/>
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_point_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="99px"
+                    android:layout_marginBottom="2px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="32px"
+                    android:text="淋浴房"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/ll_point_arrow_right"
+                    android:layout_width="90px"
+                    android:layout_height="100px"
+                    android:layout_marginLeft="658px"
+                    android:layout_marginStart="658px"
+                    android:layout_marginTop="40px"
+                    android:foreground="?selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/iv_point_arrow_right"
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginStart="30px"
+                        android:layout_marginTop="36px"
+                        android:background="@drawable/point_arrow_right"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoFrameLayout>
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:id="@+id/fl_point_frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_OK"
+                android:layout_width="701px"
+                android:layout_height="89px"
+                android:layout_marginLeft="29px"
+                android:layout_marginStart="29px"
+                android:layout_marginTop="39px"
+                android:background="@drawable/btn_effect_bg_blue"
+                android:text="开始施工"
+                android:textColor="@color/white"
+                android:textSize="26px"
+                android:textStyle="bold"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginStart="30px"
+                android:layout_marginRight="30px"
+                android:layout_marginTop="32px"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_title"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="660px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="670px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="670px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content2_2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content4"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content4_2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content5"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content5_2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="680px"
+                    android:textColor="@color/text_color_black_2"
+                    android:gravity="center_vertical"
+                    android:textSize="20px"
+                    android:text="@string/point_text_content6"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </cn.chenhai.miaodj_monitor.view_custom.MyScrollView>
+
+</LinearLayout>

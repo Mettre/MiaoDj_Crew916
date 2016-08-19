@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MiaoDJ_Monitor.iml" filepath="$PROJECT_DIR$/MiaoDJ_Monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhotoPicker/PhotoPicker.iml" filepath="$PROJECT_DIR$/PhotoPicker/PhotoPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolayoutlib/autolayoutlib.iml" filepath="$PROJECT_DIR$/autolayoutlib/autolayoutlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dialogs_library/dialogs_library.iml" filepath="$PROJECT_DIR$/dialogs_library/dialogs_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentanimations/fragmentanimations.iml" filepath="$PROJECT_DIR$/fragmentanimations/fragmentanimations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentation/fragmentation.iml" filepath="$PROJECT_DIR$/fragmentation/fragmentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentation_swipeback/fragmentation_swipeback.iml" filepath="$PROJECT_DIR$/fragmentation_swipeback/fragmentation_swipeback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-zxing/lib-zxing.iml" filepath="$PROJECT_DIR$/lib-zxing/lib-zxing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttpserver/okhttpserver.iml" filepath="$PROJECT_DIR$/okhttpserver/okhttpserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttputils/okhttputils.iml" filepath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pickerWheel/pickerWheel.iml" filepath="$PROJECT_DIR$/pickerWheel/pickerWheel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toolslibrary/toolslibrary.iml" filepath="$PROJECT_DIR$/toolslibrary/toolslibrary.iml" />
+    </modules>
+  </component>
+</project>

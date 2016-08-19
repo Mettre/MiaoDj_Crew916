@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="windows_transparent_background">#50000000</color>
+    <color name="TranslucentStatusBar">#11ff0000</color>
+
+    <!--<color name="colorPrimary1">#3ca0ec</color>-->
+    <color name="colorPrimary1">#3ca0ec</color>
+    <color name="colorPrimaryDark1">#5677fc</color>
+    <color name="colorAccent1">#ff6600</color>
+
+    <color name="tab_unselect">#888888</color>
+
+    <!-- 设计规范颜色值 begin -->
+    <!-- 主背景色值 -->
+    <color name="background_color">#fff5f5f5</color>
+    <color name="background_color_2">#ffefefef</color>
+    <color name="background_color_linear">#e5e5e5</color>
+    <color name="status_bar_bg">#3ca0ec</color>
+    <color name="main_header_bg">#EF3A19</color>
+    <color name="main_footer_bg">#f5f5f5</color>
+    <!-- 底栏字体颜色 -->
+    <color name="footer_text_color_normal">#343434</color>
+    <color name="footer_text_color_selected">#FF601C</color>
+    <!-- 字体颜色值 -->
+    <color name="text_color_blue">#0081E1</color>
+    <color name="text_color_blue_light">#63ABD9</color>
+    <color name="text_color_black">#111111</color>
+    <color name="text_color_black_2">#5f5f60</color>
+    <color name="text_color_black_3">#585858</color>
+    <color name="text_color_black_light">#9C9C9C</color>
+    <color name="text_color_red">#FE1901</color>
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_gray">#888888</color>
+    <color name="text_color_gray_2">#c5c6c7</color>
+    <color name="text_color_gray_light">#A8A8A8</color>
+    <color name="text_color_orange">#D95311</color>
+    <color name="text_color_orange2">#FF5B46</color>
+    <color name="text_color_orange_light">#DF5612</color>
+    <color name="text_color_hint">#ffaaaaaa</color>
+    <color name="text_color_input">#ff111111</color>
+
+    <color name="btn_orange">#ff6600</color>
+    <color name="btn_orange_2">#FE6131</color>
+    <color name="btn_orange_dark">#ff3300</color>
+    <color name="btn_red">#ff3300</color>
+    <color name="btn_red_dark">#8c1c00</color>
+    <color name="btn_orange_light">#f4cccc</color>
+    <color name="btn_orange_press">#ff9900</color>
+
+    <color name="btn_green">#53D769</color>
+    <color name="btn_yellow">#FEBA02</color>
+
+    <color name="color_green_text">#33cc66</color>
+    <color name="color_green_dark">#9cff63</color>
+    <color name="color_green_ok">#84D133</color>
+
+    <color name="blue_2">#5677fc</color>
+    <color name="blue_3">#037AC5</color>
+    <color name="blue_light">#3ca0ec</color>
+    <color name="blue_light_2">#C6E8FD</color>
+
+    <color name="btn_blue_normal">#0081E1</color>
+    <color name="btn_blue_pressed">#0066FF</color>
+
+    <color name="font_dark">#1D1E1E</color>
+    <color name="font_light">#464e76</color>
+    <color name="font_blue">#5178b4</color>
+
+    <color name="divider_color">#C3C3C3</color>
+    <color name="divider_gray">#E6E6E6</color>
+    <color name="divider_blue_light">#3393CE</color>
+    <!-- 设计规范颜色值 end-->
+
+
+    <color name="white_2">#f1f1f1</color>
+    <color name="white_light">#dcdcdc</color>
+    <color name="white_dark">#a6a6a6</color>
+
+
+    <color name="gray_light2">#dedede</color>
+
+    <!-- 黑白色值 -->
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FFA500</color>
+    <color name="gray">#808080</color>
+    <color name="gray_dark">#333333</color>
+    <color name="red">#FF0000</color>
+    <color name="red_pop">#FF421D</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="yellow_lemon">#FFFACD</color>
+    <color name="gray_light">#DFDFDF</color>
+    <color name="gray_white">#F2F1F1</color>
+    <color name="gray_slate">#708090</color>
+    <color name="blue_light2">#0083FF</color>
+
+    <!--   *********************************DropDownMenu***********************************   -->
+    <color name="drop_down_selected">#3ca0ec</color>
+    <color name="drop_down_unselected">#111111</color>
+    <color name="mask_color">#88888888</color>
+    <color name="check_bg">#f2f2f2</color>
+    <color name="un_press_color">#FE6131</color>
+
+    <color name="check_bg_trans">#77bbbbbb</color>
+    <color name="unCheck_bg_trans">#77ffffff</color>
+    <color name="transparent_white">#00FFFFFF</color>
+
+    <!--   *********************************主题***********************************   -->
+    <array name="colors">
+        <item>@color/colorBluePrimary</item>
+        <item>@color/colorRedPrimary</item>
+        <item>@color/colorGreenPrimary</item>
+        <item>@color/colorOrangePrimary</item>
+        <item>@color/colorBlackPrimary</item>
+    </array>
+
+    <!--blue-->
+    <color name="colorBluePrimary">#3ca0ec</color>
+    <color name="colorBluePrimaryDark">#5677fc</color>
+    <color name="colorBlueAccent">#3ca0ec</color>
+    <color name="colorBluePrimaryCenter">#037AC5</color>
+
+    <!--red-->
+    <color name="colorRedPrimary">#D95311</color>
+    <color name="colorRedPrimaryDark">#FF421D</color>
+    <color name="colorRedAccent">#ff6600</color>
+    <color name="colorRedPrimaryCenter">#FF421D</color>
+
+    <!--green-->
+    <color name="colorGreenPrimary">#33cc66</color>
+    <color name="colorGreenPrimaryDark">#388E3C</color>
+    <color name="colorGreenAccent">#9cff63</color>
+    <color name="colorGreenPrimaryCenter">#008000</color>
+
+    <!--orange-->
+    <color name="colorOrangePrimary">#FF9800</color>
+    <color name="colorOrangePrimaryDark">#F57C00</color>
+    <color name="colorOrangeAccent">#ff6600</color>
+    <color name="colorOrangePrimaryCenter">#ff6600</color>
+
+    <!--black-->
+    <color name="colorBlackPrimary">#272727</color>
+    <color name="colorBlackPrimaryDark">#222222</color>
+    <color name="colorBlackAccent">#3ca0ec</color>
+    <color name="colorBlackPrimaryCenter">#ff6600</color>
+
+
+</resources>

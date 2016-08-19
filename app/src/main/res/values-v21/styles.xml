@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimary1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+        <!--android底色-->
+        <item name="android:windowBackground">@color/gray_light</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="AppThemeTranslucent" parent="AppTheme.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="android:windowBackground">@color/windows_transparent_background</item>-->
+        <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
+        <!--<item name="android:statusBarColor">@color/TranslucentStatusBar</item>-->
+
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--<item name="android:navigationBarColor">@color/colorPrimary1</item>-->
+    </style>
+
+
+    <!--<style name="Widget.Design.AppBarLayout" parent="android:Widget" tools:override="true">-->
+        <!--<item name="elevation">1dp</item>-->
+        <!--<item name="android:background">@color/colorPrimary1</item>-->
+    <!--</style>-->
+</resources>

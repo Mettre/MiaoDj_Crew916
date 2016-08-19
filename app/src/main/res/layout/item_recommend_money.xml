@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.chenhai.miaodj_monitor.view_custom.AutoCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="25px"
+    android:layout_marginRight="25px"
+    android:layout_marginTop="12px"
+    android:layout_marginBottom="12px"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    card_view:cardElevation="1dp"
+    card_view:cardCornerRadius="5dp">
+
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="700px"
+    android:layout_height="wrap_content">
+    <!--android:background="@drawable/copy_cardview"-->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32px"
+            android:layout_marginStart="32px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="佣金单号："/>
+
+
+        <TextView
+            android:id="@+id/tv_money_orderNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="19px"
+            android:layout_marginStart="19px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:textStyle="bold"
+            android:text="YJSZ201605091428021"
+            android:textColor="@color/text_color_black"/>
+
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="642px"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:background="@drawable/line_dot" />
+    <!-- ******************************************************* -->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginStart="30px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="施工项目："/>
+
+
+        <TextView
+            android:id="@+id/tv_money_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="施工放线"
+            android:textColor="@color/text_color_black_3"/>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:background="@drawable/line_dot" />
+    <!-- ******************************************************* -->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginStart="30px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="施工工期："/>
+
+
+        <TextView
+            android:id="@+id/tv_money_dateStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="2016-05-08"
+            android:textColor="@color/text_color_black_3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="-"
+            android:textColor="@color/text_color_black_3"/>
+
+        <TextView
+            android:id="@+id/tv_money_dateEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="2016-05-09"
+            android:textColor="@color/text_color_black_3"/>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:background="@drawable/line_dot" />
+    <!-- ******************************************************* -->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginStart="30px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="佣金金额："/>
+
+
+        <TextView
+            android:id="@+id/tv_money_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="32px"
+            android:text="68.50"
+            android:textColor="@color/text_color_orange"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginStart="10px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="元"/>
+
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30px"
+        android:layout_marginStart="30px"
+        android:layout_marginRight="30px"
+        android:background="@drawable/line_dot" />
+
+    <!-- ******************************************************* -->
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="86px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginStart="30px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_black_3"
+            android:textSize="26px"
+            android:text="发放时间："/>
+
+
+        <TextView
+            android:id="@+id/tv_money_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="540px"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="2016-05-10 14:30"
+            android:textColor="@color/text_color_black_3"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <!-- ******************************************************* -->
+
+</com.zhy.autolayout.AutoLinearLayout>
+
+</cn.chenhai.miaodj_monitor.view_custom.AutoCardView>

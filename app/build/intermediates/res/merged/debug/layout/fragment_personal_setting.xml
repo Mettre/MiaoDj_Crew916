@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70px"
+            android:background="?attr/colorPrimary" />
+
+        <include layout="@layout/include_toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="45px"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_selecter">
+
+                <ImageView
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginStart="36px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon_p69"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="28px"
+                    android:textColor="@color/text_color_black"
+                    android:text="推送设置"/>
+
+                <TextView
+                    android:id="@+id/tv_setting_ifOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_marginRight="30px"
+                    android:layout_marginEnd="30px"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="22px"
+                    android:textColor="@color/btn_green"
+                    android:text="已开启"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:layout_marginStart="38px"
+                android:layout_marginTop="19px"
+                android:textSize="22px"
+                android:textColor="@color/text_color_black_light"
+                android:text="要开启或停用，请在手机设置>通知中心中手动设置"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_selecter">
+
+                <ImageView
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginStart="36px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/use_message"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="28px"
+                    android:textColor="@color/text_color_black"
+                    android:text="装修节点消息通知"/>
+
+                <com.kyleduo.switchbutton.SwitchButton
+                    android:id="@+id/sb_button_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    app:kswAnimationDuration="230"
+                    app:kswBackDrawable="@drawable/ios_back_drawable"
+                    app:kswBackMeasureRatio="1.5"
+                    app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                    app:kswThumbMarginBottom="-8.5dp"
+                    app:kswThumbMarginLeft="-5dp"
+                    app:kswThumbMarginRight="-5dp"
+                    app:kswThumbMarginTop="-2.5dp"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="19px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginStart="38px"
+                    android:textSize="22px"
+                    android:textColor="@color/text_color_black_light"
+                    android:text="是否接受装修进场节点中的消息通知"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="45px"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_selecter">
+
+                <ImageView
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginStart="36px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/use_message"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="28px"
+                    android:textColor="@color/text_color_black"
+                    android:text="材料到货消息通知"/>
+
+                <com.kyleduo.switchbutton.SwitchButton
+                    android:id="@+id/sb_button_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    app:kswAnimationDuration="230"
+                    app:kswBackDrawable="@drawable/ios_back_drawable"
+                    app:kswBackMeasureRatio="1.5"
+                    app:kswThumbDrawable="@drawable/ios_thumb_selector"
+                    app:kswThumbMarginBottom="-8.5dp"
+                    app:kswThumbMarginLeft="-5dp"
+                    app:kswThumbMarginRight="-5dp"
+                    app:kswThumbMarginTop="-2.5dp"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:layout_marginStart="38px"
+                android:layout_marginTop="19px"
+                android:textSize="22px"
+                android:textColor="@color/text_color_black_light"
+                android:text="是否接受装修材料物流到货消息通知"/>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/ll_setting_cache"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_selecter">
+
+                <ImageView
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginStart="36px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon_p71"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="28px"
+                    android:textColor="@color/text_color_black"
+                    android:text="清除缓存"/>
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="26px"
+                    android:layout_marginRight="31px"
+                    android:layout_marginEnd="31px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_arrow_right2"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="19px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="38px"
+                    android:layout_marginStart="38px"
+                    android:textSize="22px"
+                    android:textColor="@color/text_color_black_light"
+                    android:text="当前缓存容量："/>
+                <TextView
+                    android:id="@+id/tv_setting_cache"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginStart="10px"
+                    android:textSize="22px"
+                    android:textColor="@color/text_color_black_light"
+                    android:text="32.32 MB"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/ll_setting_2"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="45px"
+                android:orientation="horizontal"
+                android:background="@drawable/layout_selecter">
+
+                <ImageView
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="36px"
+                    android:layout_marginStart="36px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon_p70"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginStart="25px"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textSize="28px"
+                    android:textColor="@color/text_color_black"
+                    android:text="检查更新"/>
+
+                <ImageView
+                    android:layout_width="15px"
+                    android:layout_height="26px"
+                    android:layout_marginRight="31px"
+                    android:layout_marginEnd="31px"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_arrow_right2"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/tv_setting_versions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38px"
+                android:layout_marginStart="38px"
+                android:layout_marginTop="19px"
+                android:textSize="22px"
+                android:textColor="@color/text_color_black_light"
+                android:text="当前软件版本: V1.0.0"/>
+
+            <Button
+                android:id="@+id/btn_setting_logout"
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:layout_marginTop="80px"
+                android:background="@drawable/btn_effect_bg_blue_contrary"
+                android:textSize="28px"
+                android:textColor="?attr/colorPrimary"
+                android:text="退出登录"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15px"
+        android:layout_marginBottom="20px"
+        android:text="@string/copy_right"
+        android:textSize="15px"
+        android:textColor="@color/text_color_blue_light"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

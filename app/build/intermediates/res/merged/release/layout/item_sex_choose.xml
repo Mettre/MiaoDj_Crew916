@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    xmlns:arb="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/copy_cardview"
+    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto">
+
+
+    <info.hoang8f.android.segmented.SegmentedGroup
+        android:id="@+id/segmented"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        segmentedgroup:sc_border_width="1dp"
+        segmentedgroup:sc_corner_radius="5dp"
+        segmentedgroup:sc_tint_color="#3ca0ec">
+
+        <RadioButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            style="@style/RadioButton" />
+
+        <RadioButton
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="女"
+            style="@style/RadioButton" />
+
+    </info.hoang8f.android.segmented.SegmentedGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:text="取消"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_effect_bg_yellow"/>
+
+        <Button
+            android:id="@+id/buttonDone"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="80dp"
+            android:text="确定"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_effect_bg_yellow"/>
+
+    </LinearLayout>
+
+</LinearLayout>

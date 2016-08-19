@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="colorPrimaryCenter" format="color|reference" />
+    <attr name="colorTextIcon" format="color|reference" />
+    <attr name="colorPrimaryText" format="color|reference" />
+    <attr name="colorSecondText" format="color|reference" />
+    <attr name="colorBackground" format="color|reference" />
+    <attr name="colorDivider" format="color|reference" />
+    <attr name="colorBackgroundAccent" format="color|reference" />
+    <attr name="colorHint" format="color|reference" />
+    <attr name="menuBackground" format="reference" />
+
+    <!--自定义DropDownMenu-->
+    <declare-styleable name="DropDownMenu">
+        <attr name="ddunderlineColor" format="color"/>
+        <attr name="dddividerColor" format="color"/>
+        <attr name="ddtextSelectedColor" format="color"/>
+        <attr name="ddtextUnselectedColor" format="color"/>
+        <attr name="ddmenuBackgroundColor" format="color"/>
+        <attr name="ddmaskColor" format="color"/>
+        <attr name="ddmenuTextSize" format="dimension"/>
+        <attr name="ddmenuSelectedIcon" format="reference"/>
+        <attr name="ddmenuUnselectedIcon" format="reference"/>
+    </declare-styleable>
+    <!--自定义ratingBar-->
+    <declare-styleable name="RatingBar" tools:ignore="ResourceName">
+        <!--尺寸值-->
+        <attr name="starImageSize" format="dimension"/>
+        <attr name="starCount" format="integer"/>
+        <!--资源文件值-->
+        <attr name="starEmpty" format="reference"/>
+        <!--资源文件值-->
+        <attr name="starFill" format="reference"/>
+        <!--资源文件值-->
+        <attr name="starHalf" format="reference"/>
+        <!--boolean值-->
+        <attr name="clickable" format="boolean"/>
+    </declare-styleable>
+    <!--********************* 5格图片预览*********************-->
+    <declare-styleable name="NineGridView">
+        <attr name="ngv_singleImageSize" format="dimension"/>
+        <attr name="ngv_singleImageRatio" format="float"/>
+        <attr name="ngv_gridSpacing" format="dimension"/>
+        <attr name="ngv_maxSize" format="integer"/>
+        <attr name="ngv_mode" format="enum">
+            <enum name="fill" value="0"/>
+            <enum name="grid" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!-- **********************************ExpandableLayout*********************************** -->
+    <declare-styleable name="expandableLayout">
+        <attr name="ael_duration" format="integer" />
+        <attr name="ael_expanded" format="boolean" />
+        <attr name="ael_defaultChildIndex" format="integer" />
+        <attr name="ael_defaultPosition" format="dimension" />
+        <attr name="ael_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="ael_interpolator" format="enum">
+            <enum name="accelerateDecelerate" value="0" />
+            <enum name="accelerate" value="1" />
+            <enum name="anticipate" value="2" />
+            <enum name="anticipateOvershoot" value="3" />
+            <enum name="bounce" value="4" />
+            <enum name="decelerate" value="5" />
+            <enum name="fastOutLinearIn" value="6" />
+            <enum name="fastOutSlowIn" value="7" />
+            <enum name="linear" value="8" />
+            <enum name="linearOutSlowIn" value="9" />
+            <enum name="overshoot" value="10" />
+        </attr>
+    </declare-styleable>
+    <!-- ********************************消息拖拽红点********************************* -->
+    <declare-styleable name="DraggableFlagView">
+        <attr name="draggableColor" format="color"/>
+    </declare-styleable>
+    <!-- **********************************趣味游戏*********************************** -->
+    <!-- FunGameHeader -->
+    <declare-styleable name="FunGameHeader">
+        <attr name="game_type" format="enum">
+            <enum name="hit_block" value="0" />
+            <enum name="battle_city" value="1" />
+        </attr>
+    </declare-styleable>
+    <!-- FunGameView -->
+    <declare-styleable name="FunGame">
+        <attr name="left_model_color" format="color" />
+        <attr name="middle_model_color" format="color" />
+        <attr name="right_model_color" format="color" />
+    </declare-styleable>
+    <!-- HitBlockView -->
+    <declare-styleable name="HitBlock">
+        <attr name="block_horizontal_num" format="integer" />
+        <attr name="ball_speed" format="integer">
+            <enum name="low" value="3" />
+            <enum name="medium" value="6" />
+            <enum name="fast" value="9" />
+        </attr>
+    </declare-styleable>
+    <!-- ***************************************************************************** -->
+    <!-- **********************************下载进度条********************************** -->
+    <declare-styleable name="NumberProgressBar">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+        <attr name="progress_unreached_color" format="color"/>
+        <attr name="progress_reached_color" format="color"/>
+        <attr name="progress_reached_bar_height" format="dimension"/>
+        <attr name="progress_unreached_bar_height" format="dimension"/>
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+        <attr name="progress_text_offset" format="dimension"/>
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!-- ***************************************************************************** -->
+
+</resources>

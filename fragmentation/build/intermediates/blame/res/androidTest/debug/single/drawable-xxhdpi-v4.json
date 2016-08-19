@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_expandable.png",
+        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_expandable.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_right.png",
+        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_right.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_right.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_right.png"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\ic_expandable.png",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\fragmentation\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\ic_expandable.png"
+    }
+]

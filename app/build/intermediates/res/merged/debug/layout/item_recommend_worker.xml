@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="152px"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:background="@drawable/layout_selecter">
+    <!--android:foreground="?selectableItemBackground"-->
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:orientation="horizontal">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/worker_sdv_portrait"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            android:layout_marginLeft="45px"
+            android:layout_marginStart="45px"
+            android:layout_marginRight="20px"
+            android:layout_marginEnd="20px"
+            android:layout_gravity="center"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@drawable/img_circle"
+            fresco:placeholderImageScaleType="focusCrop"
+            fresco:failureImage="@drawable/img_fail"
+            fresco:failureImageScaleType="focusCrop"
+            fresco:backgroundImage="@color/colorPrimary1"
+            fresco:roundAsCircle="true"
+            fresco:roundingBorderColor="@color/colorAccent1" />
+
+
+        <TextView
+            android:id="@+id/tv_worker_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="140px"
+            android:textColor="@color/text_color_black"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="28px"
+            android:text="李小冉"/>
+
+
+        <TextView
+            android:id="@+id/tv_worker_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginStart="10px"
+            android:layout_marginRight="57px"
+            android:layout_marginEnd="57px"
+            android:textColor="@color/text_color_black"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="28px"
+            android:text="13562525215"/>
+
+        <TextView
+            android:id="@+id/tv_worker_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginStart="10px"
+            android:textColor="@color/text_color_black_2"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textSize="26px"
+            android:text="10.00"/>
+
+        <ImageView
+            android:id="@+id/iv_worker_arrow"
+            android:layout_width="19px"
+            android:layout_height="30px"
+            android:layout_marginLeft="25px"
+            android:layout_marginStart="25px"
+            android:layout_marginRight="30px"
+            android:layout_marginEnd="30px"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_arrow_right2"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="670px"
+        android:layout_height="1px"
+        android:layout_marginLeft="40px"
+        android:layout_marginStart="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginEnd="40px"
+        android:background="@drawable/line_dot" />
+
+</com.zhy.autolayout.AutoLinearLayout>

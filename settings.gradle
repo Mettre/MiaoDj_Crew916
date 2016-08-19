@@ -1,0 +1,1 @@
+include ':app', ':toolslibrary', ':autolayoutlib', ':fragmentation_swipeback', ':fragmentation', ':fragmentanimations', ':dialogs_library', ':pickerview', ':pickerWheel', ':okhttpserver', ':okhttputils', ':lib-zxing', ':PhotoPicker'
