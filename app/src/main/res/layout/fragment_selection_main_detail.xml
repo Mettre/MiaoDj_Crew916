@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color_2"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <include layout="@layout/include_toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <cn.chenhai.miaodj_monitor.view_custom.BounceScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="701px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginStart="24px"
+                android:layout_marginRight="25px"
+                android:layout_marginTop="24px"
+                android:orientation="vertical"
+                android:background="@drawable/copy_cardview">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="96px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_selection_category_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginStart="38px"
+                        android:layout_marginTop="42px"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="28px"
+                        android:text="瓷砖"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginTop="42px"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="28px"
+                        android:text="-"/>
+                    <TextView
+                        android:id="@+id/tv_selection_class_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginTop="42px"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="28px"
+                        android:text="大地砖"/>
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+                <View
+                    android:layout_width="636px"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="32px"
+                    android:layout_marginRight="33px"
+                    android:background="@drawable/line_dot" />
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="41px"
+                        android:layout_marginStart="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="名称："/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginRight="41px"
+                        android:layout_marginEnd="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textSize="24px"
+                        android:text="纳福娜"
+                        android:textColor="@color/text_color_black_3"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="41px"
+                        android:layout_marginStart="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="型号："/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_model"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginRight="41px"
+                        android:layout_marginEnd="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textSize="24px"
+                        android:text="YG803001"
+                        android:textColor="@color/text_color_black_3"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="41px"
+                        android:layout_marginStart="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="品牌："/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_brand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginRight="41px"
+                        android:layout_marginEnd="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textSize="24px"
+                        android:text="东鹏"
+                        android:textColor="@color/text_color_black_3"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="37px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="41px"
+                        android:layout_marginStart="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="名称："/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_standard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6px"
+                        android:layout_marginStart="6px"
+                        android:layout_marginRight="41px"
+                        android:layout_marginEnd="41px"
+                        android:layout_marginTop="33px"
+                        android:singleLine="true"
+                        android:textSize="24px"
+                        android:text="800*800"
+                        android:textColor="@color/text_color_black_3"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+                <!-- ******************************************************* -->
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/card_layout_direct"
+                android:layout_width="701px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginStart="24px"
+                android:layout_marginRight="25px"
+                android:layout_marginTop="20px"
+                android:orientation="vertical"
+                android:background="@drawable/copy_cardview">
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginStart="38px"
+                        android:layout_marginTop="49px"
+                        android:background="@drawable/ic_selection_1"/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_title_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="78px"
+                        android:layout_marginStart="78px"
+                        android:layout_marginTop="52px"
+                        android:layout_marginBottom="27px"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="24px"
+                        android:text="直接配送"/>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:id="@+id/tv_selection_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="45px"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimary1"
+                            android:textSize="32px"
+                            android:text="52"/>
+
+                        <TextView
+                            android:id="@+id/tv_selection_num_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8px"
+                            android:layout_marginStart="8px"
+                            android:layout_marginTop="49px"
+                            android:singleLine="true"
+                            android:textColor="@color/text_color_gray"
+                            android:textSize="22px"
+                            android:text="片"/>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_selection_status_direct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="32px"
+                        android:layout_marginEnd="32px"
+                        android:layout_marginTop="52px"
+                        android:layout_gravity="right"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_blue"
+                        android:textSize="24px"
+                        android:textStyle="bold"
+                        android:text="配送中..."/>
+
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="92px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="备货完成"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_prepare_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="发起配送"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_deliver_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="开始配送"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_deliver_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="预计到货"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_arrive_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="102px"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_selection_direct_signFor"
+                        android:layout_width="160px"
+                        android:layout_height="50px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="right|center_vertical"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="20px"
+                        android:text="签收"
+                        android:background="@drawable/btn_effect_bg_blue_contrary"/>
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/card_layout_process"
+                android:layout_width="701px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginStart="24px"
+                android:layout_marginRight="25px"
+                android:layout_marginTop="20px"
+                android:orientation="vertical"
+                android:background="@drawable/copy_cardview">
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:layout_marginLeft="38px"
+                        android:layout_marginStart="38px"
+                        android:layout_marginTop="49px"
+                        android:background="@drawable/ic_selection_1"/>
+
+                    <TextView
+                        android:id="@+id/tv_selection_title_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="78px"
+                        android:layout_marginStart="78px"
+                        android:layout_marginTop="52px"
+                        android:layout_marginBottom="27px"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="24px"
+                        android:text="加工配送"/>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:id="@+id/tv_selection_num2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="45px"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimary1"
+                            android:textSize="32px"
+                            android:text="52"/>
+
+                        <TextView
+                            android:id="@+id/tv_selection_num2_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8px"
+                            android:layout_marginStart="8px"
+                            android:layout_marginTop="49px"
+                            android:singleLine="true"
+                            android:textColor="@color/text_color_gray"
+                            android:textSize="22px"
+                            android:text="片"/>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_selection_status_process"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="32px"
+                        android:layout_marginEnd="32px"
+                        android:layout_marginTop="52px"
+                        android:layout_gravity="right"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_blue"
+                        android:textSize="24px"
+                        android:textStyle="bold"
+                        android:text="配送中..."/>
+
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="92px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="备货完成"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_prepare_time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="开始加工"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_process_time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="加工完成"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_process_complete_time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="发起配送"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_deliver_time_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="开始配送"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_deliver_time_start_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="加工材料预计到货"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_arrive_time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="498px"
+                        android:layout_marginStart="498px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text="2015-05-08 08:03"
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="102px"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_selection_process_signFor"
+                        android:layout_width="160px"
+                        android:layout_height="50px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="right|center_vertical"
+                        android:textColor="@color/colorPrimary1"
+                        android:textSize="20px"
+                        android:text="签收"
+                        android:background="@drawable/btn_effect_bg_blue_contrary"/>
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <!-- ******************************************************* -->
+            </com.zhy.autolayout.AutoLinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginStart="30px"
+                android:layout_marginTop="22px"
+                android:textSize="20px"
+                android:textColor="@color/text_color_gray"
+                android:text="@string/selection_Main1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginStart="30px"
+                android:layout_marginTop="16px"
+                android:textSize="20px"
+                android:textColor="@color/text_color_gray"
+                android:text="@string/selection_Main2"/>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </cn.chenhai.miaodj_monitor.view_custom.BounceScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\__picker_menu_picker.xml",
+        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\bundles\\debug\\res\\menu\\__picker_menu_picker.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\__picker_menu_picker.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\bundles\\debug\\res\\menu\\__picker_menu_picker.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\__picker_menu_preview.xml",
+        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\bundles\\debug\\res\\menu\\__picker_menu_preview.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\__picker_menu_preview.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\bundles\\debug\\res\\menu\\__picker_menu_preview.xml"
+    }
+]

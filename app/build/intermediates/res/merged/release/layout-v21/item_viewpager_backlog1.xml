@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.chenhai.miaodj_monitor.view_custom.AutoCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="27px"
+    android:layout_marginLeft="21px"
+    android:layout_marginRight="22px"
+    android:layout_marginBottom="2px"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    android:stateListAnimator="@animator/cardview_touch_raise"
+    card_view:cardElevation="1dp"
+    card_view:cardCornerRadius="5dp">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_backlog_redPoint"
+                android:layout_width="10px"
+                android:layout_height="10px"
+                android:layout_marginLeft="30px"
+                android:layout_marginStart="30px"
+                android:layout_marginTop="35px"
+                android:background="@drawable/ic_red_point"/>
+
+            <TextView
+                android:id="@+id/tv_backlog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="590px"
+                android:layout_marginLeft="30px"
+                android:layout_marginStart="30px"
+                android:layout_marginTop="26px"
+                android:textColor="@color/text_color_orange"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="26px"
+                android:text="选品单待确认"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/tv_backlog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="650px"
+            android:layout_marginLeft="33px"
+            android:layout_marginStart="33px"
+            android:layout_marginTop="23px"
+            android:textColor="@color/text_color_black_3"
+            android:gravity="center_vertical"
+            android:textSize="22px"
+            android:text="装修项目 - 中海国际三期5幢1121室"/>
+
+        <View
+            android:layout_width="670px"
+            android:layout_height="1dp"
+            android:layout_marginTop="24px"
+            android:layout_marginLeft="18px"
+            android:layout_marginRight="18dp"
+            android:background="@color/divider_gray" />
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="75px"
+            android:background="@drawable/layout_selector_blue_half"
+            android:id="@+id/linear_backlog_detail">
+
+            <TextView
+                android:id="@+id/tv_backlog_detailClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33px"
+                android:layout_marginStart="33px"
+                android:layout_marginTop="23px"
+                android:layout_weight="1"
+                android:textColor="@color/text_color_black_3"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="22px"
+                android:text="查看详情"/>
+
+            <TextView
+                android:id="@+id/tv_backlog_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33px"
+                android:layout_marginStart="33px"
+                android:layout_marginTop="23px"
+                android:textColor="@color/text_color_black_3"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textSize="22px"
+                android:text="2016-06-12 10:27"/>
+
+            <ImageView
+                android:layout_width="15px"
+                android:layout_height="27px"
+                android:layout_marginLeft="15px"
+                android:layout_marginStart="15px"
+                android:layout_marginRight="29px"
+                android:layout_marginEnd="29px"
+                android:layout_marginTop="24px"
+                android:background="@drawable/ic_arrow_right2"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</cn.chenhai.miaodj_monitor.view_custom.AutoCardView>

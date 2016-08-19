@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">喵咚家（施工员）</string>
+
+    <string name="app_exit_tip">再按一次，退出程序</string>
+    <!-- 页面名称 -->
+    <string name="main_navigation_home">我的工地</string>
+    <string name="main_navigation_im">快速报价</string>
+    <string name="main_navigation_interest">选品单</string>
+    <string name="main_navigation_user">个人中心</string>
+
+
+    <string name="action_search">搜索</string>
+    <string name="action_settings">设置</string>
+    <string name="action_share">分享</string>
+    <string name="confirm_no">待确认</string>
+    <string name="underway">进行中</string>
+    <string name="complete">已完成</string>
+
+    <string name="theme">主题</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+    <string name="close">关闭</string>
+    <string name="about">关于我们</string>
+    
+    <string name="personal_remind">待办事项</string>
+    <string name="personal_myPlace">我的工地</string>
+    <string name="personal_cargoScan">收货扫描</string>
+    <string name="personal_worker_recommend">工人推荐</string>
+    <string name="personal_info">个人信息</string>
+    <string name="personal_bankCard">我的银行卡</string>
+    <string name="personal_system_setting">系统设置</string>
+    <string name="personal_feedback">意见反馈</string>
+    <string name="personal_aboutUs">关于我们</string>
+    
+    <string name="login_register"><u>免费注册</u></string>
+    <string name="login_forgetPass"><u>忘记密码</u></string>
+
+    <string name="login_protocol">注册代表同意《喵咚家用户协议》</string>
+
+    <string name="select">%1$s/%2$s</string>
+
+    <string name="copy_right">COPYRIGHT 2016 © MIAODJ.CN. ALL RIGHTS RESERVED</string>
+
+
+    <string name="selection_Main1">货物配送状态实时更新，最后货物到货后由项目施工员进行货物的签收。</string>
+    <string name="selection_Main2">如有问题请及时与项目施工员进行沟通。</string>
+
+
+    
+    <string name="point_text_title">节点流程说明：</string>
+    <string name="point_text_content1">
+        1、施工节点在到达预计开始日期时自动开始。
+    </string>
+    <string name="point_text_content2">
+        2、有工人的节点，由工人确认施工开始，并确认施工结束；施工结束后
+    </string>
+    <string name="point_text_content2_2">
+        &#160;&#160;&#160;&#160;&#160;&#160;由施工员验收通过后，节点完成。
+    </string>
+    <string name="point_text_content3">
+        3、没有工人或是厂家工人驻场安装的节点，由施工员确认施工开始和结束。
+    </string>
+    <string name="point_text_content4">
+        4、隐蔽工程由施工员确认验收后，须由业主确认通过，然后业主需支付
+    </string>
+    <string name="point_text_content4_2">
+        &#160;&#160;&#160;&#160;&#160;&#160;合同内的第三笔支付款项，款项支付成功后，下一节点才可确认开始。
+    </string>
+    <string name="point_text_content5">
+        5、隐蔽工程由业主验收后，如果业主在三天内没有支付第三笔款项，则
+    </string>
+    <string name="point_text_content5_2">
+        &#160;&#160;&#160;&#160;&#160;&#160;施工节点将全部停工。
+    </string>
+    <string name="point_text_content6">
+        6、为保证施工进度，请在需要确认的环节尽快确认，避免延误工期。
+    </string>
+
+
+    <string name="recommend_text_title">工人推荐说明：</string>
+    <string name="recommend_text_content1">
+        基于协同过滤的推荐算法理论上可以推荐世界上的任何一种东西。
+    </string>
+    <string name="recommend_text_content2">
+        一、用户评分，可以分为显性评分和隐性评分两种。
+    </string>
+    <string name="recommend_text_content3">
+        二、寻找最近邻居。这一步就是寻找与你距离最近的用户，测算距离一般采用以下三种算法：
+    </string>
+    <string name="recommend_text_content3_1">
+        1.皮尔森相关系数。
+    </string>
+    <string name="recommend_text_content3_2">
+        2.余弦相似性。
+    </string>
+    <string name="recommend_text_content3_3">
+        3.调整余弦相似性。  调整余弦相似性似乎效果会好一些。
+    </string>
+
+
+    <string name="about_us_team">
+        &#160;&#160;&#160;&#160;&#160;&#160;“喵咚家”即有天猫的平台化特点，也有京东的深度垂直服务闭环，旨在打造信息透明、系统完整的互联网家装电商平台，给用户服务的确定性，
+        让用户享受省心服务。“秒懂”谐音的“喵咚”运用网络语言，让品牌彰显互联网个性！“喵咚家”即整合了建材、仓储、物流等供应链资源，又拥有强大的产业工人和施工技术研发、
+        精细化管理将使“喵咚家”拥有强大的核心竞争力。
+    </string>
+
+    <string name="about_us_phone"><u>400-606-8366</u></string>
+
+</resources>
