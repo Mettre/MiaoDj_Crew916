@@ -1,12 +1,13 @@
 package com.bigkoo.pickerview.view;
 
-import java.util.ArrayList;
 import android.view.View;
 
 import com.bigkoo.pickerview.R;
 import com.bigkoo.pickerview.adapter.ArrayWheelAdapter;
 import com.bigkoo.pickerview.lib.WheelView;
 import com.bigkoo.pickerview.listener.OnItemSelectedListener;
+
+import java.util.ArrayList;
 
 public class WheelOptions<T> {
 	private View view;
@@ -74,7 +75,7 @@ public class WheelOptions<T> {
 					.get(0)));// 设置显示数据
 		wv_option3.setCurrentItem(wv_option3.getCurrentItem());// 初始化时显示的数据
 
-		int textSize = 25;
+		int textSize = 18;
 
 		wv_option1.setTextSize(textSize);
 		wv_option2.setTextSize(textSize);

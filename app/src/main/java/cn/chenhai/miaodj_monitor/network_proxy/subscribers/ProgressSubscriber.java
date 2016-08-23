@@ -1,21 +1,17 @@
 package cn.chenhai.miaodj_monitor.network_proxy.subscribers;
 
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.google.gson.stream.MalformedJsonException;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import cn.chenhai.miaodj_monitor.commonlib.utils.TimeUtils;
 import cn.chenhai.miaodj_monitor.network_proxy.progress.ProgressCancelListener;
 import cn.chenhai.miaodj_monitor.network_proxy.progress.ProgressDialogHandler;
-import cn.chenhai.miaodj_monitor.network_proxy.progress.ProgressDialogHandler2;
 import cn.chenhai.miaodj_monitor.network_proxy.progress.ProgressDialogHandler3;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import rx.Subscriber;
@@ -24,7 +20,6 @@ import rx.Subscriber;
  * 用于在Http请求开始时，自动显示一个ProgressDialog
  * 在Http请求结束时，关闭ProgressDialog
  * 调用者自己对请求数据进行处理
- *
  */
 public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCancelListener {
 
@@ -33,7 +28,7 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
 
     private Activity context;
 
-    private long timeMillStart , timeMillEnd;
+    private long timeMillStart, timeMillEnd;
 
     public ProgressSubscriber(SubscriberOnSuccessListener mSubscriberOnSuccessListener, Activity context) {
         this.mSubscriberOnSuccessListener = mSubscriberOnSuccessListener;
@@ -43,8 +38,8 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         mProgressDialogHandler = new ProgressDialogHandler3(context, this, true);
     }
 
-    private void showProgressDialog(){
-        if(!context.isFinishing()) {
+    private void showProgressDialog() {
+        if (!context.isFinishing()) {
             if (mProgressDialogHandler != null) {
                 mProgressDialogHandler.obtainMessage(ProgressDialogHandler.SHOW_PROGRESS_DIALOG).sendToTarget();
                 timeMillStart = TimeUtils.getCurrentTimeInLong();
@@ -52,25 +47,27 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         }
     }
 
-    private void dismissProgressDialog(){
-        if(!context.isFinishing()) {
+    private void dismissProgressDialog() {
+        if (!context.isFinishing()) {
             if (mProgressDialogHandler != null) {
-                timeMillEnd = TimeUtils.getCurrentTimeInLong();
-                if ((timeMillEnd - timeMillStart) > 800 || (timeMillEnd - timeMillStart) < 0) {
-                    mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
-                    mProgressDialogHandler = null;
-                } else {
-                    TimerTask task = new TimerTask() {
-                        public void run() {
-                            if (mProgressDialogHandler != null) {
-                                mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
-                                mProgressDialogHandler = null;
-                            }
-                        }
-                    };
-                    Timer timer = new Timer();
-                    timer.schedule(task, 800 - (timeMillEnd - timeMillStart));
-                }
+                mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
+                mProgressDialogHandler = null;
+//                timeMillEnd = TimeUtils.getCurrentTimeInLong();
+//                if ((timeMillEnd - timeMillStart) > 800 || (timeMillEnd - timeMillStart) < 0) {
+//                    mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
+//                    mProgressDialogHandler = null;
+//                } else {
+//                    TimerTask task = new TimerTask() {
+//                        public void run() {
+//                            if (mProgressDialogHandler != null) {
+//                                mProgressDialogHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
+//                                mProgressDialogHandler = null;
+//                            }
+//                        }
+//                    };
+//                    Timer timer = new Timer();
+//                    timer.schedule(task, 800 - (timeMillEnd - timeMillStart));
+//                }
 
             }
         }
@@ -98,34 +95,35 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
     /**
      * 对错误进行统一处理
      * 隐藏ProgressDialog
+     *
      * @param e
      */
     @Override
     public void onError(Throwable e) {
         if (e instanceof SocketTimeoutException) {
-            Toast.makeText(context, "网络超时，请检查您的网络状态", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "网络超时，请检查您的网络状态", Toast.LENGTH_SHORT).show();
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
                     .setContentText(e.getMessage())
                     .setConfirmText("知道了")
                     .show();
         } else if (e instanceof ConnectException) {
-            Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
                     .setContentText(e.getMessage())
                     .setConfirmText("知道了")
                     .show();
-        } else if (e instanceof UnknownHostException) {
+        } else if (e instanceof UnknownHostException || e instanceof MalformedJsonException) {
             //Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
                     .setContentText("网络错误，请检查您的网络状态")
                     .setConfirmText("知道了")
                     .show();
-        }else {
-            Toast.makeText(context, "错误---:" + e.getMessage(), Toast.LENGTH_SHORT).show();
-            Log.d("ProgressSubscriber 测试","错误---:" + e.getMessage());
+        } else {
+//            Toast.makeText(context, "错误---:" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.d("ProgressSubscriber 测试", "错误---:" + e.getMessage());
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
                     .setContentText(e.getMessage())

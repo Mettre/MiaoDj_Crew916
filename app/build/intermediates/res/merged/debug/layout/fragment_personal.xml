@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="272px"
-            android:text="张莉莉"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="30px"/>
 
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="2"
+                        android:text="0"
                         android:textSize="28px"
                         android:textColor="@color/white"/>
                 </com.zhy.autolayout.AutoFrameLayout>

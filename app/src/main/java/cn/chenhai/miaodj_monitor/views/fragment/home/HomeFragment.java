@@ -3,13 +3,8 @@ package cn.chenhai.miaodj_monitor.views.fragment.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,32 +19,17 @@ import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import cn.chenhai.miaodj_monitor.R;
 import cn.chenhai.miaodj_monitor.adapter.HomeFragmentAdapter;
-import cn.chenhai.miaodj_monitor.commonlib.utils.PreferencesUtils;
-import cn.chenhai.miaodj_monitor.helper.UIHelper;
-import cn.chenhai.miaodj_monitor.model.HttpResult;
-import cn.chenhai.miaodj_monitor.model.entity.Account;
-import cn.chenhai.miaodj_monitor.model.entity.MyProjectsEntity;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.SubscriberOnSuccessListener;
 import cn.chenhai.miaodj_monitor.views.activity.MainActivity;
 import cn.chenhai.miaodj_monitor.views.activity.PersonalActivity;
 import cn.chenhai.miaodj_monitor.views.base.BaseMainFragment;
-import in.srain.cube.util.LocalDisplay;
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrDefaultHandler2;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler2;
-import in.srain.cube.views.ptr.PtrUIHandler;
-import in.srain.cube.views.ptr.header.StoreHouseHeader;
-import in.srain.cube.views.ptr.indicator.PtrIndicator;
-import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
-import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
-import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
 
 /**
+ * 我的工地Fragment
  * Created by ChenHai--霜华 on 2016/5/28. 3:10
  * 邮箱：248866527@qq.com
  */
-public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageChangeListener,Toolbar.OnMenuItemClickListener{
+public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageChangeListener, Toolbar.OnMenuItemClickListener {
     private static final String TAG = "FragmentLib";
     private static final int REQ_START_DETAIL_FOR_RESULT = 1099;
     private static final int REQ_START_PERSONAL_FOR_RESULT = 1100;
@@ -89,7 +69,7 @@ public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageCh
 
         TextView tvTitle = (TextView) view.findViewById(R.id.toolbar_title);
         tvTitle.setText("我的工地");
-        initToolbarNav(mToolbar,true);
+        initToolbarNav(mToolbar, true);
         mToolbar.inflateMenu(R.menu.news);
         mToolbar.setOnMenuItemClickListener(this);
 
@@ -152,22 +132,24 @@ public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageCh
             case R.id.action_news:
                 Bundle bundle = new Bundle();
                 bundle.putString("FragmentName", "PersonalBacklogFragment");
-                bundle.putString("ProjectCode","测试单号！");
+                bundle.putString("ProjectCode", "测试单号！");
                 Intent intent = new Intent(_mActivity, PersonalActivity.class);
                 intent.putExtras(bundle);
-                startActivityForResult(intent,REQ_START_PERSONAL_FOR_RESULT);
+                startActivityForResult(intent, REQ_START_PERSONAL_FOR_RESULT);
                 break;
         }
         return true;
     }
 
-    public ViewPager getViewPager(){
+    public ViewPager getViewPager() {
         return mViewPager;
     }
-    public SlidingTabLayout getTabLayout(){
+
+    public SlidingTabLayout getTabLayout() {
         return mTabLayout_2;
     }
-    public HomeFragmentAdapter getAdapter(){
+
+    public HomeFragmentAdapter getAdapter() {
         return mAdapter;
     }
 
@@ -176,15 +158,18 @@ public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageCh
         super.onResume();
 
     }
+
     @Override
     public void onPause() {
         super.onPause();
 
     }
+
     @Override
     public void onStop() {
         super.onStop();
     }
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -195,18 +180,20 @@ public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageCh
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
+
     @Override
     public void onPageSelected(int position) {
-        if(position == 0){
-            ((MainActivity)getActivity()).getResideLayout().setIsNeedSlide(true);
-        }else if(position == 1){
+        if (position == 0) {
+            ((MainActivity) getActivity()).getResideLayout().setIsNeedSlide(true);
+        } else if (position == 1) {
             //暂时禁止residelayout侧滑
-            ((MainActivity)getActivity()).getResideLayout().setIsNeedSlide(false);
-        }else {
+            ((MainActivity) getActivity()).getResideLayout().setIsNeedSlide(false);
+        } else {
             //暂时禁止residelayout侧滑
-            ((MainActivity)getActivity()).getResideLayout().setIsNeedSlide(false);
+            ((MainActivity) getActivity()).getResideLayout().setIsNeedSlide(false);
         }
     }
+
     @Override
     public void onPageScrollStateChanged(int state) {
 
@@ -214,13 +201,13 @@ public class HomeFragment extends BaseMainFragment implements ViewPager.OnPageCh
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(requestCode == REQ_START_DETAIL_FOR_RESULT){
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQ_START_DETAIL_FOR_RESULT) {
             if (resultCode == RESULT_OK) {
 
             }
         }
-        if(requestCode == REQ_ZXING_LIBRARY_FOR_RESULT){
+        if (requestCode == REQ_ZXING_LIBRARY_FOR_RESULT) {
             //处理扫描结果（在界面上显示）
             if (null != data) {
                 Bundle bundle = data.getExtras();

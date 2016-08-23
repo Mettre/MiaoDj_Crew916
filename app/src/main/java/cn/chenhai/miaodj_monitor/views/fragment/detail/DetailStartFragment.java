@@ -1,13 +1,10 @@
 package cn.chenhai.miaodj_monitor.views.fragment.detail;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -26,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.zhy.autolayout.AutoFrameLayout;
@@ -44,21 +40,16 @@ import cn.chenhai.miaodj_monitor.model.entity.MyProjectsDetailEntity;
 import cn.chenhai.miaodj_monitor.network_proxy.HttpMethods;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.SubscriberOnSuccessListener;
-import cn.chenhai.miaodj_monitor.utils.CLog;
 import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment;
-import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment_Swip;
 import cn.chenhai.miaodj_monitor.views.fragment.worker.WorkerCheckFragment;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import in.srain.cube.request.JsonData;
-import in.srain.cube.request.RequestFinishHandler;
-import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.PtrHandler2;
-import in.srain.cube.views.ptr.header.StoreHouseHeader;
 
 /**
+ * 项目详情
+ *
  * Created by ChenHai--霜华 on 2016/6/7. 11:03
  * 邮箱：248866527@qq.com
  */

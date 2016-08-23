@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.aigestudio.wheelpicker.core.AbstractWheelPicker;
 import com.aigestudio.wheelpicker.view.WheelCurvedPicker;
-import com.bigkoo.pickerview.OptionsPickerView;
 
 import java.util.ArrayList;
 
@@ -28,11 +27,10 @@ import cn.chenhai.miaodj_monitor.model.bean.ProvinceCityDistrictBean;
 import cn.chenhai.miaodj_monitor.network_proxy.HttpMethods;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.SubscriberOnSuccessListener;
-import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment;
 import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment_Swip;
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 更改详细地址页面
  * Created by ChenHai--霜华 on 2016/7/11. 12:03
  * 邮箱：248866527@qq.com
  */
@@ -129,10 +127,10 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
                     return;
                 }
 
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
 
-                HttpMethods.getInstance().doChangeAddressDetail(new ProgressSubscriber(mOnSuccessChangeAdress, _mActivity), user_code, access_token,provinceCode,cityCode,districtCode,mEtChange.getText().toString());
+                HttpMethods.getInstance().doChangeAddressDetail(new ProgressSubscriber(mOnSuccessChangeAdress, _mActivity), user_code, access_token, provinceCode, cityCode, districtCode, mEtChange.getText().toString());
 
             }
         });
@@ -141,23 +139,23 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
         mOnSuccessGetAllProviceCity = new SubscriberOnSuccessListener<HttpResult<ProvinceCityDistrictBean>>() {
             @Override
             public void onSuccess(HttpResult<ProvinceCityDistrictBean> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
 
                         //赋值省市区信息
                         mAddressInfo = result.getInfo();
 
                         provinceNameData.clear();
                         provinceCodeData.clear();
-                        for(int i=0; i< result.getInfo().getProvince().size(); i++){
+                        for (int i = 0; i < result.getInfo().getProvince().size(); i++) {
                             provinceNameData.add(result.getInfo().getProvince().get(i).getName());
                             provinceCodeData.add(result.getInfo().getProvince().get(i).getCode());
                         }
                         mMainWheelProvince.setData(provinceNameData);
-                        mMainWheelProvince.setItemIndex(3);
+                        mMainWheelProvince.setItemIndex(9);
                         //mMainWheelProvince.set
 
 
@@ -174,7 +172,7 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
 
                                 cityNameData.clear();
                                 cityCodeData.clear();
-                                for(int i=0; i< mAddressInfo.getProvince().get(index).getCity().size(); i++){
+                                for (int i = 0; i < mAddressInfo.getProvince().get(index).getCity().size(); i++) {
                                     cityNameData.add(mAddressInfo.getProvince().get(index).getCity().get(i).getName());
                                     cityCodeData.add(mAddressInfo.getProvince().get(index).getCity().get(i).getCode());
                                 }
@@ -196,7 +194,7 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
 
                                 districtNameData.clear();
                                 districtCodeData.clear();
-                                for(int i=0; i< mAddressInfo.getProvince().get(provinceIndex).getCity().get(index).getArea().size(); i++){
+                                for (int i = 0; i < mAddressInfo.getProvince().get(provinceIndex).getCity().get(index).getArea().size(); i++) {
                                     districtNameData.add(mAddressInfo.getProvince().get(provinceIndex).getCity().get(index).getArea().get(i).getName());
                                     districtCodeData.add(mAddressInfo.getProvince().get(provinceIndex).getCity().get(index).getArea().get(i).getCode());
                                 }
@@ -220,12 +218,14 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -233,26 +233,28 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
         mOnSuccessChangeAdress = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("result","已修改");
+                        bundle.putString("result", "已修改");
                         setFramgentResult(RESULT_OK, bundle);
                         pop();
 
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -261,7 +263,7 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
 
     }
 
-    private void initData(){
+    private void initData() {
         mToolbarTitle.setText("更改详细地址");
         mEtChange.setText(mStr_address);
 
@@ -272,6 +274,7 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
     public void onAttach(Context context) {
         super.onAttach(context);
     }
+
     @Override
     public void onDetach() {
         super.onDetach();

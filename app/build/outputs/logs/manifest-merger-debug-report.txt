@@ -597,7 +597,7 @@ MERGED from [com.pnikosis:materialish-progress:1.7] D:\WorkSpace\MiaoDJ_Monitor\
 MERGED from [com.bigkoo:pickerview:2.0.9] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.bigkoo\pickerview\2.0.9\AndroidManifest.xml:7:5-9:41
 MERGED from [MiaoDJ_Monitor:pickerWheel:1.0.3] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\MiaoDJ_Monitor\pickerWheel\1.0.3\AndroidManifest.xml:8:5-10:41
 MERGED from [info.hoang8f:android-segmented:1.0.6] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\info.hoang8f\android-segmented\1.0.6\AndroidManifest.xml:7:5-9:41
-MERGED from [com.tencent.bugly:crashreport:2.2.0.0] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.tencent.bugly\crashreport\2.2.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.tencent.bugly:crashreport:2.2.2] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.tencent.bugly\crashreport\2.2.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.tencent.bugly:nativecrashreport:3.0] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\com.tencent.bugly\nativecrashreport\3.0\AndroidManifest.xml:7:5-9:41
 MERGED from [MiaoDJ_Monitor:okhttputils:unspecified] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\MiaoDJ_Monitor\okhttputils\unspecified\AndroidManifest.xml:7:5-9:41
 MERGED from [MiaoDJ_Monitor:okhttpserver:unspecified] D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\exploded-aar\MiaoDJ_Monitor\okhttpserver\unspecified\AndroidManifest.xml:7:5-9:41

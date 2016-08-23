@@ -1,6 +1,5 @@
 package cn.chenhai.miaodj_monitor.views.fragment.personal;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -12,8 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -21,19 +20,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.flyco.tablayout.SegmentTabLayout;
-import com.flyco.tablayout.listener.OnTabSelectListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +36,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import cn.chenhai.miaodj_monitor.R;
@@ -58,16 +51,15 @@ import cn.chenhai.miaodj_monitor.network_proxy.HttpMethods;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.SubscriberOnSuccessListener;
 import cn.chenhai.miaodj_monitor.views.activityPhoto.ClipImageActivity;
-import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment;
 import cn.chenhai.miaodj_monitor.views.base.BaseBackFragment_Swip;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import info.hoang8f.android.segmented.SegmentedGroup;
 
 /**
+ * 个人信息页面
  * Created by ChenHai--霜华 on 2016/6/29. 13:08
  * 邮箱：248866527@qq.com
  */
-public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.OnClickListener,UploadUtil.OnUploadProcessListener, ChangeSexDialog.SubmitDoing{
+public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.OnClickListener, UploadUtil.OnUploadProcessListener, ChangeSexDialog.SubmitDoing {
     private static final String ARG_ITEM = "arg_item";
     private static final String TAG = "FragmentLib";
 
@@ -173,14 +165,14 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<UserInfoEntity>>() {
             @Override
             public void onSuccess(HttpResult<UserInfoEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     UserInfoEntity.CrewBean beanInfo = result.getInfo().getCrew();
 
                     String headPath = "";
-                    if(beanInfo.getHeadimg() != null) {
+                    if (beanInfo.getHeadimg() != null) {
                         headPath = HttpMethods.BASE_ROOT_URL + beanInfo.getHeadimg();
                     }
                     mSdvInfoPortrait.setImageURI(Uri.parse(headPath));
@@ -189,18 +181,20 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     mTvInfoSex.setText(beanInfo.getGender());
                     mTvInfoPhone.setText(beanInfo.getTelephone());
 
-                    String district = beanInfo.getWork_province() + " " + beanInfo.getWork_city();
+                    String district = (TextUtils.isEmpty(beanInfo.getWork_province()) ? "" : beanInfo.getWork_province()) + " " + (TextUtils.isEmpty(beanInfo.getWork_city()) ? "" : beanInfo.getWork_city());
                     mTvInfoDistrict.setText(district);
 
                     mTvInfoAddress.setText(beanInfo.getAddress());
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -208,11 +202,11 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         mOnSuccessUploadHeadPic = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
                         new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("头像已上传!")
@@ -222,12 +216,14 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -235,11 +231,11 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         mOnSuccessGetAllProviceCity = new SubscriberOnSuccessListener<HttpResult<ProvinceCityDistrictBean>>() {
             @Override
             public void onSuccess(HttpResult<ProvinceCityDistrictBean> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
                         //选项选择器
                         pvProviceCity = new OptionsPickerView(_mActivity);
 
@@ -248,8 +244,8 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
                         //选项2
                         ArrayList<ArrayList<ProvinceCityDistrictBean.ProvinceBean.CityBean>> list = new ArrayList<>();
-                        for (int i=0; i<result.getInfo().getProvince().size(); i++){
-                            ArrayList<ProvinceCityDistrictBean.ProvinceBean.CityBean> address2Items_item=new ArrayList<>();
+                        for (int i = 0; i < result.getInfo().getProvince().size(); i++) {
+                            ArrayList<ProvinceCityDistrictBean.ProvinceBean.CityBean> address2Items_item = new ArrayList<>();
                             address2Items_item.addAll(result.getInfo().getProvince().get(i).getCity());
                             list.add(address2Items_item);
                         }
@@ -279,10 +275,10 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                                 mTvInfoDistrict.setText(tx);
 
                                 //上传到服务器
-                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
                                 HttpMethods.getInstance().doChangeArea(new ProgressSubscriber(mOnSuccessChangeArea, _mActivity), user_code, access_token,
-                                        address1Items.get(options1).getCode(),address2Items.get(options1).get(option2).getCode());
+                                        address1Items.get(options1).getCode(), address2Items.get(options1).get(option2).getCode());
                             }
                         });
 
@@ -290,12 +286,14 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -303,11 +301,11 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         mOnSuccessChangeArea = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
                         new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("所属地已更改!")
@@ -317,23 +315,25 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessChangeSex = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
                         new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("性别已更改!")
@@ -343,12 +343,14 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -358,14 +360,14 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         //initWheelPicker();
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
         HttpMethods.getInstance().getUserProfileInfo(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token);
     }
 
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_info_click_portrait:
 //                Intent intent = new Intent(_mActivity, PhotoActivity.class);
@@ -377,26 +379,26 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
                 break;
             case R.id.ll_info_click_name:
-                startForResult(PersonalInfoEditFragment.newInstance("更改姓名","输入姓名",mTvInfoName.getText().toString(),"title"),REQ_TO_EDIT_FRAGMENT);
+                startForResult(PersonalInfoEditFragment.newInstance("更改姓名", "输入姓名", mTvInfoName.getText().toString(), "title"), REQ_TO_EDIT_FRAGMENT);
                 break;
             case R.id.ll_info_click_sex:
 
                 ChangeSexDialog dialog = new ChangeSexDialog(_mActivity, new ChangeSexDialog.SubmitDoing() {
                     @Override
                     public void submitDoing(String strSex) {
-                        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                        HttpMethods.getInstance().doChangeSex(new ProgressSubscriber(mOnSuccessChangeSex, _mActivity), user_code, access_token,strSex);
+                        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                        HttpMethods.getInstance().doChangeSex(new ProgressSubscriber(mOnSuccessChangeSex, _mActivity), user_code, access_token, strSex);
                     }
                 });
                 dialog.show();
 
                 break;
             case R.id.ll_info_click_phone:
-                startForResult(PersonalInfoEditPhone.newInstance("更改手机号码",mTvInfoPhone.getText().toString(),"verifyname"),REQ_TO_EDIT_FRAGMENT);
+                startForResult(PersonalInfoEditPhone.newInstance("更改手机号码", mTvInfoPhone.getText().toString(), "verifyname"), REQ_TO_EDIT_FRAGMENT);
                 break;
             case R.id.ll_info_click_changePass:
-                startForResult(PersonalChangePass.newInstance(),REQ_TO_EDIT_FRAGMENT);
+                startForResult(PersonalChangePass.newInstance(), REQ_TO_EDIT_FRAGMENT);
                 break;
             case R.id.ll_info_click_belongDistrict:
                 //startForResult(PersonalInfoEditFragment.newInstance("更改所属地区","输入所属地区",mTvInfoDistrict.getText().toString(),"verifyname"),REQ_TO_EDIT_FRAGMENT);
@@ -407,7 +409,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                 break;
             case R.id.ll_info_click_address:
                 //startForResult(PersonalInfoEditFragment.newInstance("更改我的地址","输入地址",mTvInfoAddress.getText().toString(),"verifyname"),REQ_TO_EDIT_FRAGMENT);
-                startForResult(PersonalInfoEditAddress.newInstance(mTvInfoAddress.getText().toString()),REQ_TO_EDIT_FRAGMENT);
+                startForResult(PersonalInfoEditAddress.newInstance(mTvInfoAddress.getText().toString()), REQ_TO_EDIT_FRAGMENT);
                 break;
 
         }
@@ -424,40 +426,49 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
     }
 
 
-    private void refreshView(){
+    private void refreshView() {
 //        String token = PreferencesUtils.getString(_mActivity,"user_token");
 //        ProxyService.newInstance().GetUserInfo(_mActivity,token);
     }
 
 
     @Override
-    public void submitDoing(String strSex){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().doChangeSex(new ProgressSubscriber(mOnSuccessChangeSex, _mActivity), user_code, access_token,mTvInfoSex.getText().toString());
+    public void submitDoing(String strSex) {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().doChangeSex(new ProgressSubscriber(mOnSuccessChangeSex, _mActivity), user_code, access_token, mTvInfoSex.getText().toString());
     }
 
 
-
-
-
-
     /**--------------------------------------------------------------------------------------*/
-    /**去上传文件*/
+    /**
+     * 去上传文件
+     */
     protected static final int TO_UPLOAD_FILE = 1;
-    /**上传文件响应*/
+    /**
+     * 上传文件响应
+     */
     protected static final int UPLOAD_FILE_DONE = 2;  //
-    /**选择文件*/
+    /**
+     * 选择文件
+     */
     public static final int TO_SELECT_PHOTO = 3;
-    /** 上传初始化*/
+    /**
+     * 上传初始化
+     */
     private static final int UPLOAD_INIT_PROCESS = 4;
-    /** 上传中*/
+    /**
+     * 上传中
+     */
     private static final int UPLOAD_IN_PROCESS = 5;
 
-    /** 这里的这个URL是我服务器的javaEE环境URL*/
+    /**
+     * 这里的这个URL是我服务器的javaEE环境URL
+     */
 //    private static String requestURL = "http://172.31.8.6:8080/fileUpload/file_upload";
     private String picPath = null;
     private String uploadPath = null;
+
     /**
      * 上传服务器响应回调
      */
@@ -472,8 +483,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
     }
 
-    private void toUploadFile()
-    {
+    private void toUploadFile() {
         uploadImageResult.setText("上传中...");
 //        progressDialog.setMessage("正在上传文件...");
 //        progressDialog.show();
@@ -484,7 +494,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         Map<String, String> params = new HashMap<String, String>();
         params.put("orderId", "11111");
         //uploadUtil.uploadFile( picPath,fileKey, requestURL ,params);
-        uploadUtil.uploadFile( picPath,fileKey, HttpMethods.BASE_ROOT_URL+"index.php/App/Public/upload_imgs" ,params);
+        uploadUtil.uploadFile(picPath, fileKey, HttpMethods.BASE_ROOT_URL + "index.php/App/Public/upload_imgs", params);
     }
 
     @Override
@@ -500,10 +510,10 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         Message msg = Message.obtain();
         msg.what = UPLOAD_INIT_PROCESS;
         msg.arg1 = fileSize;
-        handler.sendMessage(msg );
+        handler.sendMessage(msg);
     }
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -515,7 +525,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                 case UPLOAD_IN_PROCESS:
                     break;
                 case UPLOAD_FILE_DONE:
-                    String result = "响应码："+msg.arg1+"\n响应信息："+msg.obj+"\n耗时："+ UploadUtil.getRequestTime()+"秒";
+                    String result = "响应码：" + msg.arg1 + "\n响应信息：" + msg.obj + "\n耗时：" + UploadUtil.getRequestTime() + "秒";
                     //uploadImageResult.setText(result);
                     uploadImageResult.setText("");
                     break;
@@ -525,33 +535,33 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
             }
             switch (msg.arg1) {
                 case UploadUtil.UPLOAD_SERVER_ERROR_CODE:
-                    Toast.makeText(_mActivity,"服务器出错",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(_mActivity, "服务器出错", Toast.LENGTH_SHORT).show();
                     break;
                 case UploadUtil.UPLOAD_FILE_NOT_EXISTS_CODE:
-                    Toast.makeText(_mActivity,"文件不存在",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(_mActivity, "文件不存在", Toast.LENGTH_SHORT).show();
                     break;
                 case UploadUtil.UPLOAD_SUCCESS_CODE:
                     try {
                         JSONObject jsonObject = new JSONObject((String) msg.obj);
                         int code = JSONUtils.getInt(jsonObject, "code", 0);
                         // 如果成功
-                        if (code == 200 ) {
+                        if (code == 200) {
 
-                            JSONObject jsonInfo = JSONUtils.getJSONObject(jsonObject,"info",null);
+                            JSONObject jsonInfo = JSONUtils.getJSONObject(jsonObject, "info", null);
 
                             uploadPath = JSONUtils.getString(jsonInfo, "picnameimg", null);
 
-                            if(mPopupWindow.isShowing()){
+                            if (mPopupWindow.isShowing()) {
                                 mPopupWindow.dismiss();
                             }
 
-                            String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                            String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                            HttpMethods.getInstance().doUpdateHeadimgPic(new ProgressSubscriber(mOnSuccessUploadHeadPic, _mActivity), user_code, access_token,uploadPath);
+                            String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                            String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                            HttpMethods.getInstance().doUpdateHeadimgPic(new ProgressSubscriber(mOnSuccessUploadHeadPic, _mActivity), user_code, access_token, uploadPath);
 //                String token = PreferencesUtils.getString(PhotoActivity.this, "user_token");
 //                ProxyService.newInstance().UploadAvatar(PhotoActivity.this, token,uploadPath);
                         }
-                    }catch (JSONException e) {
+                    } catch (JSONException e) {
                         e.printStackTrace();
                         return;
                     }
@@ -563,10 +573,10 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
             super.handleMessage(msg);
         }
     };
-    /**--------------------------------------------------------------------------------------*/
 
-
-
+    /**
+     * --------------------------------------------------------------------------------------
+     */
 
 
     @Override
@@ -574,7 +584,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         super.onFragmentResult(requestCode, resultCode, data);
         if (requestCode == REQ_TO_EDIT_FRAGMENT && resultCode == RESULT_OK && data != null) {
             String result = data.getString("result");
-            if(result!=null && result.equals("已修改")){
+            if (result != null && result.equals("已修改")) {
                 //重新加载
                 refreshData();
             }
@@ -605,10 +615,9 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 //                        .setTitleText("提示")
 //                        .setContentText("头像制作成功!")
 //                        .show();
-                if(picPath!=null)
-                {
+                if (picPath != null) {
                     handler.sendEmptyMessage(TO_UPLOAD_FILE);
-                }else{
+                } else {
                     Toast.makeText(_mActivity, "上传的文件路径出错", Toast.LENGTH_LONG).show();
                 }
 
@@ -618,16 +627,18 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                 break;
             case CAMERA:
                 // 照相机程序返回的,再次调用图片剪辑程序去修剪图片
-                startCropImageActivity(Environment.getExternalStorageDirectory()+ "/" + IMAGE_FILE_NAME);
+                startCropImageActivity(Environment.getExternalStorageDirectory() + "/" + IMAGE_FILE_NAME);
                 break;
         }
     }
 
-    private void startCropImageActivity(String path){
+    private void startCropImageActivity(String path) {
         Intent intent = new Intent(_mActivity, ClipImageActivity.class);
         intent.putExtra(PASS_PATH, path);
+        mPopupWindow.dismiss();
         startActivityForResult(intent, CUT);
     }
+
     /**
      * 通过uri获取文件路径
      *
@@ -645,17 +656,18 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
             return null;
         }
     }
+
     // 获取文件路径通过url
     private String getFilePathByUri(Uri mUri) throws FileNotFoundException {
-        Cursor cursor = _mActivity.getContentResolver() .query(mUri, null, null, null, null);
+        Cursor cursor = _mActivity.getContentResolver().query(mUri, null, null, null, null);
         cursor.moveToFirst();
         return cursor.getString(1);
     }
 
 
-
-
-    /**---------------------------PoputWindow--------------------------------*/
+    /**
+     * ---------------------------PoputWindow--------------------------------
+     */
     private PopupWindow mPopupWindow;
     private RelativeLayout mPopLayout;
 
@@ -672,8 +684,8 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
     /**
      * 初始化popWindow
-     * */
-    private void initPopWindow(View popView,PopupWindow popupWindow) {
+     */
+    private void initPopWindow(View popView, PopupWindow popupWindow) {
 
         //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -695,10 +707,10 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
     /**
      * 设置添加屏幕的背景透明度
+     *
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha ,float bgDim)
-    {
+    public void backgroundAlpha(float bgAlpha, float bgDim) {
         WindowManager.LayoutParams lp = _mActivity.getWindow().getAttributes();
         lp.dimAmount = bgDim;
         lp.alpha = bgAlpha; //0.0-1.0
@@ -706,21 +718,23 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
 
         _mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
+
     /**
      * 添加新笔记时弹出的popWin关闭的事件，主要是为了将背景透明度改回来
-     * @author cg
      *
+     * @author cg
      */
     class poponDismissListener implements PopupWindow.OnDismissListener {
         @Override
         public void onDismiss() {
             //Log.v("List_noteTypeActivity:", "我是关闭事件");
-            backgroundAlpha(1f ,0.1f);
+            backgroundAlpha(1f, 0.1f);
         }
     }
 
     /**
      * 获取file的时候如果没有路径就重新创建
+     *
      * @return
      */
     private File getFile() {
@@ -737,7 +751,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         View popView = LayoutInflater.from(_mActivity).inflate(R.layout.pop_photo, null);
         mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //初始化
-        initPopWindow(popView,mPopupWindow);
+        initPopWindow(popView, mPopupWindow);
 
         // 设置按钮的点击事件
 
@@ -759,7 +773,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     intentFromGallery = new Intent(Intent.ACTION_GET_CONTENT);
                 }
                 intentFromGallery.setType("image/*"); // 设置文件类型
-                startActivityForResult(intentFromGallery,LOCAL);
+                startActivityForResult(intentFromGallery, LOCAL);
             }
         });
 
@@ -793,7 +807,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         //获取焦点
         mPopupWindow.setFocusable(true);
 
-        backgroundAlpha(0.3f ,1f);//透明度
+        backgroundAlpha(0.3f, 1f);//透明度
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
@@ -802,7 +816,7 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
         mPopupWindow.update();
         if (!mPopupWindow.isShowing()) {
             //设置显示位置
-            mPopupWindow.showAtLocation(view, Gravity.BOTTOM ,0,0);
+            mPopupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
         }
 
     }

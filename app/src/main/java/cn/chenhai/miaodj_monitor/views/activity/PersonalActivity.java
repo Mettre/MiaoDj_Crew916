@@ -5,33 +5,28 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.squareup.leakcanary.RefWatcher;
 
-import cn.chenhai.miaodj_monitor.AppManager;
-import cn.chenhai.miaodj_monitor.MyApplication;
 import cn.chenhai.miaodj_monitor.R;
 import cn.chenhai.miaodj_monitor.theme.Theme;
 import cn.chenhai.miaodj_monitor.utils.PreUtils;
-import cn.chenhai.miaodj_monitor.views.BaseActivity;
-import cn.chenhai.miaodj_monitor.views.fragment.detail.DetailAgreeFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalAboutUSFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalBacklogFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalFeedbackFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalInfoFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalRecommendFragment;
 import cn.chenhai.miaodj_monitor.views.fragment.personal.PersonalSettingFragment;
-import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SwipeBackLayout;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity;
 
 /**
+ * 个人中心模块Fragment载体
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/23. 00:08
  * 邮箱：248866527@qq.com
  */
@@ -78,25 +73,19 @@ public class PersonalActivity extends SwipeBackActivity {
 //                    onBackPressed();
 //                    break;
 //            }
-            if(TextUtils.equals(fragmentName,"PersonalBacklogFragment")) {
+            if (TextUtils.equals(fragmentName, "PersonalBacklogFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalBacklogFragment.newInstance(mProjectCode));
-            }
-            else if(TextUtils.equals(fragmentName,"PersonalRecommendFragment")) {
+            } else if (TextUtils.equals(fragmentName, "PersonalRecommendFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalRecommendFragment.newInstance(mProjectCode));
-            }
-            else if(TextUtils.equals(fragmentName,"PersonalSettingFragment")) {
+            } else if (TextUtils.equals(fragmentName, "PersonalSettingFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalSettingFragment.newInstance(mProjectCode));
-            }
-            else if(TextUtils.equals(fragmentName,"PersonalAboutUSFragment")) {
+            } else if (TextUtils.equals(fragmentName, "PersonalAboutUSFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalAboutUSFragment.newInstance(mProjectCode));
-            }
-            else if(TextUtils.equals(fragmentName,"PersonalInfoFragment")) {
+            } else if (TextUtils.equals(fragmentName, "PersonalInfoFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalInfoFragment.newInstance(mProjectCode));
-            }
-            else if(TextUtils.equals(fragmentName,"PersonalFeedbackFragment")) {
+            } else if (TextUtils.equals(fragmentName, "PersonalFeedbackFragment")) {
                 loadRootFragment(R.id.personal_fl_container, PersonalFeedbackFragment.newInstance(mProjectCode));
-            }
-            else {
+            } else {
                 onBackPressed();
             }
         }
@@ -106,7 +95,7 @@ public class PersonalActivity extends SwipeBackActivity {
         getSwipeBackLayout().setEdgeOrientation(SwipeBackLayout.EDGE_LEFT);
     }
 
-    private void setStatusBar(){
+    private void setStatusBar() {
         // 修改状态栏颜色，4.4+生效
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
@@ -118,6 +107,7 @@ public class PersonalActivity extends SwipeBackActivity {
             tintManager.setStatusBarTintColor(0x11ff0000);//通知栏所需颜色
         }
     }
+
     @TargetApi(19)
     private void setTranslucentStatus(boolean on) {
         Window win = getWindow();
@@ -130,6 +120,7 @@ public class PersonalActivity extends SwipeBackActivity {
         }
         win.setAttributes(winParams);
     }
+
     private void onPreCreate() {
         Theme theme = PreUtils.getCurrentTheme(this);
         switch (theme) {

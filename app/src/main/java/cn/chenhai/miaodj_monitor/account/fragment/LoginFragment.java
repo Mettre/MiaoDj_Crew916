@@ -1,14 +1,10 @@
 package cn.chenhai.miaodj_monitor.account.fragment;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
 import cn.chenhai.miaodj_monitor.R;
 import cn.chenhai.miaodj_monitor.commonlib.utils.PreferencesObjectUtils;
 import cn.chenhai.miaodj_monitor.commonlib.utils.PreferencesUtils;
 import cn.chenhai.miaodj_monitor.commonlib.utils.StringUtils;
 import cn.chenhai.miaodj_monitor.commonlib.utils.TimeUtils;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
-import cn.chenhai.miaodj_monitor.model.TestResult;
 import cn.chenhai.miaodj_monitor.model.entity.Account;
 import cn.chenhai.miaodj_monitor.network_proxy.HttpMethods;
 import cn.chenhai.miaodj_monitor.network_proxy.subscribers.ProgressSubscriber;
@@ -164,8 +154,8 @@ public class LoginFragment extends BaseBackFragment {
                     Toast.makeText(_mActivity, "密码不能为空!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (mEtPassword.length() < 6){
-                    Toast.makeText(_mActivity, "密码长度必须大于 6 位！", Toast.LENGTH_SHORT).show();
+                if (mEtPassword.length() < 6||mEtPassword.length()>30){
+                    Toast.makeText(_mActivity, "密码的长度为6-30位！！", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
