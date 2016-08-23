@@ -15,7 +15,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <cn.chenhai.miaodj_monitor.view_custom.BounceScrollView
+    <cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -910,6 +910,6 @@
 
         </com.zhy.autolayout.AutoLinearLayout>
 
-    </cn.chenhai.miaodj_monitor.view_custom.BounceScrollView>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView>
 
 </com.zhy.autolayout.AutoLinearLayout>

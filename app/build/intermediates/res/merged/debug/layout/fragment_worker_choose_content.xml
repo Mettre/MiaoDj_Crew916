@@ -8,12 +8,12 @@
     android:id="@+id/content_linearLayout">
 
 
-    <cn.chenhai.miaodj_monitor.view_custom.SearchViewCut
+    <cn.chenhai.miaodj_monitor.ui.view_custom.SearchViewCut
         android:id="@+id/sv_search_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
-    </cn.chenhai.miaodj_monitor.view_custom.SearchViewCut>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.SearchViewCut>
 
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
         xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"

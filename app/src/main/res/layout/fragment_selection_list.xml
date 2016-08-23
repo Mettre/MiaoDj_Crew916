@@ -15,7 +15,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <cn.chenhai.miaodj_monitor.view_custom.MyScrollView
+    <cn.chenhai.miaodj_monitor.ui.view_custom.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -256,7 +256,7 @@
 
             </com.zhy.autolayout.AutoLinearLayout>
 
-            <cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout
+            <cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout
                 android:id="@+id/selection_expandableLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
 
 
 
-            </cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout>
+            </cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/ll_selection_auxiliaryMaterial"
@@ -321,7 +321,7 @@
                     android:background="@drawable/ic_arrow_down2"/>
 
             </com.zhy.autolayout.AutoLinearLayout>
-            <cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout
+            <cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout
                 android:id="@+id/selection_expandableLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -372,9 +372,9 @@
                     android:textColor="@color/text_color_gray"
                     android:text="请认真核对辅材辅料中的数量"/>
 
-            </cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout>
+            </cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout>
 
         </com.zhy.autolayout.AutoLinearLayout>
 
-    </cn.chenhai.miaodj_monitor.view_custom.MyScrollView>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.MyScrollView>
 </com.zhy.autolayout.AutoLinearLayout>

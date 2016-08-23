@@ -122,7 +122,7 @@
 
             </RelativeLayout>
 
-            <cn.chenhai.miaodj_monitor.view_custom.NumberProgressBar
+            <cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar
                 android:id="@+id/pbProgress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

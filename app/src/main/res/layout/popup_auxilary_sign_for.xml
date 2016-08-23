@@ -142,7 +142,7 @@
                     android:layout_centerVertical="true"
                     android:text="--M/--M"
                     android:textSize="10sp"/>
-                <cn.chenhai.miaodj_monitor.view_custom.NumberProgressBar
+                <cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/pbProgress"
                     android:layout_width="200px"

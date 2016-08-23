@@ -1,7 +1,5 @@
 package cn.chenhai.miaodj_monitor.model.info;
 
-import cn.chenhai.miaodj_monitor.commonlib.utils.StringUtils;
-
 /**
  * Created by ChenHai--霜华 on 2016/6/27. 11:48
  * 邮箱：248866527@qq.com

@@ -27,7 +27,7 @@
         android:textColor="@color/colorPrimary1"
         android:background="@drawable/btn_effect_bg_blue_contrary"/>
 
-    <cn.chenhai.miaodj_monitor.DropDownMenu.DropDownMenu
+    <cn.chenhai.miaodj_monitor.ui.view_custom.DropDownMenu.DropDownMenu
         android:id="@+id/dropDownMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -15,7 +15,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <cn.chenhai.miaodj_monitor.view_custom.BounceScrollView
+    <cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="2dp"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <cn.chenhai.miaodj_monitor.view_custom.AutoCardView
+            <cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -679,13 +679,13 @@
                     android:textStyle="bold"/>
 
 
-            </cn.chenhai.miaodj_monitor.view_custom.AutoCardView>
+            </cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"/>
 
         </LinearLayout>
-    </cn.chenhai.miaodj_monitor.view_custom.BounceScrollView>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView>
 
 </LinearLayout>

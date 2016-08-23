@@ -294,7 +294,7 @@
                 android:textSize="24px"
                 android:textColor="@color/text_color_black"/>
 
-            <cn.chenhai.miaodj_monitor.view_custom.RatingBar
+            <cn.chenhai.miaodj_monitor.ui.view_custom.RatingBar
                 android:id="@+id/rb_worker_ratingBar"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"

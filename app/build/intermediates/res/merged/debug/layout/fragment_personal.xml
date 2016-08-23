@@ -184,7 +184,7 @@
                     android:textColor="@android:color/white"
                     android:text="3"
                     android:background="@drawable/tips_round_notify"/>
-                <!--<cn.chenhai.miaodj_monitor.view_custom.DraggableFlagView-->
+                <!--<cn.chenhai.miaodj_monitor.ui.view_custom.DraggableFlagView-->
                     <!--xmlns:dfv="http://schemas.android.com/apk/res-auto"-->
                     <!--android:id="@+id/main_dfv"-->
                     <!--android:layout_width="18dp"-->

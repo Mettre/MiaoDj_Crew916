@@ -111,7 +111,7 @@
 
             </com.zhy.autolayout.AutoLinearLayout>
 
-            <cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout
+            <cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout
                 android:id="@+id/picture_expandableLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                 app:ael_duration="400"
                 app:ael_expanded="true">
 
-                <cn.chenhai.miaodj_monitor.views.preview.FiveGridView
+                <cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView
                     android:id="@+id/fiveGrid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     app:ngv_singleImageRatio="1"
                     app:ngv_singleImageSize="250dp"/>
 
-            </cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout>
+            </cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout>
 
 
         </com.zhy.autolayout.AutoLinearLayout>

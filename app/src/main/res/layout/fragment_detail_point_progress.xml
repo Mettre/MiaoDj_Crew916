@@ -15,8 +15,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<cn.chenhai.miaodj_monitor.view_custom.BounceScrollView-->
-    <cn.chenhai.miaodj_monitor.view_custom.MyScrollView
+    <!--<cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView-->
+    <cn.chenhai.miaodj_monitor.ui.view_custom.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
@@ -215,6 +215,6 @@
 
         </com.zhy.autolayout.AutoLinearLayout>
 
-    </cn.chenhai.miaodj_monitor.view_custom.MyScrollView>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.MyScrollView>
 
 </LinearLayout>

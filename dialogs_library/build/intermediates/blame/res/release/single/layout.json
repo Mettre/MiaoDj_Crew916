@@ -2,9 +2,5 @@
     {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\dialogs_library\\build\\intermediates\\res\\merged\\release\\layout\\alert_dialog.xml",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\dialogs_library\\src\\main\\res\\layout\\alert_dialog.xml"
-    },
-    {
-        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\dialogs_library\\build\\intermediates\\res\\merged\\release\\layout\\alert_dialog.xml",
-        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\dialogs_library\\src\\main\\res\\layout\\alert_dialog.xml"
     }
 ]

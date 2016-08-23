@@ -56,7 +56,7 @@
 
     </com.zhy.autolayout.AutoLinearLayout>
 
-    <cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout
+    <cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout
         android:id="@+id/selection_expandableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,6 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </cn.chenhai.miaodj_monitor.ExpandableLayout.ExpandableLinearLayout>
+    </cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

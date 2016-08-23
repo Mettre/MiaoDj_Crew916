@@ -4,7 +4,7 @@ package cn.chenhai.miaodj_monitor.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import cn.chenhai.miaodj_monitor.theme.Theme;
+import cn.chenhai.miaodj_monitor.ui.module.theme.Theme;
 
 
 public class PreUtils {

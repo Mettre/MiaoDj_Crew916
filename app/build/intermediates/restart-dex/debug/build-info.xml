@@ -4,30 +4,47 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="373930618776288"
+    timestamp="5239779941734"
     token="1787464339203140562" >
 
     <task
         name="javac"
-        duration="3064" />
+        duration="2842" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="6103" />
+        duration="53" />
     <task
         name="verifier"
-        duration="1443" />
+        duration="5" />
 
     <artifact
-        location="D:\WorkSpace\MiaoDJ_Monitor\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+        type="DEX" />
+    <artifact
+        location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
+    <artifact
+        location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
 
-    <build timestamp="373930618776288" >
+    <build timestamp="4701220519167" >
         <artifact
             location="D:\WorkSpace\MiaoDJ_Monitor\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build timestamp="5239779941734" >
+        <artifact
+            location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+        <artifact
+            location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+        <artifact
+            location="D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

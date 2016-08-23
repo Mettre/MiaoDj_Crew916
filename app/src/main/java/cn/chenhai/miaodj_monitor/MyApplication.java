@@ -4,31 +4,27 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.drawee.backends.pipeline.Fresco;
-
-import cn.chenhai.miaodj_monitor.image.DemoDuiTangImageReSizer;
-import cn.chenhai.miaodj_monitor.image.PtrImageLoadHandler;
-import cn.chenhai.miaodj_monitor.utils.CollectUtils;
-import cn.chenhai.miaodj_monitor.utils.diskCache.DiskLruCacheHelper;
-import cn.chenhai.miaodj_monitor.views.preview.FiveGridView;
-import cn.jpush.android.api.JPushInterface;
-import in.srain.cube.Cube;
-import in.srain.cube.image.ImageLoaderFactory;
-import in.srain.cube.request.RequestCacheManager;
-import in.srain.cube.util.CubeDebug;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-
 import com.lzy.okhttputils.OkHttpUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
-import java.io.IOException;
+import cn.chenhai.miaodj_monitor.service.AppException;
+import cn.chenhai.miaodj_monitor.ui.view_custom.image.DemoDuiTangImageReSizer;
+import cn.chenhai.miaodj_monitor.ui.view_custom.image.PtrImageLoadHandler;
+import cn.chenhai.miaodj_monitor.utils.CollectUtils;
+import cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView;
+import cn.jpush.android.api.JPushInterface;
+import in.srain.cube.Cube;
+import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.request.RequestCacheManager;
+import in.srain.cube.util.CubeDebug;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * Created by ChenHai--霜华 on 2016/5/23. 07:22

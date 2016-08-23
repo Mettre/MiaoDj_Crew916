@@ -2,7 +2,7 @@ package cn.chenhai.miaodj_monitor.model.info;
 
 import java.util.List;
 
-import cn.chenhai.miaodj_monitor.views.preview.ImageInfo;
+import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
 
 /**
  * Created by ChenHai--霜华 on 2016/6/24. 18:16

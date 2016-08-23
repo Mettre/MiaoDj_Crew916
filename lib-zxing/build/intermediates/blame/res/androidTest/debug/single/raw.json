@@ -1,9 +1,5 @@
 [
     {
-        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\lib-zxing\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\beep.ogg",
-        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\lib-zxing\\build\\intermediates\\bundles\\debug\\res\\raw\\beep.ogg"
-    },
-    {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\lib-zxing\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\beep.ogg",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\lib-zxing\\build\\intermediates\\bundles\\debug\\res\\raw\\beep.ogg"
     }

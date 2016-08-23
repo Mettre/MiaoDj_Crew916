@@ -41,7 +41,7 @@
         android:layout_height="match_parent"
         android:background="#000000">
 
-        <cn.chenhai.miaodj_monitor.views.activityPhoto.photo.ClipImageLayout
+        <cn.chenhai.miaodj_monitor.ui.module.activityPhoto.photo.ClipImageLayout
             android:id="@+id/clipImageLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<cn.chenhai.miaodj_monitor.view_custom.AutoCardView
+<cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_cardview"
@@ -116,4 +116,4 @@
 
 
 
-</cn.chenhai.miaodj_monitor.view_custom.AutoCardView>
+</cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView>

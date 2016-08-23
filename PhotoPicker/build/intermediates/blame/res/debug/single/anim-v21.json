@@ -6,13 +6,5 @@
     {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
-    },
-    {
-        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_in.xml",
-        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
-    },
-    {
-        "merged": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\res\\merged\\debug\\anim-v21\\design_bottom_sheet_slide_out.xml",
-        "source": "D:\\Android_Project\\MiaoDJ_Monitor\\PhotoPicker\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\anim-v21\\design_bottom_sheet_slide_out.xml"
     }
 ]
