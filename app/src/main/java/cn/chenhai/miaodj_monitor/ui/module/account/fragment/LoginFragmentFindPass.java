@@ -24,6 +24,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 /**
+ * 忘记密码
+ * <p>
  * Created by ChenHai--霜华 on 2016/4/23. 17:36
  * 邮箱：248866527@qq.com
  */
@@ -121,8 +123,8 @@ public class LoginFragmentFindPass extends BaseBackFragment {
                     Toast.makeText(_mActivity, "新密码不能为空!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (mEtPassword.length() < 6){
-                    Toast.makeText(_mActivity, "密码长度必须大于 6 位！", Toast.LENGTH_SHORT).show();
+                if (mEtPassword.length() < 6 || mEtPassword.length() > 30) {
+                    Toast.makeText(_mActivity, "密码的长度为6-30位！！", Toast.LENGTH_SHORT).show();
                     return;
                 }
 //                else if (!strAuthCode.equals(temCodeService)) {
@@ -130,17 +132,17 @@ public class LoginFragmentFindPass extends BaseBackFragment {
 //                    return;
 //                }
 
-                HttpMethods.getInstance().findPassWord(new ProgressSubscriber(mOnSuccessFindPass, _mActivity), strPhone,strAuthCode,strNewPass);
+                HttpMethods.getInstance().findPassWord(new ProgressSubscriber(mOnSuccessFindPass, _mActivity), strPhone, strAuthCode, strNewPass);
             }
         });
-        mBtnGetCode.setOnClickListener(new View.OnClickListener(){
+        mBtnGetCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String strPhone = mEtPhone.getText().toString();
                 if (TextUtils.isEmpty(strPhone.trim())) {
                     Toast.makeText(_mActivity, "手机号不能为空!", Toast.LENGTH_SHORT).show();
                     return;
-                }else if (!StringUtils.isPhoneNumberValid(strPhone.trim())) {
+                } else if (!StringUtils.isPhoneNumberValid(strPhone.trim())) {
                     Toast.makeText(_mActivity, "无效的手机号!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -152,7 +154,6 @@ public class LoginFragmentFindPass extends BaseBackFragment {
                 HttpMethods.getInstance().getSendMsgCode(new ProgressSubscriber(mOnSuccessSendMsgCode, _mActivity), strPhone);
             }
         });
-
 
 
         mOnSuccessFindPass = new SubscriberOnSuccessListener<HttpResult<Object>>() {
@@ -173,38 +174,42 @@ public class LoginFragmentFindPass extends BaseBackFragment {
                         .show();
 
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessSendMsgCode = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 200){
+                if (result.getCode() == 200) {
                     new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("验证码(临时)")
                             .setContentText(String.valueOf(result.getVerify_code()))
                             .show();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
 
     }
 
-    private void initData(){
+    private void initData() {
         mToolbarTitle.setText("找回密码");
     }
 
@@ -221,14 +226,14 @@ public class LoginFragmentFindPass extends BaseBackFragment {
                         }
 
                         _mActivity.runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        //mBtnCode.setText("获取验证码(" + i + ")");
-                                        mBtnGetCode.setText(String.format("重新获取(%s)",i));
-                                        mBtnGetCode.setClickable(false);
-                                        mBtnGetCode.setEnabled(false);
-                                    }
-                                });
+                            @Override
+                            public void run() {
+                                //mBtnCode.setText("获取验证码(" + i + ")");
+                                mBtnGetCode.setText(String.format("重新获取(%s)", i));
+                                mBtnGetCode.setClickable(false);
+                                mBtnGetCode.setEnabled(false);
+                            }
+                        });
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
@@ -249,7 +254,9 @@ public class LoginFragmentFindPass extends BaseBackFragment {
                         }
                     });
                 }
-            };
+            }
+
+            ;
         };
         thread.start();
     }
@@ -266,8 +273,6 @@ public class LoginFragmentFindPass extends BaseBackFragment {
     public interface OnFindPassSuccessListener {
         void onFindPassSuccess();
     }
-
-
 
 
 }

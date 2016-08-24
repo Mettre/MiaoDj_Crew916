@@ -54,7 +54,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="32px"
-                    android:text="玲珑湾三期十二栋302装修项目"/>
+                    android:text=""/>
 
 
                 <View
@@ -91,7 +91,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="未开始"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <View
@@ -127,7 +127,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="三室两厅一厨一卫一阳台"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <View
@@ -164,7 +164,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="118.56 ㎡"
+                    android:text="0 ㎡"
                     android:textColor="@color/text_color_black"/>
 
                 <TextView
@@ -191,7 +191,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="3 人"
+                    android:text="0人"
                     android:textColor="@color/text_color_black"/>
 
                 <View
@@ -228,7 +228,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="张晓晓"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
 
@@ -243,7 +243,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="13852121258"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <LinearLayout
@@ -299,7 +299,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="李明"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
 
@@ -314,7 +314,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="13852121258"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <LinearLayout
@@ -370,7 +370,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="沈丽丽"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
 
@@ -385,7 +385,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="13852121258"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <LinearLayout
@@ -441,7 +441,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="2016-05-03"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
 
@@ -541,7 +541,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:textSize="26px"
-                    android:text="45 天"
+                    android:text="0 天"
                     android:textColor="@color/text_color_black"/>
 
 
@@ -579,7 +579,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="false"
                     android:textSize="26px"
-                    android:text="现代大道2315号玲珑湾三期16幢302室"
+                    android:text=""
                     android:textColor="@color/text_color_black"/>
 
                 <LinearLayout

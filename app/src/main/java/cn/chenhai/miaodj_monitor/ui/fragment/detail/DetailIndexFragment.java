@@ -34,12 +34,16 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment;
 import cn.chenhai.miaodj_monitor.ui.fragment.worker.WorkerCheckFragment;
 import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
 import cn.chenhai.miaodj_monitor.ui.module.preview.ImagePreviewActivity;
+import cn.chenhai.miaodj_monitor.utils.TimeUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
+ * 项目详情
+ * <对应状态：施工中，施工完成，停工>
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/13. 14:28
  * 邮箱：248866527@qq.com
  */
@@ -165,21 +169,21 @@ public class DetailIndexFragment extends BaseBackFragment {
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<MyProjectsDetailEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsDetailEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     MyProjectsDetailEntity.ProjectBean project = result.getInfo().getProject();
 
                     StringBuilder itemName = new StringBuilder();
                     itemName.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             itemName.append(project.getApartment());
                             itemName.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             itemName.append(project.getRoom());
                         }
@@ -187,8 +191,8 @@ public class DetailIndexFragment extends BaseBackFragment {
                     itemName.append("装修项目");
                     mDetailName.setText(itemName.toString());
 
-                    String status="";
-                    switch (project.getStatus()){
+                    String status = "";
+                    switch (project.getStatus()) {
                         case "1":
                             status = "新建的项目";
                             break;
@@ -232,10 +236,10 @@ public class DetailIndexFragment extends BaseBackFragment {
                     house.append("阳台");
                     mDetailHouseType.setText(house);
 
-                    String area = project.getArea()+" ㎡";
+                    String area = project.getArea() + " ㎡";
                     mDetailArea.setText(area);
 
-                    String peopleNumber = project.getPersons()+" 人";
+                    String peopleNumber = project.getPersons() + " 人";
                     mDetailPeopleNumber.setText(peopleNumber);
 
                     mDetailManager.setText(project.getManager_name());
@@ -247,15 +251,15 @@ public class DetailIndexFragment extends BaseBackFragment {
                     mDetailMonitor.setText(project.getCrew_name());
                     mDetailMonitorPhone.setText(project.getCrew_telephone());
 
-                    mDetailContractTime.setText(project.getBargain_createtime());
+                    mDetailContractTime.setText(TimeUtil.getDate(project.getBargain_createtime()));
 
-                    if(project.getStart_date() == null){
+                    if (project.getStart_date() == null) {
                         mDetailWorkStartTime.setText("未开始");
-                    }else {
+                    } else {
                         mDetailWorkStartTime.setText(project.getStart_date());
                     }
 
-                    String limitdays = project.getTotal_days()+"天";
+                    String limitdays = project.getTotal_days() + "天";
                     mDetailWorkLimitTime.setText(limitdays);
 
                     StringBuilder address = new StringBuilder();
@@ -264,13 +268,13 @@ public class DetailIndexFragment extends BaseBackFragment {
                     address.append(project.getHouse_area_name());
                     address.append(project.getStreet());
                     address.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             address.append(project.getApartment());
                             address.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             address.append(project.getRoom());
                             address.append("室");
@@ -281,12 +285,14 @@ public class DetailIndexFragment extends BaseBackFragment {
                     mCustomer_code = project.getCustomer_code();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 mPtrFrame.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 mPtrFrame.refreshComplete();
             }
         };
@@ -294,13 +300,13 @@ public class DetailIndexFragment extends BaseBackFragment {
         mOnSuccessListenerPic = new SubscriberOnSuccessListener<HttpResult<CheckPictureEntity>>() {
             @Override
             public void onSuccess(HttpResult<CheckPictureEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     List<CheckPictureEntity.DrawingBean> projects = result.getInfo().getDrawing();
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         ImageInfo info1 = new ImageInfo();
                         CheckPictureEntity.DrawingBean drawInfo = projects.get(i);
 
@@ -310,7 +316,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                         imageInfoList.add(info1);
                     }
 
-                    if(imageInfoList.size()!=0){
+                    if (imageInfoList.size() != 0) {
                         Intent intent = new Intent(_mActivity, ImagePreviewActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(ImagePreviewActivity.IMAGE_INFO, (Serializable) imageInfoList);
@@ -329,12 +335,14 @@ public class DetailIndexFragment extends BaseBackFragment {
 
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -363,7 +371,7 @@ public class DetailIndexFragment extends BaseBackFragment {
 //                        .setNegativeButton("关闭", null)
 //                        .setCancelable(true)
 //                        .show();
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailManagerPhone.getText().toString())
                         .setCancelText("取消")
@@ -375,7 +383,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailManagerPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -402,7 +410,7 @@ public class DetailIndexFragment extends BaseBackFragment {
 //                        .setCancelable(true)
 //                        .show();
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailDesignPhone.getText().toString())
                         .setCancelText("取消")
@@ -414,7 +422,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailDesignPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -426,7 +434,7 @@ public class DetailIndexFragment extends BaseBackFragment {
         mDetailMonitorPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailMonitorPhone.getText().toString())
                         .setCancelText("取消")
@@ -438,7 +446,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailMonitorPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -496,14 +504,14 @@ public class DetailIndexFragment extends BaseBackFragment {
         mIvDetailPic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().getDrawPicture(new ProgressSubscriber(mOnSuccessListenerPic, _mActivity), user_code, access_token,mProjectCode);
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().getDrawPicture(new ProgressSubscriber(mOnSuccessListenerPic, _mActivity), user_code, access_token, mProjectCode);
             }
         });
     }
 
-    private void initPullRefresh(View view){
+    private void initPullRefresh(View view) {
         //view.setBackgroundColor(getResources().getColor(R.color.gray));
         mPtrFrame = (PtrClassicFrameLayout) view.findViewById(R.id.rotate_header_refresh);
         mCardView = (CardView) view.findViewById(R.id.detail_cardView);
@@ -563,16 +571,16 @@ public class DetailIndexFragment extends BaseBackFragment {
         }, 100);
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode);
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode);
     }
 
     public boolean checkCanDoRefreshLocal() {
 
         int a = mDetailScroll.getScrollY();
-        if (a<=0){
+        if (a <= 0) {
             return true;
         }
         return false;

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -33,15 +32,16 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
-import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.entity.MyProjectsDetailEntity;
 import cn.chenhai.miaodj_monitor.presenter.HttpMethods;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
+import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment;
 import cn.chenhai.miaodj_monitor.ui.fragment.worker.WorkerCheckFragment;
+import cn.chenhai.miaodj_monitor.utils.TimeUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler2;
@@ -49,11 +49,12 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 项目详情
- *
+ * <对应状态：施工员已确认，施工员申请施工进场，业主拒绝施工进场>
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/7. 11:03
  * 邮箱：248866527@qq.com
  */
-public class DetailStartFragment extends BaseBackFragment{
+public class DetailStartFragment extends BaseBackFragment {
     private static final String ARG_ITEM = "arg_item";
 
     private SubscriberOnSuccessListener mOnSuccessInit;
@@ -171,21 +172,21 @@ public class DetailStartFragment extends BaseBackFragment{
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<MyProjectsDetailEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsDetailEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     MyProjectsDetailEntity.ProjectBean project = result.getInfo().getProject();
 
                     StringBuilder itemName = new StringBuilder();
                     itemName.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             itemName.append(project.getApartment());
                             itemName.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             itemName.append(project.getRoom());
                         }
@@ -193,8 +194,8 @@ public class DetailStartFragment extends BaseBackFragment{
                     itemName.append("装修项目");
                     mDetailName.setText(itemName.toString());
 
-                    String status="";
-                    switch (project.getStatus()){
+                    String status = "";
+                    switch (project.getStatus()) {
                         case "1":
                             status = "新建的项目";
                             break;
@@ -236,8 +237,8 @@ public class DetailStartFragment extends BaseBackFragment{
                             break;
                     }
 
-                    String drawStatus="";
-                    switch (project.getDrawing_status()){
+                    String drawStatus = "";
+                    switch (project.getDrawing_status()) {
                         case "1":
                             drawStatus = "图纸待上传";
                             mIfCanApplyStart = 0;
@@ -263,24 +264,25 @@ public class DetailStartFragment extends BaseBackFragment{
                             mIfCanApplyStart = 0;
                             break;
                     }
-                    if(mIfCanApplyStart == 0){
+                    if (mIfCanApplyStart == 0) {
                         mDetailIvConfirmPicStatus.setBackgroundResource(R.drawable.ic_status_2);
                         mDetailTvConfirmPic.setText("图纸未确认");
                         mDetailTvConfirmPicTime.setVisibility(View.GONE);
                         mDetailIvConfirmPicArrow.setVisibility(View.GONE);
                         mDetailFlConfirmPic.setEnabled(false);
                         mDetailBtnApply.setEnabled(false);
-                    }else if(mIfCanApplyStart == 1){
+                    } else if (mIfCanApplyStart == 1) {
                         mDetailIvConfirmPicStatus.setBackgroundResource(R.drawable.ic_status_2);
                         mDetailTvConfirmPic.setText("图纸未确认");
                         mDetailTvConfirmPicTime.setVisibility(View.GONE);
                         mDetailIvConfirmPicArrow.setVisibility(View.VISIBLE);
                         mDetailFlConfirmPic.setEnabled(true);
                         mDetailBtnApply.setEnabled(false);
-                    }else {
+                    } else {
                         mDetailIvConfirmPicStatus.setBackgroundResource(R.drawable.ic_status_1);
                         mDetailTvConfirmPic.setText("图纸已确认");
                         mDetailTvConfirmPicTime.setVisibility(View.VISIBLE);
+                        mDetailTvConfirmPicTime.setText(TimeUtil.getDate(project.getUpdatetime()));
                         mDetailIvConfirmPicArrow.setVisibility(View.VISIBLE);
                         mDetailFlConfirmPic.setEnabled(true);
                         mDetailBtnApply.setEnabled(true);
@@ -300,10 +302,10 @@ public class DetailStartFragment extends BaseBackFragment{
                     house.append("阳台");
                     mDetailHouseType.setText(house);
 
-                    String area = project.getArea()+" ㎡";
+                    String area = project.getArea() + " ㎡";
                     mDetailArea.setText(area);
 
-                    String peopleNumber = project.getPersons()+" 人";
+                    String peopleNumber = project.getPersons() + " 人";
                     mDetailPeopleNumber.setText(peopleNumber);
 
                     mDetailManager.setText(project.getManager_name());
@@ -315,15 +317,15 @@ public class DetailStartFragment extends BaseBackFragment{
                     mDetailMonitor.setText(project.getCrew_name());
                     mDetailMonitorPhone.setText(project.getCrew_telephone());
 
-                    mDetailContractTime.setText(project.getBargain_createtime());
+                    mDetailContractTime.setText(TimeUtil.getDate(project.getBargain_createtime()));
 
-                    if(project.getStart_date() == null){
+                    if (project.getStart_date() == null) {
                         mDetailWorkStartTime.setText("未开始");
-                    }else {
+                    } else {
                         mDetailWorkStartTime.setText(project.getStart_date());
                     }
 
-                    String limitdays = project.getTotal_days()+"天";
+                    String limitdays = project.getTotal_days() + "天";
                     mDetailWorkLimitTime.setText(limitdays);
 
                     StringBuilder address = new StringBuilder();
@@ -332,13 +334,13 @@ public class DetailStartFragment extends BaseBackFragment{
                     address.append(project.getHouse_area_name());
                     address.append(project.getStreet());
                     address.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             address.append(project.getApartment());
                             address.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             address.append(project.getRoom());
                             address.append("室");
@@ -347,12 +349,14 @@ public class DetailStartFragment extends BaseBackFragment{
                     mDetailProjectAddr.setText(address);
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 mPtrFrame.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 mPtrFrame.refreshComplete();
             }
         };
@@ -361,8 +365,8 @@ public class DetailStartFragment extends BaseBackFragment{
         mOnSuccessApplyStart = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
@@ -409,7 +413,7 @@ public class DetailStartFragment extends BaseBackFragment{
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailManagerPhone.getText().toString())
                         .setCancelText("取消")
@@ -421,7 +425,7 @@ public class DetailStartFragment extends BaseBackFragment{
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailManagerPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -432,7 +436,7 @@ public class DetailStartFragment extends BaseBackFragment{
         mDetailDesignPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailDesignPhone.getText().toString())
                         .setCancelText("取消")
@@ -444,7 +448,7 @@ public class DetailStartFragment extends BaseBackFragment{
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailDesignPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -456,7 +460,7 @@ public class DetailStartFragment extends BaseBackFragment{
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailMonitorPhone.getText().toString())
                         .setCancelText("取消")
@@ -468,7 +472,7 @@ public class DetailStartFragment extends BaseBackFragment{
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailMonitorPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -500,13 +504,13 @@ public class DetailStartFragment extends BaseBackFragment{
 
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode);
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode);
     }
 
-    private void initPullRefresh(View view){
+    private void initPullRefresh(View view) {
         view.setBackgroundColor(getResources().getColor(R.color.gray));
         mPtrFrame = (PtrClassicFrameLayout) view.findViewById(R.id.rotate_header_refresh);
         mCardView = (CardView) view.findViewById(R.id.detail_cardView);
@@ -569,7 +573,7 @@ public class DetailStartFragment extends BaseBackFragment{
     public boolean checkCanDoRefreshLocal() {
 
         int a = mDetailScroll.getScrollY();
-        if (a<=0){
+        if (a <= 0) {
             return true;
         }
         return false;
@@ -584,23 +588,20 @@ public class DetailStartFragment extends BaseBackFragment{
 //    }
 
 
-
-
-
-
-
-
-    /**---------------------------PoputWindow--------------------------------*/
+    /**
+     * ---------------------------PoputWindow--------------------------------
+     */
     private PopupWindow mPopupWindow;
 
     //private AutoFrameLayout mPopupApply;
     private ImageButton mApplyImgClose;
     private TextView mPublishTvDate;
     private Button mPublishBtn;
+
     /**
      * 初始化popWindow
-     * */
-    private void initPopWindow(View popView,PopupWindow popupWindow) {
+     */
+    private void initPopWindow(View popView, PopupWindow popupWindow) {
 
         //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -621,10 +622,10 @@ public class DetailStartFragment extends BaseBackFragment{
 
     /**
      * 设置添加屏幕的背景透明度
+     *
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha,float bgDim)
-    {
+    public void backgroundAlpha(float bgAlpha, float bgDim) {
         WindowManager.LayoutParams lp = _mActivity.getWindow().getAttributes();
         lp.dimAmount = bgDim;
         lp.alpha = bgAlpha; //0.0-1.0
@@ -632,16 +633,17 @@ public class DetailStartFragment extends BaseBackFragment{
 
         _mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
+
     /**
      * 添加新笔记时弹出的popWin关闭的事件，主要是为了将背景透明度改回来
-     * @author cg
      *
+     * @author cg
      */
     class poponDismissListener implements PopupWindow.OnDismissListener {
         @Override
         public void onDismiss() {
             //Log.v("List_noteTypeActivity:", "我是关闭事件");
-            backgroundAlpha(1f , 0.1f);
+            backgroundAlpha(1f, 0.1f);
         }
     }
 
@@ -652,7 +654,7 @@ public class DetailStartFragment extends BaseBackFragment{
         View popView = LayoutInflater.from(_mActivity).inflate(R.layout.popup_apply_to_work, null);
         mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //初始化
-        initPopWindow(popView,mPopupWindow);
+        initPopWindow(popView, mPopupWindow);
 
         // 设置按钮的点击事件
         mApplyImgClose.setOnClickListener(new View.OnClickListener() {
@@ -668,11 +670,12 @@ public class DetailStartFragment extends BaseBackFragment{
             @Override
             public void onClick(View v) {
                 DatePickerDialog dateDlg = new DatePickerDialog(_mActivity,
-                        d,
+                        dataSetCallBack,
                         dateAndTime.get(Calendar.YEAR),
                         dateAndTime.get(Calendar.MONTH),
                         dateAndTime.get(Calendar.DAY_OF_MONTH));
 
+                dateDlg.getDatePicker().setMinDate(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 3);
                 dateDlg.show();
 
             }
@@ -680,28 +683,20 @@ public class DetailStartFragment extends BaseBackFragment{
         upDateDate();
 
 
-
         mPublishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(_mActivity, "输入的货物重量超标！请重输", Toast.LENGTH_SHORT).show();
                 long timeMill = dateAndTime.getTimeInMillis();
-                Log.d("输入的时间戳",String.valueOf(timeMill));
 
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().applyBuildStart(new ProgressSubscriber(mOnSuccessApplyStart, _mActivity), user_code, access_token,mProjectCode,String.valueOf(timeMill));
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().applyBuildStart(new ProgressSubscriber(mOnSuccessApplyStart, _mActivity), user_code, access_token, mProjectCode, TimeUtil.getFormat(String.valueOf(timeMill)));
 
                 mPopupWindow.dismiss();
 
-//                Bundle bundle = new Bundle();
-//                bundle.putString("result","已申请");
-//                setFramgentResult(RESULT_OK, bundle);
-//                pop();
-
                 refreshData();
-//                start(DetailIndexFragment.newInstance(mProjectCode));
-//                pop();
+
             }
         });
 
@@ -729,7 +724,7 @@ public class DetailStartFragment extends BaseBackFragment{
         //获取焦点
         mPopupWindow.setFocusable(true);
 
-        backgroundAlpha(0.3f ,1f);//透明度
+        backgroundAlpha(0.3f, 1f);//透明度
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
@@ -738,7 +733,7 @@ public class DetailStartFragment extends BaseBackFragment{
         mPopupWindow.update();
         if (!mPopupWindow.isShowing()) {
             //设置显示位置
-            mPopupWindow.showAtLocation(view, Gravity.CENTER ,0,0);
+            mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         }
 
     }
@@ -746,14 +741,13 @@ public class DetailStartFragment extends BaseBackFragment{
 
     //获取日期格式器对象
     private DateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-    private DateFormat fmtTime = new SimpleDateFormat("HH:mm",Locale.getDefault());
+    private DateFormat fmtTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
 
     //获取一个日历对象
     private Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
 
     //当点击DatePickerDialog控件的设置按钮时，调用该方法
-    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener()
-    {
+    DatePickerDialog.OnDateSetListener dataSetCallBack = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
@@ -761,7 +755,7 @@ public class DetailStartFragment extends BaseBackFragment{
             //这里的year,monthOfYear,dayOfMonth的值与DatePickerDialog控件设置的最新值一致
             dateAndTime.set(Calendar.YEAR, year);
             dateAndTime.set(Calendar.MONTH, monthOfYear);
-            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth + 3);
             //将页面TextView的显示更新为最新时间
             upDateDate();
 
@@ -772,7 +766,9 @@ public class DetailStartFragment extends BaseBackFragment{
         mPublishTvDate.setText(fmtDate.format(dateAndTime.getTime()));
     }
 
-    /** -------------------------------------------------------------------------------------*/
+    /**
+     * -------------------------------------------------------------------------------------
+     */
 
     @Override
     public void onStop() {

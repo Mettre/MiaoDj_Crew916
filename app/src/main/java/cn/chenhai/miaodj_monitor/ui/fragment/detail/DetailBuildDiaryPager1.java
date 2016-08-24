@@ -42,6 +42,8 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 日志
+ *
  * Created by ChenHai--霜华 on 2016/6/24. 15:21
  * 邮箱：248866527@qq.com
  */

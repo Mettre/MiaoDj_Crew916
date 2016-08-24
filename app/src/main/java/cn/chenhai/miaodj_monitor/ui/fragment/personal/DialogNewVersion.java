@@ -27,6 +27,7 @@ import cn.chenhai.miaodj_monitor.utils.ApkUtils;
 import cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar;
 
 /**
+ * 版本更新Dialog
  * Created by ChenHai--霜华 on 2016/7/23. 11:44
  * 邮箱：248866527@qq.com
  */

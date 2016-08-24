@@ -24,6 +24,8 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 修改密码
+ * <p>
  * Created by ChenHai--霜华 on 2016/7/11. 15:32
  * 邮箱：248866527@qq.com
  */
@@ -70,7 +72,6 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
     private void initView(View view) {
 
 
-
         mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
         mToolbarTitle = (TextView) view.findViewById(R.id.toolbar_title);
 
@@ -103,15 +104,15 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
                     Toast.makeText(_mActivity, "两次输入密码不一致!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (mEtNewPassword.length() < 6){
-                    Toast.makeText(_mActivity, "密码长度必须大于 6 位！", Toast.LENGTH_SHORT).show();
+                if (mEtNewPassword.length() < 6 || mEtNewPassword.length() > 30) {
+                    Toast.makeText(_mActivity, "密码的长度为6-30位！！", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
 
-                HttpMethods.getInstance().doChangePassword(new ProgressSubscriber(mOnSuccessChangePass, _mActivity), user_code, access_token,mEtOldPassword.getText().toString(),mEtNewPassword.getText().toString());
+                HttpMethods.getInstance().doChangePassword(new ProgressSubscriber(mOnSuccessChangePass, _mActivity), user_code, access_token, mEtOldPassword.getText().toString(), mEtNewPassword.getText().toString());
 
 
             }
@@ -121,11 +122,11 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
         mOnSuccessChangePass = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
 
                         new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
@@ -136,7 +137,7 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
                                         sweetAlertDialog.dismiss();
 
                                         Bundle bundle = new Bundle();
-                                        bundle.putString("result","已修改");
+                                        bundle.putString("result", "已修改");
                                         setFramgentResult(RESULT_OK, bundle);
                                         pop();
                                     }
@@ -147,12 +148,14 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -160,7 +163,7 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
 
     }
 
-    private void initData(){
+    private void initData() {
         mToolbarTitle.setText("修改密码");
 
     }
@@ -169,6 +172,7 @@ public class PersonalChangePass extends BaseBackFragment_Swip {
     public void onAttach(Context context) {
         super.onAttach(context);
     }
+
     @Override
     public void onDetach() {
         super.onDetach();

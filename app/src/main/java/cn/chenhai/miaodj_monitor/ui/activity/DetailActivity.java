@@ -16,6 +16,8 @@ import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
+ * 项目详情
+ *
  * Created by ChenHai--霜华 on 2016/6/7. 09:36
  * 邮箱：248866527@qq.com
  */

@@ -26,9 +26,13 @@ import cn.chenhai.miaodj_monitor.presenter.HttpMethods;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment;
+import cn.chenhai.miaodj_monitor.utils.TimeUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 项目详情
+ * <对应状态：新建的项目，等待施工员确认，施工员拒绝>
+ *
  * Created by ChenHai--霜华 on 2016/6/7. 11:03
  * 邮箱：248866527@qq.com
  */
@@ -222,7 +226,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     mDetailMonitor.setText(project.getCrew_name());
                     mDetailMonitorPhone.setText(project.getCrew_telephone());
 
-                    mDetailContractTime.setText(project.getBargain_createtime());
+                    mDetailContractTime.setText(TimeUtil.getDate(project.getBargain_createtime()));
 
                     if(project.getStart_date() == null){
                         mDetailWorkStartTime.setText("未开始");

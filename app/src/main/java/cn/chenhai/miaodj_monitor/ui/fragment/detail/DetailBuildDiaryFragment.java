@@ -21,6 +21,8 @@ import cn.chenhai.miaodj_monitor.model.TabEntity;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment;
 
 /**
+ * 施工日志
+ *
  * Created by ChenHai--霜华 on 2016/6/24. 15:20
  * 邮箱：248866527@qq.com
  */

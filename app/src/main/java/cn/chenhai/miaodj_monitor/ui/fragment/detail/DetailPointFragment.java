@@ -37,6 +37,7 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
 import cn.chenhai.miaodj_monitor.ui.fragment.worker.WorkerCheckFragment;
 
 /**
+ * 项目节点
  * Created by ChenHai--霜华 on 2016/6/13. 21:08
  * 邮箱：248866527@qq.com
  */

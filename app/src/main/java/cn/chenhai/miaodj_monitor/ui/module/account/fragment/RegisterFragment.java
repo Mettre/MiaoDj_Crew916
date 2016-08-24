@@ -104,15 +104,14 @@ public class RegisterFragment extends BaseBackFragment {
 
         initToolbarNav(mToolbar);
 
-        mBtnGetCode.setOnClickListener(new View.OnClickListener(){
+        mBtnGetCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String strPhone = mEtPhone.getText().toString();
                 if (TextUtils.isEmpty(strPhone.trim())) {
                     Toast.makeText(_mActivity, "验证手机号不能为空!", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else if (!StringUtils.isPhoneNumberValid(strPhone.trim())) {
+                } else if (!StringUtils.isPhoneNumberValid(strPhone.trim())) {
                     Toast.makeText(_mActivity, "无效的手机号!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -128,10 +127,10 @@ public class RegisterFragment extends BaseBackFragment {
         mRegisterCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     mRegisterCheckbox.setTextColor(0xff3ca0ec);
                     mBtnRegister.setEnabled(true);
-                }else{
+                } else {
                     //mRegisterCheckbox.setTextColor(Color.argb(255,102,102,102));
                     mRegisterCheckbox.setTextColor(0xff9C9C9C);
                     mBtnRegister.setEnabled(false);
@@ -149,8 +148,7 @@ public class RegisterFragment extends BaseBackFragment {
                 if (TextUtils.isEmpty(strAccount.trim())) {
                     Toast.makeText(_mActivity, "注册手机号不能为空!", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else if (!StringUtils.isPhoneNumberValid(strAccount.trim())) {
+                } else if (!StringUtils.isPhoneNumberValid(strAccount.trim())) {
                     Toast.makeText(_mActivity, "无效的手机号!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -162,12 +160,12 @@ public class RegisterFragment extends BaseBackFragment {
                     Toast.makeText(_mActivity, "两次输入密码不一致!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (mEtPassword.length() < 6){
-                    Toast.makeText(_mActivity, "密码长度必须大于 6 位！", Toast.LENGTH_SHORT).show();
+                if (mEtPassword.length() < 6 || mEtPassword.length() > 30) {
+                    Toast.makeText(_mActivity, "密码的长度为6-30位！！", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                HttpMethods.getInstance().doRegister(new ProgressSubscriber(mOnSuccessRegister, _mActivity), strAccount, strPassword,strCode);
+                HttpMethods.getInstance().doRegister(new ProgressSubscriber(mOnSuccessRegister, _mActivity), strAccount, strPassword, strCode);
             }
         });
 
@@ -179,44 +177,48 @@ public class RegisterFragment extends BaseBackFragment {
                 String user_code = result.getUser_code();
                 String access_token = result.getAccess_token();
 
-                PreferencesUtils.putString(_mActivity,"expiretime",String.valueOf(TimeUtils.getCurrentTimeInLong() + 2*3600*1000));
-                PreferencesUtils.putString(_mActivity,"user_code",user_code);
-                PreferencesUtils.putString(_mActivity,"access_token",access_token);
-                PreferencesUtils.putString(_mActivity,"phoneAccount",mEtPhone.getText().toString());
+                PreferencesUtils.putString(_mActivity, "expiretime", String.valueOf(TimeUtils.getCurrentTimeInLong() + 2 * 3600 * 1000));
+                PreferencesUtils.putString(_mActivity, "user_code", user_code);
+                PreferencesUtils.putString(_mActivity, "access_token", access_token);
+                PreferencesUtils.putString(_mActivity, "phoneAccount", mEtPhone.getText().toString());
 
                 mOnRegisterSuccessListener.onRegisterSuccess();
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessSendMsgCode = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 200){
+                if (result.getCode() == 200) {
                     new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("验证码(临时)")
                             .setContentText(String.valueOf(result.getVerify_code()))
                             .show();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
     }
 
-    private void initData(){
+    private void initData() {
         mToolbarTitle.setText("用户注册");
     }
 
@@ -236,7 +238,7 @@ public class RegisterFragment extends BaseBackFragment {
                             @Override
                             public void run() {
                                 //mBtnCode.setText("获取验证码(" + i + ")");
-                                String str = String.format("重新获取(%s)",i);
+                                String str = String.format("重新获取(%s)", i);
                                 mBtnGetCode.setText(str);
                                 mBtnGetCode.setClickable(false);
                                 mBtnGetCode.setEnabled(false);
@@ -262,12 +264,12 @@ public class RegisterFragment extends BaseBackFragment {
                         }
                     });
                 }
-            };
+            }
+
+            ;
         };
         thread.start();
     }
-
-
 
 
     @Override

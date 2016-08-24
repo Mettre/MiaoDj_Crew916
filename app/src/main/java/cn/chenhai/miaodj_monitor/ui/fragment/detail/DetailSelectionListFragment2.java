@@ -46,6 +46,8 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 选品单列表
+ *
  * Created by ChenHai--霜华 on 2016/7/13. 16:18
  * 邮箱：248866527@qq.com
  */

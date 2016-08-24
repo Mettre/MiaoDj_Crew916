@@ -78,16 +78,6 @@ public class FirstPagerFragment extends BaseFragment implements SearchViewCut.Se
         return fragment;
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        Bundle args = getArguments();
-//        if (args != null) {
-//            mFrom = args.getInt(ARG_FROM);
-//        }
-//    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

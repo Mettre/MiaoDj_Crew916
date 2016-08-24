@@ -29,6 +29,8 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
 
 /**
+ * 相册
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/24. 15:22
  * 邮箱：248866527@qq.com
  */
@@ -45,15 +47,16 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
     private DetailBuildDiaryPager2Adapter mAdapter;
 
 
-    public static DetailBuildDiaryPager2 newInstance(int from , String projectCode) {
+    public static DetailBuildDiaryPager2 newInstance(int from, String projectCode) {
         Bundle args = new Bundle();
         args.putInt(ARG_FROM, from);
-        args.putString("projectCode",projectCode);
+        args.putString("projectCode", projectCode);
 
         DetailBuildDiaryPager2 fragment = new DetailBuildDiaryPager2();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +73,6 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_build_diary_pager, container, false);
-
         initView(view);
         //initDataTemp();
 
@@ -105,8 +107,8 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                TimerTask task = new TimerTask(){
-                    public void run(){
+                TimerTask task = new TimerTask() {
+                    public void run() {
 //                        if (getParentFragment() instanceof PersonalBacklogFragment) {
 //                            ((PersonalBacklogFragment) getParentFragment()).start(CycleFragment.newInstance(1));
 //                        }
@@ -121,19 +123,19 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<BuildPhotoEntity>>() {
             @Override
             public void onSuccess(HttpResult<BuildPhotoEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     List<BuildPhotoEntity.DrawingsBean> projects = result.getInfo().getDrawings();
                     List<BuildPhoto_Info> list = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         BuildPhoto_Info pageInfo = new BuildPhoto_Info();
                         BuildPhotoEntity.DrawingsBean nodeInfo = projects.get(i);
 
                         String headPath = "";
-                        if(nodeInfo.getWorker_headimg() != null) {
-                            if(!nodeInfo.getWorker_headimg().equals("")) {
+                        if (nodeInfo.getWorker_headimg() != null) {
+                            if (!nodeInfo.getWorker_headimg().equals("")) {
                                 headPath = HttpMethods.BASE_ROOT_URL + nodeInfo.getWorker_headimg();
                             }
                         }
@@ -154,75 +156,75 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                         pageInfo.setWorker_type(nodeInfo.getWorker_type_name());
 
                         String pic1 = "";
-                        if(nodeInfo.getPic_one() != null) {
-                            if(!nodeInfo.getPic_one().equals("")) {
+                        if (nodeInfo.getPic_one() != null) {
+                            if (!nodeInfo.getPic_one().equals("")) {
                                 pic1 = HttpMethods.BASE_ROOT_URL + nodeInfo.getPic_one();
                             }
                         }
 
                         String pic2 = "";
-                        if(nodeInfo.getPic_two() != null) {
-                            if(!nodeInfo.getPic_two().equals("")) {
+                        if (nodeInfo.getPic_two() != null) {
+                            if (!nodeInfo.getPic_two().equals("")) {
                                 pic2 = HttpMethods.BASE_ROOT_URL + nodeInfo.getPic_two();
                             }
                         }
 
                         String pic3 = "";
-                        if(nodeInfo.getPic_three() != null) {
-                            if(!nodeInfo.getPic_three().equals("")) {
+                        if (nodeInfo.getPic_three() != null) {
+                            if (!nodeInfo.getPic_three().equals("")) {
                                 pic3 = HttpMethods.BASE_ROOT_URL + nodeInfo.getPic_three();
                             }
                         }
 
                         String pic4 = "";
-                        if(nodeInfo.getPic_four() != null) {
-                            if(!nodeInfo.getPic_four().equals("")) {
+                        if (nodeInfo.getPic_four() != null) {
+                            if (!nodeInfo.getPic_four().equals("")) {
                                 pic4 = HttpMethods.BASE_ROOT_URL + nodeInfo.getPic_four();
                             }
                         }
 
                         String pic5 = "";
-                        if(nodeInfo.getPic_five() != null) {
-                            if(!nodeInfo.getPic_five().equals("")) {
+                        if (nodeInfo.getPic_five() != null) {
+                            if (!nodeInfo.getPic_five().equals("")) {
                                 pic5 = HttpMethods.BASE_ROOT_URL + nodeInfo.getPic_five();
                             }
                         }
 
                         String pic1Thumb = "";
-                        if(nodeInfo.getThumb_pic_one() != null) {
-                            if(!nodeInfo.getThumb_pic_one().equals("")) {
+                        if (nodeInfo.getThumb_pic_one() != null) {
+                            if (!nodeInfo.getThumb_pic_one().equals("")) {
                                 pic1Thumb = HttpMethods.BASE_ROOT_URL + nodeInfo.getThumb_pic_one();
                             }
                         }
                         pageInfo.setPhoto_path1(pic1Thumb);
 
                         String pic2Thumb = "";
-                        if(nodeInfo.getThumb_pic_two() != null) {
-                            if(!nodeInfo.getThumb_pic_two().equals("")) {
+                        if (nodeInfo.getThumb_pic_two() != null) {
+                            if (!nodeInfo.getThumb_pic_two().equals("")) {
                                 pic2Thumb = HttpMethods.BASE_ROOT_URL + nodeInfo.getThumb_pic_two();
                             }
                         }
                         pageInfo.setPhoto_path2(pic2Thumb);
 
                         String pic3Thumb = "";
-                        if(nodeInfo.getThumb_pic_three() != null) {
-                            if(!nodeInfo.getThumb_pic_three().equals("")) {
+                        if (nodeInfo.getThumb_pic_three() != null) {
+                            if (!nodeInfo.getThumb_pic_three().equals("")) {
                                 pic3Thumb = HttpMethods.BASE_ROOT_URL + nodeInfo.getThumb_pic_three();
                             }
                         }
                         pageInfo.setPhoto_path3(pic3Thumb);
 
                         String pic4Thumb = "";
-                        if(nodeInfo.getThumb_pic_four() != null) {
-                            if(!nodeInfo.getThumb_pic_four().equals("")) {
+                        if (nodeInfo.getThumb_pic_four() != null) {
+                            if (!nodeInfo.getThumb_pic_four().equals("")) {
                                 pic4Thumb = HttpMethods.BASE_ROOT_URL + nodeInfo.getThumb_pic_four();
                             }
                         }
                         pageInfo.setPhoto_path4(pic4Thumb);
 
                         String pic5Thumb = "";
-                        if(nodeInfo.getThumb_pic_five() != null) {
-                            if(!nodeInfo.getThumb_pic_five().equals("")) {
+                        if (nodeInfo.getThumb_pic_five() != null) {
+                            if (!nodeInfo.getThumb_pic_five().equals("")) {
                                 pic5Thumb = HttpMethods.BASE_ROOT_URL + nodeInfo.getThumb_pic_five();
                             }
                         }
@@ -260,12 +262,14 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                     mAdapter.notifyDataSetChanged();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -327,7 +331,7 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                 pageInfo.setImg_portraitPath("");
                 pageInfo.setWorker_name("小波");
                 pageInfo.setWorker_type("放线员");
-                pageInfo.setDayNum(String.valueOf(20-i));
+                pageInfo.setDayNum(String.valueOf(20 - i));
                 pageInfo.setDate("2016-06-12");
                 pageInfo.setPhoto_path1("http://pic3.nipic.com/20090623/385351_095354025_2.jpg");
                 pageInfo.setPhoto_path2("http://images.zx123.cn/uploadfile/2015/0713/20150713162612_48283.jpg");
@@ -341,7 +345,7 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                 pageInfo.setImg_portraitPath("http://h.hiphotos.baidu.com/zhidao/pic/item/7c1ed21b0ef41bd5da8c805250da81cb38db3dbc.jpg");
                 pageInfo.setWorker_name("张丽丽");
                 pageInfo.setWorker_type("水电工");
-                pageInfo.setDayNum(String.valueOf(20-i));
+                pageInfo.setDayNum(String.valueOf(20 - i));
                 pageInfo.setDate("2016-06-12");
                 pageInfo.setPhoto_path1("http://pic3.nipic.com/20090623/385351_095354025_2.jpg");
                 pageInfo.setPhoto_path2("http://images.zx123.cn/uploadfile/2015/0713/20150713162612_48283.jpg");
@@ -360,7 +364,7 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                 pageInfo.setImg_portraitPath("http://img3.duitang.com/uploads/item/201501/28/20150128194217_mYSVJ.jpeg");
                 pageInfo.setWorker_name("张丽丽");
                 pageInfo.setWorker_type("水电工");
-                pageInfo.setDayNum(String.valueOf(20-i));
+                pageInfo.setDayNum(String.valueOf(20 - i));
                 pageInfo.setDate("2016-06-12");
                 pageInfo.setPhoto_path1("http://pic3.nipic.com/20090623/385351_095354025_2.jpg");
                 pageInfo.setPhoto_path2("http://images.zx123.cn/uploadfile/2015/0713/20150713162612_48283.jpg");
@@ -373,7 +377,7 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                 pageInfo.setImg_portraitPath("http://img2.imgtn.bdimg.com/it/u=375192498,2173854692&fm=21&gp=0.jpg");
                 pageInfo.setWorker_name("崇丽丽");
                 pageInfo.setWorker_type("木工");
-                pageInfo.setDayNum(String.valueOf(20-i));
+                pageInfo.setDayNum(String.valueOf(20 - i));
                 pageInfo.setDate("2016-06-12");
                 pageInfo.setPhoto_path1("http://pic3.nipic.com/20090623/385351_095354025_2.jpg");
                 pageInfo.setPhoto_path2("http://images.zx123.cn/uploadfile/2015/0713/20150713162612_48283.jpg");
@@ -388,10 +392,10 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
         mAdapter.refreshDatas(list);
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getBuildDiaryPicture(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode);
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getBuildDiaryPicture(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode);
     }
 
     protected void updateData() {
