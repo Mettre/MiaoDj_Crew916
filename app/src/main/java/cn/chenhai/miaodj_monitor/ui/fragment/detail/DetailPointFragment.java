@@ -65,8 +65,6 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
     private TextView mPointTvDoChooseMsg;
     private Button mPointBtnDoChoose;
 
-    private int mGameType = 0;
-
     public static DetailPointFragment newInstance(String projectCode) {
 
         Bundle args = new Bundle();
