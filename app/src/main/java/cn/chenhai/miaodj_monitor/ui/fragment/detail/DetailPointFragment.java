@@ -113,7 +113,6 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
                 //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
                 TimerTask task = new TimerTask() {
                     public void run() {
-                        //execute the task
                         //start(DetailAgreeFragment.newInstance("测试单号111"));
                         start(DetailPointProgressFragment.newInstance(mProjectCode, mAdapter.getItem(position).getPointID(), mAdapter.getItemCount()));
                     }
