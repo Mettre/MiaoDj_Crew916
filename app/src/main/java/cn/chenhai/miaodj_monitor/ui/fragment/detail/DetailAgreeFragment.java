@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 /**
  * 项目详情
  * <对应状态：新建的项目，等待施工员确认，施工员拒绝>
- *
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/7. 11:03
  * 邮箱：248866527@qq.com
  */
@@ -73,6 +74,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
 
     private TextView mTvOKRefuse;
     private Button mBtnCancelRefuse;
+    private TextView mDelayData;
 
     public static DetailAgreeFragment newInstance(String projectCode) {
 
@@ -105,7 +107,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
 
 
         mDetailScroll = (ScrollView) view.findViewById(R.id.detail_Scroll);
-        mDetailScroll.smoothScrollTo(0,0);
+        mDetailScroll.smoothScrollTo(0, 0);
 
         initToolbarNav(mToolbar);
 
@@ -134,27 +136,27 @@ public class DetailAgreeFragment extends BaseBackFragment {
 
         mTvOKRefuse = (TextView) view.findViewById(R.id.tv_OK_refuse);
         mBtnCancelRefuse = (Button) view.findViewById(R.id.btn_Cancel_refuse);
-
+        mDelayData = (TextView) view.findViewById(R.id.detail_work_delayDataTv);
 
 
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<MyProjectsDetailEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsDetailEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     MyProjectsDetailEntity.ProjectBean project = result.getInfo().getProject();
 
                     StringBuilder itemName = new StringBuilder();
                     itemName.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             itemName.append(project.getApartment());
                             itemName.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             itemName.append(project.getRoom());
                         }
@@ -162,8 +164,8 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     itemName.append("装修项目");
                     mDetailName.setText(itemName.toString());
 
-                    String status="";
-                    switch (project.getStatus()){
+                    String status = "";
+                    switch (project.getStatus()) {
                         case "1":
                             status = "新建的项目";
                             break;
@@ -211,10 +213,10 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     house.append("阳台");
                     mDetailHouseType.setText(house);
 
-                    String area = project.getArea()+" ㎡";
+                    String area = project.getArea() + " ㎡";
                     mDetailArea.setText(area);
 
-                    String peopleNumber = project.getPersons()+" 人";
+                    String peopleNumber = project.getPersons() + " 人";
                     mDetailPeopleNumber.setText(peopleNumber);
 
                     mDetailManager.setText(project.getManager_name());
@@ -228,14 +230,11 @@ public class DetailAgreeFragment extends BaseBackFragment {
 
                     mDetailContractTime.setText(TimeUtil.getDate(project.getBargain_createtime()));
 
-                    if(project.getStart_date() == null){
+                    if (project.getStart_date() == null) {
                         mDetailWorkStartTime.setText("未开始");
-                    }else {
+                    } else {
                         mDetailWorkStartTime.setText(project.getStart_date());
                     }
-
-                    String limitdays = project.getTotal_days()+"天";
-                    mDetailWorkLimitTime.setText(limitdays);
 
                     StringBuilder address = new StringBuilder();
                     address.append(project.getHouse_province_name());
@@ -243,42 +242,54 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     address.append(project.getHouse_area_name());
                     address.append(project.getStreet());
                     address.append(project.getResidential());
-                    if(project.getApartment()!=null) {
+                    if (project.getApartment() != null) {
                         if (!project.getApartment().equals("")) {
                             address.append(project.getApartment());
                             address.append("幢");
                         }
                     }
-                    if(project.getRoom()!=null) {
+                    if (project.getRoom() != null) {
                         if (!project.getRoom().equals("")) {
                             address.append(project.getRoom());
                             address.append("室");
                         }
                     }
                     mDetailProjectAddr.setText(address);
+
+                    //延期工期
+//                    String limitdays = project.getTotal_days()+"天";
+//                    mDetailWorkLimitTime.setText(limitdays);
+
+                    //工期
+                    mDetailWorkLimitTime.setText(project.getDelay_days() > 0 ? "41" : project.getTotal_days() + "天");
+                    //延期日期
+                    mDelayData.setVisibility(project.getDelay_days() > 0 ? View.VISIBLE : View.GONE);
+                    mDelayData.setText(Html.fromHtml(String.format(getResources().getString(R.string.project_detail_delay), project.getDelay_days())));
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessListenerBecomeTo = new SubscriberOnSuccessListener<HttpResult<MyProjectsEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(ifAgree){
+                    if (ifAgree) {
                         start(DetailStartFragment.newInstance(mProjectCode));
                         pop();
                         //replaceLoadRootFragment(DetailStartFragment.newInstance(mProjectCode));
-                    }else {
+                    } else {
                         new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("")
                                 .setContentText("已提交拒绝!")
@@ -291,31 +302,34 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
 
     }
+
     private void initData() {
         mTvTitle.setText("项目详情");
 
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode);
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getProjectDetail(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode);
 
         mBtnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ifAgree = true;
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token,mProjectCode,"Y");
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "Y");
 
             }
         });
@@ -335,9 +349,9 @@ public class DetailAgreeFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sDialog) {
 
                                 ifAgree = false;
-                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token,mProjectCode,"N");
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "N");
 
                                 sDialog.dismiss();
                             }
@@ -366,7 +380,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
         mDetailManagerPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailManagerPhone.getText().toString())
                         .setCancelText("取消")
@@ -378,7 +392,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailManagerPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -390,7 +404,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailDesignPhone.getText().toString())
                         .setCancelText("取消")
@@ -402,7 +416,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailDesignPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -414,7 +428,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailMonitorPhone.getText().toString())
                         .setCancelText("取消")
@@ -426,7 +440,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mDetailMonitorPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }

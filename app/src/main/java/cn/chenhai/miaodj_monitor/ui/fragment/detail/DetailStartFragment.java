@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -97,6 +98,7 @@ public class DetailStartFragment extends BaseBackFragment {
     private TextView mDetailTvConfirmPic;
     private TextView mDetailTvConfirmPicTime;
     private ImageView mDetailIvConfirmPicArrow;
+    private TextView mDelayData;
 
 
     private CardView mCardView;
@@ -168,6 +170,7 @@ public class DetailStartFragment extends BaseBackFragment {
         mDetailTvConfirmPic = (TextView) view.findViewById(R.id.detail_tv_confirmPic);
         mDetailTvConfirmPicTime = (TextView) view.findViewById(R.id.detail_tv_confirmPic_time);
         mDetailIvConfirmPicArrow = (ImageView) view.findViewById(R.id.detail_iv_confirmPic_arrow);
+        mDelayData = (TextView) view.findViewById(R.id.detail_work_delayDataTv);
 
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<MyProjectsDetailEntity>>() {
             @Override
@@ -347,6 +350,16 @@ public class DetailStartFragment extends BaseBackFragment {
                         }
                     }
                     mDetailProjectAddr.setText(address);
+
+                    //延期工期
+//                    String limitdays = project.getTotal_days()+"天";
+//                    mDetailWorkLimitTime.setText(limitdays);
+
+                    //工期
+                    mDetailWorkLimitTime.setText(project.getDelay_days() > 0 ? "41" : project.getTotal_days() + "天");
+                    //延期日期
+                    mDelayData.setVisibility(project.getDelay_days() > 0 ? View.VISIBLE : View.GONE);
+                    mDelayData.setText(Html.fromHtml(String.format(getResources().getString(R.string.project_detail_delay), project.getDelay_days())));
                 }
             }
 

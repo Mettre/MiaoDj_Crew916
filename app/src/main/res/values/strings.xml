@@ -45,7 +45,7 @@
     <string name="selection_Main1">货物配送状态实时更新，最后货物到货后由项目施工员进行货物的签收。</string>
     <string name="selection_Main2">如有问题请及时与项目施工员进行沟通。</string>
 
-
+    <string name="project_detail_delay"><Data><![CDATA[+&#160;&#160;<font color="#ff0000"><b>%1$s</b></font>天延期]]></Data></string>
     
     <string name="point_text_title">节点流程说明：</string>
     <string name="point_text_content1">

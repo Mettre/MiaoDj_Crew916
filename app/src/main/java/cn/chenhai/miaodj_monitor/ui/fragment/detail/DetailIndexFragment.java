@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,7 @@ public class DetailIndexFragment extends BaseBackFragment {
     private TextView mDetailWorkStartTime;
     private TextView mDetailWorkLimitTime;
     private TextView mDetailProjectAddr;
+    private TextView mDelayData;
     private ImageView mIvDetailMessage;
     private ImageView mIvDetailLog;
     private ImageView mIvDetailChoose;
@@ -165,6 +167,7 @@ public class DetailIndexFragment extends BaseBackFragment {
         mIvDetailLog = (ImageView) view.findViewById(R.id.Iv_detail_log);
         mIvDetailChoose = (ImageView) view.findViewById(R.id.Iv_detail_choose);
         mIvDetailPic = (ImageView) view.findViewById(R.id.Iv_detail_pic);
+        mDelayData = (TextView) view.findViewById(R.id.detail_work_delayDataTv);
 
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<MyProjectsDetailEntity>>() {
             @Override
@@ -259,9 +262,6 @@ public class DetailIndexFragment extends BaseBackFragment {
                         mDetailWorkStartTime.setText(project.getStart_date());
                     }
 
-                    String limitdays = project.getTotal_days() + "天";
-                    mDetailWorkLimitTime.setText(limitdays);
-
                     StringBuilder address = new StringBuilder();
                     address.append(project.getHouse_province_name());
                     address.append(project.getHouse_city_name());
@@ -283,6 +283,16 @@ public class DetailIndexFragment extends BaseBackFragment {
                     mDetailProjectAddr.setText(address);
 
                     mCustomer_code = project.getCustomer_code();
+
+                    //延期工期
+//                    String limitdays = project.getTotal_days()+"天";
+//                    mDetailWorkLimitTime.setText(limitdays);
+
+                    //工期
+                    mDetailWorkLimitTime.setText(project.getDelay_days() > 0 ? "41" : project.getTotal_days() + "天");
+                    //延期日期
+                    mDelayData.setVisibility(project.getDelay_days() > 0 ? View.VISIBLE : View.GONE);
+                    mDelayData.setText(Html.fromHtml(String.format(getResources().getString(R.string.project_detail_delay), project.getDelay_days())));
                 }
             }
 
