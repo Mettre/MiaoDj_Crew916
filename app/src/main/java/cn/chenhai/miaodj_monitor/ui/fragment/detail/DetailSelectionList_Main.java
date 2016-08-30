@@ -29,7 +29,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bigkoo.pickerview.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.lzy.okhttputils.OkHttpUtils;
@@ -40,17 +39,10 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 import cn.chenhai.miaodj_monitor.Manifest;
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
-import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.UploadImgResult;
 import cn.chenhai.miaodj_monitor.model.entity.EmptyEntity;
@@ -58,8 +50,11 @@ import cn.chenhai.miaodj_monitor.model.entity.SelectionListMainEntity;
 import cn.chenhai.miaodj_monitor.presenter.HttpMethods;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
-import cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
+import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
+import cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar;
+import cn.chenhai.miaodj_monitor.ui.view_custom.TimeSelectPop;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.iwf.photopicker.PhotoPicker;
 import me.iwf.photopicker.PhotoPickerActivity;
@@ -74,11 +69,10 @@ import okhttp3.Response;
  */
 public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
-    private String mOrder_code , mMaterial_code , mSpace_id;
+    private String mOrder_code, mMaterial_code, mSpace_id;
     private String mSignForPicturePath = "";
     private String material_type = "1";
 
-    private TimePickerView pvTime;
     private SubscriberOnSuccessListener mOnSuccessMainMaterial;
     private SubscriberOnSuccessListener mOnSuccessDeliver;
     private SubscriberOnSuccessListener mOnSuccessSignFor;
@@ -127,13 +121,15 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     private LinearLayout mLLCardLayoutDirect;
     private LinearLayout mLLCardLayoutProcess;
 
+    TimeSelectPop mTimePickPop;
 
-    public static DetailSelectionList_Main newInstance(String order_code,String material_code, String space_id) {
+
+    public static DetailSelectionList_Main newInstance(String order_code, String material_code, String space_id) {
         DetailSelectionList_Main fragment = new DetailSelectionList_Main();
         Bundle args = new Bundle();
-        args.putString("order_code",order_code);
-        args.putString("material_code",material_code);
-        args.putString("space_id",space_id);
+        args.putString("order_code", order_code);
+        args.putString("material_code", material_code);
+        args.putString("space_id", space_id);
 
         fragment.setArguments(args);
         return fragment;
@@ -214,30 +210,34 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mLayoutProcessHide7 = (FrameLayout) view.findViewById(R.id.layout_process_hide_7);
         mBtnSelectionProcessSignFor = (Button) view.findViewById(R.id.btn_selection_process_signFor);
 
+        mTimePickPop = new TimeSelectPop(_mActivity, 1, new TimeSelectPop.SubmitOnClickListener() {
+            @Override
+            public void SubmitOnClickListener(String mData) {
+
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, "2", mData);
+            }
+        });
+
 
         mBtnSelectionDirectSignFor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                new SweetAlertDialog(_mActivity,SweetAlertDialog.WARNING_TYPE)
-//                        .setTitleText("提示")
-//                        .setContentText("此功能暂未定，请手动签收！")
-//                        .setConfirmText("知道了")
-//                        .show();
                 material_type = "1"; //不需要加工
-                showPopupWindow(v,mTvSelectionNum.getText().toString(),mTvSelectionNumUnit.getText().toString());
+                showPopupWindow(v, mTvSelectionNum.getText().toString(), mTvSelectionNumUnit.getText().toString());
             }
         });
-        initTimePicker();
         mBtnSelectionProcessSignFor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (mBtnSelectionProcessSignFor.getText().toString()) {
                     case "发起配送":
-                        pvTime.show();
+                        mTimePickPop.show(v);
                         break;
                     case "签收":
                         material_type = "2"; //需要加工
-                        showPopupWindow(v,mTvSelectionNum2.getText().toString(),mTvSelectionNum2Unit.getText().toString());
+                        showPopupWindow(v, mTvSelectionNum2.getText().toString(), mTvSelectionNum2Unit.getText().toString());
                         break;
                 }
             }
@@ -246,11 +246,11 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mOnSuccessMainMaterial = new SubscriberOnSuccessListener<HttpResult<SelectionListMainEntity>>() {
             @Override
             public void onSuccess(HttpResult<SelectionListMainEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
 
                         SelectionListMainEntity.MaterialBean beanInfo = result.getInfo().getMaterial();
 
@@ -263,19 +263,19 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                         float totalAmount = 0;
                         float cutAmount = 0;
-                        if(beanInfo.getAmount()!=null) {
+                        if (beanInfo.getAmount() != null) {
                             totalAmount = Float.valueOf(beanInfo.getAmount());
                         }
-                        if(beanInfo.getCut_amount()!=null) {
+                        if (beanInfo.getCut_amount() != null) {
                             cutAmount = Float.valueOf(beanInfo.getCut_amount());
                         }
                         mLayoutDirectHide5.setVisibility(View.GONE);
                         mLayoutProcessHide7.setVisibility(View.GONE);
                         String directStatus = "";
                         String processStatus = "";
-                        if(beanInfo.getChoose_status()!=null){
+                        if (beanInfo.getChoose_status() != null && !beanInfo.getChoose_status().equals("0")) {
                             mLLCardLayoutDirect.setVisibility(View.VISIBLE);
-                            switch (beanInfo.getChoose_status()){
+                            switch (beanInfo.getChoose_status()) {
                                 case "1":  //初始加载客户确认订单，待受理
                                     directStatus = "待受理";
                                     break;
@@ -305,12 +305,12 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                                 default:
                                     directStatus = "";
                             }
-                        }else {
+                        } else {
                             mLLCardLayoutDirect.setVisibility(View.GONE);
                         }
-                        if(beanInfo.getCut_status()!=null){
+                        if (beanInfo.getCut_status() != null && !beanInfo.getCut_status().equals("0")) {
                             mLLCardLayoutProcess.setVisibility(View.VISIBLE);
-                            switch (beanInfo.getCut_status()){
+                            switch (beanInfo.getCut_status()) {
                                 case "1":  //初始加载客户确认订单，待受理
                                     processStatus = "待受理";
                                     break;
@@ -342,96 +342,95 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                                 default:
                                     processStatus = "";
                             }
-                        }else {
+                        } else {
                             mLLCardLayoutProcess.setVisibility(View.GONE);
                         }
 
-                        mTvSelectionNum.setText(String.valueOf(totalAmount-cutAmount));
+                        mTvSelectionNum.setText(String.valueOf(totalAmount - cutAmount));
                         mTvSelectionNumUnit.setText(beanInfo.getUnit());
                         mTvSelectionStatusDirect.setText(directStatus);
-                        if(beanInfo.getPrepare_time()!=null){
+                        if (beanInfo.getPrepare_time() != null) {
                             mLayoutDirectHide1.setVisibility(View.VISIBLE);
                             mTvSelectionPrepareTime.setText(beanInfo.getPrepare_time());
-                        }else {
+                        } else {
                             mLayoutDirectHide1.setVisibility(View.GONE);
                         }
 
-                        if(beanInfo.getStart_deliver_time()!=null){
+                        if (beanInfo.getStart_deliver_time() != null) {
                             mLayoutDirectHide2.setVisibility(View.VISIBLE);
                             mTvSelectionDeliverTime.setText(beanInfo.getStart_deliver_time());
-                        }else {
+                        } else {
                             mLayoutDirectHide2.setVisibility(View.GONE);
                         }
 
-                        if(beanInfo.getDeliver_time()!=null){
+                        if (beanInfo.getDeliver_time() != null) {
                             mLayoutDirectHide3.setVisibility(View.VISIBLE);
                             mTvSelectionDeliverStartTime.setText(beanInfo.getDeliver_time());
-                        }else {
+                        } else {
                             mLayoutDirectHide3.setVisibility(View.GONE);
                         }
 
-                        if(beanInfo.getExpect_arrive_time()!=null){
+                        if (beanInfo.getExpect_arrive_time() != null) {
                             mLayoutDirectHide4.setVisibility(View.VISIBLE);
                             mTvSelectionArriveTime.setText(beanInfo.getExpect_arrive_time());
-                        }else {
+                        } else {
                             mLayoutDirectHide4.setVisibility(View.GONE);
                         }
-
-
 
 
                         mTvSelectionNum2.setText(String.valueOf(cutAmount));
                         mTvSelectionNum2Unit.setText(beanInfo.getUnit());
                         mTvSelectionStatusProcess.setText(processStatus);
-                        if(beanInfo.getCut_prepare_time()!=null){
+                        if (beanInfo.getCut_prepare_time() != null) {
                             mLayoutProcessHide1.setVisibility(View.VISIBLE);
                             mTvSelectionPrepareTime2.setText(beanInfo.getCut_prepare_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide1.setVisibility(View.GONE);
                         }
 
-                        if(beanInfo.getCut_reworking_time()!=null){
+                        if (beanInfo.getCut_reworking_time() != null) {
                             mLayoutProcessHide2.setVisibility(View.VISIBLE);
                             mTvSelectionProcessTime2.setText(beanInfo.getCut_reworking_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide2.setVisibility(View.GONE);
                         }
-                        if(beanInfo.getCut_reworked_time()!=null){
+                        if (beanInfo.getCut_reworked_time() != null) {
                             mLayoutProcessHide3.setVisibility(View.VISIBLE);
                             mTvSelectionProcessCompleteTime2.setText(beanInfo.getCut_reworked_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide3.setVisibility(View.GONE);
                         }
-                        if(beanInfo.getCut_start_deliver_time()!=null){
+                        if (beanInfo.getCut_start_deliver_time() != null) {
                             mLayoutProcessHide4.setVisibility(View.VISIBLE);
                             mTvSelectionDeliverTime2.setText(beanInfo.getCut_start_deliver_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide4.setVisibility(View.GONE);
                         }
-                        if(beanInfo.getCut_deliver_time()!=null){
+                        if (beanInfo.getCut_deliver_time() != null) {
                             mLayoutProcessHide5.setVisibility(View.VISIBLE);
                             mTvSelectionDeliverTimeStart2.setText(beanInfo.getCut_deliver_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide5.setVisibility(View.GONE);
                         }
-                        if(beanInfo.getCut_expect_arrive_time()!=null){
+                        if (beanInfo.getCut_expect_arrive_time() != null) {
                             mLayoutProcessHide6.setVisibility(View.VISIBLE);
                             mTvSelectionArriveTime2.setText(beanInfo.getCut_expect_arrive_time());
-                        }else {
+                        } else {
                             mLayoutProcessHide6.setVisibility(View.GONE);
                         }
-
 
 
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -439,12 +438,12 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mOnSuccessSignFor = new SubscriberOnSuccessListener<HttpResult<EmptyEntity>>() {
             @Override
             public void onSuccess(HttpResult<EmptyEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
-                        new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    if (result.getCode() == 200) {
+                        new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("货物签收状态已提交！")
                                 .setConfirmText("知道了")
@@ -462,12 +461,14 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -475,12 +476,12 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mOnSuccessDeliver = new SubscriberOnSuccessListener<HttpResult<EmptyEntity>>() {
             @Override
             public void onSuccess(HttpResult<EmptyEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
-                        new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    if (result.getCode() == 200) {
+                        new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("已成功发起配送！")
                                 .setConfirmText("知道了")
@@ -495,12 +496,14 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -509,71 +512,35 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
     }
 
-    private void initTimePicker(){
-
-        pvTime = new TimePickerView(_mActivity, TimePickerView.Type.YEAR_MONTH_DAY);
-        //控制时间范围
-        //        Calendar calendar = Calendar.getInstance();
-        //        pvTime.setRange(calendar.get(Calendar.YEAR) - 20, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
-        //pvTime.setTime(new Date());
-        pvTime.setTitle("请选择期望到达日期");
-        pvTime.setTime(dateAndTime.getTime());
-        pvTime.setCyclic(false);
-        pvTime.setCancelable(true);
-        //时间选择后回调
-        pvTime.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
-
-            @Override
-            public void onTimeSelect(Date date) {
-
-                String time = fmtDate.format(date);
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token,mOrder_code,mMaterial_code,"2",time);
-            }
-        });
-    }
-
-    private void initData(){
+    private void initData() {
         mToolbarTitle.setText("选品单");
 
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getMaterialDeliverDetail(new ProgressSubscriber(mOnSuccessMainMaterial, _mActivity), user_code, access_token,mOrder_code,mMaterial_code,mSpace_id);
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getMaterialDeliverDetail(new ProgressSubscriber(mOnSuccessMainMaterial, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, mSpace_id);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
     }
+
     @Override
     public void onDetach() {
         super.onDetach();
     }
 
-    //获取日期格式器对象
-    private DateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-    private DateFormat fmtTime = new SimpleDateFormat("HH:mm",Locale.getDefault());
-
-    //获取一个日历对象
-    private Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
-
-    /** -------------------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
+    /**
+     * -------------------------------------------------------------------------------------
+     */
 
 
     private ArrayList<String> mPhotoPaths;
     ArrayList<String> selectedPhotos = new ArrayList<>();
+
     enum RequestCode {
         //        Button(R.id.iv_popup_pic_upload),
 //        ButtonNoCamera(R.id.button_no_camera),
@@ -581,10 +548,12 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
         @IdRes
         final int mViewId;
+
         RequestCode(@IdRes int viewId) {
             mViewId = viewId;
         }
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -646,6 +615,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                 return true;
         }
     }
+
     private void checkPermission(@NonNull RequestCode requestCode) {
 
         int readStoragePermissionState = ContextCompat.checkSelfPermission(_mActivity, Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -669,9 +639,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             } else {
                 String[] permissions;
                 if (readStoragePermissionGranted && cameraPermissionGranted) {
-                    permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA };
+                    permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
                 } else {
-                    permissions = new String[] {
+                    permissions = new String[]{
                             readStoragePermissionGranted ? Manifest.permission.READ_EXTERNAL_STORAGE
                                     : Manifest.permission.CAMERA
                     };
@@ -687,7 +657,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         }
 
     }
+
     public static final int RESULT_LOCAL = 233;
+
     private void onClick(@IdRes int viewId) {
 
         switch (viewId) {
@@ -703,14 +675,15 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 //                        .setGridColumnCount(3)
 //                        .start(_mActivity, DetailSelectionList_Auxilary.this);
 
-                Bundle mPickerOptionsBundle = new Bundle();;
+                Bundle mPickerOptionsBundle = new Bundle();
+                ;
                 Intent mPickerIntent = new Intent();
                 mPickerIntent.setClass(_mActivity, PhotoPickerActivity.class);
                 mPickerOptionsBundle.putInt("MAX_COUNT", 1);
                 mPickerOptionsBundle.putInt("column", 3);
                 mPickerIntent.putExtras(mPickerOptionsBundle);
 
-                startActivityForResult(mPickerIntent,RESULT_LOCAL);
+                startActivityForResult(mPickerIntent, RESULT_LOCAL);
                 break;
             }
 
@@ -726,6 +699,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         public ProgressUpCallBack(Activity activity, Class<T> clazz) {
             this.clazz = clazz;
         }
+
         public ProgressUpCallBack(Type type) {
             this.type = type;
         }
@@ -740,14 +714,14 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         public void onResponse(boolean isFromCache, T s, Request request, Response response) {
             //handleResponse(isFromCache, s, request, response);
             mTvProgress.setText("上传完成");
-            UploadImgResult info = (UploadImgResult)s ;
+            UploadImgResult info = (UploadImgResult) s;
             mSignForPicturePath = info.getPicnamefile();
 
             String fullNum = mEtPopupFullNum.getText().toString().trim();
-            if(!mSignForPicturePath.equals("")){
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token,mOrder_code,mMaterial_code,material_type,fullNum,mSignForPicturePath);
+            if (!mSignForPicturePath.equals("")) {
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, material_type, fullNum, mSignForPicturePath);
             }
         }
 
@@ -818,8 +792,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     }
 
 
-
-    /** popupWindow控件 */
+    /**
+     * popupWindow控件
+     */
     private PopupWindow mPopupWindow;
 
     private LinearLayout mLlPopupClose;
@@ -840,8 +815,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     /**---------------------------PoputWindow--------------------------------*/
     /**
      * 初始化popWindow
-     * */
-    private void initPopWindow(View popView,PopupWindow popupWindow) {
+     */
+    private void initPopWindow(View popView, PopupWindow popupWindow) {
 
         //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -871,10 +846,10 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
     /**
      * 设置添加屏幕的背景透明度
+     *
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha,float bgDim)
-    {
+    public void backgroundAlpha(float bgAlpha, float bgDim) {
         WindowManager.LayoutParams lp = _mActivity.getWindow().getAttributes();
         lp.dimAmount = bgDim;
         lp.alpha = bgAlpha; //0.0-1.0
@@ -884,16 +859,17 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         //_mActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 
     }
+
     /**
      * 添加新笔记时弹出的popWin关闭的事件，主要是为了将背景透明度改回来
-     * @author cg
      *
+     * @author cg
      */
     class poponDismissListener implements PopupWindow.OnDismissListener {
         @Override
         public void onDismiss() {
             //Log.v("List_noteTypeActivity:", "我是关闭事件");
-            backgroundAlpha(1f,0.1f);
+            backgroundAlpha(1f, 0.1f);
         }
     }
 
@@ -904,7 +880,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         View popView = LayoutInflater.from(_mActivity).inflate(R.layout.popup_material_sign_for, null);
         mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //初始化
-        initPopWindow(popView,mPopupWindow);
+        initPopWindow(popView, mPopupWindow);
 
         mTvPopupSignNum.setText(signNum);
         mTvPopupSignNumUnit.setText(signNumUnit);
@@ -931,7 +907,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             public void onClick(View v) {
                 PhotoPreview.builder()
                         .setPhotos(selectedPhotos)
-                        .start(_mActivity,DetailSelectionList_Main.this);
+                        .start(_mActivity, DetailSelectionList_Main.this);
             }
         });
         mIvPopupPicDelete.setOnClickListener(new View.OnClickListener() {
@@ -941,7 +917,6 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                 mLlPopupPic.setVisibility(View.GONE);
             }
         });
-
 
 
         mBtnPopupDone.setOnClickListener(new View.OnClickListener() {
@@ -1006,7 +981,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         //获取焦点
         mPopupWindow.setFocusable(true);
 
-        backgroundAlpha(0.3f,1f);//透明度
+        backgroundAlpha(0.3f, 1f);//透明度
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
@@ -1015,11 +990,10 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mPopupWindow.update();
         if (!mPopupWindow.isShowing()) {
             //设置显示位置
-            mPopupWindow.showAtLocation(view, Gravity.CENTER ,0,0);
+            mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         }
 
     }
-
 
 
     /** -------------------------------------------------------------------------------------*/

@@ -225,10 +225,12 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             status = "未开始";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_nostart);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                         case "10":
                             status = "待进场";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_wait1);
+                            mLogBtn.setVisibility(View.GONE);
                             mBtnOK.setVisibility(View.VISIBLE);
                             mBtnOK.setText("确认进场");
                             mBtnOK.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +242,7 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             break;
                         case "20":
                             status = "待施工";
+                            mLogBtn.setVisibility(View.GONE);
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_wait1);
                             if (nodeBean.getWorker_name() == null || nodeBean.getWorker_name().equals("驻厂工人") || nodeBean.getWorker_name().equals("")) {
                                 mBtnOK.setVisibility(View.VISIBLE);
@@ -256,6 +259,7 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             break;
                         case "30":
                             status = "施工中";
+                            mLogBtn.setVisibility(View.GONE);
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_wait1);
                             if (nodeBean.getWorker_name() == null || nodeBean.getWorker_name().equals("驻厂工人") || nodeBean.getWorker_name().equals("")) {
                                 mBtnOK.setVisibility(View.VISIBLE);
@@ -278,7 +282,29 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             mBtnOK.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    showPopupWindow(v);
+                                    if (TextUtils.isEmpty(worker_code)) {
+                                        new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
+                                                .setTitleText("施工员验收")
+                                                .setContentText("确定施工完成吗？")
+                                                .setCancelText("取消")
+                                                .setConfirmText("确定！")
+                                                .showCancelButton(true)
+                                                .setCancelClickListener(null)
+                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                    @Override
+                                                    public void onClick(SweetAlertDialog sDialog) {
+
+                                                        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                                        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                                        HttpMethods.getInstance().doCrewCheckNodeFinish(new ProgressSubscriber(mOnSuccessCheckNodeFinish, _mActivity), user_code, access_token, mPointID, "Y", "", "", "", "");
+
+                                                        sDialog.dismiss();
+                                                    }
+                                                })
+                                                .show();
+                                    } else {
+                                        showPopupWindow(v);
+                                    }
                                 }
                             });
                             //查看施工日志
@@ -294,21 +320,46 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             status = "施工员验收不通过";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_red);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                         case "50":
                             status = "待业主验收";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_wait1);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                         case "52":
                             status = "业主验收不通过";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_red);
                             mBtnOK.setVisibility(View.VISIBLE);
+                            mLogBtn.setVisibility(View.GONE);
                             mBtnOK.setText("再次确认完成");
                             mBtnOK.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    showPopupWindow(v);
+                                    if (TextUtils.isEmpty(worker_code)) {
+                                        new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
+                                                .setTitleText("施工员验收")
+                                                .setContentText("确定施工完成吗？")
+                                                .setCancelText("取消")
+                                                .setConfirmText("确定！")
+                                                .showCancelButton(true)
+                                                .setCancelClickListener(null)
+                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                    @Override
+                                                    public void onClick(SweetAlertDialog sDialog) {
+
+                                                        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                                        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                                        HttpMethods.getInstance().doCrewCheckNodeFinish(new ProgressSubscriber(mOnSuccessCheckNodeFinish, _mActivity), user_code, access_token, mPointID, "Y", "", "", "", "");
+
+                                                        sDialog.dismiss();
+                                                    }
+                                                })
+                                                .show();
+                                    } else {
+                                        showPopupWindow(v);
+                                    }
                                 }
                             });
                             //查看施工日志
@@ -324,16 +375,19 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             status = "停工";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_red);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                         case "100":
                             status = "已完成";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_ok);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                         case "110":
                             status = "已完成";
                             mIvPointCircle.setBackgroundResource(R.drawable.ic_point_ok);
                             mBtnOK.setVisibility(View.GONE);
+                            mLogBtn.setVisibility(View.GONE);
                             break;
                     }
 
@@ -671,7 +725,7 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
 
         /** 禁止点击外部区域取消popup windows*/
         LinearLayout layouttemp = (LinearLayout) popView
-                .findViewById(R.id.popup_recommend);
+                .findViewById(R.id.popup_rootView);
         layouttemp.setFocusable(true);
         layouttemp.setFocusableInTouchMode(true);
         layouttemp.setOnKeyListener(new View.OnKeyListener() {

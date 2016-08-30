@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_time_pick_rootView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/copy_cardview"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:layout_width="600px"
+        android:layout_height="540px">
+
+        <ImageView
+            android:id="@+id/popup_time_pick_icon"
+            android:layout_width="34px"
+            android:layout_height="34px"
+            android:layout_marginLeft="46px"
+            android:layout_marginStart="46px"
+            android:layout_marginTop="44px"
+            android:background="@drawable/ic_apply_work" />
+
+        <TextView
+            android:id="@+id/popup_time_pick_titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginStart="93px"
+            android:layout_marginTop="45px"
+            android:text="申请施工进场"
+            android:textColor="@color/btn_yellow"
+            android:textSize="28px" />
+
+        <ImageButton
+            android:id="@+id/popup_time_pick_close"
+            android:layout_width="26px"
+            android:layout_height="26px"
+            android:layout_marginLeft="523px"
+            android:layout_marginStart="523px"
+            android:layout_marginTop="47px"
+            android:background="@drawable/ic_apply_close" />
+
+
+        <View
+            android:layout_width="520px"
+            android:layout_height="1px"
+            android:layout_marginLeft="41px"
+            android:layout_marginStart="41px"
+            android:layout_marginTop="102px"
+            android:background="@color/divider_color" />
+
+        <TextView
+            android:id="@+id/popup_time_pick_dataLableTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45px"
+            android:layout_marginStart="45px"
+            android:layout_marginTop="139px"
+            android:text="请确定预计进场日期"
+            android:textColor="@color/text_color_black_light"
+            android:textSize="24px" />
+
+        <ImageView
+            android:layout_width="11px"
+            android:layout_height="11px"
+            android:layout_marginLeft="274px"
+            android:layout_marginStart="274px"
+            android:layout_marginTop="146px"
+            android:background="@drawable/ic_red_star" />
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:layout_width="521px"
+            android:layout_height="71px"
+            android:layout_marginLeft="41px"
+            android:layout_marginStart="41px"
+            android:layout_marginTop="194px"
+            android:background="@color/white_2">
+
+            <ImageView
+                android:layout_width="34px"
+                android:layout_height="34px"
+                android:layout_marginLeft="23px"
+                android:layout_marginStart="23px"
+                android:layout_marginTop="18px"
+                android:background="@drawable/ic_apply_date" />
+
+            <TextView
+                android:id="@+id/popup_time_pick_dateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="79px"
+                android:layout_marginStart="79px"
+                android:layout_marginTop="23px"
+                android:text="2016-05-01"
+                android:textColor="@color/text_color_black"
+                android:textSize="26px" />
+
+            <ImageView
+                android:layout_width="22px"
+                android:layout_height="20px"
+                android:layout_marginLeft="481px"
+                android:layout_marginStart="481px"
+                android:layout_marginTop="20px"
+                android:background="@drawable/ic_arrow_up"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="22px"
+                android:layout_height="20px"
+                android:layout_marginLeft="481px"
+                android:layout_marginStart="481px"
+                android:layout_marginTop="37px"
+                android:background="@drawable/ic_arrow_down"
+                android:visibility="gone" />
+
+        </com.zhy.autolayout.AutoFrameLayout>
+
+
+        <Button
+            android:id="@+id/popup_time_pick_submitBtn"
+            style="?android:textAppearanceSmall"
+            android:layout_width="521px"
+            android:layout_height="89px"
+            android:layout_marginLeft="40px"
+            android:layout_marginStart="40px"
+            android:layout_marginTop="302px"
+            android:background="@drawable/btn_effect_bg_yellow"
+            android:text="提交"
+            android:textColor="@android:color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/popup_time_pick_hintOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43px"
+            android:layout_marginStart="43px"
+            android:layout_marginTop="421px"
+            android:text="请先和业主沟通确认施工进场日期"
+            android:textColor="@color/text_color_black_light"
+            android:textSize="20px" />
+
+        <TextView
+            android:id="@+id/popup_time_pick_hintTwe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43px"
+            android:layout_marginStart="43px"
+            android:layout_marginTop="456px"
+            android:text="施工进场申请待业主确认后，施工节点将按日期自动生成"
+            android:textColor="@color/text_color_black_light"
+            android:textSize="20px" />
+
+    </com.zhy.autolayout.AutoFrameLayout>
+</com.zhy.autolayout.AutoFrameLayout>
