@@ -7,9 +7,9 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endLine": 15,
+                    "endLine": 27,
                     "endColumn": 19,
-                    "endOffset": 420
+                    "endOffset": 885
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
@@ -17,184 +17,184 @@
                         "startLine": 2,
                         "startColumn": 4,
                         "startOffset": 55,
-                        "endLine": 15,
+                        "endLine": 27,
                         "endColumn": 19,
-                        "endOffset": 420
+                        "endOffset": 885
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 16,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 425,
-                    "endLine": 29,
+                    "startOffset": 890,
+                    "endLine": 53,
                     "endColumn": 19,
-                    "endOffset": 784
+                    "endOffset": 1714
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 425,
-                        "endLine": 29,
+                        "startOffset": 890,
+                        "endLine": 53,
                         "endColumn": 19,
-                        "endOffset": 784
+                        "endOffset": 1714
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 54,
                     "startColumn": 4,
-                    "startOffset": 789,
-                    "endLine": 43,
+                    "startOffset": 1719,
+                    "endLine": 67,
                     "endColumn": 19,
-                    "endOffset": 1123
+                    "endOffset": 2053
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 30,
+                        "startLine": 54,
                         "startColumn": 4,
-                        "startOffset": 789,
-                        "endLine": 43,
+                        "startOffset": 1719,
+                        "endLine": 67,
                         "endColumn": 19,
-                        "endOffset": 1123
+                        "endOffset": 2053
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 68,
                     "startColumn": 4,
-                    "startOffset": 1128,
+                    "startOffset": 2058,
                     "endColumn": 49,
-                    "endOffset": 1173
+                    "endOffset": 2103
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 44,
+                        "startLine": 68,
                         "startColumn": 4,
-                        "startOffset": 1128,
+                        "startOffset": 2058,
                         "endColumn": 49,
-                        "endOffset": 1173
+                        "endOffset": 2103
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 69,
                     "startColumn": 4,
-                    "startOffset": 1178,
+                    "startOffset": 2108,
                     "endColumn": 52,
-                    "endOffset": 1226
+                    "endOffset": 2156
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 45,
+                        "startLine": 69,
                         "startColumn": 4,
-                        "startOffset": 1178,
+                        "startOffset": 2108,
                         "endColumn": 52,
-                        "endOffset": 1226
+                        "endOffset": 2156
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 46,
+                    "startLine": 70,
                     "startColumn": 4,
-                    "startOffset": 1231,
+                    "startOffset": 2161,
                     "endColumn": 52,
-                    "endOffset": 1279
+                    "endOffset": 2209
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 46,
+                        "startLine": 70,
                         "startColumn": 4,
-                        "startOffset": 1231,
+                        "startOffset": 2161,
                         "endColumn": 52,
-                        "endOffset": 1279
+                        "endOffset": 2209
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 48,
+                    "startLine": 72,
                     "startColumn": 4,
-                    "startOffset": 1974,
+                    "startOffset": 2904,
                     "endColumn": 44,
-                    "endOffset": 2014
+                    "endOffset": 2944
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 48,
+                        "startLine": 72,
                         "startColumn": 4,
-                        "startOffset": 1974,
+                        "startOffset": 2904,
                         "endColumn": 44,
-                        "endOffset": 2014
+                        "endOffset": 2944
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 49,
+                    "startLine": 73,
                     "startColumn": 4,
-                    "startOffset": 2019,
+                    "startOffset": 2949,
                     "endColumn": 49,
-                    "endOffset": 2064
+                    "endOffset": 2994
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 49,
+                        "startLine": 73,
                         "startColumn": 4,
-                        "startOffset": 2019,
+                        "startOffset": 2949,
                         "endColumn": 49,
-                        "endOffset": 2064
+                        "endOffset": 2994
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 50,
+                    "startLine": 74,
                     "startColumn": 4,
-                    "startOffset": 2069,
+                    "startOffset": 2999,
                     "endColumn": 42,
-                    "endOffset": 2107
+                    "endOffset": 3037
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 50,
+                        "startLine": 74,
                         "startColumn": 4,
-                        "startOffset": 2069,
+                        "startOffset": 2999,
                         "endColumn": 42,
-                        "endOffset": 2107
+                        "endOffset": 3037
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 51,
+                    "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 2112,
+                    "startOffset": 3042,
                     "endColumn": 44,
-                    "endOffset": 2152
+                    "endOffset": 3082
                 },
                 "from": {
                     "file": "D:\\WorkSpace\\MiaoDJ_Monitor\\pickerWheel\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
-                        "startLine": 51,
+                        "startLine": 75,
                         "startColumn": 4,
-                        "startOffset": 2112,
+                        "startOffset": 3042,
                         "endColumn": 44,
-                        "endOffset": 2152
+                        "endOffset": 3082
                     }
                 }
             }
