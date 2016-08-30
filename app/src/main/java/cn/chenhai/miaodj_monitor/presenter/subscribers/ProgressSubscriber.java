@@ -100,18 +100,19 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
      */
     @Override
     public void onError(Throwable e) {
+        Log.e("网络错误",e.getMessage());
         if (e instanceof SocketTimeoutException) {
 //            Toast.makeText(context, "网络超时，请检查您的网络状态", Toast.LENGTH_SHORT).show();
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
-                    .setContentText(e.getMessage())
+                    .setContentText("网络超时，请检查您的网络状态")
                     .setConfirmText("知道了")
                     .show();
         } else if (e instanceof ConnectException) {
 //            Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
             new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("错误！")
-                    .setContentText(e.getMessage())
+                    .setContentText("网络中断，请检查您的网络状态")
                     .setConfirmText("知道了")
                     .show();
         } else if (e instanceof UnknownHostException || e instanceof MalformedJsonException) {

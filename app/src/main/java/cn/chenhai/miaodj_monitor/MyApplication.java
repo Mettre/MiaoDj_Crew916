@@ -3,6 +3,7 @@ package cn.chenhai.miaodj_monitor;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +38,8 @@ public class MyApplication extends Application {
     //private static DiskLruCacheHelper cacheHelper;
     //LeakCanary的使用
     private RefWatcher refWatcher;
+
+    private static Handler mHandler;
 
     public MyApplication() {
         instance = this;
@@ -75,6 +78,8 @@ public class MyApplication extends Application {
         refWatcher = LeakCanary.install(this);
         //registerUncaughtExceptionHandler();
 
+        mHandler = new Handler();
+
         CubeDebug.DEBUG_IMAGE = true;
         PtrFrameLayout.DEBUG = true;
         ImageLoaderFactory.setDefaultImageReSizer(DemoDuiTangImageReSizer.getInstance());
@@ -104,6 +109,14 @@ public class MyApplication extends Application {
 
         FiveGridView.setImageLoader(new GlideImageLoader());
     }
+
+    public static Handler getHandler() {
+        if (mHandler == null) {
+            mHandler = new Handler();
+        }
+        return mHandler;
+    }
+
     /** Glide 加载 */
     private class GlideImageLoader implements FiveGridView.ImageLoader {
         @Override

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_rootView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/copy_cardview"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="601px"
+        android:layout_height="841px"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="102px">
+
+            <ImageView
+                android:layout_width="32px"
+                android:layout_height="32px"
+                android:layout_marginLeft="43px"
+                android:layout_marginStart="43px"
+                android:layout_marginTop="43px"
+                android:background="@drawable/ic_pop_construct" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:layout_marginStart="15px"
+                android:layout_marginTop="45px"
+                android:layout_weight="1"
+                android:text="确认施工完成"
+                android:textColor="@color/color_green_ok"
+                android:textSize="28px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/pop_close"
+                android:layout_width="65px"
+                android:layout_height="60px"
+                android:layout_marginEnd="26px"
+                android:layout_marginRight="26px"
+                android:layout_marginTop="32px">
+
+                <ImageView
+                    android:layout_width="27px"
+                    android:layout_height="27px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginStart="15px"
+                    android:background="@drawable/ic_close_gray" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="520px"
+            android:layout_height="1dp"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:background="@color/divider_gray" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="41px"
+                    android:layout_marginStart="41px"
+                    android:text="本次需要付给施工工人的费用："
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="24px" />
+
+                <ImageView
+                    android:layout_width="12px"
+                    android:layout_height="12px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginStart="15px"
+                    android:background="@drawable/ic_red_star" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="71px"
+                android:layout_marginLeft="41px"
+                android:layout_marginRight="41px"
+                android:layout_marginStart="41px"
+                android:layout_marginTop="23px"
+                android:background="@color/gray_white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16px"
+                    android:layout_height="20px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23px"
+                    android:layout_marginStart="23px"
+                    android:background="@drawable/ic_pop_pay" />
+
+                <cn.chenhai.miaodj_monitor.ui.view_custom.ClearEditText
+                    android:id="@+id/et_popup_price"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="23px"
+                    android:layout_weight="1"
+                    android:background="@color/gray_white"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text=""
+                    android:textColor="@color/color_green_ok"
+                    android:textSize="28px" />
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="41px"
+                    android:layout_marginStart="41px"
+                    android:text="备注"
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="24px" />
+
+                <ImageView
+                    android:layout_width="12px"
+                    android:layout_height="12px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginStart="15px"
+                    android:visibility="gone"
+                    android:background="@drawable/ic_red_star" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <EditText
+                android:id="@+id/et_popup_memo"
+                android:layout_width="521px"
+                android:layout_height="141px"
+                android:layout_marginLeft="41px"
+                android:layout_marginStart="41px"
+                android:layout_marginTop="23px"
+                android:background="@color/gray_white"
+                android:gravity="left"
+                android:maxWidth="432px"
+                android:padding="10dp"
+                android:text=""
+                android:paddingRight="10dp"
+                android:textColor="@color/color_green_ok"
+                android:textSize="28px" />
+
+            <Button
+                android:id="@+id/popup_btn"
+                android:layout_width="521px"
+                android:layout_height="89px"
+                android:layout_marginLeft="40px"
+                android:layout_marginStart="40px"
+                android:layout_marginTop="42px"
+                android:background="@drawable/btn_effect_bg_green_pop"
+                android:text="确认完成"
+                android:textColor="@android:color/white"
+                android:textSize="30px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44px"
+                android:layout_marginLeft="44px"
+                android:layout_marginRight="44px"
+                android:layout_marginStart="44px"
+                android:layout_marginTop="39px"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6px"
+                    android:gravity="center_vertical"
+                    android:text="确定完工说明："
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="20px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6px"
+                    android:gravity="center_vertical"
+                    android:maxWidth="660px"
+                    android:text="1、确保工人施工完成情况符合项目节点验收标准;"
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="20px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6px"
+                    android:gravity="center_vertical"
+                    android:maxWidth="670px"
+                    android:text="2、查看工人上传的施工日志图片，或现场确认验收;"
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="20px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6px"
+                    android:gravity="center_vertical"
+                    android:maxWidth="670px"
+                    android:text="3、确认完成前输入本次需要付给施工工人的费用金额;"
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="20px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6px"
+                    android:gravity="center_vertical"
+                    android:maxWidth="680px"
+                    android:text="4、确认完成后，项目节点变为已完成;"
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="20px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -26,10 +27,15 @@ import com.labo.kaji.fragmentanimations.MoveAnimation;
 import com.labo.kaji.fragmentanimations.PushPullAnimation;
 import com.labo.kaji.fragmentanimations.SidesAnimation;
 
+import java.util.List;
+
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.ui.adapter.ItemPointAdapter;
-import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
 import cn.chenhai.miaodj_monitor.model.entity.PointProgressDetailEntity;
+import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
+import cn.chenhai.miaodj_monitor.ui.adapter.ItemPointAdapter;
+import cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView;
+import cn.chenhai.miaodj_monitor.ui.view_custom.RatingBar;
+import cn.chenhai.miaodj_monitor.utils.TimeUtil;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -39,21 +45,24 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 public class ItemPointFragment extends SupportFragment {
     private static final String ARG_ITEM = "item_content";
-    private String mTemCode;
 
     @IntDef({NONE, CUBE, FLIP, PUSHPULL, SIDES, MOVEPULL})
-    public @interface AnimationStyle {}
-    public static final int NONE     = 0;
-    public static final int CUBE     = 1;
-    public static final int FLIP     = 2;
+    public @interface AnimationStyle {
+    }
+
+    public static final int NONE = 0;
+    public static final int CUBE = 1;
+    public static final int FLIP = 2;
     public static final int PUSHPULL = 3;
-    public static final int SIDES    = 4;
+    public static final int SIDES = 4;
     public static final int MOVEPULL = 5;
 
     @IntDef({NODIR, LEFT, RIGHT})
-    public @interface AnimationDirection {}
+    public @interface AnimationDirection {
+    }
+
     public static final int NODIR = 0;
-    public static final int LEFT  = 1;
+    public static final int LEFT = 1;
     public static final int RIGHT = 2;
 
     private static final long DURATION = 500;
@@ -72,6 +81,19 @@ public class ItemPointFragment extends SupportFragment {
     private LinearLayout mItemLlStatusHide;
     private RecyclerView mItemRecycler;
 
+    private String mTemCode;
+
+    //支付工人款项
+    private TextView mIdppPrive;
+    private TextView mIdppMemoTv;
+    private AutoCardView mIdppPayCardview;
+
+    //业主也评价
+    private TextView mIdppEvaluateDataTv;
+    private RatingBar mIdppRatingBar;
+    private TextView mIdppCustomerContextTv;
+    private AutoCardView mIdppAssessCardview;
+
     private LinearLayoutManager mLLmanager;
     private ItemPointAdapter mAdapter;
 
@@ -79,12 +101,12 @@ public class ItemPointFragment extends SupportFragment {
 
     private int item_Index_Num = 1;
 
-    public static ItemPointFragment newInstance(String temCode,@AnimationDirection int direction,int indexNum) {
+    public static ItemPointFragment newInstance(String temCode, @AnimationDirection int direction, int indexNum) {
 
         Bundle args = new Bundle();
         args.putString(ARG_ITEM, temCode);
-        args.putInt("direction",direction);
-        args.putInt("indexNum",indexNum);
+        args.putInt("direction", direction);
+        args.putInt("indexNum", indexNum);
         ItemPointFragment fragment = new ItemPointFragment();
         fragment.setArguments(args);
         return fragment;
@@ -106,6 +128,7 @@ public class ItemPointFragment extends SupportFragment {
         initDataTemp();
         return view;
     }
+
     private void initView(View view) {
 
         mItemTvWorkerType = (TextView) view.findViewById(R.id.item_tv_workerType);
@@ -124,9 +147,16 @@ public class ItemPointFragment extends SupportFragment {
         mLLmanager = new LinearLayoutManager(_mActivity);
         mItemRecycler.setLayoutManager(mLLmanager);
         mItemRecycler.setAdapter(mAdapter);
+        mIdppPrive = (TextView) view.findViewById(R.id.idpp_prive);
+        mIdppMemoTv = (TextView) view.findViewById(R.id.idpp_memoTv);
+        mIdppPayCardview = (AutoCardView) view.findViewById(R.id.idpp_payCardview);
+        mIdppEvaluateDataTv = (TextView) view.findViewById(R.id.idpp_evaluateDataTv);
+        mIdppRatingBar = (RatingBar) view.findViewById(R.id.idpp_ratingBar);
+        mIdppCustomerContextTv = (TextView) view.findViewById(R.id.idpp_customerContextTv);
+        mIdppAssessCardview = (AutoCardView) view.findViewById(R.id.idpp_assessCardview);
     }
 
-    public void setItemData(PointProgressDetailEntity.NodeBean dataInfo){
+    public void setItemData(PointProgressDetailEntity.NodeBean dataInfo) {
         mItemTvWorkerType.setText(dataInfo.getWorker_name());
         mItemTvWorkerType2.setText(dataInfo.getWorker_type());
         mItemTvStartDatePredict.setText(dataInfo.getExpect_start_date());
@@ -135,7 +165,7 @@ public class ItemPointFragment extends SupportFragment {
         mItemTvEndDateReality.setText(dataInfo.getActual_end_date());
 
         String status = "";
-        switch(dataInfo.getStatus()){
+        switch (dataInfo.getStatus()) {
             case "1":
                 status = "未开始";
                 break;
@@ -172,12 +202,43 @@ public class ItemPointFragment extends SupportFragment {
         }
         mItemTvNowStatus.setText(status);
 
-        if(dataInfo.getLogs().size() > 0){
+        if (dataInfo.getLogs().size() > 0) {
             mItemLlStatusHide.setVisibility(View.VISIBLE);
             mAdapter.refreshDatas(dataInfo.getLogs());
             mAdapter.notifyDataSetChanged();
-        }else {
+        } else {
             mItemLlStatusHide.setVisibility(View.GONE);
+        }
+
+
+        //工人施工款项
+        loadPayInfo(dataInfo.getPay_info());
+
+        //业主评价
+        if (!TextUtils.isEmpty(dataInfo.getAssess()) || !TextUtils.isEmpty(dataInfo.getScore()) || !TextUtils.isEmpty(dataInfo.getEvaluated_date())) {
+            mIdppAssessCardview.setVisibility(View.VISIBLE);
+            mIdppEvaluateDataTv.setText(TextUtils.isEmpty(dataInfo.getEvaluated_date()) ? "" : TimeUtil.getDateForMin(dataInfo.getEvaluated_date()));
+            mIdppRatingBar.setStar(Float.valueOf(TextUtils.isEmpty(dataInfo.getScore()) ? "0" : dataInfo.getScore()));
+            mIdppCustomerContextTv.setText(TextUtils.isEmpty(dataInfo.getAssess()) ? "" : dataInfo.getAssess());
+
+        } else {
+            mIdppAssessCardview.setVisibility(View.GONE);
+        }
+
+    }
+
+    /**
+     * 加载显示工人施工款项
+     *
+     * @param payInfo
+     */
+    private void loadPayInfo(List<PointProgressDetailEntity.NodeBean.PayInfoBean> payInfo) {
+        if (payInfo == null || payInfo.size() == 0) {
+            mIdppPayCardview.setVisibility(View.GONE);
+        } else {
+            mIdppPayCardview.setVisibility(View.VISIBLE);
+            mIdppPrive.setText(TextUtils.isEmpty(payInfo.get(0).getPrice()) ? "" : payInfo.get(0).getPrice());
+            mIdppMemoTv.setText(TextUtils.isEmpty(payInfo.get(0).getMemo()) ? "" : payInfo.get(0).getMemo());
         }
 
     }
@@ -187,16 +248,19 @@ public class ItemPointFragment extends SupportFragment {
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                showPopupWindow(view,mAdapter.getItem(position));
+                showPopupWindow(view, mAdapter.getItem(position));
             }
         });
 
     }
-    private void initDataTemp() {}
+
+    private void initDataTemp() {
+    }
 
     public interface OnItemRefreshListener {
         void onItemRefresh();
     }
+
     public void setOnItemRefreshListener(OnItemRefreshListener itemRefreshListener) {
         this.itemRefreshListener = itemRefreshListener;
     }
@@ -266,20 +330,19 @@ public class ItemPointFragment extends SupportFragment {
     }
 
     @Override
-    public void onStop(){
+    public void onStop() {
         super.onStop();
     }
+
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
     }
 
 
-
-
-
-
-    /**---------------------------PoputWindow--------------------------------*/
+    /**
+     * ---------------------------PoputWindow--------------------------------
+     */
     private PopupWindow mPopupWindow;
 
     private LinearLayout mPopupRemind;
@@ -296,8 +359,8 @@ public class ItemPointFragment extends SupportFragment {
 
     /**
      * 初始化popWindow
-     * */
-    private void initPopWindow(View popView,PopupWindow popupWindow) {
+     */
+    private void initPopWindow(View popView, PopupWindow popupWindow) {
 
         //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -327,10 +390,10 @@ public class ItemPointFragment extends SupportFragment {
 
     /**
      * 设置添加屏幕的背景透明度
+     *
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha, float bgDim)
-    {
+    public void backgroundAlpha(float bgAlpha, float bgDim) {
         WindowManager.LayoutParams lp = _mActivity.getWindow().getAttributes();
         lp.dimAmount = bgDim;
         lp.alpha = bgAlpha; //0.0-1.0
@@ -338,27 +401,28 @@ public class ItemPointFragment extends SupportFragment {
 
         _mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
+
     /**
      * 添加新笔记时弹出的popWin关闭的事件，主要是为了将背景透明度改回来
-     * @author cg
      *
+     * @author cg
      */
     class poponDismissListener implements PopupWindow.OnDismissListener {
         @Override
         public void onDismiss() {
             //Log.v("List_noteTypeActivity:", "我是关闭事件");
-            backgroundAlpha(1f ,0.1f);
+            backgroundAlpha(1f, 0.1f);
         }
     }
 
 
-    private void showPopupWindow(View view , PointProgressDetailEntity.NodeBean.LogsBean mLogsBean) {
+    private void showPopupWindow(View view, PointProgressDetailEntity.NodeBean.LogsBean mLogsBean) {
 
         // 一个自定义的布局，作为显示的内容
         View popView = LayoutInflater.from(_mActivity).inflate(R.layout.popup_remind_with_picture, null);
         mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //初始化
-        initPopWindow(popView,mPopupWindow);
+        initPopWindow(popView, mPopupWindow);
 
         mTvPopupTitle.setText(mLogsBean.getTitle());
         mTvPopupContent1.setText("不确认原因：");
@@ -380,7 +444,7 @@ public class ItemPointFragment extends SupportFragment {
             @Override
             public void onClick(View v) {
 
-                new SweetAlertDialog(_mActivity,SweetAlertDialog.NORMAL_TYPE)
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mTvPopupOwnerPhone.getText().toString())
                         .setCancelText("取消")
@@ -392,7 +456,7 @@ public class ItemPointFragment extends SupportFragment {
                             public void onClick(SweetAlertDialog sweetAlertDialog) {
                                 String phone = mTvPopupOwnerPhone.getText().toString();
                                 //用intent启动拨打电话
-                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
+                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
                             }
@@ -400,7 +464,6 @@ public class ItemPointFragment extends SupportFragment {
                         .show();
             }
         });
-
 
 
         /** 禁止点击外部区域取消popup windows*/
@@ -426,7 +489,7 @@ public class ItemPointFragment extends SupportFragment {
         //获取焦点
         mPopupWindow.setFocusable(true);
 
-        backgroundAlpha(0.3f ,1f);//透明度
+        backgroundAlpha(0.3f, 1f);//透明度
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
@@ -435,7 +498,7 @@ public class ItemPointFragment extends SupportFragment {
         mPopupWindow.update();
         if (!mPopupWindow.isShowing()) {
             //设置显示位置
-            mPopupWindow.showAtLocation(view, Gravity.CENTER ,0,0);
+            mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         }
 
     }

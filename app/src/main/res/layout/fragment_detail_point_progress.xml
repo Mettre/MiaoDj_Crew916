@@ -18,15 +18,17 @@
     <!--<cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView-->
     <cn.chenhai.miaodj_monitor.ui.view_custom.MyScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
         android:id="@+id/bounceScrollView">
 
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.zhy.autolayout.AutoFrameLayout
@@ -120,6 +122,20 @@
                 android:background="@drawable/btn_effect_bg_blue"
                 android:text="开始施工"
                 android:textColor="@color/white"
+                android:textSize="26px"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btn_log"
+                android:layout_width="701px"
+                android:layout_height="89px"
+                android:layout_marginLeft="29px"
+                android:layout_marginStart="29px"
+                android:layout_marginTop="39px"
+                android:background="@drawable/btn_effect_bg_blue_contrary"
+                android:text="查看施工日志"
+                android:visibility="gone"
+                android:textColor="@color/colorPrimary1"
                 android:textSize="26px"
                 android:textStyle="bold"/>
 

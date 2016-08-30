@@ -116,5 +116,10 @@
         </attr>
     </declare-styleable>
     <!-- ***************************************************************************** -->
+    <!-- ClearEditText -->
+    <declare-styleable name="ClearEditText">
+        <attr name="isLeft" format="boolean"></attr>
+    </declare-styleable>
+
 
 </resources>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="26px"
         android:layout_marginLeft="24px"
         android:layout_marginRight="25px"
-        android:layout_marginBottom="26px"
         android:layout_marginTop="20px"
         android:clickable="false"
-        card_view:cardElevation="2dp"
-        card_view:cardCornerRadius="6dp">
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="2dp">
 
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -33,11 +33,11 @@
                     android:layout_marginLeft="32px"
                     android:layout_marginStart="32px"
                     android:layout_marginTop="41px"
-                    android:textColor="@color/text_color_black"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
-                    android:text="施工工人："/>
+                    android:text="施工工人："
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
                 <TextView
                     android:id="@+id/item_tv_workerType"
@@ -46,21 +46,21 @@
                     android:layout_marginLeft="193px"
                     android:layout_marginStart="193px"
                     android:layout_marginTop="41px"
-                    android:textColor="@color/text_color_black"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
-                    android:text="暂无"/>
+                    android:text="暂无"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
                 <com.zhy.autolayout.AutoFrameLayout
                     android:layout_width="121px"
                     android:layout_height="51px"
-                    android:orientation="horizontal"
                     android:layout_marginLeft="550px"
-                    android:layout_marginStart="550px"
                     android:layout_marginRight="30px"
+                    android:layout_marginStart="550px"
                     android:layout_marginTop="26px"
-                    android:background="@drawable/layout_selecter_blue">
+                    android:background="@drawable/layout_selecter_blue"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/item_tv_workerType2"
@@ -68,19 +68,19 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:singleLine="true"
-                        android:textSize="20px"
                         android:text="- -"
-                        android:textColor="@color/colorBluePrimaryCenter"/>
+                        android:textColor="@color/colorBluePrimaryCenter"
+                        android:textSize="20px" />
 
                 </com.zhy.autolayout.AutoFrameLayout>
 
                 <View
-                    android:layout_width="636px"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="99px"
                     android:layout_marginLeft="32px"
+                    android:layout_marginRight="32px"
                     android:layout_marginStart="32px"
-                    android:layout_marginRight="33px"
+                    android:layout_marginTop="99px"
                     android:background="@drawable/line_dot" />
 
             </com.zhy.autolayout.AutoFrameLayout>
@@ -99,9 +99,9 @@
                     android:layout_marginTop="52px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
+                    android:text="开始日期："
                     android:textColor="@color/text_color_black"
-                    android:textSize="26px"
-                    android:text="开始日期："/>
+                    android:textSize="26px" />
 
 
                 <TextView
@@ -112,9 +112,10 @@
                     android:layout_marginTop="28px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="预计"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,9 +124,9 @@
                     android:layout_marginTop="74px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="实际"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
                 <TextView
                     android:id="@+id/item_tv_startDate_predict"
@@ -136,9 +137,10 @@
                     android:layout_marginTop="28px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="- -"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
                 <TextView
                     android:id="@+id/item_tv_startDate_reality"
                     android:layout_width="wrap_content"
@@ -148,17 +150,17 @@
                     android:layout_marginTop="74px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="- -"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
 
                 <View
-                    android:layout_width="636px"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="128px"
                     android:layout_marginLeft="32px"
-                    android:layout_marginRight="33px"
+                    android:layout_marginRight="32px"
+                    android:layout_marginTop="128px"
                     android:background="@drawable/line_dot" />
 
 
@@ -178,9 +180,9 @@
                     android:layout_marginTop="52px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
+                    android:text="结束日期："
                     android:textColor="@color/text_color_black"
-                    android:textSize="26px"
-                    android:text="结束日期："/>
+                    android:textSize="26px" />
 
 
                 <TextView
@@ -191,9 +193,10 @@
                     android:layout_marginTop="28px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="预计"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -202,9 +205,9 @@
                     android:layout_marginTop="74px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="实际"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
                 <TextView
                     android:id="@+id/item_tv_endDate_predict"
@@ -215,9 +218,10 @@
                     android:layout_marginTop="28px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="- -"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
                 <TextView
                     android:id="@+id/item_tv_endDate_reality"
                     android:layout_width="wrap_content"
@@ -227,17 +231,17 @@
                     android:layout_marginTop="74px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="- -"
-                    android:textColor="@color/text_color_black"/>
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
 
 
                 <View
-                    android:layout_width="636px"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="128px"
                     android:layout_marginLeft="32px"
-                    android:layout_marginRight="33px"
+                    android:layout_marginRight="32px"
+                    android:layout_marginTop="128px"
                     android:background="@drawable/line_dot" />
 
 
@@ -257,32 +261,32 @@
                     android:layout_marginTop="32px"
                     android:gravity="center_vertical"
                     android:singleLine="true"
+                    android:text="当前状态："
                     android:textColor="@color/text_color_black"
-                    android:textSize="26px"
-                    android:text="当前状态："/>
+                    android:textSize="26px" />
 
 
                 <TextView
                     android:id="@+id/item_tv_now_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxWidth="500px"
                     android:layout_marginLeft="192px"
                     android:layout_marginStart="192px"
                     android:layout_marginTop="32px"
                     android:gravity="center_vertical"
+                    android:maxWidth="500px"
                     android:singleLine="true"
-                    android:textSize="26px"
                     android:text="- -"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBluePrimaryCenter"/>
+                    android:textColor="@color/colorBluePrimaryCenter"
+                    android:textSize="26px"
+                    android:textStyle="bold" />
 
                 <View
-                    android:layout_width="610px"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginLeft="32px"
+                    android:layout_marginRight="32px"
                     android:layout_marginTop="85px"
-                    android:layout_marginLeft="42px"
-                    android:layout_marginRight="49px"
                     android:background="@drawable/line_dot" />
 
             </com.zhy.autolayout.AutoFrameLayout>
@@ -290,12 +294,12 @@
             <!-- ******************************************************* -->
 
             <com.zhy.autolayout.AutoLinearLayout
-                android:visibility="gone"
-                tools:visibility="visible"
+                android:id="@+id/item_ll_status_hide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/item_ll_status_hide">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/item_recycler"
@@ -309,6 +313,206 @@
             </com.zhy.autolayout.AutoLinearLayout>
         </com.zhy.autolayout.AutoLinearLayout>
 
+
+    </cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView>
+
+    <cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView
+        android:id="@+id/idpp_payCardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="25px"
+        android:clickable="false"
+        android:visibility="gone"
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="2dp">
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="34px"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="已支付工人施工款项："
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
+
+                <TextView
+                    android:id="@+id/idpp_prive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/blue_3"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text="元"
+                    android:textColor="@color/text_color_black_3"
+                    android:textSize="20px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginTop="81px"
+                android:background="@drawable/line_dot" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32px"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginTop="110px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="备注："
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/idpp_memoTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoFrameLayout>
+
+
+    </cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView>
+
+
+    <!--业主已评价-->
+    <cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView
+        android:id="@+id/idpp_assessCardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="25px"
+        android:clickable="false"
+        android:visibility="gone"
+        card_view:cardCornerRadius="6dp"
+        card_view:cardElevation="2dp">
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="34px"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="业主已评价"
+                    android:textColor="@color/text_color_black"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/idpp_evaluateDataTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_black_3"
+                    android:textSize="20px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginTop="81px"
+                android:background="@drawable/line_dot" />
+
+            <cn.chenhai.miaodj_monitor.ui.view_custom.RatingBar
+                android:id="@+id/idpp_ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="92px"
+                card_view:clickable="false"
+                card_view:starCount="5"
+                card_view:starEmpty="@drawable/star_comment_2"
+                card_view:starFill="@drawable/star_comment_1"
+                card_view:starHalf="@drawable/star_comment_3"
+                card_view:starImageSize="17dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginTop="143px"
+                android:background="@drawable/line_dot" />
+
+            <TextView
+                android:id="@+id/idpp_customerContextTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32px"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="45px"
+                android:layout_marginStart="32px"
+                android:layout_marginTop="172px"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/text_color_black_3"
+                android:textSize="24px" />
+
+        </com.zhy.autolayout.AutoFrameLayout>
 
     </cn.chenhai.miaodj_monitor.ui.view_custom.AutoCardView>
 </com.zhy.autolayout.AutoLinearLayout>

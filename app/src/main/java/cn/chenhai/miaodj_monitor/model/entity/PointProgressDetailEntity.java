@@ -104,6 +104,16 @@ public class PointProgressDetailEntity {
 
         private List<LogsBean> logs;
 
+        private List<PayInfoBean> pay_info;
+
+        public List<PayInfoBean> getPay_info() {
+            return pay_info;
+        }
+
+        public void setPay_info(List<PayInfoBean> pay_info) {
+            this.pay_info = pay_info;
+        }
+
         public String getId() {
             return id;
         }
@@ -390,6 +400,28 @@ public class PointProgressDetailEntity {
 
             public void setTelephone(String telephone) {
                 this.telephone = telephone;
+            }
+        }
+
+        public static class PayInfoBean {
+
+            private String price;
+            private String memo;
+
+            public String getPrice() {
+                return price;
+            }
+
+            public void setPrice(String price) {
+                this.price = price;
+            }
+
+            public String getMemo() {
+                return memo;
+            }
+
+            public void setMemo(String memo) {
+                this.memo = memo;
             }
         }
     }

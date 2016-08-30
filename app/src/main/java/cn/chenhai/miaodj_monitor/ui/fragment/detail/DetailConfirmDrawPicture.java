@@ -38,6 +38,8 @@ import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
+ * 图纸确认
+ *
  * Created by ChenHai--霜华 on 2016/7/5. 14:55
  * 邮箱：248866527@qq.com
  */

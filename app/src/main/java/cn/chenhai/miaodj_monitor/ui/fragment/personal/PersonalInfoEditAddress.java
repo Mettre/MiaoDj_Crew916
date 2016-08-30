@@ -156,8 +156,6 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
                         }
                         mMainWheelProvince.setData(provinceNameData);
                         mMainWheelProvince.setItemIndex(9);
-                        //mMainWheelProvince.set
-
 
                         mMainWheelProvince.setOnWheelChangeListener(new AbstractWheelPicker.SimpleWheelChangeListener() {
                             @Override
@@ -215,6 +213,8 @@ public class PersonalInfoEditAddress extends BaseBackFragment_Swip {
 
                             }
                         });
+
+//                        mMainWheelProvince.performClick();
                     }
                 }
             }

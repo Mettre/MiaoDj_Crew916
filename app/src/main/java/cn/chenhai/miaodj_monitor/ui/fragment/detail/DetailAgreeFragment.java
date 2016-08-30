@@ -354,6 +354,14 @@ public class DetailAgreeFragment extends BaseBackFragment {
             }
         });
 
+        mDetailLayoutContractInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //合同及付款信息
+                start(DetailContractInfoFragment.newInstance(mProjectCode));
+            }
+        });
+
         ////////////////////////////////////////////////////////////////////////
         mDetailManagerPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override

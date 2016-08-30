@@ -84,7 +84,7 @@
                         android:id="@+id/point_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="330px"
+                        android:maxWidth="300px"
                         android:textColor="@color/text_color_gray_2"
                         android:gravity="center_vertical"
                         android:singleLine="true"

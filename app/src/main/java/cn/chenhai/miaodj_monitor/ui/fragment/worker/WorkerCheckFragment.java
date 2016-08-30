@@ -478,7 +478,7 @@ public class WorkerCheckFragment extends BaseBackFragment_Swip{
                         .setTitleText("拨打电话")
                         .setContentText(mTvPopupOwnerPhone.getText().toString())
                         .setCancelText("取消")
-                        .setConfirmText("确定！")
+                        .setConfirmText("确定")
                         .showCancelButton(true)
                         .setCancelClickListener(null)
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {

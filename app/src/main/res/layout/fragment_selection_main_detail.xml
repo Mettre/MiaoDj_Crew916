@@ -17,11 +17,13 @@
 
     <cn.chenhai.miaodj_monitor.ui.view_custom.BounceScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.zhy.autolayout.AutoLinearLayout
@@ -49,7 +51,7 @@
                         android:singleLine="true"
                         android:textColor="@color/colorPrimary1"
                         android:textSize="28px"
-                        android:text="瓷砖"/>
+                        android:text=""/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,7 +72,7 @@
                         android:singleLine="true"
                         android:textColor="@color/colorPrimary1"
                         android:textSize="28px"
-                        android:text="大地砖"/>
+                        android:text=""/>
 
 
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -110,7 +112,7 @@
                         android:layout_marginTop="33px"
                         android:singleLine="true"
                         android:textSize="24px"
-                        android:text="纳福娜"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -144,7 +146,7 @@
                         android:layout_marginTop="33px"
                         android:singleLine="true"
                         android:textSize="24px"
-                        android:text="YG803001"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -179,7 +181,7 @@
                         android:layout_marginTop="33px"
                         android:singleLine="true"
                         android:textSize="24px"
-                        android:text="东鹏"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -212,7 +214,7 @@
                         android:layout_marginTop="33px"
                         android:singleLine="true"
                         android:textSize="24px"
-                        android:text="800*800"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                 </com.zhy.autolayout.AutoLinearLayout>
@@ -242,7 +244,7 @@
                         android:layout_height="30px"
                         android:layout_marginLeft="38px"
                         android:layout_marginStart="38px"
-                        android:layout_marginTop="49px"
+                        android:layout_marginTop="37px"
                         android:background="@drawable/ic_selection_1"/>
 
                     <TextView
@@ -251,7 +253,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="78px"
                         android:layout_marginStart="78px"
-                        android:layout_marginTop="52px"
+                        android:layout_marginTop="38px"
                         android:layout_marginBottom="27px"
                         android:layout_weight="1"
                         android:singleLine="true"
@@ -262,16 +264,16 @@
                     <com.zhy.autolayout.AutoLinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="29px"
                         android:layout_gravity="center_horizontal">
                         <TextView
                             android:id="@+id/tv_selection_num"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="45px"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimary1"
                             android:textSize="32px"
-                            android:text="52"/>
+                            android:text=""/>
 
                         <TextView
                             android:id="@+id/tv_selection_num_unit"
@@ -279,7 +281,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8px"
                             android:layout_marginStart="8px"
-                            android:layout_marginTop="49px"
                             android:singleLine="true"
                             android:textColor="@color/text_color_gray"
                             android:textSize="22px"
@@ -292,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="32px"
                         android:layout_marginEnd="32px"
-                        android:layout_marginTop="52px"
+                        android:layout_marginTop="38px"
                         android:layout_gravity="right"
                         android:singleLine="true"
                         android:textColor="@color/text_color_blue"
@@ -301,13 +302,13 @@
                         android:text="配送中..."/>
 
 
-                    <View
-                        android:layout_width="636px"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="92px"
-                        android:layout_marginLeft="32px"
-                        android:layout_marginRight="33px"
-                        android:background="@drawable/line_dot" />
+                    <!--<View-->
+                    <!--android:layout_width="636px"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:layout_marginTop="92px"-->
+                    <!--android:layout_marginLeft="32px"-->
+                    <!--android:layout_marginRight="33px"-->
+                    <!--android:background="@drawable/line_dot" />-->
 
 
                 </com.zhy.autolayout.AutoFrameLayout>
@@ -319,6 +320,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -343,7 +351,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -353,6 +361,7 @@
                         android:layout_marginLeft="32px"
                         android:layout_marginRight="33px"
                         android:background="@drawable/line_dot" />
+
 
                 </com.zhy.autolayout.AutoFrameLayout>
 
@@ -387,7 +396,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -431,7 +440,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -474,7 +483,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -534,7 +543,7 @@
                         android:layout_height="30px"
                         android:layout_marginLeft="38px"
                         android:layout_marginStart="38px"
-                        android:layout_marginTop="49px"
+                        android:layout_marginTop="37px"
                         android:background="@drawable/ic_selection_1"/>
 
                     <TextView
@@ -543,7 +552,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="78px"
                         android:layout_marginStart="78px"
-                        android:layout_marginTop="52px"
+                        android:layout_marginTop="38px"
                         android:layout_marginBottom="27px"
                         android:layout_weight="1"
                         android:singleLine="true"
@@ -554,16 +563,16 @@
                     <com.zhy.autolayout.AutoLinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="29px"
                         android:layout_gravity="center_horizontal">
                         <TextView
                             android:id="@+id/tv_selection_num2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="45px"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimary1"
                             android:textSize="32px"
-                            android:text="52"/>
+                            android:text=""/>
 
                         <TextView
                             android:id="@+id/tv_selection_num2_unit"
@@ -571,7 +580,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8px"
                             android:layout_marginStart="8px"
-                            android:layout_marginTop="49px"
                             android:singleLine="true"
                             android:textColor="@color/text_color_gray"
                             android:textSize="22px"
@@ -584,7 +592,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="32px"
                         android:layout_marginEnd="32px"
-                        android:layout_marginTop="52px"
+                        android:layout_marginTop="38px"
                         android:layout_gravity="right"
                         android:singleLine="true"
                         android:textColor="@color/text_color_blue"
@@ -593,13 +601,13 @@
                         android:text="配送中..."/>
 
 
-                    <View
-                        android:layout_width="636px"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="92px"
-                        android:layout_marginLeft="32px"
-                        android:layout_marginRight="33px"
-                        android:background="@drawable/line_dot" />
+                    <!--<View-->
+                        <!--android:layout_width="636px"-->
+                        <!--android:layout_height="1dp"-->
+                        <!--android:layout_marginTop="92px"-->
+                        <!--android:layout_marginLeft="32px"-->
+                        <!--android:layout_marginRight="33px"-->
+                        <!--android:background="@drawable/line_dot" />-->
 
 
                 </com.zhy.autolayout.AutoFrameLayout>
@@ -611,6 +619,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -635,7 +650,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -679,7 +694,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -722,7 +737,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -765,7 +780,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -809,7 +824,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View
@@ -852,7 +867,7 @@
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
-                        android:text="2015-05-08 08:03"
+                        android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
                     <View

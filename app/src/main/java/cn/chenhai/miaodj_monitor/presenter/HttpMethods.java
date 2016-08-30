@@ -721,13 +721,16 @@ public class HttpMethods {
     /**
      * 施工员验收节点
      */
-    public void doCrewCheckNodeFinish(Subscriber<Object> subscriber, String user_code, String access_token, String nid, String check_confirm, String reason) {
+    public void doCrewCheckNodeFinish(Subscriber<Object> subscriber, String user_code, String access_token, String nid, String check_confirm, String reason, String worker_code, String price, String memo) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("nid", nid);
         map.put("check_confirm", check_confirm);
         map.put("reason", reason);
+        map.put("worker_code", worker_code);
+        map.put("price", price);
+        map.put("memo", memo);
 
         Observable observable = serviceInterface.doCrewCheckNodeFinish(map)
                 .map(new HttpResultAll<Object>());

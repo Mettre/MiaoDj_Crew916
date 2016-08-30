@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
 import cn.chenhai.miaodj_monitor.model.entity.PointProgressDetailEntity;
+import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
+import cn.chenhai.miaodj_monitor.utils.TimeUtil;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
@@ -31,7 +32,7 @@ public class ItemPointAdapter extends RecyclerView.Adapter<ItemPointAdapter.MyVi
     private OnItemClickListener mBtnClickListener;
 
     public ItemPointAdapter(Context context) {
-        mActivity = (SupportActivity)context;
+        mActivity = (SupportActivity) context;
         this.mInflater = LayoutInflater.from(context);
     }
 
@@ -39,10 +40,12 @@ public class ItemPointAdapter extends RecyclerView.Adapter<ItemPointAdapter.MyVi
         mdataList.clear();
         mdataList.addAll(items);
     }
+
     public void addDatas(List<PointProgressDetailEntity.NodeBean.LogsBean> items) {
         //mdataList.clear();
         mdataList.addAll(items);
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
         //mdataList.clear();
@@ -62,12 +65,12 @@ public class ItemPointAdapter extends RecyclerView.Adapter<ItemPointAdapter.MyVi
         PointProgressDetailEntity.NodeBean.LogsBean item = mdataList.get(position);
         if (item == null) return;
 
-        if(item.getType().equals("1")){
+        if (item.getType().equals("1")) {
             holder.mItemIvWarn.setVisibility(View.GONE);
             holder.mItemTvContentDisAgree.setVisibility(View.GONE);
             holder.mItemTvContentCommon.setVisibility(View.VISIBLE);
             holder.mItemTvContentCommon.setText(item.getTitle());
-        } else if (item.getType().equals("2")){
+        } else if (item.getType().equals("2")) {
             holder.mItemIvWarn.setVisibility(View.VISIBLE);
             holder.mItemTvContentDisAgree.setVisibility(View.VISIBLE);
             holder.mItemTvContentCommon.setVisibility(View.GONE);
@@ -82,9 +85,9 @@ public class ItemPointAdapter extends RecyclerView.Adapter<ItemPointAdapter.MyVi
 //            holder.mLogsBean.setType(item.getLogs().getType());
         }
 
-        holder.mItemTvTime.setText(item.getCreatetime());
+        holder.mItemTvTime.setText(TimeUtil.getDateForMin(item.getCreatetime()));
 
-        holder.mItemTvContentDisAgree.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG ); //下划线
+        holder.mItemTvContentDisAgree.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         holder.mItemTvContentDisAgree.getPaint().setAntiAlias(true);//抗锯齿
         holder.mItemTvContentDisAgree.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +138,7 @@ public class ItemPointAdapter extends RecyclerView.Adapter<ItemPointAdapter.MyVi
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
+
     public void setOnItemBtnClickListener(OnItemClickListener itemClickListener) {
         this.mBtnClickListener = itemClickListener;
     }

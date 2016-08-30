@@ -94,7 +94,7 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
     }
 
     private void initView(View view) {
-        refreshView = (FunGameRefreshRecyclerView) view.findViewById(R.id.refresh_fun_game) ;
+        refreshView = (FunGameRefreshRecyclerView) view.findViewById(R.id.refresh_fun_game);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mAdapter = new DetailPointAdapter(_mActivity);
         mLLmanager = new LinearLayoutManager(_mActivity);
@@ -111,11 +111,11 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
             @Override
             public void onItemClick(int position, View view) {
                 //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
-                TimerTask task = new TimerTask(){
-                    public void run(){
+                TimerTask task = new TimerTask() {
+                    public void run() {
                         //execute the task
                         //start(DetailAgreeFragment.newInstance("测试单号111"));
-                        start(DetailPointProgressFragment.newInstance(mProjectCode,mAdapter.getItem(position).getPointID(),mAdapter.getItemCount()));
+                        start(DetailPointProgressFragment.newInstance(mProjectCode, mAdapter.getItem(position).getPointID(), mAdapter.getItemCount()));
                     }
                 };
                 Timer timer = new Timer();
@@ -181,17 +181,17 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
         mOnSuccessListener = new SubscriberOnSuccessListener<HttpResult<PointEntity>>() {
             @Override
             public void onSuccess(HttpResult<PointEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     String days = "0";
-                    if(result.getInfo().getStart_days() >= 0){
+                    if (result.getInfo().getStart_days() >= 0) {
                         days = String.valueOf(result.getInfo().getStart_days());
                         mPointDateText.setVisibility(View.VISIBLE);
                         mPointDateText2.setText("天");
                     }
-                    if(result.getInfo().getBefore_start_days() > 0){
+                    if (result.getInfo().getBefore_start_days() > 0) {
                         days = String.valueOf(result.getInfo().getBefore_start_days());
                         mPointDateText.setVisibility(View.GONE);
                         mPointDateText2.setText("天后开始");
@@ -200,13 +200,13 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
                     mPointStartTime.setText(result.getInfo().getStart_date());
 
                     //////////////////////////////////////////
-                    if(result.getInfo().getShow_msg().equals("Y")){
+                    if (result.getInfo().getShow_msg().equals("Y")) {
                         mPointLlMsgShow.setVisibility(View.VISIBLE);
-                        String msg = "第"+result.getInfo().getShow_id() + "节点即将开始，【" + result.getInfo().getShow_type()
-                                +"】还未选择";
+                        String msg = "第" + result.getInfo().getShow_id() + "节点即将开始，【" + result.getInfo().getShow_type()
+                                + "】还未选择";
                         mPointTvDoChooseMsg.setText(msg);
                         mPointBtnDoChoose.setEnabled(true);
-                    }else if(result.getInfo().getShow_msg().equals("N")){
+                    } else if (result.getInfo().getShow_msg().equals("N")) {
                         mPointLlMsgShow.setVisibility(View.GONE);
                         mPointBtnDoChoose.setEnabled(false);
                     }
@@ -214,7 +214,7 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
 
                     List<PointEntity.NodesBean> projects = result.getInfo().getNodes();
                     List<DetailPointInfo> list = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         DetailPointInfo pageInfo = new DetailPointInfo();
                         PointEntity.NodesBean nodeInfo = projects.get(i);
 
@@ -223,57 +223,61 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
                         pageInfo.setItemName(nodeInfo.getTitle());
                         String status = "";
                         String date = "";
-                        switch(nodeInfo.getStatus()){
+                        switch (nodeInfo.getStatus()) {
                             case "1":
                                 status = "未开始";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "10":
                                 status = "待进场";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "20":
                                 status = "待施工";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "30":
                                 status = "施工中";
-                                date = "开始时间"+nodeInfo.getActual_start_date();
+                                date = "开始时间" + nodeInfo.getActual_start_date();
                                 break;
                             case "40":
                                 status = "待施工员验收";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "42":
                                 status = "施工员验收不通过";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "50":
                                 status = "待业主验收";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "52":
                                 status = "业主验收不通过";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "90":
                                 status = "停工";
-                                date = "预计开始时间"+nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
                                 break;
                             case "100":
                                 status = "已完成";
-                                date = "完成时间"+nodeInfo.getActual_end_date();
+                                date = "完成时间" + nodeInfo.getActual_end_date();
+                                break;
+                            case "110":
+                                status = "已完成";
+                                date = "完成时间" + nodeInfo.getActual_end_date();
                                 break;
                         }
                         pageInfo.setBtnStatus(status);
                         pageInfo.setStartDate(date);
-                        if(status.equals("已完成")){
-                            if(nodeInfo.getScore()==null){
+                        if (status.equals("已完成")) {
+                            if (nodeInfo.getScore() == null) {
                                 pageInfo.setEvaluate("未评价");
-                            }else {
+                            } else {
                                 pageInfo.setEvaluate("已评价");
                             }
-                        }else {
+                        } else {
                             pageInfo.setEvaluate("");
                         }
 
@@ -281,18 +285,20 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
                     }
 
                     int count = getCompleteItemCount(list);
-                    mAdapter.setDatas(list,count);
+                    mAdapter.setDatas(list, count);
 
                     mAdapter.notifyDataSetChanged();
                     refreshView.finishRefreshing();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 refreshView.finishRefreshing();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 refreshView.finishRefreshing();
             }
         };
@@ -310,7 +316,6 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
             //refreshView.finishRefreshing();
         }
     };
-
 
 
     private void initData() {
@@ -391,19 +396,19 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
             list.add(pointInfo);
         }
         int count = getCompleteItemCount(list);
-        mAdapter.setDatas(list , count);
+        mAdapter.setDatas(list, count);
     }
 
-    private void updateData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getNodesList(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,mProjectCode);
+    private void updateData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getNodesList(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, mProjectCode);
     }
 
-    private int getCompleteItemCount(List<DetailPointInfo> list){
+    private int getCompleteItemCount(List<DetailPointInfo> list) {
         int count = 0;
-        for (int i=0; i<list.size(); i++){
-            if(list.get(i).getBtnStatus().equals("已完成")){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getBtnStatus().equals("已完成")) {
                 count++;
             }
         }
