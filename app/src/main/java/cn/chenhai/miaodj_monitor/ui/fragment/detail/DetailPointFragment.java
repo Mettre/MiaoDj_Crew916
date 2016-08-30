@@ -138,14 +138,6 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
 //                        break;
                     case R.id.action_now:
                         Toast.makeText(_mActivity, "当前", Toast.LENGTH_SHORT).show();
-//                        if(mGameType == 0){
-//                            refreshView.setGameType(mGameType);
-//                            mGameType++;
-//                        } else if(mGameType == 1){
-//                            refreshView.setGameType(mGameType);
-//                            mGameType = 0;
-//                        }
-                        //refreshView.setGameType(1);
                         break;
                 }
                 return true;
