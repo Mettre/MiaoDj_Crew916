@@ -215,7 +215,7 @@ public class ItemPointFragment extends SupportFragment {
         loadPayInfo(dataInfo.getPay_info());
 
         //业主评价
-        if (!TextUtils.isEmpty(dataInfo.getAssess()) || !TextUtils.isEmpty(dataInfo.getScore()) || !TextUtils.isEmpty(dataInfo.getEvaluated_date())) {
+        if (TextUtils.equals("110", dataInfo.getStatus())) {
             mIdppAssessCardview.setVisibility(View.VISIBLE);
             mIdppEvaluateDataTv.setText(TextUtils.isEmpty(dataInfo.getEvaluated_date()) ? "" : TimeUtil.getDateForMin(dataInfo.getEvaluated_date()));
             mIdppRatingBar.setStar(Float.valueOf(TextUtils.isEmpty(dataInfo.getScore()) ? "0" : dataInfo.getScore()));

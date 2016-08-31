@@ -28,7 +28,7 @@ import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment;
  */
 public class DetailContractInfoFragment extends BaseBackFragment implements ViewPager.OnPageChangeListener{
     private static final String ARG_ITEM = "arg_item";
-    private String mProjectCode;
+    private String mBargain_code;
 
     String[] mTitles = new String[]{"合同记录", "付款信息"};
     private int[] tabSelectImg = new int[]{R.color.white, R.color.white};
@@ -41,9 +41,9 @@ public class DetailContractInfoFragment extends BaseBackFragment implements View
     private CommonTabLayout mTabLayout;
     private DetailContractInfoAdapter mAdapter;
 
-    public static DetailContractInfoFragment newInstance(String projectCode) {
+    public static DetailContractInfoFragment newInstance(String mBargain_code) {
         Bundle args = new Bundle();
-        args.putString(ARG_ITEM, projectCode);
+        args.putString(ARG_ITEM, mBargain_code);
         DetailContractInfoFragment fragment = new DetailContractInfoFragment();
         fragment.setArguments(args);
         return fragment;
@@ -52,7 +52,7 @@ public class DetailContractInfoFragment extends BaseBackFragment implements View
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mProjectCode = getArguments().getString(ARG_ITEM);
+        mBargain_code = getArguments().getString(ARG_ITEM);
     }
 
     @Nullable
@@ -80,7 +80,7 @@ public class DetailContractInfoFragment extends BaseBackFragment implements View
         //关闭预加载，默认一次只加载一个Fragment(注：setOffscreenPageLimit(0)设置成0的话即是不加载，但是默认的support-v4包会把默认值改为1的，
         // 也就是至少默认会加载左右一个Fragment，要想完全不加载，只有修改support-v4的源码，然后重新打jar包调用了)
         mViewPager.setOffscreenPageLimit(1);
-        mAdapter = new DetailContractInfoAdapter(getChildFragmentManager() , mProjectCode);
+        mAdapter = new DetailContractInfoAdapter(getChildFragmentManager() , mBargain_code);
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(this);
 

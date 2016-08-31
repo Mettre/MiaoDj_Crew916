@@ -118,6 +118,7 @@
                     android:layout_weight="1"
                     android:background="@color/gray_white"
                     android:gravity="left|center_vertical"
+                    android:inputType="numberDecimal"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text=""
@@ -149,8 +150,8 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="15px"
                     android:layout_marginStart="15px"
-                    android:visibility="gone"
-                    android:background="@drawable/ic_red_star" />
+                    android:background="@drawable/ic_red_star"
+                    android:visibility="gone" />
             </com.zhy.autolayout.AutoLinearLayout>
 
 
@@ -165,8 +166,8 @@
                 android:gravity="left"
                 android:maxWidth="432px"
                 android:padding="10dp"
-                android:text=""
                 android:paddingRight="10dp"
+                android:text=""
                 android:textColor="@color/color_green_ok"
                 android:textSize="28px" />
 

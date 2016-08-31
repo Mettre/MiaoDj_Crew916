@@ -16,24 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bigkoo.pickerview.TimePickerView;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLayout;
-import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.Utils;
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectAuxiliaryMaterialAdapter;
-import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectMainMaterialAdapter;
-import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
-import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
-import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.entity.EmptyEntity;
 import cn.chenhai.miaodj_monitor.model.entity.SelectionListEntity;
@@ -42,12 +32,20 @@ import cn.chenhai.miaodj_monitor.model.info.Material_main_Info;
 import cn.chenhai.miaodj_monitor.presenter.HttpMethods;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
+import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
+import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
+import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectAuxiliaryMaterialAdapter;
+import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectMainMaterialAdapter;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
+import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLayout;
+import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.Utils;
+import cn.chenhai.miaodj_monitor.ui.view_custom.TimeSelectPop;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * 选品单列表
- *
+ * <p>
  * Created by ChenHai--霜华 on 2016/7/13. 16:18
  * 邮箱：248866527@qq.com
  */
@@ -70,7 +68,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     private SubscriberOnSuccessListener mOnSuccessDeliver;
 
     private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLLmanager1 ,mLLmanager2;
+    private LinearLayoutManager mLLmanager1, mLLmanager2;
     private DetailSelectMainMaterialAdapter mMainAdapter;
     private DetailSelectAuxiliaryMaterialAdapter mAuxiAdapter;
 
@@ -104,15 +102,17 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     private TextView mTvBtnDescribe;
     private Button mBtnOKDeliver;
 
+    TimeSelectPop mTimePickPop;
+
 
     //负责存储布尔值的pair
     private SparseBooleanArray expandState = new SparseBooleanArray();
 
-    public static DetailSelectionListFragment2 newInstance(String projectCode,String customer_code) {
+    public static DetailSelectionListFragment2 newInstance(String projectCode, String customer_code) {
 
         Bundle args = new Bundle();
         args.putString(ARG_ITEM, projectCode);
-        args.putString("mCustomer_code",customer_code);
+        args.putString("mCustomer_code", customer_code);
         DetailSelectionListFragment2 fragment = new DetailSelectionListFragment2();
         fragment.setArguments(args);
         return fragment;
@@ -121,7 +121,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getArguments()!=null) {
+        if (getArguments() != null) {
             mProjectCode = getArguments().getString(ARG_ITEM);
             mCustomer_code = getArguments().getString("mCustomer_code");
         }
@@ -182,11 +182,11 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
             @Override
             public void onClick(View v) {
                 //onClickButton(mSelectionExpandableLayout1);
-                if(ifExpand1) {
+                if (ifExpand1) {
                     mSelectionExpandableLayout1.setVisibility(View.GONE);
                     createRotateAnimator(mLlSelectionMainMaterialArrow, 180f, 0f).start();
                     ifExpand1 = false;
-                }else {
+                } else {
                     mSelectionExpandableLayout1.setVisibility(View.VISIBLE);
                     createRotateAnimator(mLlSelectionMainMaterialArrow, 0f, 180f).start();
                     ifExpand1 = true;
@@ -197,11 +197,11 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
             @Override
             public void onClick(View v) {
                 //onClickButton(mSelectionExpandableLayout2);
-                if(ifExpand2) {
+                if (ifExpand2) {
                     mSelectionExpandableLayout2.setVisibility(View.GONE);
                     createRotateAnimator(mLlSelectionAuxiliaryMaterialArrow, 180f, 0f).start();
                     ifExpand2 = false;
-                }else {
+                } else {
                     mSelectionExpandableLayout2.setVisibility(View.VISIBLE);
                     createRotateAnimator(mLlSelectionAuxiliaryMaterialArrow, 0f, 180f).start();
                     ifExpand2 = true;
@@ -221,7 +221,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                 String order_code = mMainAdapter.getItem(position).getOrder_code();
                 String material_code = mMainAdapter.getItem(position).getMaterial_code();
                 String space_id = mMainAdapter.getItem(position).getSpace_id();
-                start(DetailSelectionList_Main.newInstance(order_code,material_code,space_id));
+                start(DetailSelectionList_Main.newInstance(order_code, material_code, space_id));
             }
         });
 
@@ -242,18 +242,18 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
             @Override
             public void onCheckBoxClick(int position, boolean isChecked) {
                 int totalCheck = 0;
-                for(int i=0; i<mAuxiAdapter.getItemCount(); i++){
+                for (int i = 0; i < mAuxiAdapter.getItemCount(); i++) {
                     int partCheck = 0;
-                    if(mAuxiAdapter.getItem(i).isIfChecked()) {
+                    if (mAuxiAdapter.getItem(i).isIfChecked()) {
                         partCheck = 1;
                     }
 
                     totalCheck += partCheck;
                 }
 
-                if(totalCheck == 0){
+                if (totalCheck == 0) {
                     mBtnOKDeliver.setVisibility(View.GONE);
-                }else {
+                } else {
                     mBtnOKDeliver.setVisibility(View.VISIBLE);
                 }
             }
@@ -262,11 +262,11 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<SelectionListEntity>>() {
             @Override
             public void onSuccess(HttpResult<SelectionListEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
+                    if (result.getCode() == 200) {
 
                         List<SelectionListEntity.MaterialsBean> beanInfos = result.getInfo().getMaterials();
                         List<Material_main_Info> list = new ArrayList<>();
@@ -278,8 +278,8 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                             SelectionListEntity.MaterialsBean beanInfo = beanInfos.get(i);
                             Material_main_Info materialInfo = new Material_main_Info();
 
-                            if(beanInfo.getImages().size()!=0){
-                                if(beanInfo.getImages().get(0).getPath()!=null){
+                            if (beanInfo.getImages().size() != 0) {
+                                if (beanInfo.getImages().get(0).getPath() != null) {
                                     String path = HttpMethods.BASE_ROOT_URL + beanInfo.getImages().get(0).getPath();
                                     materialInfo.setImg_portraitPath(path);
                                 }
@@ -322,7 +322,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
 //                                    materialInfo.setImg_portraitPath(path);
 //                                }
 //                            }
-                            if(beanInfo2.getThumb_image()!=null && !beanInfo2.getThumb_image().equals("")){
+                            if (beanInfo2.getThumb_image() != null && !beanInfo2.getThumb_image().equals("")) {
                                 String path = HttpMethods.BASE_ROOT_URL + beanInfo2.getThumb_image();
                                 auxiliaryInfo.setImg_portraitPath(path);
                             }
@@ -344,10 +344,9 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                         mAuxiAdapter.notifyDataSetChanged();
 
 
-
                         SelectionListEntity.OrderAuxiliaryBean order_auxiliary = result.getInfo().getOrder_auxiliary();
                         String textStatus = "";
-                        if(order_auxiliary!=null) {
+                        if (order_auxiliary != null) {
                             switch (order_auxiliary.getAssistant_status()) {
                                 case "1":
                                     textStatus = "后台处理中";
@@ -390,14 +389,36 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                         mLlSelectionAuxiliaryMaterialStatus.setText(textStatus);
 
                         mAuxiOrderCode = "";
-                        if(order_auxiliary!=null && order_auxiliary.getCode()!=null){
+                        if (order_auxiliary != null && order_auxiliary.getCode() != null) {
                             mAuxiOrderCode = order_auxiliary.getCode();
                         }
+
+                        //辅材配送Pop
+                        mTimePickPop = new TimeSelectPop(_mActivity, 2, new TimeSelectPop.SubmitOnClickListener() {
+                            @Override
+                            public void SubmitOnClickListener(String mData) {
+                                String material_codes = "";
+                                for (int i = 0; i < mAuxiAdapter.getItemCount(); i++) {
+                                    if (mAuxiAdapter.getItem(i).isIfChecked()) {
+                                        String temCode = mAuxiAdapter.getItem(i).getMaterialCode();
+
+                                        material_codes += (temCode + ",");
+                                    }
+                                }
+                                if (!material_codes.equals("")) {
+                                    material_codes = material_codes.substring(0, material_codes.length() - 1);
+                                }
+
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                HttpMethods.getInstance().doStartDeliverAuxilary(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mAuxiOrderCode, material_codes, mData);
+                            }
+                        });
 
                         mBtnAuxiliaryMaterialOK.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                new SweetAlertDialog(_mActivity,SweetAlertDialog.WARNING_TYPE)
+                                new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
                                         .setTitleText("提示")
                                         .setContentText("辅材辅料确定要确认下单吗？")
                                         .setCancelText("取消")
@@ -405,9 +426,9 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                             @Override
                                             public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                                HttpMethods.getInstance().doConfirmAuxiliary(new ProgressSubscriber(mOnSuccessCheckOK, _mActivity), user_code, access_token,mAuxiOrderCode,"Y","");
+                                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                                HttpMethods.getInstance().doConfirmAuxiliary(new ProgressSubscriber(mOnSuccessCheckOK, _mActivity), user_code, access_token, mAuxiOrderCode, "Y", "");
 
                                                 sweetAlertDialog.dismissWithAnimation();
                                             }
@@ -422,9 +443,9 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                                 DialogCheckNotOk dialog = new DialogCheckNotOk(_mActivity, new DialogCheckNotOk.SubmitDoing() {
                                     @Override
                                     public void submitDoing(String strReason) {
-                                        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                        HttpMethods.getInstance().doConfirmAuxiliary(new ProgressSubscriber(mOnSuccessCheckCancel, _mActivity), user_code, access_token,mAuxiOrderCode,"N",strReason);
+                                        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                        HttpMethods.getInstance().doConfirmAuxiliary(new ProgressSubscriber(mOnSuccessCheckCancel, _mActivity), user_code, access_token, mAuxiOrderCode, "N", strReason);
                                     }
                                 });
                                 dialog.show();
@@ -432,43 +453,11 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                         });
 
 
-                        TimePickerView pvTime;
-                        pvTime = new TimePickerView(_mActivity, TimePickerView.Type.YEAR_MONTH_DAY);
-                        //控制时间范围
-                        //        Calendar calendar = Calendar.getInstance();
-                        //        pvTime.setRange(calendar.get(Calendar.YEAR) - 20, calendar.get(Calendar.YEAR));//要在setTime 之前才有效果哦
-                        //pvTime.setTime(new Date());
-                        pvTime.setTitle("请选择期望到达日期");
-                        pvTime.setTime(dateAndTime.getTime());
-                        pvTime.setCyclic(false);
-                        pvTime.setCancelable(true);
-                        //时间选择后回调
-                        pvTime.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
-
-                            @Override
-                            public void onTimeSelect(Date date) {
-                                String material_codes = "";
-                                for(int i=0; i<mAuxiAdapter.getItemCount(); i++){
-                                    if(mAuxiAdapter.getItem(i).isIfChecked()) {
-                                        String temCode = mAuxiAdapter.getItem(i).getMaterialCode();
-
-                                        material_codes += (temCode+",");
-                                    }
-                                }
-                                if(!material_codes.equals("")) {
-                                    material_codes =  material_codes.substring(0,material_codes.length()-1);
-                                }
-                                String time = fmtDate.format(date);
-                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                HttpMethods.getInstance().doStartDeliverAuxilary(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token,mAuxiOrderCode,material_codes,time);
-                            }
-                        });
                         mBtnOKDeliver.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 //showPopupWindow(v);
-                                pvTime.show();
+                                mTimePickPop.show(v);
                             }
                         });
 //时间选择器
@@ -479,12 +468,14 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -492,12 +483,12 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         mOnSuccessCheckOK = new SubscriberOnSuccessListener<HttpResult<EmptyEntity>>() {
             @Override
             public void onSuccess(HttpResult<EmptyEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
-                        new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    if (result.getCode() == 200) {
+                        new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("确认下单已提交！")
                                 .setConfirmText("知道了")
@@ -512,24 +503,26 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessCheckCancel = new SubscriberOnSuccessListener<HttpResult<EmptyEntity>>() {
             @Override
             public void onSuccess(HttpResult<EmptyEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
-                        new SweetAlertDialog(_mActivity,SweetAlertDialog.WARNING_TYPE)
+                    if (result.getCode() == 200) {
+                        new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("不确认原因已提交！")
                                 .setConfirmText("知道了")
@@ -544,24 +537,26 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessDeliver = new SubscriberOnSuccessListener<HttpResult<EmptyEntity>>() {
             @Override
             public void onSuccess(HttpResult<EmptyEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(result.getCode() == 200) {
-                        new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    if (result.getCode() == 200) {
+                        new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                                 .setTitleText("提示")
                                 .setContentText("已成功发起配送！")
                                 .setConfirmText("知道了")
@@ -576,12 +571,14 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                     }
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -590,16 +587,19 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
 
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getSelectionList(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mCustomer_code);
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getSelectionList(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mCustomer_code);
     }
 
     private void onClickButton(final ExpandableLayout expandableLayout) {
         expandableLayout.toggle();
     }
-    /**创建 旋转动画！！！！*/
+
+    /**
+     * 创建 旋转动画！！！！
+     */
     public ObjectAnimator createRotateAnimator(final View target, final float from, final float to) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(target, "rotation", from, to);
         animator.setDuration(300);
@@ -715,11 +715,9 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     }
 
 
-
-
     //获取日期格式器对象
     private DateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-    private DateFormat fmtTime = new SimpleDateFormat("HH:mm",Locale.getDefault());
+    private DateFormat fmtTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
 
     //获取一个日历对象
     private Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);

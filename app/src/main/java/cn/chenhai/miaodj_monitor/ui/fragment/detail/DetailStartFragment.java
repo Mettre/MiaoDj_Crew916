@@ -62,6 +62,7 @@ public class DetailStartFragment extends BaseBackFragment {
     private SubscriberOnSuccessListener mOnSuccessApplyStart;
 
     private String mProjectCode;
+    private String mBargain_code;
     private int mIfCanApplyStart = 0;
 
     private Toolbar mToolbar;
@@ -196,6 +197,7 @@ public class DetailStartFragment extends BaseBackFragment {
                     }
                     itemName.append("装修项目");
                     mDetailName.setText(itemName.toString());
+                    mBargain_code = project.getBargain_code();
 
                     String status = "";
                     switch (project.getStatus()) {
@@ -499,7 +501,7 @@ public class DetailStartFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //合同及付款信息
-                start(DetailContractInfoFragment.newInstance(mProjectCode));
+                start(DetailContractInfoFragment.newInstance(mBargain_code));
             }
         });
         mDetailLayoutWorkers.setOnClickListener(new View.OnClickListener() {

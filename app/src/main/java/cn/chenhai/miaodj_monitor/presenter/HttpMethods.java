@@ -14,6 +14,8 @@ import cn.chenhai.miaodj_monitor.model.TestResult;
 import cn.chenhai.miaodj_monitor.model.entity.Account;
 import cn.chenhai.miaodj_monitor.model.entity.BackLogEntity;
 import cn.chenhai.miaodj_monitor.model.entity.BackLogNewMsgEntity;
+import cn.chenhai.miaodj_monitor.model.entity.BargainEntity;
+import cn.chenhai.miaodj_monitor.model.entity.BargainPayEntity;
 import cn.chenhai.miaodj_monitor.model.entity.BuildDiaryEntity;
 import cn.chenhai.miaodj_monitor.model.entity.BuildPhotoEntity;
 import cn.chenhai.miaodj_monitor.model.entity.CheckPictureEntity;
@@ -491,14 +493,14 @@ public class HttpMethods {
     /**
      * 查看合同
      */
-    public void getBargain(Subscriber<Account> subscriber, String user_code, String access_token, String bargain_code) {
+    public void getBargain(Subscriber<BargainEntity> subscriber, String user_code, String access_token, String bargain_code) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("bargain_code", bargain_code);
 
         Observable observable = serviceInterface.getBargain(map)
-                .map(new HttpResultAll<Account>());
+                .map(new HttpResultAll<BargainEntity>());
 
         toSubscribe(observable, subscriber);
     }
@@ -506,14 +508,14 @@ public class HttpMethods {
     /**
      * 查看付款信息
      */
-    public void getBargainPay(Subscriber<Account> subscriber, String user_code, String access_token, String bargain_code) {
+    public void getBargainPay(Subscriber<BargainPayEntity> subscriber, String user_code, String access_token, String bargain_code) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("bargain_code", bargain_code);
 
         Observable observable = serviceInterface.getBargainPay(map)
-                .map(new HttpResultAll<Account>());
+                .map(new HttpResultAll<BargainPayEntity>());
 
         toSubscribe(observable, subscriber);
     }

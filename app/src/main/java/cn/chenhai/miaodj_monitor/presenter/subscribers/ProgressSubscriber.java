@@ -9,10 +9,10 @@ import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
-import cn.chenhai.miaodj_monitor.service.commonlib.utils.TimeUtils;
 import cn.chenhai.miaodj_monitor.presenter.progress.ProgressCancelListener;
 import cn.chenhai.miaodj_monitor.presenter.progress.ProgressDialogHandler;
 import cn.chenhai.miaodj_monitor.presenter.progress.ProgressDialogHandler3;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.TimeUtils;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import rx.Subscriber;
 
@@ -26,9 +26,11 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
     private SubscriberOnSuccessListener mSubscriberOnSuccessListener;
     private ProgressDialogHandler3 mProgressDialogHandler;
 
-    private Activity context;
+    private final Activity context;
 
     private long timeMillStart, timeMillEnd;
+
+    private SweetAlertDialog mDialog;
 
     public ProgressSubscriber(SubscriberOnSuccessListener mSubscriberOnSuccessListener, Activity context) {
         this.mSubscriberOnSuccessListener = mSubscriberOnSuccessListener;
@@ -100,36 +102,15 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
      */
     @Override
     public void onError(Throwable e) {
-        Log.e("网络错误",e.getMessage());
         if (e instanceof SocketTimeoutException) {
-//            Toast.makeText(context, "网络超时，请检查您的网络状态", Toast.LENGTH_SHORT).show();
-            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                    .setTitleText("错误！")
-                    .setContentText("网络超时，请检查您的网络状态")
-                    .setConfirmText("知道了")
-                    .show();
+            showDialog(context, "错误！", "网络超时，请检查您的网络状态", "知道了");
         } else if (e instanceof ConnectException) {
-//            Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
-            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                    .setTitleText("错误！")
-                    .setContentText("网络中断，请检查您的网络状态")
-                    .setConfirmText("知道了")
-                    .show();
+            showDialog(context, "错误！", "网络中断，请检查您的网络状态", "知道了");
         } else if (e instanceof UnknownHostException || e instanceof MalformedJsonException) {
-            //Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                    .setTitleText("错误！")
-                    .setContentText("网络错误，请检查您的网络状态")
-                    .setConfirmText("知道了")
-                    .show();
+            showDialog(context, "错误！", "网络错误，请检查您的网络状态", "知道了");
         } else {
-//            Toast.makeText(context, "错误---:" + e.getMessage(), Toast.LENGTH_SHORT).show();
             Log.d("ProgressSubscriber 测试", "错误---:" + e.getMessage());
-            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                    .setTitleText("错误！")
-                    .setContentText(e.getMessage())
-                    .setConfirmText("知道了")
-                    .show();
+            showDialog(context, "错误！", e.getMessage(), "知道了");
         }
 
         dismissProgressDialog();
@@ -156,5 +137,21 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         if (!this.isUnsubscribed()) {
             this.unsubscribe();
         }
+    }
+
+    /**
+     * 显示Dialog
+     */
+    private void showDialog(Activity mContext, String title, String context, String confirm) {
+        mDialog = new SweetAlertDialog(mContext, SweetAlertDialog.ERROR_TYPE);
+        mDialog.setTitleText(title)
+                .setContentText(context)
+                .setConfirmText(confirm);
+        if (mDialog.isShowing()) {
+            return;
+        } else {
+            mDialog.show();
+        }
+
     }
 }

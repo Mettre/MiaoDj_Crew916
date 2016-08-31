@@ -53,6 +53,7 @@ public class DetailIndexFragment extends BaseBackFragment {
 
     private String mProjectCode;
     private String mCustomer_code;
+    private String mBargain_code;
 
     private SubscriberOnSuccessListener mOnSuccessInit;
     private SubscriberOnSuccessListener mOnSuccessListenerPic;
@@ -283,6 +284,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                     mDetailProjectAddr.setText(address);
 
                     mCustomer_code = project.getCustomer_code();
+                    mBargain_code=project.getBargain_code();
 
                     //延期工期
 //                    String limitdays = project.getTotal_days()+"天";
@@ -475,7 +477,7 @@ public class DetailIndexFragment extends BaseBackFragment {
             @Override
             public void onClick(View v) {
                 //合同及付款信息
-                start(DetailContractInfoFragment.newInstance(mProjectCode));
+                start(DetailContractInfoFragment.newInstance(mBargain_code));
             }
         });
         mDetailLayoutWorkers.setOnClickListener(new View.OnClickListener() {

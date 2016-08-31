@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.TestResult;
+import cn.chenhai.miaodj_monitor.model.entity.BargainEntity;
+import cn.chenhai.miaodj_monitor.model.entity.BargainPayEntity;
 import cn.chenhai.miaodj_monitor.model.entity.ProvinceCityDistrictBean;
 import cn.chenhai.miaodj_monitor.model.entity.Account;
 import cn.chenhai.miaodj_monitor.model.entity.BackLogEntity;
@@ -140,11 +142,11 @@ public interface ServiceApi {
 
     /**查看合同*/
     @POST("App/Project/get_bargain")
-    Observable<HttpResult<Account>> getBargain(@Body HashMap<String, String> map);
+    Observable<HttpResult<BargainEntity>> getBargain(@Body HashMap<String, String> map);
 
     /**查看付款信息*/
     @POST("App/Project/get_bargain_pay")
-    Observable<HttpResult<Account>> getBargainPay(@Body HashMap<String, String> map);
+    Observable<HttpResult<BargainPayEntity>> getBargainPay(@Body HashMap<String, String> map);
 
     /**查看施工工人*/
     @POST("App/Project/get_project_worker")

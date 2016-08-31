@@ -96,4 +96,5 @@ dependencies {
     //    compile 'cn.yipianfengye.android:zxing-library:1.4'
     compile project(':lib-zxing')
     compile project(':PhotoPicker')
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.8.5'
 }

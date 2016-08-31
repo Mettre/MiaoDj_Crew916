@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import cn.chenhai.miaodj_monitor.ui.fragment.detail.DetailBuildDiaryPager1;
-import cn.chenhai.miaodj_monitor.ui.fragment.detail.DetailBuildDiaryPager2;
+import cn.chenhai.miaodj_monitor.ui.fragment.detail.DetailBargainFragment;
+import cn.chenhai.miaodj_monitor.ui.fragment.detail.DetailBargainPayFragment;
 
 /**
  * Created by ChenHai--霜华 on 2016/6/24. 15:33
@@ -15,17 +15,17 @@ public class DetailContractInfoAdapter extends FragmentPagerAdapter {
     String[] mTitles = new String[]{"合同记录", "付款信息"};
     String mProjectCode = "";
 
-    public DetailContractInfoAdapter(FragmentManager fm , String projectCode) {
+    public DetailContractInfoAdapter(FragmentManager fm, String mBargain_code) {
         super(fm);
-        mProjectCode = projectCode;
+        mProjectCode = mBargain_code;
     }
 
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return DetailBuildDiaryPager1.newInstance(0,mProjectCode);
+            return DetailBargainFragment.newInstance(mProjectCode);
         } else {
-            return DetailBuildDiaryPager2.newInstance(1,mProjectCode);
+            return DetailBargainPayFragment.newInstance(mProjectCode);
         }
     }
 
