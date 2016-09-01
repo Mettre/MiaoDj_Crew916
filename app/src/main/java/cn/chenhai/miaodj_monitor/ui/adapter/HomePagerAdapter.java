@@ -29,21 +29,26 @@ public class HomePagerAdapter extends RecyclerView.Adapter<HomePagerAdapter.MyVi
     private OnItemClickListener mClickListener;
     private OnItemClickListener mBtnClickListener;
 
-    public HomePagerAdapter(Context context , int temFrom) {
+    public HomePagerAdapter(Context context, int temFrom, List<HomePageInfo> mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mFrom = temFrom;
+        this.mdataList = mData;
     }
 
-    public void setDatas(List<HomePageInfo> items) {
+    public void refreshDatas(List<HomePageInfo> items) {
         mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
-    public void loadToAddDatas(List<HomePageInfo> items) {
+
+    public void addDatas(List<HomePageInfo> items) {
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
-        //mdataList.clear();
+        notifyDataSetChanged();
     }
 
     @Override
@@ -80,14 +85,14 @@ public class HomePagerAdapter extends RecyclerView.Adapter<HomePagerAdapter.MyVi
         holder.tvTitleName.setText(item.getItemName());
         holder.tvOwnerName.setText(item.getOwnerName());
         holder.tvProgress.setText(item.getWorkProgress());
-        if(item.getWorkProgress().equals("施工节点业主不确认")){
+        if (item.getWorkProgress().equals("施工节点业主不确认")) {
             holder.tvProgress.setTextColor(0xffff6600);
         }
 
         holder.mStatus = item.getStatus();
-        if(holder.mStatus.equals("0") || holder.mStatus.equals("3")){
+        if (holder.mStatus.equals("0") || holder.mStatus.equals("3")) {
             holder.ll_daily_click.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             holder.ll_daily_click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -105,12 +110,13 @@ public class HomePagerAdapter extends RecyclerView.Adapter<HomePagerAdapter.MyVi
     public int getItemCount() {
         return mdataList.size();
     }
+
     public HomePageInfo getItem(int position) {
         return mdataList.get(position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvTitleName ,tvOwnerName,tvProgress;
+        private TextView tvTitleName, tvOwnerName, tvProgress;
         private FrameLayout ll_daily_click;
         private String mStatus;
 
@@ -127,6 +133,7 @@ public class HomePagerAdapter extends RecyclerView.Adapter<HomePagerAdapter.MyVi
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
+
     public void setOnItemBtnClickListener(OnItemClickListener itemClickListener) {
         this.mBtnClickListener = itemClickListener;
     }

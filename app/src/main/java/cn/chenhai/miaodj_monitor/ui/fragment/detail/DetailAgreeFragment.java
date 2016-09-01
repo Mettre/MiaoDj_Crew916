@@ -164,7 +164,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                     }
                     itemName.append("装修项目");
                     mDetailName.setText(itemName.toString());
-                    mBargain_code=project.getBargain_code();
+                    mBargain_code = project.getBargain_code();
 
                     String status = "";
                     switch (project.getStatus()) {
@@ -328,11 +328,24 @@ public class DetailAgreeFragment extends BaseBackFragment {
         mBtnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ifAgree = true;
-                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
-                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "Y");
+                new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("提示")
+                        .setContentText("确定要成为该项目施工员吗？")
+                        .setCancelText("取消")
+                        .setConfirmText("确定！")
+                        .showCancelButton(true)
+                        .setCancelClickListener(null)
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                ifAgree = true;
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "Y");
 
+                            }
+                        })
+                        .show();
             }
         });
 

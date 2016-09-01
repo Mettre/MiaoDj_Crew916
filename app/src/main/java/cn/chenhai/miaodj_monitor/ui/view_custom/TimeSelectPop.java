@@ -115,7 +115,7 @@ public class TimeSelectPop extends PopupWindow {
                 //这里的year,monthOfYear,dayOfMonth的值与DatePickerDialog控件设置的最新值一致
                 dateAndTime.set(Calendar.YEAR, year);
                 dateAndTime.set(Calendar.MONTH, monthOfYear);
-                dateAndTime.set(Calendar.DAY_OF_MONTH, mType == 0 ? (dayOfMonth + 3) : dayOfMonth);
+                dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 //将页面TextView的显示更新为最新时间
                 upDateDate();
 

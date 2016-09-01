@@ -538,11 +538,13 @@ public class HttpMethods {
     /**
      * 查看施工日志
      */
-    public void getBuildDiary(Subscriber<BuildDiaryEntity> subscriber, String user_code, String access_token, String project_code) {
+    public void getBuildDiary(Subscriber<BuildDiaryEntity> subscriber, String user_code, String access_token, String project_code, int page, int page_size) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("project_code", project_code);
+        map.put("page", page + "");
+        map.put("page_size", page_size + "");
 
         Observable observable = serviceInterface.getBuildDiary(map)
                 .map(new HttpResultAll<BuildDiaryEntity>());
@@ -553,11 +555,13 @@ public class HttpMethods {
     /**
      * 查看施工图片
      */
-    public void getBuildDiaryPicture(Subscriber<BuildPhotoEntity> subscriber, String user_code, String access_token, String project_code) {
+    public void getBuildDiaryPicture(Subscriber<BuildPhotoEntity> subscriber, String user_code, String access_token, String project_code, int page, int page_size) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("project_code", project_code);
+        map.put("page", page + "");
+        map.put("page_size", page_size + "");
 
         Observable observable = serviceInterface.getBuildDiaryPicture(map)
                 .map(new HttpResultAll<BuildPhotoEntity>());
@@ -998,12 +1002,14 @@ public class HttpMethods {
     /**
      * 搜索我的项目工地
      */
-    public void doSearchMyProjects(Subscriber<MyProjectsEntity> subscriber, String user_code, String access_token, String project_type, String search_condition) {
+    public void doSearchMyProjects(Subscriber<MyProjectsEntity> subscriber, String user_code, String access_token, String project_type, String search_condition, int page, int page_size) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("project_type", project_type);
         map.put("search_condition", search_condition);
+        map.put("page", page + "");
+        map.put("page_size", page_size + "");
 
         Observable observable = serviceInterface.doSearchMyProjects(map)
                 .map(new HttpResultAll<MyProjectsEntity>());

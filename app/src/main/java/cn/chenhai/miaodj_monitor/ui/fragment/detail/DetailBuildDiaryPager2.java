@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -15,18 +16,21 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.chenhai.miaodj_monitor.R;
-import cn.chenhai.miaodj_monitor.ui.adapter.DetailBuildDiaryPager2Adapter;
-import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
-import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
-import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.entity.BuildPhotoEntity;
 import cn.chenhai.miaodj_monitor.model.info.BuildPhoto_Info;
 import cn.chenhai.miaodj_monitor.presenter.HttpMethods;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
+import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
+import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
+import cn.chenhai.miaodj_monitor.ui.adapter.DetailBuildDiaryPager2Adapter;
 import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 相册
@@ -45,6 +49,13 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
     private RecyclerView mRecycler;
     private LinearLayoutManager mLLmanager;
     private DetailBuildDiaryPager2Adapter mAdapter;
+    private PtrClassicFrameLayout mRefreshPtrFrameLayout;
+    private LinearLayout mEmptyViewLayout;
+
+    private int pageSize = 10;
+    private int pageIndex = 1;
+
+    private List<BuildPhoto_Info> mData = new ArrayList<>();
 
 
     public static DetailBuildDiaryPager2 newInstance(int from, String projectCode) {
@@ -74,36 +85,22 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_build_diary_pager, container, false);
         initView(view);
-        //initDataTemp();
+
+        initPullRefresh(view);
 
         return view;
     }
 
     private void initView(View view) {
-        mRecycler = (RecyclerView) view.findViewById(R.id.recycler);
+        mRecycler = (RecyclerView) view.findViewById(R.id.fbdp_recycler);
+        mRefreshPtrFrameLayout = (PtrClassicFrameLayout) view.findViewById(R.id.fbdp_ptrFrameLayout);
+        mEmptyViewLayout = (LinearLayout) view.findViewById(R.id.empty_view_layout);
 
-        mAdapter = new DetailBuildDiaryPager2Adapter(_mActivity);
+        mAdapter = new DetailBuildDiaryPager2Adapter(_mActivity, mData);
         mLLmanager = new LinearLayoutManager(_mActivity);
         mRecycler.setLayoutManager(mLLmanager);
         mRecycler.setAdapter(mAdapter);
 
-//        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position, View view) {
-//                //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
-//                TimerTask task = new TimerTask(){
-//                    public void run(){
-//                        //execute the task
-//                        if (getParentFragment() instanceof PersonalBacklogFragment) {
-//                            //((HomeFragment) getParentFragment()).start(DetailAgreeFragment.newInstance("测试单号111"));
-//                            ((PersonalBacklogFragment) getParentFragment()).start(CycleFragment.newInstance(1));
-//                        }
-//                    }
-//                };
-//                Timer timer = new Timer();
-//                timer.schedule(task, 260);
-//            }
-//        });
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
@@ -129,6 +126,15 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                 } else {
                     List<BuildPhotoEntity.DrawingsBean> projects = result.getInfo().getDrawings();
                     List<BuildPhoto_Info> list = new ArrayList<>();
+
+                    if (projects.size() == 0) {
+                        mEmptyViewLayout.setVisibility(View.VISIBLE);
+                        mRecycler.setVisibility(View.GONE);
+                    } else {
+                        mEmptyViewLayout.setVisibility(View.GONE);
+                        mRecycler.setVisibility(View.VISIBLE);
+                    }
+
                     for (int i = 0; i < projects.size(); i++) {
                         BuildPhoto_Info pageInfo = new BuildPhoto_Info();
                         BuildPhotoEntity.DrawingsBean nodeInfo = projects.get(i);
@@ -257,20 +263,41 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
                         list.add(pageInfo);
                     }
 
-                    mAdapter.refreshDatas(list);
+                    mData = list;
 
-                    mAdapter.notifyDataSetChanged();
+                    if (pageIndex == 1) {
+                        mAdapter.refreshDatas(mData);
+                    } else {
+                        mAdapter.addDatas(mData);
+                    }
+
+                    if (list.size() >= pageSize) {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+                    } else {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                    }
+
+                    pageIndex++;
+
+                    if (mRefreshPtrFrameLayout != null) mRefreshPtrFrameLayout.refreshComplete();
                 }
             }
 
             @Override
             public void onCompleted() {
-
+                mRefreshPtrFrameLayout.refreshComplete();
             }
 
             @Override
             public void onError() {
-
+                mRefreshPtrFrameLayout.refreshComplete();
+                if (mData.size() == 0) {
+                    mEmptyViewLayout.setVisibility(View.VISIBLE);
+                    mRecycler.setVisibility(View.GONE);
+                } else {
+                    mEmptyViewLayout.setVisibility(View.GONE);
+                    mRecycler.setVisibility(View.VISIBLE);
+                }
             }
         };
 
@@ -392,10 +419,60 @@ public class DetailBuildDiaryPager2 extends BaseFragment {
         mAdapter.refreshDatas(list);
     }
 
+    private void initPullRefresh(View view) {
+        mRefreshPtrFrameLayout.setLastUpdateTimeRelateObject(this);
+
+        // the following are default settings
+        mRefreshPtrFrameLayout.setResistance(1.7f); // you can also set foot and header separately
+        mRefreshPtrFrameLayout.setRatioOfHeaderHeightToRefresh(1.2f);
+        mRefreshPtrFrameLayout.setDurationToClose(1000);  // you can also set foot and header separately
+        // default is false
+        mRefreshPtrFrameLayout.setPullToRefresh(false);
+
+        // default is true
+        mRefreshPtrFrameLayout.setKeepHeaderWhenRefresh(true);
+
+        mRefreshPtrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
+
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshData();
+                    }
+                }, 300);
+            }
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pageIndex = 1;
+                        refreshData();
+                    }
+                }, 300);
+            }
+
+            @Override
+            public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
+                return super.checkCanDoLoadMore(frame, mRecycler, footer);
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return super.checkCanDoRefresh(frame, mRecycler, header);
+//                return checkCanDoRefreshLocal();
+            }
+        });
+
+    }
+
     private void refreshData() {
         String user_code = PreferencesUtils.getString(_mActivity, "user_code");
         String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-        HttpMethods.getInstance().getBuildDiaryPicture(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode);
+        HttpMethods.getInstance().getBuildDiaryPicture(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode, pageIndex, pageSize);
     }
 
     protected void updateData() {

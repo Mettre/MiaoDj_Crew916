@@ -42,13 +42,13 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
  * Created by ChenHai--霜华 on 2016/6/7. 19:30
  * 邮箱：248866527@qq.com
  */
-public class OtherPagerFragment extends BaseFragment implements SearchViewCut.SearchViewListener{
+public class OtherPagerFragment extends BaseFragment implements SearchViewCut.SearchViewListener {
     private static final String ARG_FROM = "arg_from";
     private static final int REQ_START_DETAIL_FOR_RESULT = 1096;
     private static final int REQ_START_FOR_RESULT = 1099;
 
     private PtrFrameLayout ptrFrameLayout;
-    final String[] mStringList = {"MiaoDJ", "Wei Gan Ju" , "Complete" ,"Not Agree"};
+    final String[] mStringList = {"MiaoDJ", "Wei Gan Ju", "Complete", "Not Agree"};
     private int mFrom = 3;
 
     private LinearLayout mEmptyViewLayout;
@@ -57,10 +57,16 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
     private LinearLayoutManager mLLmanager;
     private HomePagerAdapter mAdapter;
 
+    private int pageSize = 10;
+    private int pageIndex = 1;
+
+    private List<HomePageInfo> mdataList = new ArrayList<>();
 
 
     /**搜索结果列表view*/
-    /**搜索view*/
+    /**
+     * 搜索view
+     */
     private SearchViewCut searchView;
 
     private SubscriberOnSuccessListener mOnSuccessListener;
@@ -93,16 +99,6 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
 
         initView(view);
 
-//        if (mFrom == 0) {
-//            initDataTemp0();
-//        } else if (mFrom == 1) {
-//            initDataTemp1();
-//        } else if (mFrom == 2) {
-//            initDataTemp2();
-//        } else {
-//            initDataTemp2();
-//        }
-
         initSearchView(view);
 
         initPullRefresh(view);
@@ -114,8 +110,9 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
     private void initView(View view) {
         mRecy = (RecyclerView) view.findViewById(R.id.recy);
         mEmptyViewLayout = (LinearLayout) view.findViewById(R.id.empty_view_layout);
+        ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
 
-        mAdapter = new HomePagerAdapter(_mActivity,mFrom);
+        mAdapter = new HomePagerAdapter(_mActivity, mFrom, mdataList);
         mLLmanager = new LinearLayoutManager(_mActivity);
         mRecy.setLayoutManager(mLLmanager);
         mRecy.setAdapter(mAdapter);
@@ -151,37 +148,37 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
         mOnSuccessListener = new SubscriberOnSuccessListener<HttpResult<MyProjectsEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(ifSaveCache) {
+                    if (ifSaveCache) {
                         ACache mCache = ACache.get(_mActivity);
                         mCache.put("OtherPagerFragment", result, 1 * ACache.TIME_DAY);//保存一天，如果超过一天去获取这个key，将为null
                     }
                     List<MyProjectsEntity.ProjectsBean> projects = result.getInfo().getProjects();
                     List<HomePageInfo> list = new ArrayList<>();
 
-                    if(projects.size()==0){
+                    if (projects.size() == 0) {
                         mEmptyViewLayout.setVisibility(View.VISIBLE);
                         mRecy.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         mEmptyViewLayout.setVisibility(View.GONE);
                         mRecy.setVisibility(View.VISIBLE);
                     }
 
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         HomePageInfo pageInfo = new HomePageInfo();
                         MyProjectsEntity.ProjectsBean projectInfo = projects.get(i);
 
                         StringBuilder itemName = new StringBuilder();
                         itemName.append(projectInfo.getStreet());
                         itemName.append(projectInfo.getResidential());
-                        if(projectInfo.getApartment()!=""){
+                        if (projectInfo.getApartment() != "") {
                             itemName.append(projectInfo.getApartment());
                             itemName.append("幢");
                         }
-                        if(projectInfo.getRoom() != ""){
+                        if (projectInfo.getRoom() != "") {
                             itemName.append(projectInfo.getRoom());
                         }
                         itemName.append("装修项目");
@@ -189,7 +186,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
                         pageInfo.setProjectCode(projectInfo.getProject_code());
                         pageInfo.setOwnerName("业主：" + projectInfo.getCustomer_name());
                         String status = "";
-                        switch(projectInfo.getProject_status()){
+                        switch (projectInfo.getProject_status()) {
                             case "1":
                                 status = "新建的项目";
                                 break;
@@ -222,22 +219,44 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
                         pageInfo.setStatus(String.valueOf(mFrom));
 
                         list.add(pageInfo);
+
                     }
 
-                    mAdapter.setDatas(list);
-                    mAdapter.notifyDataSetChanged();
-                    if(ptrFrameLayout!=null) ptrFrameLayout.refreshComplete();
+                    mdataList = list;
+
+                    if (pageIndex == 1) {
+                        mAdapter.refreshDatas(mdataList);
+                    } else {
+                        mAdapter.addDatas(mdataList);
+                    }
+
+                    if (result.getInfo().getTotal_page() > pageIndex) {
+                        ptrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+                    } else {
+                        ptrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                    }
+
+                    pageIndex++;
+
+                    if (ptrFrameLayout != null) ptrFrameLayout.refreshComplete();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 ptrFrameLayout.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 ptrFrameLayout.refreshComplete();
-                mEmptyViewLayout.setVisibility(View.VISIBLE);
-                mRecy.setVisibility(View.GONE);
+                if (mdataList.size() == 0) {
+                    mEmptyViewLayout.setVisibility(View.VISIBLE);
+                    mRecy.setVisibility(View.GONE);
+                } else {
+                    mEmptyViewLayout.setVisibility(View.GONE);
+                    mRecy.setVisibility(View.VISIBLE);
+                }
             }
         };
 
@@ -245,25 +264,24 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
         ACache mCache = ACache.get(_mActivity);
         HttpResult<MyProjectsEntity> result = (HttpResult<MyProjectsEntity>) mCache.getAsObject("OtherPagerFragment");
 
-        if(result!=null){
+        if (result != null) {
             ifSaveCache = false;
             mOnSuccessListener.onSuccess(result);
-        }else {
+        } else {
             refreshData();
         }
     }
 
-    private void refreshData(){
+    private void refreshData() {
         ifSaveCache = true;
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,String.valueOf(mFrom+1),"");
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, String.valueOf(mFrom + 1), "", pageIndex, pageSize);
     }
 
-    private void initPullRefresh(View view){
+    private void initPullRefresh(View view) {
         view.setBackgroundColor(getResources().getColor(R.color.gray_dark));
         //final PtrFrameLayout ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
-        ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
 
         // header
         final StoreHouseHeader header = new StoreHouseHeader(getContext());
@@ -305,7 +323,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
                 //return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
-                if(mRecy.getChildCount() > 0){
+                if (mRecy.getChildCount() > 0) {
                     return checkCanDoRefreshLocal();
                 } else
                     return true;
@@ -314,7 +332,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
             @Override
             public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
                 //return PtrDefaultHandler2.checkContentCanBePulledUp(frame, content, footer);
-                if(mRecy.getChildCount() > 0) {
+                if (mRecy.getChildCount() > 0) {
                     return checkCanDoLoadMoreLocal();
                 } else
                     return false;
@@ -325,7 +343,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        frame.refreshComplete();
+                        refreshData();
                     }
                 }, 200);
             }
@@ -335,6 +353,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        pageIndex = 1;
                         refreshData();
                         //frame.refreshComplete();
                     }
@@ -344,18 +363,17 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
     }
 
     @Override
-    public void onFragmentResult(int requestCode, int resultCode, Bundle data){
+    public void onFragmentResult(int requestCode, int resultCode, Bundle data) {
         super.onFragmentResult(requestCode, resultCode, data);
-        if(requestCode == REQ_START_FOR_RESULT){
+        if (requestCode == REQ_START_FOR_RESULT) {
 //            if(mFrom == 0) {
 //                ((MainActivity) getActivity()).getResideLayout().setIfSlide(true);
 //            }else {
 //                ((MainActivity) getActivity()).getResideLayout().setIfSlide(false);
 //            }
-        }else if (requestCode == 0) {}
+        } else if (requestCode == 0) {
+        }
     }
-
-
 
 
     public boolean checkCanDoRefreshLocal() {
@@ -365,8 +383,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
         //LinearLayoutManager llmanager = (LinearLayoutManager) mRecy.getLayoutManager();
         try {
             CLog.d("test", "checkCanDoRefresh: %s %s", mLLmanager.findFirstVisibleItemPosition(), mRecy.getChildAt(0).getTop());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
         int a = mLLmanager.findFirstVisibleItemPosition();
@@ -383,7 +400,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
         int a = mLLmanager.findLastVisibleItemPosition();
         //int b = mAdapter.getItemCount() - 1;
         int b = mAdapter.getItemCount() - 1;
-        boolean ifTrue1 = a >= b ;
+        boolean ifTrue1 = a >= b;
 //        boolean ifTrue2 = true;
 //        int test = mRecy.getChildCount();
 //        if(mRecy.getChildAt(mAdapter.getItemCount() - 1) == null){
@@ -394,10 +411,9 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
 //            ifTrue2 =  x > y;
 //        }
 
-        return  ifTrue1;
+        return ifTrue1;
         //return  ifTrue1 || ifTrue2;
     }
-
 
 
     /**
@@ -413,11 +429,12 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
 
     /**
      * 点击搜索键时edit text触发的回调
+     *
      * @param text
      */
     @Override
     public void onSearch(String text) {
-        String token = PreferencesUtils.getString(_mActivity,"user_token");
+        String token = PreferencesUtils.getString(_mActivity, "user_token");
         //ProxyService.newInstance().SearchVans(_mActivity,token,text);
 
 
@@ -429,9 +446,9 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
             mRecy.setAdapter(mAdapter);
         } else {
             //更新搜索数据
-            String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-            String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-            HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,String.valueOf(mFrom+1),searchView.getEtInputText());
+            String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+            String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+            HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, String.valueOf(mFrom + 1), searchView.getEtInputText(), 1, pageSize);
             mAdapter.notifyDataSetChanged();
         }
         Toast.makeText(_mActivity, "搜索完成", Toast.LENGTH_SHORT).show();
@@ -469,7 +486,7 @@ public class OtherPagerFragment extends BaseFragment implements SearchViewCut.Se
     public void onResume() {
         super.onResume();
         boolean isVisible = getUserVisibleHint();
-        if(isVisible) {
+        if (isVisible) {
             if (mFrom == 0) {
                 ((MainActivity) getActivity()).getResideLayout().setIsNeedSlide(true);
             } else {

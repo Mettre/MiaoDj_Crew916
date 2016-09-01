@@ -38,6 +38,7 @@ import cn.chenhai.miaodj_monitor.ui.activity.MainActivity;
 import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 import cn.chenhai.miaodj_monitor.ui.event.TabSelectedEvent;
 import cn.chenhai.miaodj_monitor.ui.fragment.home.HomeFragment;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler2;
@@ -47,13 +48,13 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
  * Created by ChenHai--霜华 on 2016/7/3. 20:38
  * 邮箱：248866527@qq.com
  */
-public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.SearchViewListener{
+public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.SearchViewListener {
     private static final String ARG_FROM = "arg_from";
     private static final int REQ_START_DETAIL_FOR_RESULT = 1096;
     private static final int REQ_START_FOR_RESULT = 1099;
 
     private PtrFrameLayout ptrFrameLayout;
-    final String[] mStringList = {"MiaoDJ", "Wei Gan Ju" , "Complete" ,"Not Agree"};
+    final String[] mStringList = {"MiaoDJ", "Wei Gan Ju", "Complete", "Not Agree"};
     private int mFrom = 2;
 
     private LinearLayout mEmptyViewLayout;
@@ -62,10 +63,16 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
     private LinearLayoutManager mLLmanager;
     private HomePagerAdapter mAdapter;
 
+    private int pageSize = 10;
+    private int pageIndex = 1;
+
+    private List<HomePageInfo> mdataList = new ArrayList<>();
 
 
     /**搜索结果列表view*/
-    /**搜索view*/
+    /**
+     * 搜索view
+     */
     private SearchViewCut searchView;
 
     private SubscriberOnSuccessListener mOnSuccessListener;
@@ -98,8 +105,6 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
 
         initView(view);
 
-//            initDataTemp2();
-
         initSearchView(view);
 
         initPullRefresh(view);
@@ -111,8 +116,9 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
     private void initView(View view) {
         mRecy = (RecyclerView) view.findViewById(R.id.recy);
         mEmptyViewLayout = (LinearLayout) view.findViewById(R.id.empty_view_layout);
+        ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
 
-        mAdapter = new HomePagerAdapter(_mActivity,mFrom);
+        mAdapter = new HomePagerAdapter(_mActivity, mFrom, mdataList);
         mLLmanager = new LinearLayoutManager(_mActivity);
         mRecy.setLayoutManager(mLLmanager);
         mRecy.setAdapter(mAdapter);
@@ -121,8 +127,8 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
             @Override
             public void onItemClick(int position, View view) {
                 //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
-                TimerTask task = new TimerTask(){
-                    public void run(){
+                TimerTask task = new TimerTask() {
+                    public void run() {
                         //execute the task
                         if (getParentFragment() instanceof HomeFragment) {
                             //((HomeFragment) getParentFragment()).start(DetailAgreeFragment.newInstance("测试单号111"));
@@ -131,7 +137,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
                             bundle.putString("ProjectCode", mAdapter.getItem(position).getProjectCode());
                             Intent intent = new Intent(_mActivity, DetailActivity.class);
                             intent.putExtras(bundle);
-                            ((HomeFragment) getParentFragment()).startActivityForResult(intent,REQ_START_DETAIL_FOR_RESULT);
+                            ((HomeFragment) getParentFragment()).startActivityForResult(intent, REQ_START_DETAIL_FOR_RESULT);
                         }
                     }
                 };
@@ -142,13 +148,21 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                if (getParentFragment() instanceof HomeFragment) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("FragmentName", "DetailBuildDiaryFragment");
-                    bundle.putString("ProjectCode", mAdapter.getItem(position).getProjectCode());
-                    Intent intent = new Intent(_mActivity, DetailActivity.class);
-                    intent.putExtras(bundle);
-                    ((HomeFragment) getParentFragment()).startActivityForResult(intent,REQ_START_DETAIL_FOR_RESULT);
+                if (mAdapter.getItem(position).getWorkProgress().equals("施工中") || mAdapter.getItem(position).getWorkProgress().equals("施工完成") || mAdapter.getItem(position).getWorkProgress().equals("停工")) {
+                    if (getParentFragment() instanceof HomeFragment) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("FragmentName", "DetailBuildDiaryFragment");
+                        bundle.putString("ProjectCode", mAdapter.getItem(position).getProjectCode());
+                        Intent intent = new Intent(_mActivity, DetailActivity.class);
+                        intent.putExtras(bundle);
+                        ((HomeFragment) getParentFragment()).startActivityForResult(intent, REQ_START_DETAIL_FOR_RESULT);
+                    }
+                } else {
+                    new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("")
+                            .setContentText("项目未施工，无法查看施工日志!")
+                            .setConfirmText("关闭")
+                            .show();
                 }
             }
         });
@@ -156,37 +170,37 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
         mOnSuccessListener = new SubscriberOnSuccessListener<HttpResult<MyProjectsEntity>>() {
             @Override
             public void onSuccess(HttpResult<MyProjectsEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(ifSaveCache) {
+                    if (ifSaveCache) {
                         ACache mCache = ACache.get(_mActivity);
                         mCache.put("ThirdPagerFragment", result, 1 * ACache.TIME_DAY);//保存一天，如果超过一天去获取这个key，将为null
                     }
                     List<MyProjectsEntity.ProjectsBean> projects = result.getInfo().getProjects();
                     List<HomePageInfo> list = new ArrayList<>();
 
-                    if(projects.size()==0){
+                    if (projects.size() == 0) {
                         mEmptyViewLayout.setVisibility(View.VISIBLE);
                         mRecy.setVisibility(View.GONE);
-                    }else {
+                    } else {
                         mEmptyViewLayout.setVisibility(View.GONE);
                         mRecy.setVisibility(View.VISIBLE);
                     }
 
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         HomePageInfo pageInfo = new HomePageInfo();
                         MyProjectsEntity.ProjectsBean projectInfo = projects.get(i);
 
                         StringBuilder itemName = new StringBuilder();
                         itemName.append(projectInfo.getStreet());
                         itemName.append(projectInfo.getResidential());
-                        if(projectInfo.getApartment()!=""){
+                        if (projectInfo.getApartment() != "") {
                             itemName.append(projectInfo.getApartment());
                             itemName.append("幢");
                         }
-                        if(projectInfo.getRoom() != ""){
+                        if (projectInfo.getRoom() != "") {
                             itemName.append(projectInfo.getRoom());
                         }
                         itemName.append("装修项目");
@@ -194,7 +208,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
                         pageInfo.setProjectCode(projectInfo.getProject_code());
                         pageInfo.setOwnerName("业主：" + projectInfo.getCustomer_name());
                         String status = "";
-                        switch(projectInfo.getProject_status()){
+                        switch (projectInfo.getProject_status()) {
                             case "1":
                                 status = "新建的项目";
                                 break;
@@ -227,78 +241,78 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
                         pageInfo.setStatus(String.valueOf(mFrom));
 
                         list.add(pageInfo);
+
                     }
 
-                    mAdapter.setDatas(list);
-                    mAdapter.notifyDataSetChanged();
-                    if(ptrFrameLayout!=null) ptrFrameLayout.refreshComplete();
+                    mdataList = list;
+
+                    if (pageIndex == 1) {
+                        mAdapter.refreshDatas(mdataList);
+                    } else {
+                        mAdapter.addDatas(mdataList);
+                    }
+
+                    if (result.getInfo().getTotal_page() > pageIndex) {
+                        ptrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+                    } else {
+                        ptrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                    }
+
+                    pageIndex++;
+
+                    if (ptrFrameLayout != null) ptrFrameLayout.refreshComplete();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 ptrFrameLayout.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 ptrFrameLayout.refreshComplete();
-                mEmptyViewLayout.setVisibility(View.VISIBLE);
-                mRecy.setVisibility(View.GONE);
+                if (mdataList.size() == 0) {
+                    mEmptyViewLayout.setVisibility(View.VISIBLE);
+                    mRecy.setVisibility(View.GONE);
+                } else {
+                    mEmptyViewLayout.setVisibility(View.GONE);
+                    mRecy.setVisibility(View.VISIBLE);
+                }
             }
         };
 
         ACache mCache = ACache.get(_mActivity);
         HttpResult<MyProjectsEntity> result = (HttpResult<MyProjectsEntity>) mCache.getAsObject("ThirdPagerFragment");
 
-        if(result!=null){
+        if (result != null) {
             ifSaveCache = false;
             mOnSuccessListener.onSuccess(result);
-        }else {
+        } else {
             refreshData();
         }
 
     }
 
-    private void refreshData(){
+    private void refreshData() {
         ifSaveCache = true;
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,String.valueOf(mFrom+1),"");
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, String.valueOf(mFrom + 1), "", pageIndex, pageSize);
     }
 
-    private void initPullRefresh(View view){
+    private void initPullRefresh(View view) {
         view.setBackgroundColor(getResources().getColor(R.color.gray_dark));
         //final PtrFrameLayout ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
-        ptrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.store_house_ptr_frame);
         // header
         final StoreHouseHeader header = new StoreHouseHeader(getContext());
         //header.setPadding(0, LocalDisplay.dp2px(15), 0, 0);
         header.setPadding(0, LocalDisplay.dp2px(20), 0, LocalDisplay.dp2px(20));
-        /**
-         * using a string, support: A-Z 0-9 - .
-         * you can add more letters by {@link in.srain.cube.views.ptr.header.StoreHousePath#addChar}
-         */
-//        if(mFrom == 0){
-//            header.initWithString(mStringList[0]);
-//        }else if(mFrom == 1){
-//            header.initWithString(mStringList[1]);
-//        }else if(mFrom == 2){
-//            header.initWithString(mStringList[2]);
-//        }else if(mFrom == 3){
-//            header.initWithString(mStringList[3]);
-//        }
         header.initWithString(mStringList[2]);
 
         ptrFrameLayout.setDurationToCloseHeader(3000);
         ptrFrameLayout.setHeaderView(header);
         ptrFrameLayout.addPtrUIHandler(header);
-
-//        ptrFrameLayout.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                ptrFrameLayout.autoRefresh(false);
-//            }
-//        }, 100);
-
 
         StoreHouseHeader footer = new StoreHouseHeader(getContext());
         footer.setPadding(0, LocalDisplay.dp2px(20), 0, LocalDisplay.dp2px(20));
@@ -310,7 +324,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
                 //return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
-                if(mRecy.getChildCount() > 0){
+                if (mRecy.getChildCount() > 0) {
                     return checkCanDoRefreshLocal();
                 } else
                     return true;
@@ -319,7 +333,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
             @Override
             public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
                 //return PtrDefaultHandler2.checkContentCanBePulledUp(frame, content, footer);
-                if(mRecy.getChildCount() > 0) {
+                if (mRecy.getChildCount() > 0) {
                     return checkCanDoLoadMoreLocal();
                 } else
                     return false;
@@ -330,7 +344,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        frame.refreshComplete();
+                        refreshData();
                     }
                 }, 200);
             }
@@ -340,6 +354,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        pageIndex = 1;
                         refreshData();
                         //frame.refreshComplete();
                     }
@@ -349,50 +364,16 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
     }
 
     @Override
-    public void onFragmentResult(int requestCode, int resultCode, Bundle data){
+    public void onFragmentResult(int requestCode, int resultCode, Bundle data) {
         super.onFragmentResult(requestCode, resultCode, data);
-        if(requestCode == REQ_START_FOR_RESULT){
+        if (requestCode == REQ_START_FOR_RESULT) {
 //            if(mFrom == 0) {
 //                ((MainActivity) getActivity()).getResideLayout().setIfSlide(true);
 //            }else {
 //                ((MainActivity) getActivity()).getResideLayout().setIfSlide(false);
 //            }
-        }else if (requestCode == 0) {}
-    }
-
-    private void initDataTemp1() {
-        List<HomePageInfo> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            HomePageInfo pageInfo = new HomePageInfo();
-
-            if (i % 4 == 0) {
-                pageInfo.setItemName("玲珑湾三期16幢302装修项目");
-                pageInfo.setOwnerName("业主：张丽丽");
-                pageInfo.setWorkProgress("已完成");
-                pageInfo.setStatus(String.valueOf(mFrom));
-
-            } else if (i % 4 == 1) {
-                pageInfo.setItemName("天地新城21幢1105装修项目");
-                pageInfo.setOwnerName("业主：刘俪");
-                pageInfo.setWorkProgress("已完成");
-                pageInfo.setStatus(String.valueOf(mFrom));
-
-            } else if (i % 4 == 2) {
-                pageInfo.setItemName("玲珑湾三期11幢102装修项目");
-                pageInfo.setOwnerName("业主：李菲儿");
-                pageInfo.setWorkProgress("已完成");
-                pageInfo.setStatus(String.valueOf(mFrom));
-
-            } else if (i % 4 == 3) {
-                pageInfo.setItemName("小渔村02幢402装修项目");
-                pageInfo.setOwnerName("业主：张波");
-                pageInfo.setWorkProgress("已完成");
-                pageInfo.setStatus(String.valueOf(mFrom));
-
-            }
-            list.add(pageInfo);
+        } else if (requestCode == 0) {
         }
-        mAdapter.setDatas(list);
     }
 
 
@@ -403,8 +384,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
         //LinearLayoutManager llmanager = (LinearLayoutManager) mRecy.getLayoutManager();
         try {
             CLog.d("test", "checkCanDoRefresh: %s %s", mLLmanager.findFirstVisibleItemPosition(), mRecy.getChildAt(0).getTop());
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
         int a = mLLmanager.findFirstVisibleItemPosition();
@@ -421,7 +401,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
         int a = mLLmanager.findLastVisibleItemPosition();
         //int b = mAdapter.getItemCount() - 1;
         int b = mAdapter.getItemCount() - 1;
-        boolean ifTrue1 = a >= b ;
+        boolean ifTrue1 = a >= b;
 //        boolean ifTrue2 = true;
 //        int test = mRecy.getChildCount();
 //        if(mRecy.getChildAt(mAdapter.getItemCount() - 1) == null){
@@ -432,10 +412,9 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
 //            ifTrue2 =  x > y;
 //        }
 
-        return  ifTrue1;
+        return ifTrue1;
         //return  ifTrue1 || ifTrue2;
     }
-
 
 
     /**
@@ -451,11 +430,12 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
 
     /**
      * 点击搜索键时edit text触发的回调
+     *
      * @param text
      */
     @Override
     public void onSearch(String text) {
-        String token = PreferencesUtils.getString(_mActivity,"user_token");
+        String token = PreferencesUtils.getString(_mActivity, "user_token");
         //ProxyService.newInstance().SearchVans(_mActivity,token,text);
 
 
@@ -467,9 +447,9 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
             mRecy.setAdapter(mAdapter);
         } else {
             //更新搜索数据
-            String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-            String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-            HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,String.valueOf(mFrom+1),searchView.getEtInputText());
+            String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+            String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+            HttpMethods.getInstance().doSearchMyProjects(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, String.valueOf(mFrom + 1), searchView.getEtInputText(), pageIndex, pageSize);
             mAdapter.notifyDataSetChanged();
         }
         Toast.makeText(_mActivity, "搜索完成", Toast.LENGTH_SHORT).show();
@@ -507,7 +487,7 @@ public class ThirdPagerFragment extends BaseFragment implements SearchViewCut.Se
     public void onResume() {
         super.onResume();
         boolean isVisible = getUserVisibleHint();
-        if(isVisible) {
+        if (isVisible) {
             if (mFrom == 0) {
                 ((MainActivity) getActivity()).getResideLayout().setIsNeedSlide(true);
             } else {

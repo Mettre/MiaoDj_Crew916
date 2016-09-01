@@ -35,27 +35,33 @@ public class DetailBuildDiaryPager2Adapter extends RecyclerView.Adapter<DetailBu
     private OnItemClickListener mClickListener;
     private OnItemClickListener mBtnClickListener;
 
-    Uri photoUri1 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-    Uri photoUri2 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-    Uri photoUri3 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-    Uri photoUri4 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-    Uri photoUri5 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
+    Uri photoUri1 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+    Uri photoUri2 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+    Uri photoUri3 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+    Uri photoUri4 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+    Uri photoUri5 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
 
-    public DetailBuildDiaryPager2Adapter(Context context) {
+    public DetailBuildDiaryPager2Adapter(Context context, List<BuildPhoto_Info> mData) {
         this.mInflater = LayoutInflater.from(context);
         mContext = context;
+        this.mdataList = mData;
     }
 
     public void refreshDatas(List<BuildPhoto_Info> items) {
         mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
+
     public void addDatas(List<BuildPhoto_Info> items) {
         //mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
+        notifyDataSetChanged();
         //mdataList.clear();
     }
 
@@ -82,15 +88,15 @@ public class DetailBuildDiaryPager2Adapter extends RecyclerView.Adapter<DetailBu
         if (item == null) return;
 
         Uri imageUri = Uri.parse("http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg");
-        if(item.getImg_portraitPath()!=null && !item.getImg_portraitPath().equals("")){
+        if (item.getImg_portraitPath() != null && !item.getImg_portraitPath().equals("")) {
             imageUri = Uri.parse(item.getImg_portraitPath());
         }
         holder.sdvDiaryPortrait.setImageURI(imageUri);
 
         holder.tvDiaryName.setText(item.getWorker_name());
-        if(item.getWorker_type() == null || item.getWorker_type().equals("")){
+        if (item.getWorker_type() == null || item.getWorker_type().equals("")) {
             holder.tvDiaryType.setVisibility(View.GONE);
-        }else {
+        } else {
             holder.tvDiaryType.setText(item.getWorker_type());
         }
 
@@ -98,26 +104,26 @@ public class DetailBuildDiaryPager2Adapter extends RecyclerView.Adapter<DetailBu
         holder.tvDiaryTime.setText(item.getDate());
 
 
-        photoUri1 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-        photoUri2 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-        photoUri3 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-        photoUri4 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
-        photoUri5 = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.ic_miaodj);
+        photoUri1 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+        photoUri2 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+        photoUri3 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+        photoUri4 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
+        photoUri5 = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.ic_miaodj);
         //Uri photoUri1 = Uri.parse("http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg");
 
-        if(item.getPhoto_path1()!=null && !item.getPhoto_path1().equals("")){
+        if (item.getPhoto_path1() != null && !item.getPhoto_path1().equals("")) {
             photoUri1 = Uri.parse(item.getPhoto_path1());
         }
-        if(item.getPhoto_path2()!=null && !item.getPhoto_path2().equals("")){
+        if (item.getPhoto_path2() != null && !item.getPhoto_path2().equals("")) {
             photoUri2 = Uri.parse(item.getPhoto_path2());
         }
-        if(item.getPhoto_path3()!=null && !item.getPhoto_path3().equals("")){
+        if (item.getPhoto_path3() != null && !item.getPhoto_path3().equals("")) {
             photoUri3 = Uri.parse(item.getPhoto_path3());
         }
-        if(item.getPhoto_path4()!=null && !item.getPhoto_path4().equals("")){
+        if (item.getPhoto_path4() != null && !item.getPhoto_path4().equals("")) {
             photoUri4 = Uri.parse(item.getPhoto_path4());
         }
-        if(item.getPhoto_path5()!=null && !item.getPhoto_path5().equals("")){
+        if (item.getPhoto_path5() != null && !item.getPhoto_path5().equals("")) {
             photoUri5 = Uri.parse(item.getPhoto_path5());
         }
         holder.sdvDiaryPhoto1.setImageURI(photoUri1);
@@ -320,6 +326,7 @@ public class DetailBuildDiaryPager2Adapter extends RecyclerView.Adapter<DetailBu
     public int getItemCount() {
         return mdataList.size();
     }
+
     public BuildPhoto_Info getItem(int position) {
         return mdataList.get(position);
     }
@@ -360,6 +367,7 @@ public class DetailBuildDiaryPager2Adapter extends RecyclerView.Adapter<DetailBu
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
+
     public void setOnItemBtnClickListener(OnItemClickListener itemClickListener) {
         this.mBtnClickListener = itemClickListener;
     }

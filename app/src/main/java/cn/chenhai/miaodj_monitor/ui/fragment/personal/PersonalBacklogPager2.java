@@ -33,7 +33,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 消息通知
- *
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/23. 15:17
  * 邮箱：248866527@qq.com
  */
@@ -52,16 +52,19 @@ public class PersonalBacklogPager2 extends BaseFragment {
 
     private LinearLayout mEmptyViewLayout;
 
+    private List<Backlog_Info> mdataList = new ArrayList<>();
 
-    public static PersonalBacklogPager2 newInstance(int from , String mProjectCode) {
+
+    public static PersonalBacklogPager2 newInstance(int from, String mProjectCode) {
         Bundle args = new Bundle();
         args.putInt(ARG_FROM, from);
-        args.putString("mProjectCode",mProjectCode);
+        args.putString("mProjectCode", mProjectCode);
 
         PersonalBacklogPager2 fragment = new PersonalBacklogPager2();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +94,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
         mRecycler = (RecyclerView) view.findViewById(R.id.recycler);
         mEmptyViewLayout = (LinearLayout) view.findViewById(R.id.empty_view_layout);
 
-        mAdapter = new PersonalBacklogPagerAdapter(_mActivity,mFrom);
+        mAdapter = new PersonalBacklogPagerAdapter(_mActivity, mFrom, mdataList);
         mLLmanager = new LinearLayoutManager(_mActivity);
         mRecycler.setLayoutManager(mLLmanager);
         mRecycler.setAdapter(mAdapter);
@@ -126,30 +129,30 @@ public class PersonalBacklogPager2 extends BaseFragment {
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<BackLogNewMsgEntity>>() {
             @Override
             public void onSuccess(HttpResult<BackLogNewMsgEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    if(ifSaveCache) {
+                    if (ifSaveCache) {
                         ACache mCache = ACache.get(_mActivity);
-                        mCache.put("PersonalBacklogPager2", result, 10*60);//保存10分钟，如果超过10分钟去获取这个key，将为null
+                        mCache.put("PersonalBacklogPager2", result, 10 * 60);//保存10分钟，如果超过10分钟去获取这个key，将为null
                     }
                     List<BackLogNewMsgEntity.CommonMessageBean> projectsCommon = result.getInfo().getCommon_message();
                     List<BackLogNewMsgEntity.SingleMessageBean> projectsSingle = result.getInfo().getSingle_message();
 
                     List<Backlog_Info> list = new ArrayList<>();
 
-                    if(projectsCommon.size()==0 && projectsSingle.size()==0){
+                    if (projectsCommon.size() == 0 && projectsSingle.size() == 0) {
                         mEmptyViewLayout.setVisibility(View.VISIBLE);
                         mRecycler.setVisibility(View.GONE);
                         ((PersonalBacklogFragment) getParentFragment()).hideNewDot(1);
-                    }else {
+                    } else {
                         mEmptyViewLayout.setVisibility(View.GONE);
                         mRecycler.setVisibility(View.VISIBLE);
                         ((PersonalBacklogFragment) getParentFragment()).showNewDot(1);
                     }
 
-                    for (int i=0 ;i<projectsCommon.size() ;i++){
+                    for (int i = 0; i < projectsCommon.size(); i++) {
                         Backlog_Info pageInfo = new Backlog_Info();
                         BackLogNewMsgEntity.CommonMessageBean nodeInfo = projectsCommon.get(i);
 
@@ -162,7 +165,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
                         list.add(pageInfo);
                     }
 
-                    for (int i=0 ;i<projectsSingle.size() ;i++){
+                    for (int i = 0; i < projectsSingle.size(); i++) {
                         Backlog_Info pageInfo = new Backlog_Info();
                         BackLogNewMsgEntity.SingleMessageBean nodeInfo = projectsSingle.get(i);
 
@@ -175,40 +178,48 @@ public class PersonalBacklogPager2 extends BaseFragment {
                         list.add(pageInfo);
                     }
 
-                    mAdapter.refreshDatas(list);
+                    mdataList = list;
 
-                    mAdapter.notifyDataSetChanged();
+                    mAdapter.refreshDatas(mdataList);
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 mRefreshPtrFrameLayout.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 mRefreshPtrFrameLayout.refreshComplete();
-                mEmptyViewLayout.setVisibility(View.VISIBLE);
-                mRecycler.setVisibility(View.GONE);
-                ((PersonalBacklogFragment) getParentFragment()).hideNewDot(1);
+                if (mdataList.size() == 0) {
+                    mEmptyViewLayout.setVisibility(View.VISIBLE);
+                    mRecycler.setVisibility(View.GONE);
+                    ((PersonalBacklogFragment) getParentFragment()).hideNewDot(1);
+                } else {
+                    mEmptyViewLayout.setVisibility(View.GONE);
+                    mRecycler.setVisibility(View.VISIBLE);
+                    ((PersonalBacklogFragment) getParentFragment()).showNewDot(1);
+                }
             }
         };
 
         ACache mCache = ACache.get(_mActivity);
         HttpResult<BackLogEntity> result = (HttpResult<BackLogEntity>) mCache.getAsObject("PersonalBacklogPager2");
 
-        if(result!=null){
+        if (result != null) {
             ifSaveCache = false;
             mOnSuccessInit.onSuccess(result);
-        }else {
+        } else {
             refreshData();
         }
     }
 
-    private void refreshData(){
+    private void refreshData() {
         ifSaveCache = true;
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getMyMessage(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,"0","0");
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getMyMessage(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, "0", "0");
     }
 
     private void initDataTemp() {
@@ -240,7 +251,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
         mAdapter.refreshDatas(list);
     }
 
-    private void initPullRefresh(View view){
+    private void initPullRefresh(View view) {
         mRefreshPtrFrameLayout.setLastUpdateTimeRelateObject(this);
 
         // the following are default settings

@@ -29,21 +29,25 @@ public class DetailBuildDiaryPager1Adapter extends RecyclerView.Adapter<DetailBu
     private OnItemClickListener mClickListener;
     private OnItemClickListener mBtnClickListener;
 
-    public DetailBuildDiaryPager1Adapter(Context context) {
+    public DetailBuildDiaryPager1Adapter(Context context,List<BuildDiary_Info> items) {
         this.mInflater = LayoutInflater.from(context);
+        this.mdataList=items;
     }
 
     public void refreshDatas(List<BuildDiary_Info> items) {
         mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
 
     public void addDatas(List<BuildDiary_Info> items) {
         //mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
+        notifyDataSetChanged();
         //mdataList.clear();
     }
 

@@ -40,10 +40,13 @@ import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
 import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * 日志
- *
+ * <p>
  * Created by ChenHai--霜华 on 2016/6/24. 15:21
  * 邮箱：248866527@qq.com
  */
@@ -59,17 +62,24 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
     private RecyclerView mRecycler;
     private LinearLayoutManager mLLmanager;
     private DetailBuildDiaryPager1Adapter mAdapter;
+    private PtrClassicFrameLayout mRefreshPtrFrameLayout;
+    private LinearLayout mEmptyViewLayout;
 
+    private int pageSize = 10;
+    private int pageIndex = 1;
 
-    public static DetailBuildDiaryPager1 newInstance(int from , String projectCode) {
+    private List<BuildDiary_Info> mData = new ArrayList<>();
+
+    public static DetailBuildDiaryPager1 newInstance(int from, String projectCode) {
         Bundle args = new Bundle();
         args.putInt(ARG_FROM, from);
-        args.putString("projectCode",projectCode);
+        args.putString("projectCode", projectCode);
 
         DetailBuildDiaryPager1 fragment = new DetailBuildDiaryPager1();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,40 +98,27 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_build_diary_pager, container, false);
 
         initView(view);
-        //initDataTemp();
+
+        initPullRefresh(view);
 
         return view;
     }
 
     private void initView(View view) {
-        mRecycler = (RecyclerView) view.findViewById(R.id.recycler);
+        mRecycler = (RecyclerView) view.findViewById(R.id.fbdp_recycler);
+        mRefreshPtrFrameLayout = (PtrClassicFrameLayout) view.findViewById(R.id.fbdp_ptrFrameLayout);
+        mEmptyViewLayout = (LinearLayout) view.findViewById(R.id.empty_view_layout);
 
-        mAdapter = new DetailBuildDiaryPager1Adapter(_mActivity);
+        mAdapter = new DetailBuildDiaryPager1Adapter(_mActivity, mData);
         mLLmanager = new LinearLayoutManager(_mActivity);
         mRecycler.setLayoutManager(mLLmanager);
         mRecycler.setAdapter(mAdapter);
 
-//        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position, View view) {
-//                //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
-//                TimerTask task = new TimerTask(){
-//                    public void run(){
-//                        //execute the task
-//                        if (getParentFragment() instanceof PersonalBacklogFragment) {
-//                            //((HomeFragment) getParentFragment()).start(DetailAgreeFragment.newInstance("测试单号111"));
-//                            ((PersonalBacklogFragment) getParentFragment()).start(CycleFragment.newInstance(1));
-//                        }
-//                    }
-//                };
-//                Timer timer = new Timer();
-//                timer.schedule(task, 260);
-//            }
-//        });
+
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                showPopupWindow(view,mAdapter.getItem(position));
+                showPopupWindow(view, mAdapter.getItem(position));
             }
         });
 
@@ -129,38 +126,48 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<BuildDiaryEntity>>() {
             @Override
             public void onSuccess(HttpResult<BuildDiaryEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     List<BuildDiaryEntity.DrawingsBean> projects = result.getInfo().getDrawings();
                     List<BuildDiary_Info> list = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+
+                    if (projects.size() == 0) {
+                        mEmptyViewLayout.setVisibility(View.VISIBLE);
+                        mRecycler.setVisibility(View.GONE);
+                    } else {
+                        mEmptyViewLayout.setVisibility(View.GONE);
+                        mRecycler.setVisibility(View.VISIBLE);
+                    }
+
+
+                    for (int i = 0; i < projects.size(); i++) {
                         BuildDiary_Info pageInfo = new BuildDiary_Info();
                         BuildDiaryEntity.DrawingsBean nodeInfo = projects.get(i);
 
                         pageInfo.setDiary_content(nodeInfo.getInfo());
-                        if(nodeInfo.getInfo() != null){
-                            if(nodeInfo.getInfo().equals("")){
+                        if (nodeInfo.getInfo() != null) {
+                            if (nodeInfo.getInfo().equals("")) {
                                 pageInfo.setIfContent(false);
-                            } else{
+                            } else {
                                 pageInfo.setIfContent(true);
                             }
                         }
 
                         String headPath = "";
-                        if(nodeInfo.getCrew_headimg() != null) {
-                            if(!nodeInfo.getCrew_headimg().equals("")) {
+                        if (nodeInfo.getCrew_headimg() != null) {
+                            if (!nodeInfo.getCrew_headimg().equals("")) {
                                 headPath = HttpMethods.BASE_ROOT_URL + nodeInfo.getCrew_headimg();
                             }
                         }
                         pageInfo.setImg_portraitPath(headPath);
                         pageInfo.setDate(nodeInfo.getCreatetime());
                         pageInfo.setDayNum(String.valueOf(nodeInfo.getAfter_start()));
-                        if(nodeInfo.getCan_edit() != null){
-                            if(nodeInfo.getCan_edit().equals("Y")){
+                        if (nodeInfo.getCan_edit() != null) {
+                            if (nodeInfo.getCan_edit().equals("Y")) {
                                 pageInfo.setIfEdit(true);
-                            } else if(nodeInfo.getCan_edit().equals("N")){
+                            } else if (nodeInfo.getCan_edit().equals("N")) {
                                 pageInfo.setIfEdit(false);
                             }
                         }
@@ -171,17 +178,41 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
                         list.add(pageInfo);
                     }
 
-                    mAdapter.refreshDatas(list);
+                    mData = list;
 
-                    mAdapter.notifyDataSetChanged();
+                    if (pageIndex == 1) {
+                        mAdapter.refreshDatas(mData);
+                    } else {
+                        mAdapter.addDatas(mData);
+                    }
+
+                    if (list.size() >= pageSize) {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+                    } else {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                    }
+
+                    pageIndex++;
+
+                    if (mRefreshPtrFrameLayout != null) mRefreshPtrFrameLayout.refreshComplete();
                 }
             }
-            @Override
-            public void onCompleted(){
 
-            }
             @Override
-            public void onError(){
+            public void onCompleted() {
+                mRefreshPtrFrameLayout.refreshComplete();
+            }
+
+            @Override
+            public void onError() {
+                mRefreshPtrFrameLayout.refreshComplete();
+                if (mData.size() == 0) {
+                    mEmptyViewLayout.setVisibility(View.VISIBLE);
+                    mRecycler.setVisibility(View.GONE);
+                } else {
+                    mEmptyViewLayout.setVisibility(View.GONE);
+                    mRecycler.setVisibility(View.VISIBLE);
+                }
 
             }
         };
@@ -189,27 +220,30 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         mOnSuccessWriteDiary = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("成功")
                             .setContentText("添加日志成功")
                             .setConfirmText("知道了")
                             .show();
-                    if(mPopupWindow.isShowing()){
+                    if (mPopupWindow.isShowing()) {
                         mPopupWindow.dismiss();
                     }
+                    pageIndex = 1;
                     refreshData();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -217,57 +251,62 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         refreshData();
     }
 
-    private void initDataTemp() {
-        List<BuildDiary_Info> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            BuildDiary_Info pageInfo = new BuildDiary_Info();
 
-            if (i % 4 == 0) {
-                pageInfo.setIfContent(false);
-                pageInfo.setDiary_content("");
-                pageInfo.setImg_portraitPath("");
-                pageInfo.setWorker_name("张丽丽");
-                pageInfo.setWorker_type("施工员");
-                pageInfo.setDayNum(String.valueOf(20-i));
-                pageInfo.setDate("2016-06-12");
+    private void initPullRefresh(View view) {
+        mRefreshPtrFrameLayout.setLastUpdateTimeRelateObject(this);
 
-            } else if (i % 4 == 1) {
-                pageInfo.setIfContent(false);
-                pageInfo.setDiary_content("");
-                pageInfo.setImg_portraitPath("");
-                pageInfo.setWorker_name("张丽丽");
-                pageInfo.setWorker_type("施工员");
-                pageInfo.setDayNum(String.valueOf(20-i));
-                pageInfo.setDate("2016-06-12");
+        // the following are default settings
+        mRefreshPtrFrameLayout.setResistance(1.7f); // you can also set foot and header separately
+        mRefreshPtrFrameLayout.setRatioOfHeaderHeightToRefresh(1.2f);
+        mRefreshPtrFrameLayout.setDurationToClose(1000);  // you can also set foot and header separately
+        // default is false
+        mRefreshPtrFrameLayout.setPullToRefresh(false);
 
-            } else if (i % 4 == 2) {
-                pageInfo.setIfContent(true);
-                pageInfo.setDiary_content("墙面涂料第一面已经粉刷完毕，拐角处有预留孔位。明天即将安装吊顶，一切尽在我掌握中！");
-                pageInfo.setImg_portraitPath("");
-                pageInfo.setWorker_name("张丽丽");
-                pageInfo.setWorker_type("施工员");
-                pageInfo.setDayNum(String.valueOf(20-i));
-                pageInfo.setDate("2016-06-12");
+        // default is true
+        mRefreshPtrFrameLayout.setKeepHeaderWhenRefresh(true);
 
-            } else if (i % 4 == 3) {
-                pageInfo.setIfContent(true);
-                pageInfo.setDiary_content("墙面涂料第一面已经粉刷完毕，拐角处有预留孔位。明天即将安装吊顶，一切尽在我掌握中！");
-                pageInfo.setImg_portraitPath("");
-                pageInfo.setWorker_name("张丽丽");
-                pageInfo.setWorker_type("施工员");
-                pageInfo.setDayNum(String.valueOf(20-i));
-                pageInfo.setDate("2016-06-12");
+        mRefreshPtrFrameLayout.setPtrHandler(new PtrDefaultHandler2() {
 
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshData();
+                    }
+                }, 300);
             }
-            list.add(pageInfo);
-        }
-        mAdapter.refreshDatas(list);
+
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                frame.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pageIndex = 1;
+                        refreshData();
+                    }
+                }, 300);
+            }
+
+            @Override
+            public boolean checkCanDoLoadMore(PtrFrameLayout frame, View content, View footer) {
+                return super.checkCanDoLoadMore(frame, mRecycler, footer);
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return super.checkCanDoRefresh(frame, mRecycler, header);
+//                return checkCanDoRefreshLocal();
+            }
+        });
+
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getBuildDiary(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode);
+
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getBuildDiary(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode, pageIndex, pageSize);
     }
 
     protected void updateData() {
@@ -284,10 +323,9 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
     }
 
 
-
-
-
-    /**---------------------------PoputWindow--------------------------------*/
+    /**
+     * ---------------------------PoputWindow--------------------------------
+     */
     private PopupWindow mPopupWindow;
 
 
@@ -299,16 +337,15 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
     private EditText mTvDiaryAddContent;
 
     private TagFlowLayout mTagsFlowlayout;
-    private TagAdapter<String> mTagAdapter ;
+    private TagAdapter<String> mTagAdapter;
 
     private Button mBtnDiarySubmit;
 
 
-
     /**
      * 初始化popWindow
-     * */
-    private void initPopWindow(View popView,PopupWindow popupWindow) {
+     */
+    private void initPopWindow(View popView, PopupWindow popupWindow) {
 
         //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -336,10 +373,10 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
 
     /**
      * 设置添加屏幕的背景透明度
+     *
      * @param bgAlpha
      */
-    public void backgroundAlpha(float bgAlpha ,float bgDim)
-    {
+    public void backgroundAlpha(float bgAlpha, float bgDim) {
         WindowManager.LayoutParams lp = _mActivity.getWindow().getAttributes();
         lp.dimAmount = bgDim;
         lp.alpha = bgAlpha; //0.0-1.0
@@ -347,30 +384,31 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
 
         _mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
+
     /**
      * 添加新笔记时弹出的popWin关闭的事件，主要是为了将背景透明度改回来
-     * @author cg
      *
+     * @author cg
      */
     class poponDismissListener implements PopupWindow.OnDismissListener {
         @Override
         public void onDismiss() {
             //Log.v("List_noteTypeActivity:", "我是关闭事件");
-            backgroundAlpha(1f ,0.1f);
+            backgroundAlpha(1f, 0.1f);
         }
     }
 
 
-    private String commonTags[] = {"施工进度正常进行中...","材料进场","由于xxx原因导致施工节点耽误x天时间","防水测试成功完成",
-                                "安装地板前期完成","厨房墙砖和地砖铺贴","卫生间洁具准备安装"};
+    private String commonTags[] = {"施工进度正常进行中...", "材料进场", "由于xxx原因导致施工节点耽误x天时间", "防水测试成功完成",
+            "安装地板前期完成", "厨房墙砖和地砖铺贴", "卫生间洁具准备安装"};
 
-    private void showPopupWindow(View view , BuildDiary_Info pageInfo) {
+    private void showPopupWindow(View view, BuildDiary_Info pageInfo) {
 
         // 一个自定义的布局，作为显示的内容
         View popView = LayoutInflater.from(_mActivity).inflate(R.layout.popup_build_diary, null);
         mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //初始化
-        initPopWindow(popView,mPopupWindow);
+        initPopWindow(popView, mPopupWindow);
 
         mTvDiaryDayNum.setText(pageInfo.getDayNum());
         mTvDiaryDate.setText(pageInfo.getDate());
@@ -378,12 +416,10 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         final LayoutInflater mInflater = LayoutInflater.from(_mActivity);
 //        GridWorkerAdapter gridAdapter = new GridWorkerAdapter(_mActivity, Arrays.asList(commonTags));
 //        mGridPopupWorkerType.setAdapter(gridAdapter);
-        mTagAdapter = new TagAdapter<String>(commonTags)
-        {
+        mTagAdapter = new TagAdapter<String>(commonTags) {
 
             @Override
-            public View getView(FlowLayout parent, int position, String s)
-            {
+            public View getView(FlowLayout parent, int position, String s) {
                 TextView tv = (TextView) mInflater.inflate(R.layout.tag_textview,
                         mTagsFlowlayout, false);
                 tv.setText(s);
@@ -394,8 +430,7 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         //mTagAdapter.setSelectedList(1,3,5,7,8,9);
         mTagsFlowlayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
-            public boolean onTagClick(View view, int position, FlowLayout parent)
-            {
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
                 //Toast.makeText(getActivity(), mVals[position], Toast.LENGTH_SHORT).show();
                 //view.setVisibility(View.GONE);
 
@@ -406,13 +441,11 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
 
         mTagsFlowlayout.setOnSelectListener(new TagFlowLayout.OnSelectListener() {
             @Override
-            public void onSelected(Set<Integer> selectPosSet)
-            {
+            public void onSelected(Set<Integer> selectPosSet) {
                 int position = 0;
                 StringBuilder tagTotal = new StringBuilder();
                 Iterator<Integer> iter = selectPosSet.iterator();
-                while(iter.hasNext())
-                {
+                while (iter.hasNext()) {
                     position = iter.next();
                     tagTotal.append(commonTags[position]);
                 }
@@ -441,13 +474,12 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
                     return;
                 }
 
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().doAddProjectDiary(new ProgressSubscriber(mOnSuccessWriteDiary, _mActivity), user_code, access_token,mProjectCode,mTvDiaryAddContent.getText().toString());
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().doAddProjectDiary(new ProgressSubscriber(mOnSuccessWriteDiary, _mActivity), user_code, access_token, mProjectCode, mTvDiaryAddContent.getText().toString());
                 //mPopupWindow.dismiss();
             }
         });
-
 
 
         /** 禁止点击外部区域取消popup windows*/
@@ -473,7 +505,7 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         //获取焦点
         mPopupWindow.setFocusable(true);
 
-        backgroundAlpha(0.3f ,1f);//透明度
+        backgroundAlpha(0.3f, 1f);//透明度
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
@@ -482,7 +514,7 @@ public class DetailBuildDiaryPager1 extends BaseFragment {
         mPopupWindow.update();
         if (!mPopupWindow.isShowing()) {
             //设置显示位置
-            mPopupWindow.showAtLocation(view, Gravity.CENTER ,0,0);
+            mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         }
 
     }
