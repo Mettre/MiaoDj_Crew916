@@ -346,6 +346,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                             mLLCardLayoutProcess.setVisibility(View.GONE);
                         }
 
+
+                        //直接配送
                         mTvSelectionNum.setText(String.valueOf(totalAmount - cutAmount));
                         mTvSelectionNumUnit.setText(beanInfo.getUnit());
                         mTvSelectionStatusDirect.setText(directStatus);
@@ -377,7 +379,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                             mLayoutDirectHide4.setVisibility(View.GONE);
                         }
 
-
+                        //加工时间
                         mTvSelectionNum2.setText(String.valueOf(cutAmount));
                         mTvSelectionNum2Unit.setText(beanInfo.getUnit());
                         mTvSelectionStatusProcess.setText(processStatus);

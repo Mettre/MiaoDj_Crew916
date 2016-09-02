@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 import cn.chenhai.miaodj_monitor.R;
 import cn.chenhai.miaodj_monitor.model.HttpResult;
@@ -38,7 +33,6 @@ import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectAuxiliaryMaterialAdapter;
 import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectMainMaterialAdapter;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
-import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLayout;
 import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.Utils;
 import cn.chenhai.miaodj_monitor.ui.view_custom.TimeSelectPop;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -104,9 +98,8 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
 
     TimeSelectPop mTimePickPop;
 
+    private List<Material_main_Info> mMainData = new ArrayList<>();
 
-    //负责存储布尔值的pair
-    private SparseBooleanArray expandState = new SparseBooleanArray();
 
     public static DetailSelectionListFragment2 newInstance(String projectCode, String customer_code) {
 
@@ -210,7 +203,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         });
         /**********************************************************************************/
 
-        mMainAdapter = new DetailSelectMainMaterialAdapter(_mActivity);
+        mMainAdapter = new DetailSelectMainMaterialAdapter(_mActivity, mMainData);
         mLLmanager1 = new LinearLayoutManager(_mActivity);
         mSelectionRecyclerView1.setLayoutManager(mLLmanager1);
         mSelectionRecyclerView1.setAdapter(mMainAdapter);
@@ -299,8 +292,9 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                             list.add(materialInfo);
                         }
 
+                        mMainData = list;
+
                         mMainAdapter.refreshDatas(list);
-                        mMainAdapter.notifyDataSetChanged();
 
 
                         //辅材辅料
@@ -593,9 +587,6 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         HttpMethods.getInstance().getSelectionList(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mCustomer_code);
     }
 
-    private void onClickButton(final ExpandableLayout expandableLayout) {
-        expandableLayout.toggle();
-    }
 
     /**
      * 创建 旋转动画！！！！
@@ -611,118 +602,5 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         mToolbarTitle.setText("选品单");
     }
 
-    private void initDataTemp() {
-        List<Material_main_Info> list = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            Material_main_Info materialInfo = new Material_main_Info();
-
-            if (i % 4 == 0) {
-                materialInfo.setImg_portraitPath("");
-                materialInfo.setMaterial_name("地砖");
-                materialInfo.setMaterial_name2("大地砖");
-                materialInfo.setMaterial_name_describe("纳福娜");
-                materialInfo.setMaterial_number("YG803001");
-                materialInfo.setMaterial_brand("东鹏");
-                materialInfo.setMaterial_count("800*800");
-
-            } else if (i % 4 == 1) {
-                materialInfo.setImg_portraitPath("http://h.hiphotos.baidu.com/zhidao/pic/item/7c1ed21b0ef41bd5da8c805250da81cb38db3dbc.jpg");
-                materialInfo.setMaterial_name("地砖");
-                materialInfo.setMaterial_name2("厨卫墙地砖");
-                materialInfo.setMaterial_name_describe("纳福娜");
-                materialInfo.setMaterial_number("YG803001");
-                materialInfo.setMaterial_brand("小东鹏");
-                materialInfo.setMaterial_count("800*800");
-
-            } else if (i % 4 == 2) {
-                materialInfo.setImg_portraitPath("http://img3.duitang.com/uploads/item/201501/28/20150128194217_mYSVJ.jpeg");
-                materialInfo.setMaterial_name("地板");
-                materialInfo.setMaterial_name2("木地板");
-                materialInfo.setMaterial_name_describe("棕色强化");
-                materialInfo.setMaterial_number("DW1802");
-                materialInfo.setMaterial_brand("大自然");
-                materialInfo.setMaterial_count("808*130*12");
-
-            } else if (i % 4 == 3) {
-                materialInfo.setImg_portraitPath("http://img2.imgtn.bdimg.com/it/u=375192498,2173854692&fm=21&gp=0.jpg");
-                materialInfo.setMaterial_name("实木板");
-                materialInfo.setMaterial_name2("面漆指压板");
-                materialInfo.setMaterial_name_describe("红橡木");
-                materialInfo.setMaterial_number("YG803001");
-                materialInfo.setMaterial_brand("天然");
-                materialInfo.setMaterial_count("800*800*18");
-
-            }
-            list.add(materialInfo);
-        }
-        mMainAdapter.setDatas(list);
-
-
-        List<Material_auxiliary_Info> list2 = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) {
-            Material_auxiliary_Info materialInfo = new Material_auxiliary_Info();
-
-            if (i % 4 == 0) {
-                materialInfo.setImg_portraitPath("");
-                //materialInfo.setAuxiliaryNameDes("水泥");
-                materialInfo.setAuxiliaryNameDes("搅拌水泥");
-                materialInfo.setAuxiliaryBrand("富田");
-                materialInfo.setAuxiliarySpecs("直径7.5mm");
-                materialInfo.setAuxiliarySpecs2("??/卷");
-                materialInfo.setAuxiliaryCount("5");
-                materialInfo.setAuxiliaryCountUnit("包");
-                materialInfo.setStatus("1");
-
-            } else if (i % 4 == 1) {
-                materialInfo.setImg_portraitPath("http://h.hiphotos.baidu.com/zhidao/pic/item/7c1ed21b0ef41bd5da8c805250da81cb38db3dbc.jpg");
-                //materialInfo.setAuxiliaryNameDes("黄沙");
-                materialInfo.setAuxiliaryNameDes("搅拌黄沙");
-                materialInfo.setAuxiliaryBrand("天林");
-                materialInfo.setAuxiliarySpecs("体积7.5m³");
-                materialInfo.setAuxiliarySpecs2("??/立方");
-                materialInfo.setAuxiliaryCount("3");
-                materialInfo.setAuxiliaryCountUnit("包");
-                materialInfo.setStatus("2");
-
-            } else if (i % 4 == 2) {
-                materialInfo.setImg_portraitPath("http://img3.duitang.com/uploads/item/201501/28/20150128194217_mYSVJ.jpeg");
-                //materialInfo.setAuxiliaryNameDes("电线");
-                materialInfo.setAuxiliaryNameDes("电线");
-                materialInfo.setAuxiliaryBrand("通力");
-                materialInfo.setAuxiliarySpecs("2.5平方毫米电线");
-                materialInfo.setAuxiliarySpecs2("??/卷");
-                materialInfo.setAuxiliaryCount("20");
-                materialInfo.setAuxiliaryCountUnit("米");
-                materialInfo.setStatus("3");
-
-            } else if (i % 4 == 3) {
-                materialInfo.setImg_portraitPath("http://img2.imgtn.bdimg.com/it/u=375192498,2173854692&fm=21&gp=0.jpg");
-                //materialInfo.setAuxiliaryNameDes("五金");
-                materialInfo.setAuxiliaryNameDes("不锈钢五金");
-                materialInfo.setAuxiliaryBrand("名牌");
-                materialInfo.setAuxiliarySpecs("直径5mm");
-                materialInfo.setAuxiliarySpecs2("??/卷");
-                materialInfo.setAuxiliaryCount("25");
-                materialInfo.setAuxiliaryCountUnit("件");
-                materialInfo.setStatus("4");
-
-            }
-            list2.add(materialInfo);
-        }
-        mAuxiAdapter.setDatas(list2);
-    }
-
-
-    //获取日期格式器对象
-    private DateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-    private DateFormat fmtTime = new SimpleDateFormat("HH:mm", Locale.getDefault());
-
-    //获取一个日历对象
-    private Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
-
-
-    /** -------------------------------------------------------------------------------------*/
 
 }

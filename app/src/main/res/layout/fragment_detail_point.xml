@@ -47,7 +47,7 @@
             android:layout_marginLeft="19px"
             android:layout_marginStart="19px"
             android:layout_marginTop="27px"
-            android:text="2016-06-01"
+            android:text=""
             android:textSize="24px"
             android:textColor="@color/text_color_black_2"/>
 
@@ -129,7 +129,7 @@
     <cn.chenhai.miaodj_monitor.ui.view_custom.FunRefresh.FunGameRefreshRecyclerView
         android:id="@+id/refresh_fun_game"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:game_type="hit_block"
         app:left_model_color = "@color/btn_orange"
         app:middle_model_color = "@color/btn_red"

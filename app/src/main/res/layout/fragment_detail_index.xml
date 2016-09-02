@@ -767,6 +767,7 @@
                                 android:layout_marginRight="25px"
                                 android:layout_marginStart="25px"
                                 android:layout_marginTop="30px"
+                                android:visibility="gone"
                                 android:orientation="vertical">
 
                                 <ImageView

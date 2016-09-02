@@ -27,20 +27,26 @@ public class DetailSelectMainMaterialAdapter extends RecyclerView.Adapter<Detail
     private LayoutInflater mInflater;
     private OnItemClickListener mClickListener;
 
-    public DetailSelectMainMaterialAdapter(Context context) {
+    public DetailSelectMainMaterialAdapter(Context context, List<Material_main_Info> mData) {
         this.mInflater = LayoutInflater.from(context);
+        this.mdataList = mData;
     }
 
     public void refreshDatas(List<Material_main_Info> items) {
         mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
+
     public void setDatas(List<Material_main_Info> items) {
         //mdataList.clear();
         mdataList.addAll(items);
+        notifyDataSetChanged();
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
+        notifyDataSetChanged();
         //mdataList.clear();
     }
 
@@ -64,7 +70,7 @@ public class DetailSelectMainMaterialAdapter extends RecyclerView.Adapter<Detail
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Material_main_Info item = mdataList.get(position);
-        if (item == null) return;
+//        if (item == null) return;
 
 //        holder.mHomeCardview.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -80,8 +86,8 @@ public class DetailSelectMainMaterialAdapter extends RecyclerView.Adapter<Detail
         holder.mTvMaterialName2.setText(item.getMaterial_name2());
 
         //Uri imageUri = Uri.parse("http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg");
-        Uri imageUri = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.logo_color);
-        if(item.getImg_portraitPath()!=null && !item.getImg_portraitPath().equals("")){
+        Uri imageUri = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.logo_color);
+        if (item.getImg_portraitPath() != null && !item.getImg_portraitPath().equals("")) {
             imageUri = Uri.parse(item.getImg_portraitPath());
         }
         holder.mSdvMaterialPortrait.setImageURI(imageUri);
@@ -100,6 +106,7 @@ public class DetailSelectMainMaterialAdapter extends RecyclerView.Adapter<Detail
     public int getItemCount() {
         return mdataList.size();
     }
+
     public Material_main_Info getItem(int position) {
         return mdataList.get(position);
     }

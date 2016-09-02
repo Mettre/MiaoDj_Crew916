@@ -141,6 +141,7 @@
                     android:layout_gravity="center"
                     android:layout_centerVertical="true"
                     android:text="--M/--M"
+                    android:visibility="gone"
                     android:textSize="10sp"/>
                 <cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -152,6 +153,7 @@
                     app:progress_reached_color="#3498DB"
                     app:progress_text_color="#3498DB"
                     app:progress_text_size="10sp"
+                    android:visibility="gone"
                     app:progress_unreached_bar_height="0.75dp"
                     app:progress_unreached_color="#CCCCCC"/>
 
@@ -161,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_gravity="right"
+                    android:visibility="gone"
                     android:textColor="@color/colorAccent1"
                     android:textSize="12sp"
                     android:text="未上传"/>
@@ -174,7 +177,7 @@
                 android:layout_height="89px"
                 android:layout_marginLeft="40px"
                 android:layout_marginStart="40px"
-                android:layout_marginTop="12px"
+                android:layout_marginTop="32px"
                 android:text="提交"
                 android:background="@drawable/btn_effect_bg_blue"
                 android:textColor="@android:color/white"

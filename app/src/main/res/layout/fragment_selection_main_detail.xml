@@ -342,13 +342,14 @@
 
                     <TextView
                         android:id="@+id/tv_selection_prepare_time"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
+                        android:gravity="right"
                         android:singleLine="true"
                         android:textSize="22px"
                         android:text=""
@@ -387,15 +388,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_deliver_time"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -431,14 +433,15 @@
 
                     <TextView
                         android:id="@+id/tv_selection_deliver_start_time"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
+                        android:gravity="right"
                         android:textSize="22px"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
@@ -474,15 +477,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_arrive_time"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -641,14 +645,15 @@
 
                     <TextView
                         android:id="@+id/tv_selection_prepare_time2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
+                        android:gravity="right"
                         android:textSize="22px"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
@@ -685,15 +690,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_process_time2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -728,15 +734,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_process_complete_time2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -771,15 +778,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_deliver_time_2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -815,15 +823,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_deliver_time_start_2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
@@ -858,15 +867,16 @@
 
                     <TextView
                         android:id="@+id/tv_selection_arrive_time2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="498px"
-                        android:layout_marginStart="498px"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
                         android:layout_marginRight="30px"
                         android:layout_marginEnd="30px"
                         android:layout_gravity="center_vertical"
                         android:singleLine="true"
                         android:textSize="22px"
+                        android:gravity="right"
                         android:text=""
                         android:textColor="@color/text_color_black_3"/>
 
