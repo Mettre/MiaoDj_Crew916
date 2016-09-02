@@ -1,6 +1,9 @@
 package cn.chenhai.miaodj_monitor.ui.fragment.detail;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +37,9 @@ import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
 import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
 import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
 import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectAuxiliaryMaterialAdapter;
-import cn.chenhai.miaodj_monitor.ui.adapter.DetailSelectMainMaterialAdapter;
 import cn.chenhai.miaodj_monitor.ui.base.BaseBackFragment_Swip;
+import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
+import cn.chenhai.miaodj_monitor.ui.module.preview.ImagePreviewActivity;
 import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.Utils;
 import cn.chenhai.miaodj_monitor.ui.view_custom.TimeSelectPop;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -51,7 +58,6 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     private String mCustomer_code;
 
     private String mAuxiOrderCode;
-    private boolean ifShowDeliverBtn = false;
 
     private boolean ifExpand1 = false;
     private boolean ifExpand2 = false;
@@ -63,7 +69,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
 
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLLmanager1, mLLmanager2;
-    private DetailSelectMainMaterialAdapter mMainAdapter;
+    //    private DetailSelectMainMaterialAdapter mMainAdapter;
     private DetailSelectAuxiliaryMaterialAdapter mAuxiAdapter;
 
     private Toolbar mToolbar;
@@ -82,7 +88,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
     private TextView mLlSelectionMainMaterialTitle;
     private ImageView mLlSelectionMainMaterialArrow;
     private LinearLayout mSelectionExpandableLayout1;
-    private RecyclerView mSelectionRecyclerView1;
+//    private RecyclerView mSelectionRecyclerView1;
 
     private LinearLayout mLlSelectionAuxiliaryMaterial;
     private TextView mLlSelectionAuxiliaryMaterialTitle;
@@ -120,7 +126,6 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         }
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_selection_list2, container, false);
@@ -156,7 +161,7 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         mLlSelectionMainMaterialTitle = (TextView) view.findViewById(R.id.ll_selection_mainMaterial_title);
         mLlSelectionMainMaterialArrow = (ImageView) view.findViewById(R.id.ll_selection_mainMaterial_arrow);
         mSelectionExpandableLayout1 = (LinearLayout) view.findViewById(R.id.selection_expandableLayout1);
-        mSelectionRecyclerView1 = (RecyclerView) view.findViewById(R.id.selection_recyclerView1);
+//        mSelectionRecyclerView1 = (RecyclerView) view.findViewById(R.id.selection_recyclerView1);
 
         mLlSelectionAuxiliaryMaterial = (LinearLayout) view.findViewById(R.id.ll_selection_auxiliaryMaterial);
         mLlSelectionAuxiliaryMaterialTitle = (TextView) view.findViewById(R.id.ll_selection_auxiliaryMaterial_title);
@@ -203,20 +208,20 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         });
         /**********************************************************************************/
 
-        mMainAdapter = new DetailSelectMainMaterialAdapter(_mActivity, mMainData);
-        mLLmanager1 = new LinearLayoutManager(_mActivity);
-        mSelectionRecyclerView1.setLayoutManager(mLLmanager1);
-        mSelectionRecyclerView1.setAdapter(mMainAdapter);
+//        mMainAdapter = new DetailSelectMainMaterialAdapter(_mActivity, mMainData);
+//        mLLmanager1 = new LinearLayoutManager(_mActivity);
+//        mSelectionRecyclerView1.setLayoutManager(mLLmanager1);
+//        mSelectionRecyclerView1.setAdapter(mMainAdapter);
 
-        mMainAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(int position, View view) {
-                String order_code = mMainAdapter.getItem(position).getOrder_code();
-                String material_code = mMainAdapter.getItem(position).getMaterial_code();
-                String space_id = mMainAdapter.getItem(position).getSpace_id();
-                start(DetailSelectionList_Main.newInstance(order_code, material_code, space_id));
-            }
-        });
+//        mMainAdapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(int position, View view) {
+//                String order_code = mMainAdapter.getItem(position).getOrder_code();
+//                String material_code = mMainAdapter.getItem(position).getMaterial_code();
+//                String space_id = mMainAdapter.getItem(position).getSpace_id();
+//                start(DetailSelectionList_Main.newInstance(order_code, material_code, space_id));
+//            }
+//        });
 
         mAuxiAdapter = new DetailSelectAuxiliaryMaterialAdapter(_mActivity);
         mLLmanager2 = new LinearLayoutManager(_mActivity);
@@ -292,10 +297,11 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                             list.add(materialInfo);
                         }
 
-                        mMainData = list;
+//                        mMainData = list;
 
-                        mMainAdapter.refreshDatas(list);
+//                        mMainAdapter.refreshDatas(list);
 
+                        loadMutiRes(list);
 
                         //辅材辅料
 
@@ -454,11 +460,6 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
                                 mTimePickPop.show(v);
                             }
                         });
-//时间选择器
-
-//                        mSelectionExpandableLayout1.initLayout(false);
-//                        mSelectionExpandableLayout2.initLayout(false);
-
                     }
                 }
             }
@@ -578,6 +579,92 @@ public class DetailSelectionListFragment2 extends BaseBackFragment_Swip {
         };
 
         refreshData();
+
+    }
+
+    /**
+     * 加载显示主材
+     *
+     * @param list
+     */
+    private void loadMutiRes(List<Material_main_Info> list) {
+
+        if (list == null || list.size() == 0) {
+            mSelectionExpandableLayout1.setVisibility(View.GONE);
+        } else {
+            mSelectionExpandableLayout1.setVisibility(View.VISIBLE);
+        }
+
+        LayoutInflater mInflater = LayoutInflater
+                .from(_mActivity);
+
+        mSelectionExpandableLayout1.removeAllViews();
+
+        for (final Material_main_Info mData : list) {
+            View view = mInflater.inflate(R.layout.item_material_main, null);
+
+            TextView mTvMaterialName = (TextView) view.findViewById(R.id.tv_material_name);
+            TextView mTvMaterialName2 = (TextView) view.findViewById(R.id.tv_material_name2);
+            SimpleDraweeView mSdvMaterialPortrait = (SimpleDraweeView) view.findViewById(R.id.sdv_material_portrait);
+            TextView mTvMaterialNameDes = (TextView) view.findViewById(R.id.tv_material_name_des);
+            TextView mTvMaterialNameNumber = (TextView) view.findViewById(R.id.tv_material_name_number);
+            TextView mTvMaterialBrand = (TextView) view.findViewById(R.id.tv_material_brand);
+            TextView mEtMaterialCount = (TextView) view.findViewById(R.id.et_material_count);
+            TextView mTvMaterialRoom = (TextView) view.findViewById(R.id.tv_material_room);
+
+            mTvMaterialName.setText(mData.getMaterial_name());
+            mTvMaterialName2.setText(mData.getMaterial_name2());
+
+            Uri imageUri = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.logo_color);
+            if (mData.getImg_portraitPath() != null && !mData.getImg_portraitPath().equals("")) {
+                imageUri = Uri.parse(mData.getImg_portraitPath());
+            }
+            mSdvMaterialPortrait.setImageURI(imageUri);
+
+            mTvMaterialNameDes.setText(mData.getMaterial_name_describe());
+            //holder.ivPointCircle.setColorFilter(R.color.colorAccent1);
+            mTvMaterialNameNumber.setText(mData.getMaterial_number());
+            mTvMaterialBrand.setText(mData.getMaterial_brand());
+            mEtMaterialCount.setText(mData.getMaterial_count());
+
+            mTvMaterialRoom.setText(mData.getMaterial_room());
+
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String order_code = mData.getOrder_code();
+                    String material_code = mData.getMaterial_code();
+                    String space_id = mData.getSpace_id();
+                    start(DetailSelectionList_Main.newInstance(order_code, material_code, space_id));
+
+                }
+            });
+
+            List<ImageInfo> imageInfoList = new ArrayList<>();
+            ImageInfo mImagenew = new ImageInfo();
+            mImagenew.setBigImageUrl(mData.getImg_portraitPath());
+
+            imageInfoList.add(mImagenew);
+
+            mSdvMaterialPortrait.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(_mActivity, ImagePreviewActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(ImagePreviewActivity.IMAGE_INFO, (Serializable) imageInfoList);
+                    bundle.putInt(ImagePreviewActivity.CURRENT_ITEM, 0);
+                    intent.putExtras(bundle);
+                    _mActivity.startActivity(intent);
+                    ((Activity) _mActivity).overridePendingTransition(0, 0);
+
+                }
+            });
+
+            mSelectionExpandableLayout1.addView(view);
+
+        }
 
     }
 

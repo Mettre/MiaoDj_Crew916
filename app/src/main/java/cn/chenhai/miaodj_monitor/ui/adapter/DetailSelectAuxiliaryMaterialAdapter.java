@@ -1,7 +1,10 @@
 package cn.chenhai.miaodj_monitor.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +17,15 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.zhy.autolayout.utils.AutoUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.chenhai.miaodj_monitor.R;
 import cn.chenhai.miaodj_monitor.service.helper.OnItemClickListener;
 import cn.chenhai.miaodj_monitor.model.info.Material_auxiliary_Info;
+import cn.chenhai.miaodj_monitor.ui.module.preview.ImageInfo;
+import cn.chenhai.miaodj_monitor.ui.module.preview.ImagePreviewActivity;
 
 /**
  * Created by ChenHai--霜华 on 2016/6/27. 10:55
@@ -35,18 +41,23 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
     private String mStrDeliverCode;
     private boolean mIfCheckBox = false;
 
+    private Context mContext;
+
     public DetailSelectAuxiliaryMaterialAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
+        this.mContext = context;
     }
 
     public void refreshDatas(List<Material_auxiliary_Info> items) {
         mdataList.clear();
         mdataList.addAll(items);
     }
+
     public void setDatas(List<Material_auxiliary_Info> items) {
         //mdataList.clear();
         mdataList.addAll(items);
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
         //mdataList.clear();
@@ -77,8 +88,8 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
 //        });
 
         //Uri imageUri = Uri.parse("http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg");
-        Uri imageUri = Uri.parse("res://cn.chenhai.miaodj_monitor/"+R.drawable.logo_color);
-        if(item.getImg_portraitPath()!=null && !item.getImg_portraitPath().equals("")){
+        Uri imageUri = Uri.parse("res://cn.chenhai.miaodj_monitor/" + R.drawable.logo_color);
+        if (item.getImg_portraitPath() != null && !item.getImg_portraitPath().equals("")) {
             imageUri = Uri.parse(item.getImg_portraitPath());
         }
         holder.mSdvAuxiliaryPortrait.setImageURI(imageUri);
@@ -91,7 +102,7 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
         holder.mEtAuxiliaryCount.setText(item.getAuxiliaryCount());
         holder.mTvAuxiliaryCountUnit.setText(item.getAuxiliaryCountUnit());
         boolean ifShowArrow = false;
-        switch (item.getStatus()){
+        switch (item.getStatus()) {
             case "1":
                 holder.mCbAuxiliaryStatus.setVisibility(View.GONE);
                 holder.mTvAuxiliaryStatus.setVisibility(View.GONE);
@@ -160,13 +171,13 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
 
                 item.setIfChecked(isChecked);
 
-                if(mCheckBoxClickListener != null) {
-                    mCheckBoxClickListener.onCheckBoxClick(position,isChecked);
+                if (mCheckBoxClickListener != null) {
+                    mCheckBoxClickListener.onCheckBoxClick(position, isChecked);
                 }
             }
         });
 
-        if(ifShowArrow){
+        if (ifShowArrow) {
             holder.itemView.setEnabled(true);
             holder.itemView.setClickable(true);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -178,7 +189,7 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
                     }
                 }
             });
-        }else {
+        } else {
             holder.itemView.setEnabled(false);
             holder.itemView.setClickable(false);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +200,25 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
             });
         }
 
+        List<ImageInfo> imageInfoList = new ArrayList<>();
+        ImageInfo mImagenew = new ImageInfo();
+        mImagenew.setBigImageUrl(item.getImg_portraitPath());
+
+        imageInfoList.add(mImagenew);
+        holder.mSdvAuxiliaryPortrait.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ImagePreviewActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(ImagePreviewActivity.IMAGE_INFO, (Serializable) imageInfoList);
+                bundle.putInt(ImagePreviewActivity.CURRENT_ITEM, 0);
+                intent.putExtras(bundle);
+                mContext.startActivity(intent);
+                ((Activity) mContext).overridePendingTransition(0, 0);
+
+            }
+        });
+
     }
 
 
@@ -196,6 +226,7 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
     public int getItemCount() {
         return mdataList.size();
     }
+
     public Material_auxiliary_Info getItem(int position) {
         return mdataList.get(position);
     }
@@ -212,7 +243,6 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
         private CheckBox mCbAuxiliaryStatus;
         private TextView mTvAuxiliaryStatus;
         private ImageView mTvAuxiliaryArrow;
-
 
 
         public MyViewHolder(View itemView) {
@@ -241,6 +271,7 @@ public class DetailSelectAuxiliaryMaterialAdapter extends RecyclerView.Adapter<D
     public interface OnCheckBoxClickListener {
         void onCheckBoxClick(int position, boolean isChecked);
     }
+
     public void setOnCheckBoxClickListener(OnCheckBoxClickListener clickListener) {
         this.mCheckBoxClickListener = clickListener;
     }

@@ -140,7 +140,7 @@ public class TimeSelectPop extends PopupWindow {
                         dateAndTime.get(Calendar.MONTH),
                         dateAndTime.get(Calendar.DAY_OF_MONTH));
 
-                dateDlg.getDatePicker().setMinDate(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 3);
+                dateDlg.getDatePicker().setMinDate(System.currentTimeMillis());
                 dateDlg.show();
 
             }
