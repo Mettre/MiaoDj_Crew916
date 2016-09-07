@@ -39,7 +39,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * 图纸确认
- *
+ * <p>
  * Created by ChenHai--霜华 on 2016/7/5. 14:55
  * 邮箱：248866527@qq.com
  */
@@ -63,7 +63,7 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
     private ImageView mLlPictureArrow;
     private ExpandableLinearLayout mPictureExpandableLayout1;
     private FiveGridView mFiveGrid;
-   // private NineGridView mNineGrid;
+    // private NineGridView mNineGrid;
 
     //负责存储布尔值的pair
     private SparseBooleanArray expandState = new SparseBooleanArray();
@@ -110,18 +110,18 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
         mLlPictureArrow = (ImageView) view.findViewById(R.id.ll_picture_arrow);
         mPictureExpandableLayout1 = (ExpandableLinearLayout) view.findViewById(R.id.picture_expandableLayout1);
         mFiveGrid = (FiveGridView) view.findViewById(R.id.fiveGrid);
-       // mNineGrid = (NineGridView) view.findViewById(R.id.nineGrid);
+        // mNineGrid = (NineGridView) view.findViewById(R.id.nineGrid);
 
         mOnSuccessListener = new SubscriberOnSuccessListener<HttpResult<CheckPictureEntity>>() {
             @Override
             public void onSuccess(HttpResult<CheckPictureEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     List<CheckPictureEntity.DrawingBean> projects = result.getInfo().getDrawing();
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         ImageInfo info1 = new ImageInfo();
                         CheckPictureEntity.DrawingBean drawInfo = projects.get(i);
 
@@ -131,10 +131,12 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
                         imageInfoList.add(info1);
                     }
 
+                    mLlPictureTitle.setText("图纸内容(" + imageInfoList.size() + ")");
+
                     mFiveGrid.setAdapter(new FiveGridViewClickAdapter(_mActivity, imageInfoList));
                     //mNineGrid.setAdapter(new NineGridViewClickAdapter(_mActivity, imageInfoList));
 
-                    switch (result.getInfo().getDrawing_status()){
+                    switch (result.getInfo().getDrawing_status()) {
                         case "1":
                             mBtnPictureOK.setVisibility(View.GONE);
                             mTvPictureOK.setVisibility(View.GONE);
@@ -193,12 +195,14 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
 
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -206,8 +210,8 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
         mOnSuccessListenerOK = new SubscriberOnSuccessListener<HttpResult<ConfirmDrawPicEntity>>() {
             @Override
             public void onSuccess(HttpResult<ConfirmDrawPicEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
@@ -230,8 +234,8 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
         mOnSuccessListenerCancel = new SubscriberOnSuccessListener<HttpResult<ConfirmDrawPicEntity>>() {
             @Override
             public void onSuccess(HttpResult<ConfirmDrawPicEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
@@ -274,11 +278,11 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
                             @Override
                             public void onClick(SweetAlertDialog sDialog) {
 
-                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                HttpMethods.getInstance().doCrewCheckDrawingOK(new ProgressSubscriber(mOnSuccessListenerOK, _mActivity), user_code, access_token,mProjectCode,"Y");
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                HttpMethods.getInstance().doCrewCheckDrawingOK(new ProgressSubscriber(mOnSuccessListenerOK, _mActivity), user_code, access_token, mProjectCode, "Y");
 
-                                sDialog.dismiss();
+                                sDialog.dismissWithAnimation();
 //                                sDialog.setTitleText("已确认!")
 //                                        //.setContentText("Your imaginary file has been deleted!")
 //                                        .setConfirmText("关闭")
@@ -304,10 +308,10 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                             @Override
                             public void onClick(SweetAlertDialog sDialog) {
-
-                                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                                HttpMethods.getInstance().doCrewCheckDrawingOK(new ProgressSubscriber(mOnSuccessListenerCancel, _mActivity), user_code, access_token,mProjectCode,"N");
+                                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                HttpMethods.getInstance().doCrewCheckDrawingOK(new ProgressSubscriber(mOnSuccessListenerCancel, _mActivity), user_code, access_token, mProjectCode, "N");
+                                sDialog.dismissWithAnimation();
 
                             }
                         })
@@ -345,7 +349,10 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
     private void onClickButton(final ExpandableLayout expandableLayout) {
         expandableLayout.toggle();
     }
-    /**创建 旋转动画！！！！*/
+
+    /**
+     * 创建 旋转动画！！！！
+     */
     public ObjectAnimator createRotateAnimator(final View target, final float from, final float to) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(target, "rotation", from, to);
         animator.setDuration(300);
@@ -353,10 +360,10 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
         return animator;
     }
 
-    private void updateData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().getDrawPicture(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token,mProjectCode);
+    private void updateData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().getDrawPicture(new ProgressSubscriber(mOnSuccessListener, _mActivity), user_code, access_token, mProjectCode);
     }
 
 }

@@ -58,12 +58,12 @@ import rx.subjects.Subject;
 public class HttpMethods {
 
     //public static final String BASE_ROOT_URL = "http://release.miaodj.cn/";
-    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
-//    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
+//    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
+    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
 
     //public static final String BASE_URL = "http://release.miaodj.cn/index.php/";
-    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
-//    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
+//    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
+    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 
@@ -376,12 +376,13 @@ public class HttpMethods {
      * 签收货物
      */
     public void signForMainMaterial(Subscriber<Account> subscriber, String user_code, String access_token, String order_code,
-                                    String material_code, String material_type, String sign_amount, String sign_pic) {
+                                    String material_code, String space_id, String material_type, String sign_amount, String sign_pic) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("order_code", order_code);
         map.put("material_code", material_code);
+        map.put("space_id", space_id);
         map.put("material_type", material_type);
         map.put("sign_amount", sign_amount);
         map.put("sign_pic", sign_pic);

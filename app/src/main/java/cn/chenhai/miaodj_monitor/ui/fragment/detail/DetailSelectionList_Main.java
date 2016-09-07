@@ -72,6 +72,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     private String mOrder_code, mMaterial_code, mSpace_id;
     private String mSignForPicturePath = "";
     private String material_type = "1";
+    private String space_id;
 
     private SubscriberOnSuccessListener mOnSuccessMainMaterial;
     private SubscriberOnSuccessListener mOnSuccessDeliver;
@@ -89,6 +90,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     private TextView mTvSelectionNum;
     private TextView mTvSelectionNumUnit;
     private TextView mTvSelectionStatusDirect;
+    private FrameLayout mLayoutDirectHide0;
+    private TextView mTvSelectionHearTime;
     private FrameLayout mLayoutDirectHide1;
     private TextView mTvSelectionPrepareTime;
     private FrameLayout mLayoutDirectHide2;
@@ -103,6 +106,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     private TextView mTvSelectionNum2;
     private TextView mTvSelectionNum2Unit;
     private TextView mTvSelectionStatusProcess;
+    private FrameLayout mLayoutProcessHide0;
+    private TextView mTvSelectionHearTime2;
     private FrameLayout mLayoutProcessHide1;
     private TextView mTvSelectionPrepareTime2;
     private FrameLayout mLayoutProcessHide2;
@@ -209,6 +214,13 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mTvSelectionArriveTime2 = (TextView) view.findViewById(R.id.tv_selection_arrive_time2);
         mLayoutProcessHide7 = (FrameLayout) view.findViewById(R.id.layout_process_hide_7);
         mBtnSelectionProcessSignFor = (Button) view.findViewById(R.id.btn_selection_process_signFor);
+
+        mLayoutDirectHide0 = (FrameLayout) view.findViewById(R.id.layout_direct_hide_0);
+        mTvSelectionHearTime = (TextView) view.findViewById(R.id.tv_selection_hear_time);
+
+        mLayoutProcessHide0 = (FrameLayout) view.findViewById(R.id.layout_process_hide_0);
+        mTvSelectionHearTime2 = (TextView) view.findViewById(R.id.tv_selection_hear_time2);
+
 
         mTimePickPop = new TimeSelectPop(_mActivity, 1, new TimeSelectPop.SubmitOnClickListener() {
             @Override
@@ -346,11 +358,19 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                             mLLCardLayoutProcess.setVisibility(View.GONE);
                         }
 
+                        space_id=beanInfo.getSpace_id();
 
                         //直接配送
                         mTvSelectionNum.setText(String.valueOf(totalAmount - cutAmount));
                         mTvSelectionNumUnit.setText(beanInfo.getUnit());
                         mTvSelectionStatusDirect.setText(directStatus);
+                        if (beanInfo.getHear_time() != null) {
+                            mLayoutDirectHide0.setVisibility(View.VISIBLE);
+                            mTvSelectionHearTime.setText(beanInfo.getHear_time());
+                        } else {
+                            mLayoutDirectHide0.setVisibility(View.GONE);
+                        }
+
                         if (beanInfo.getPrepare_time() != null) {
                             mLayoutDirectHide1.setVisibility(View.VISIBLE);
                             mTvSelectionPrepareTime.setText(beanInfo.getPrepare_time());
@@ -372,9 +392,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                             mLayoutDirectHide3.setVisibility(View.GONE);
                         }
 
-                        if (beanInfo.getExpect_arrive_time() != null) {
+                        if (beanInfo.getSign_time() != null) {
                             mLayoutDirectHide4.setVisibility(View.VISIBLE);
-                            mTvSelectionArriveTime.setText(beanInfo.getExpect_arrive_time());
+                            mTvSelectionArriveTime.setText(beanInfo.getSign_time());
                         } else {
                             mLayoutDirectHide4.setVisibility(View.GONE);
                         }
@@ -383,6 +403,13 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                         mTvSelectionNum2.setText(String.valueOf(cutAmount));
                         mTvSelectionNum2Unit.setText(beanInfo.getUnit());
                         mTvSelectionStatusProcess.setText(processStatus);
+                        if (beanInfo.getCut_hear_time() != null) {
+                            mLayoutProcessHide0.setVisibility(View.VISIBLE);
+                            mTvSelectionHearTime2.setText(beanInfo.getCut_hear_time());
+                        } else {
+                            mLayoutProcessHide0.setVisibility(View.GONE);
+                        }
+
                         if (beanInfo.getCut_prepare_time() != null) {
                             mLayoutProcessHide1.setVisibility(View.VISIBLE);
                             mTvSelectionPrepareTime2.setText(beanInfo.getCut_prepare_time());
@@ -414,9 +441,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                         } else {
                             mLayoutProcessHide5.setVisibility(View.GONE);
                         }
-                        if (beanInfo.getCut_expect_arrive_time() != null) {
+                        if (beanInfo.getCut_sign_time() != null) {
                             mLayoutProcessHide6.setVisibility(View.VISIBLE);
-                            mTvSelectionArriveTime2.setText(beanInfo.getCut_expect_arrive_time());
+                            mTvSelectionArriveTime2.setText(beanInfo.getCut_sign_time());
                         } else {
                             mLayoutProcessHide6.setVisibility(View.GONE);
                         }
@@ -723,7 +750,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             if (!mSignForPicturePath.equals("")) {
                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, material_type, fullNum, mSignForPicturePath);
+                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id,material_type, fullNum, mSignForPicturePath);
             }
         }
 

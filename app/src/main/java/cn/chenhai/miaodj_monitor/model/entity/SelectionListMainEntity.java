@@ -6,82 +6,93 @@ package cn.chenhai.miaodj_monitor.model.entity;
  */
 public class SelectionListMainEntity {
 
+
     /**
      * keep_msg : 
-     * material : {"id":"198","order_code":"CM320501201606020001","customer_code":"CF201606000003","category_code":"10","class_code":"100","brand_code":"127","material_code":"1010012710090","amount":null,"cut_amount":null,"unit":"","source":null,"status":"2","createtime":"2016-07-08 11:24:57","space_id":"1","prepare_time":null,"start_deliver_time":null,"deliver_time":null,"expect_arrive_time":null,"cut_prepare_time":null,"cut_reworking_time":null,"cut_reworked_time":null,"cut_start_deliver_time":null,"cut_deliver_time":null,"cut_expect_arrive_time":null,"cut_status":null,"choose_status":"1","title":"马可波罗大地砖","image_count":"0","type":"STANDARD","code":"1010012710090","specs":"800*800","quality":"","model":"CZ8018AS","color_no":"","color":"","serial_no":"10090","min_order_unit":"箱","cost_unit":"箱","min_delivery_unit":"箱","min_purchase_unit":"箱","min_cost_count":"1","min_dilivery_count":"1","min_purchase_count":"1","volume_weight":"","unit_weight":"","unit_volume":"","is_wood_floor":"N","safe_stock":"0","area":"","length":"800.00","width":"800.00","height":"0.00","volume":"0.00","weight":"0.00","is_example":"N","min_stock_unit":"","order_stock_ratio":"1","memo":null,"updatetime":"2016-07-08 11:24:57","is_delete":"N","isset_gift":"N","tail_no":"","min_count":"0","extra_nature":null,"synchro_image":"0","is_personal":null,"category_name":"瓷砖","class_name":"大地砖","brand_name":"马可波罗"}
+     * material : {"id":"2270","order_code":"CM320501201608180001","customer_code":"CA201608000004","category_code":"11","class_code":"106","brand_code":"102","material_code":"1110610210005","amount":"261.000","cut_amount":"0","unit":"㎡","source":null,"status":"1","createtime":null,"space_id":"3","prepare_time":null,"start_deliver_time":null,"deliver_time":null,"expect_arrive_time":"2016-09-25","cut_prepare_time":null,"cut_reworking_time":null,"cut_reworked_time":null,"cut_start_deliver_time":null,"cut_deliver_time":null,"cut_expect_arrive_time":null,"cut_status":"1","type":"STANDARD","price_amount":"0","memo":"","material_type":"1","min_order_amount":"0.000","hear_time":null,"cut_hear_time":null,"choose_status":"3","title":"大自然实木复合地板","image_count":null,"code":"1110610210005","serial_no":"10005","specs":"910*126*15/0.6","quality":"","model":"海棠木DSJ03Z","color_no":"","color":"","min_order_unit":"㎡","cost_unit":"支","min_delivery_unit":"件","min_purchase_unit":"件","min_cost_count":null,"min_dilivery_count":null,"min_purchase_count":null,"volume_weight":"","unit_weight":"","unit_volume":"","is_wood_floor":"N","safe_stock":null,"area":"","length":"910.00","width":"126.00","height":"15.00","volume":"1719.90","weight":"0.00","is_example":"N","min_stock_unit":"","order_stock_ratio":"","updatetime":null,"is_delete":"N","isset_gift":"N","tail_no":"","min_count":"1","extra_nature":"","synchro_image":"0","is_personal":null,"is_single":"1","rate_order":"0.1150","rate_purchase":"0.1150","category_name":"地板","class_name":"地板","brand_name":"大自然","sign_time":null,"cut_sign_time":null}
      */
 
     private String keep_msg;
     /**
-     * id : 198
-     * order_code : CM320501201606020001
-     * customer_code : CF201606000003
-     * category_code : 10
-     * class_code : 100
-     * brand_code : 127
-     * material_code : 1010012710090
-     * amount : null
-     * cut_amount : null
-     * unit : 
+     * id : 2270
+     * order_code : CM320501201608180001
+     * customer_code : CA201608000004
+     * category_code : 11
+     * class_code : 106
+     * brand_code : 102
+     * material_code : 1110610210005
+     * amount : 261.000
+     * cut_amount : 0
+     * unit : ㎡
      * source : null
-     * status : 2
-     * createtime : 2016-07-08 11:24:57
-     * space_id : 1
+     * status : 1
+     * createtime : null
+     * space_id : 3
      * prepare_time : null
      * start_deliver_time : null
      * deliver_time : null
-     * expect_arrive_time : null
+     * expect_arrive_time : 2016-09-25
      * cut_prepare_time : null
      * cut_reworking_time : null
      * cut_reworked_time : null
      * cut_start_deliver_time : null
      * cut_deliver_time : null
      * cut_expect_arrive_time : null
-     * cut_status : null
-     * choose_status : 1
-     * title : 马可波罗大地砖
-     * image_count : 0
+     * cut_status : 1
      * type : STANDARD
-     * code : 1010012710090
-     * specs : 800*800
+     * price_amount : 0
+     * memo : 
+     * material_type : 1
+     * min_order_amount : 0.000
+     * hear_time : null
+     * cut_hear_time : null
+     * choose_status : 3
+     * title : 大自然实木复合地板
+     * image_count : null
+     * code : 1110610210005
+     * serial_no : 10005
+     * specs : 910*126*15/0.6
      * quality : 
-     * model : CZ8018AS
+     * model : 海棠木DSJ03Z
      * color_no : 
      * color : 
-     * serial_no : 10090
-     * min_order_unit : 箱
-     * cost_unit : 箱
-     * min_delivery_unit : 箱
-     * min_purchase_unit : 箱
-     * min_cost_count : 1
-     * min_dilivery_count : 1
-     * min_purchase_count : 1
+     * min_order_unit : ㎡
+     * cost_unit : 支
+     * min_delivery_unit : 件
+     * min_purchase_unit : 件
+     * min_cost_count : null
+     * min_dilivery_count : null
+     * min_purchase_count : null
      * volume_weight : 
      * unit_weight : 
      * unit_volume : 
      * is_wood_floor : N
-     * safe_stock : 0
+     * safe_stock : null
      * area : 
-     * length : 800.00
-     * width : 800.00
-     * height : 0.00
-     * volume : 0.00
+     * length : 910.00
+     * width : 126.00
+     * height : 15.00
+     * volume : 1719.90
      * weight : 0.00
      * is_example : N
      * min_stock_unit : 
-     * order_stock_ratio : 1
-     * memo : null
-     * updatetime : 2016-07-08 11:24:57
+     * order_stock_ratio : 
+     * updatetime : null
      * is_delete : N
      * isset_gift : N
      * tail_no : 
-     * min_count : 0
-     * extra_nature : null
+     * min_count : 1
+     * extra_nature : 
      * synchro_image : 0
      * is_personal : null
-     * category_name : 瓷砖
-     * class_name : 大地砖
-     * brand_name : 马可波罗
+     * is_single : 1
+     * rate_order : 0.1150
+     * rate_purchase : 0.1150
+     * category_name : 地板
+     * class_name : 地板
+     * brand_name : 大自然
+     * sign_time : null
+     * cut_sign_time : null
      */
 
     private MaterialBean material;
@@ -128,17 +139,23 @@ public class SelectionListMainEntity {
         private String cut_deliver_time;
         private String cut_expect_arrive_time;
         private String cut_status;
+        private String type;
+        private String price_amount;
+        private String memo;
+        private String material_type;
+        private String min_order_amount;
+        private String hear_time;
+        private String cut_hear_time;
         private String choose_status;
         private String title;
         private String image_count;
-        private String type;
         private String code;
+        private String serial_no;
         private String specs;
         private String quality;
         private String model;
         private String color_no;
         private String color;
-        private String serial_no;
         private String min_order_unit;
         private String cost_unit;
         private String min_delivery_unit;
@@ -160,7 +177,6 @@ public class SelectionListMainEntity {
         private String is_example;
         private String min_stock_unit;
         private String order_stock_ratio;
-        private String memo;
         private String updatetime;
         private String is_delete;
         private String isset_gift;
@@ -169,9 +185,14 @@ public class SelectionListMainEntity {
         private String extra_nature;
         private String synchro_image;
         private String is_personal;
+        private String is_single;
+        private String rate_order;
+        private String rate_purchase;
         private String category_name;
         private String class_name;
         private String brand_name;
+        private String sign_time;
+        private String cut_sign_time;
 
         public String getId() {
             return id;
@@ -373,6 +394,62 @@ public class SelectionListMainEntity {
             this.cut_status = cut_status;
         }
 
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getPrice_amount() {
+            return price_amount;
+        }
+
+        public void setPrice_amount(String price_amount) {
+            this.price_amount = price_amount;
+        }
+
+        public String getMemo() {
+            return memo;
+        }
+
+        public void setMemo(String memo) {
+            this.memo = memo;
+        }
+
+        public String getMaterial_type() {
+            return material_type;
+        }
+
+        public void setMaterial_type(String material_type) {
+            this.material_type = material_type;
+        }
+
+        public String getMin_order_amount() {
+            return min_order_amount;
+        }
+
+        public void setMin_order_amount(String min_order_amount) {
+            this.min_order_amount = min_order_amount;
+        }
+
+        public String getHear_time() {
+            return hear_time;
+        }
+
+        public void setHear_time(String hear_time) {
+            this.hear_time = hear_time;
+        }
+
+        public String getCut_hear_time() {
+            return cut_hear_time;
+        }
+
+        public void setCut_hear_time(String cut_hear_time) {
+            this.cut_hear_time = cut_hear_time;
+        }
+
         public String getChoose_status() {
             return choose_status;
         }
@@ -397,20 +474,20 @@ public class SelectionListMainEntity {
             this.image_count = image_count;
         }
 
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
         public String getCode() {
             return code;
         }
 
         public void setCode(String code) {
             this.code = code;
+        }
+
+        public String getSerial_no() {
+            return serial_no;
+        }
+
+        public void setSerial_no(String serial_no) {
+            this.serial_no = serial_no;
         }
 
         public String getSpecs() {
@@ -451,14 +528,6 @@ public class SelectionListMainEntity {
 
         public void setColor(String color) {
             this.color = color;
-        }
-
-        public String getSerial_no() {
-            return serial_no;
-        }
-
-        public void setSerial_no(String serial_no) {
-            this.serial_no = serial_no;
         }
 
         public String getMin_order_unit() {
@@ -629,14 +698,6 @@ public class SelectionListMainEntity {
             this.order_stock_ratio = order_stock_ratio;
         }
 
-        public String getMemo() {
-            return memo;
-        }
-
-        public void setMemo(String memo) {
-            this.memo = memo;
-        }
-
         public String getUpdatetime() {
             return updatetime;
         }
@@ -701,6 +762,30 @@ public class SelectionListMainEntity {
             this.is_personal = is_personal;
         }
 
+        public String getIs_single() {
+            return is_single;
+        }
+
+        public void setIs_single(String is_single) {
+            this.is_single = is_single;
+        }
+
+        public String getRate_order() {
+            return rate_order;
+        }
+
+        public void setRate_order(String rate_order) {
+            this.rate_order = rate_order;
+        }
+
+        public String getRate_purchase() {
+            return rate_purchase;
+        }
+
+        public void setRate_purchase(String rate_purchase) {
+            this.rate_purchase = rate_purchase;
+        }
+
         public String getCategory_name() {
             return category_name;
         }
@@ -723,6 +808,22 @@ public class SelectionListMainEntity {
 
         public void setBrand_name(String brand_name) {
             this.brand_name = brand_name;
+        }
+
+        public String getSign_time() {
+            return sign_time;
+        }
+
+        public void setSign_time(String sign_time) {
+            this.sign_time = sign_time;
+        }
+
+        public String getCut_sign_time() {
+            return cut_sign_time;
+        }
+
+        public void setCut_sign_time(String cut_sign_time) {
+            this.cut_sign_time = cut_sign_time;
         }
     }
 }

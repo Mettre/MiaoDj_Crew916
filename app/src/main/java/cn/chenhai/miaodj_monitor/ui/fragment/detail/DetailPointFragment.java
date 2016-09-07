@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -215,7 +216,7 @@ public class DetailPointFragment extends BaseBackFragment_Swip {
                         switch (nodeInfo.getStatus()) {
                             case "1":
                                 status = "未开始";
-                                date = "预计开始时间" + nodeInfo.getExpect_start_date();
+                                date = "预计开始时间" + (TextUtils.isEmpty(nodeInfo.getExpect_start_date()) ? "  暂无" : nodeInfo.getExpect_start_date());
                                 break;
                             case "10":
                                 status = "待进场";

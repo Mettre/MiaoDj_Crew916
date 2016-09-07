@@ -332,7 +332,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                         .setTitleText("提示")
                         .setContentText("确定要成为该项目施工员吗？")
                         .setCancelText("取消")
-                        .setConfirmText("确定！")
+                        .setConfirmText("确定")
                         .showCancelButton(true)
                         .setCancelClickListener(null)
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -342,7 +342,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
                                 HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "Y");
-
+                                sweetAlertDialog.dismissWithAnimation();
                             }
                         })
                         .show();
@@ -356,7 +356,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                         .setTitleText("提示")
                         .setContentText("确定要拒绝成为施工员吗？")
                         .setCancelText("取消")
-                        .setConfirmText("确定！")
+                        .setConfirmText("确定")
                         .showCancelButton(true)
                         .setCancelClickListener(null)
                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -368,7 +368,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
                                 HttpMethods.getInstance().doBecomeToCrew(new ProgressSubscriber(mOnSuccessListenerBecomeTo, _mActivity), user_code, access_token, mProjectCode, "N");
 
-                                sDialog.dismiss();
+                                sDialog.dismissWithAnimation();
                             }
                         })
                         .show();
@@ -410,6 +410,7 @@ public class DetailAgreeFragment extends BaseBackFragment {
                                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
                                 startActivity(intent);
                                 sweetAlertDialog.dismissWithAnimation();
+
                             }
                         })
                         .show();

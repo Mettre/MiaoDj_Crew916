@@ -312,6 +312,61 @@
 
 
                 </com.zhy.autolayout.AutoFrameLayout>
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_direct_hide_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="订单受理"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_hear_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="22px"
+                        android:text=""
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
 
                 <!-- ******************************************************* -->
 
@@ -326,6 +381,7 @@
                         android:layout_height="1dp"
                         android:layout_marginLeft="32px"
                         android:layout_marginRight="33px"
+                        android:visibility="gone"
                         android:background="@drawable/line_dot" />
 
                     <TextView
@@ -472,7 +528,7 @@
                         android:singleLine="true"
                         android:textColor="@color/text_color_black_3"
                         android:textSize="24px"
-                        android:text="预计到货"/>
+                        android:text="签收完成"/>
 
 
                     <TextView
@@ -616,6 +672,59 @@
 
                 </com.zhy.autolayout.AutoFrameLayout>
 
+
+                <!-- ******************************************************* -->
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/layout_process_hide_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginStart="37px"
+                        android:layout_marginTop="28px"
+                        android:singleLine="true"
+                        android:textColor="@color/text_color_black_3"
+                        android:textSize="24px"
+                        android:text="订单受理"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_selection_hear_time2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="300px"
+                        android:layout_marginStart="300px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginEnd="30px"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:gravity="right"
+                        android:textSize="22px"
+                        android:text=""
+                        android:textColor="@color/text_color_black_3"/>
+
+                    <View
+                        android:layout_width="636px"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="78px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginRight="33px"
+                        android:background="@drawable/line_dot" />
+
+                </com.zhy.autolayout.AutoFrameLayout>
+
                 <!-- ******************************************************* -->
 
                 <com.zhy.autolayout.AutoFrameLayout
@@ -629,6 +738,7 @@
                         android:layout_height="1dp"
                         android:layout_marginLeft="32px"
                         android:layout_marginRight="33px"
+                        android:visibility="gone"
                         android:background="@drawable/line_dot" />
 
                     <TextView
@@ -862,7 +972,7 @@
                         android:singleLine="true"
                         android:textColor="@color/text_color_black_3"
                         android:textSize="24px"
-                        android:text="加工材料预计到货"/>
+                        android:text="签收完成"/>
 
 
                     <TextView

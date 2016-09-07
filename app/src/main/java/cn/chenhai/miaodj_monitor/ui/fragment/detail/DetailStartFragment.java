@@ -771,7 +771,7 @@ public class DetailStartFragment extends BaseBackFragment {
             //这里的year,monthOfYear,dayOfMonth的值与DatePickerDialog控件设置的最新值一致
             dateAndTime.set(Calendar.YEAR, year);
             dateAndTime.set(Calendar.MONTH, monthOfYear);
-            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth + 3);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             //将页面TextView的显示更新为最新时间
             upDateDate();
 
