@@ -22,14 +22,15 @@
         fresco:placeholderImageScaleType="focusCrop"
         fresco:failureImage="@drawable/img_fail"
         fresco:failureImageScaleType="focusCrop"
+        android:visibility="gone"
         fresco:backgroundImage="@color/colorPrimary1" />
 
     <TextView
         android:id="@+id/tv_auxiliary_name_des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="194px"
-        android:layout_marginStart="194px"
+        android:layout_marginLeft="34px"
+        android:layout_marginStart="34px"
         android:layout_marginTop="41px"
         android:maxWidth="250px"
         android:singleLine="true"
@@ -40,10 +41,12 @@
         android:id="@+id/tv_auxiliary_specs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="194px"
-        android:layout_marginStart="194px"
+        android:layout_marginLeft="34px"
+        android:layout_marginStart="34px"
         android:layout_marginTop="89px"
-        android:text="直径7.5mm"
+        android:text="直径7.5m"
+        android:singleLine="true"
+        android:maxWidth="250px"
         android:textSize="22px"
         android:textColor="@color/text_color_black_3"/>
 
@@ -51,11 +54,12 @@
         android:id="@+id/tv_auxiliary_brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="448px"
-        android:layout_marginStart="448px"
+        android:layout_marginLeft="308px"
+        android:layout_marginStart="308px"
         android:layout_marginTop="41px"
-        android:maxWidth="135px"
+        android:maxWidth="220px"
         android:text="天林"
+        android:singleLine="true"
         android:textSize="26px"
         android:textColor="@color/text_color_black_3"/>
 
@@ -63,11 +67,14 @@
         android:id="@+id/tv_auxiliary_specs2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="450px"
-        android:layout_marginStart="450px"
+        android:layout_marginLeft="308px"
+        android:layout_marginStart="308px"
         android:layout_marginTop="89px"
         android:text="- -/卷"
+        android:maxWidth="220px"
         android:textSize="22px"
+        android:singleLine="true"
+        android:visibility="gone"
         android:textColor="@color/text_color_black_3"/>
 
     <com.zhy.autolayout.AutoLinearLayout

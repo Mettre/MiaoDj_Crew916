@@ -192,10 +192,16 @@ public class MainActivity extends SupportActivity
         //RequestManager.cancelRequest(getName());
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadPersonInfoRes();
+    }
+
     /**
      * --------------------------------------------------------------------------------------
      */
-
 
     private void initView() {
 //        group = (RadioGroup) findViewById(R.id.group);
@@ -306,41 +312,7 @@ public class MainActivity extends SupportActivity
         mTheme.setOnClickListener(this);
 
 
-        PreferencesObjectUtils objectUtils = new PreferencesObjectUtils(MainActivity.this,"Login_Account");
-        Account.CrewBean accountCrew = objectUtils.getObject("account_login",Account.CrewBean.class);
-
-
-        //创建SimpleDraweeView对象
-        mSimpleDraweeView = (SimpleDraweeView) findViewById(R.id.main_sdv);
-        String headImg = "http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg";
-
-        if(accountCrew!=null){
-            mDesc.setText(accountCrew.getReal_name());
-            if(accountCrew.getHeadimg()!=null){
-                headImg = HttpMethods.BASE_ROOT_URL + accountCrew.getHeadimg();
-            }
-        }
-
-        //创建将要下载的图片的URI
-        Uri imageUri = Uri.parse(headImg);
-        //开始下载
-        mSimpleDraweeView.setImageURI(imageUri);
-
-        //创建DraweeController
-        DraweeController controller = Fresco.newDraweeControllerBuilder()
-                //加载的图片URI地址
-                .setUri(imageUri)
-                //设置点击重试是否开启
-                .setTapToRetryEnabled(true)
-                //设置旧的Controller
-                .setOldController(mSimpleDraweeView.getController())
-                //构建
-                .build();
-
-        //设置DraweeController
-        mSimpleDraweeView.setController(controller);
-
-
+        loadPersonInfoRes();
 
         mOnSuccessGetNewVersion = new SubscriberOnSuccessListener<HttpResult<NewVersionEntity>>() {
             @Override
@@ -397,6 +369,42 @@ public class MainActivity extends SupportActivity
             }
         };
 
+    }
+
+    private void loadPersonInfoRes() {
+        PreferencesObjectUtils objectUtils = new PreferencesObjectUtils(MainActivity.this,"Login_Account");
+        Account.CrewBean accountCrew = objectUtils.getObject("account_login",Account.CrewBean.class);
+
+
+        //创建SimpleDraweeView对象
+        mSimpleDraweeView = (SimpleDraweeView) findViewById(R.id.main_sdv);
+        String headImg = "http://img3.duitang.com/uploads/item/201409/24/20140924230301_rVPYh.jpeg";
+
+        if(accountCrew!=null){
+            mDesc.setText(accountCrew.getReal_name());
+            if(accountCrew.getHeadimg()!=null){
+                headImg = HttpMethods.BASE_ROOT_URL + accountCrew.getHeadimg();
+            }
+        }
+
+        //创建将要下载的图片的URI
+        Uri imageUri = Uri.parse(headImg);
+        //开始下载
+        mSimpleDraweeView.setImageURI(imageUri);
+
+        //创建DraweeController
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                //加载的图片URI地址
+                .setUri(imageUri)
+                //设置点击重试是否开启
+                .setTapToRetryEnabled(true)
+                //设置旧的Controller
+                .setOldController(mSimpleDraweeView.getController())
+                //构建
+                .build();
+
+        //设置DraweeController
+        mSimpleDraweeView.setController(controller);
     }
 
     @Override

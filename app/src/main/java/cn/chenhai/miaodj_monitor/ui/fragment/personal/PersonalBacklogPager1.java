@@ -161,17 +161,26 @@ public class PersonalBacklogPager1 extends BaseFragment {
                             bundle.putString("FragmentName", "DetailStartFragment");
                             bundle.putString("ProjectCode", mAdapter.getItem(position).getProject_code());
                             break;
-                        case STATUS_CREW_ORDER_MATERIAL_MUN:
-                            //辅材订单用量确认通知  {PROJECT}
-                            ifReturn = true;
+                        case STATUS_CREW_ORDER_MATERIAL_MUN://12
+                            //辅材订单用量确认通知  {PROJECT} --跳转至 选品单页面
+//                            ifReturn = true;
+                            bundle.putBoolean("isSelectPage", true);
+                            bundle.putString("FragmentName", "DetailIndexFragment");
+                            bundle.putString("ProjectCode", mAdapter.getItem(position).getProject_code());
                             break;
-                        case STATUS_CREW_MATERIAL_FINISH:
+                        case STATUS_CREW_MATERIAL_FINISH://13
                             //材料备货完成提醒  {PROJECT}
-                            ifReturn = true;
+//                            ifReturn = true;
+                            bundle.putBoolean("isSelectPage", true);
+                            bundle.putString("FragmentName", "DetailIndexFragment");
+                            bundle.putString("ProjectCode", mAdapter.getItem(position).getProject_code());
                             break;
-                        case STATUS_CREW_NOTICE_MATERIAL_ARRIVE:
+                        case STATUS_CREW_NOTICE_MATERIAL_ARRIVE://14
                             //材料配送到场提醒签收  {PROJECT},{ARRIVE_DATE}
-                            ifReturn = true;
+//                            ifReturn = true;
+                            bundle.putBoolean("isSelectPage", true);
+                            bundle.putString("FragmentName", "DetailIndexFragment");
+                            bundle.putString("ProjectCode", mAdapter.getItem(position).getProject_code());
                             break;
                         case STATUS_CREW_CHECK_NODE:
                             //节点完成验收提醒  {PROJECT},{NODE_TITLE}  --跳转至 节点详情

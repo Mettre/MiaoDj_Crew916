@@ -95,6 +95,11 @@ public class DetailIndexFragment extends BaseBackFragment {
     private CardView mCardView;
     private PtrClassicFrameLayout mPtrFrame;
 
+    /**
+     * 是否要跳转到选品
+     */
+    private boolean isSelectPage = false;
+
 
     public static DetailIndexFragment newInstance(String projectCode) {
 
@@ -109,6 +114,9 @@ public class DetailIndexFragment extends BaseBackFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mProjectCode = getArguments().getString(ARG_ITEM);
+
+        isSelectPage = _mActivity.getIntent().getBooleanExtra("isSelectPage",false);
+
     }
 
     @Nullable
@@ -177,6 +185,11 @@ public class DetailIndexFragment extends BaseBackFragment {
                     Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
+                    //是否跳转到选品单页面
+                    if (isSelectPage) {
+                        mIvDetailChoose.performClick();
+                    }
+
                     MyProjectsDetailEntity.ProjectBean project = result.getInfo().getProject();
 
                     StringBuilder itemName = new StringBuilder();
@@ -284,7 +297,7 @@ public class DetailIndexFragment extends BaseBackFragment {
                     mDetailProjectAddr.setText(address);
 
                     mCustomer_code = project.getCustomer_code();
-                    mBargain_code=project.getBargain_code();
+                    mBargain_code = project.getBargain_code();
 
                     //延期工期
 //                    String limitdays = project.getTotal_days()+"天";

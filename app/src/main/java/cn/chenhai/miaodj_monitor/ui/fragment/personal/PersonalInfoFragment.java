@@ -39,7 +39,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.chenhai.miaodj_monitor.R;
+import cn.chenhai.miaodj_monitor.model.entity.Account;
 import cn.chenhai.miaodj_monitor.service.commonlib.utils.JSONUtils;
+import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesObjectUtils;
 import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
 import cn.chenhai.miaodj_monitor.service.commonlib.utils.UploadUtil;
 import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
@@ -179,6 +181,13 @@ public class PersonalInfoFragment extends BaseBackFragment_Swip implements View.
                     mTvInfoDistrict.setText(district);
 
                     mTvInfoAddress.setText(beanInfo.getAddress());
+
+                    PreferencesObjectUtils objectUtils = new PreferencesObjectUtils(_mActivity,"Login_Account");
+
+                    Account.CrewBean mAccont = new Account.CrewBean();
+                    mAccont.setHeadimg(beanInfo.getHeadimg());
+                    mAccont.setReal_name(beanInfo.getReal_name());
+                    objectUtils.setObject("account_login",mAccont);
                 }
             }
 

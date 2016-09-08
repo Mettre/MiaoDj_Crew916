@@ -343,12 +343,13 @@ public class HttpMethods {
     /**
      * 发起配送
      */
-    public void doStartDeliver(Subscriber<EmptyEntity> subscriber, String user_code, String access_token, String order_code, String material_code, String material_type, String expect_arrive_time) {
+    public void doStartDeliver(Subscriber<EmptyEntity> subscriber, String user_code, String access_token, String order_code, String material_code, String space_id,String material_type, String expect_arrive_time) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("order_code", order_code);
         map.put("material_code", material_code);
+        map.put("space_id",space_id);
         map.put("material_type", material_type);
         map.put("expect_arrive_time", expect_arrive_time);
 

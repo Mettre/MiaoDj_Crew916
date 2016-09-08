@@ -12,6 +12,7 @@ android {
     }
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "cn.chenhai.miaodj_monitor"
         minSdkVersion 16
         targetSdkVersion 23
@@ -97,4 +98,5 @@ dependencies {
     compile project(':lib-zxing')
     compile project(':PhotoPicker')
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.8.5'
+    compile 'com.android.support:multidex:1.+'
 }

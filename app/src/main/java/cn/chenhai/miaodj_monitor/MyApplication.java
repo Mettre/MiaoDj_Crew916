@@ -1,9 +1,9 @@
 package cn.chenhai.miaodj_monitor;
 
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.support.multidex.MultiDexApplication;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -16,10 +16,10 @@ import com.tencent.bugly.crashreport.CrashReport;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import cn.chenhai.miaodj_monitor.service.AppException;
+import cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView;
 import cn.chenhai.miaodj_monitor.ui.view_custom.image.DemoDuiTangImageReSizer;
 import cn.chenhai.miaodj_monitor.ui.view_custom.image.PtrImageLoadHandler;
 import cn.chenhai.miaodj_monitor.utils.CollectUtils;
-import cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView;
 import cn.jpush.android.api.JPushInterface;
 import in.srain.cube.Cube;
 import in.srain.cube.image.ImageLoaderFactory;
@@ -31,7 +31,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
  * Created by ChenHai--霜华 on 2016/5/23. 07:22
  * 邮箱：248866527@qq.com
  */
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
     public static MyApplication instance;
     private static Context context;

@@ -228,7 +228,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, "2", mData);
+                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mOrder_code, mMaterial_code,space_id, material_type, mData);
             }
         });
 
@@ -236,8 +236,19 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mBtnSelectionDirectSignFor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                material_type = "1"; //不需要加工
-                showPopupWindow(v, mTvSelectionNum.getText().toString(), mTvSelectionNumUnit.getText().toString());
+//                material_type = "1"; //不需要加工
+//                showPopupWindow(v, mTvSelectionNum.getText().toString(), mTvSelectionNumUnit.getText().toString());
+
+                switch (mBtnSelectionDirectSignFor.getText().toString()) {
+                    case "发起配送":
+                        material_type = "1";
+                        mTimePickPop.show(v);
+                        break;
+                    case "签收":
+                        material_type = "1"; //不需要加工
+                        showPopupWindow(v, mTvSelectionNum.getText().toString(), mTvSelectionNumUnit.getText().toString());
+                        break;
+                }
             }
         });
         mBtnSelectionProcessSignFor.setOnClickListener(new View.OnClickListener() {
@@ -245,6 +256,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             public void onClick(View v) {
                 switch (mBtnSelectionProcessSignFor.getText().toString()) {
                     case "发起配送":
+                        material_type = "2";
                         mTimePickPop.show(v);
                         break;
                     case "签收":
@@ -293,11 +305,11 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                                     break;
                                 case "2":  // 供应链采购中，备货中
                                     directStatus = "备货中";
-                                    mLayoutDirectHide5.setVisibility(View.VISIBLE);
-                                    mBtnSelectionDirectSignFor.setText("签收");
                                     break;
                                 case "3":  // 供应链备货完成，待配送
                                     directStatus = "待配送";
+                                    mLayoutDirectHide5.setVisibility(View.VISIBLE);
+                                    mBtnSelectionDirectSignFor.setText("发起配送");
                                     break;
                                 case "4":  // 已到货，待加工
                                     directStatus = "待加工";
@@ -310,6 +322,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                                     break;
                                 case "8":  // 已发起配送，配送中
                                     directStatus = "配送中";
+                                    mLayoutDirectHide5.setVisibility(View.VISIBLE);
+                                    mBtnSelectionDirectSignFor.setText("签收");
                                     break;
                                 case "9":  //已签收
                                     directStatus = "已签收";
