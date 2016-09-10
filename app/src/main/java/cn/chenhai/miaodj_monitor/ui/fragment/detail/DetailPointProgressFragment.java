@@ -337,29 +337,29 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                             mBtnOK.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    if (TextUtils.isEmpty(worker_code)) {
-                                        new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
-                                                .setTitleText("施工员验收")
-                                                .setContentText("确定施工完成吗？")
-                                                .setCancelText("取消")
-                                                .setConfirmText("确定！")
-                                                .showCancelButton(true)
-                                                .setCancelClickListener(null)
-                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                    @Override
-                                                    public void onClick(SweetAlertDialog sDialog) {
+//                                    if (TextUtils.isEmpty(worker_code)) {
+                                    new SweetAlertDialog(_mActivity, SweetAlertDialog.WARNING_TYPE)
+                                            .setTitleText("施工员验收")
+                                            .setContentText("再次确定施工完成吗？")
+                                            .setCancelText("取消")
+                                            .setConfirmText("确定！")
+                                            .showCancelButton(true)
+                                            .setCancelClickListener(null)
+                                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                @Override
+                                                public void onClick(SweetAlertDialog sDialog) {
 
-                                                        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
-                                                        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                                                        HttpMethods.getInstance().doCrewCheckNodeFinish(new ProgressSubscriber(mOnSuccessCheckNodeFinish, _mActivity), user_code, access_token, mPointID, "Y", "", "", "", "");
+                                                    String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                                                    String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                                                    HttpMethods.getInstance().doCrewCheckNodeFinish(new ProgressSubscriber(mOnSuccessCheckNodeFinish, _mActivity), user_code, access_token, mPointID, "Y", "", worker_code, "", "");
 
-                                                        sDialog.dismiss();
-                                                    }
-                                                })
-                                                .show();
-                                    } else {
-                                        showPopupWindow(v);
-                                    }
+                                                    sDialog.dismiss();
+                                                }
+                                            })
+                                            .show();
+//                                    } else {
+//                                        showPopupWindow(v);
+//                                    }
                                 }
                             });
                             //查看施工日志

@@ -26,6 +26,7 @@ import com.labo.kaji.fragmentanimations.FlipAnimation;
 import com.labo.kaji.fragmentanimations.MoveAnimation;
 import com.labo.kaji.fragmentanimations.PushPullAnimation;
 import com.labo.kaji.fragmentanimations.SidesAnimation;
+import com.zhy.autolayout.AutoFrameLayout;
 
 import java.util.List;
 
@@ -80,6 +81,7 @@ public class ItemPointFragment extends SupportFragment {
     private TextView mItemTvNowStatus;
     private LinearLayout mItemLlStatusHide;
     private RecyclerView mItemRecycler;
+    private AutoFrameLayout mWorkerTypeLayout;
 
     private String mTemCode;
 
@@ -139,6 +141,7 @@ public class ItemPointFragment extends SupportFragment {
         mItemTvEndDateReality = (TextView) view.findViewById(R.id.item_tv_endDate_reality);
         mItemTvNowStatus = (TextView) view.findViewById(R.id.item_tv_now_status);
         mItemLlStatusHide = (LinearLayout) view.findViewById(R.id.item_ll_status_hide);
+        mWorkerTypeLayout = (AutoFrameLayout) view.findViewById(R.id.item_tv_workertypeLayout);
         mItemLlStatusHide.setVisibility(View.VISIBLE);
 
         mItemRecycler = (RecyclerView) view.findViewById(R.id.item_recycler);
@@ -163,6 +166,8 @@ public class ItemPointFragment extends SupportFragment {
         mItemTvStartDateReality.setText(dataInfo.getActual_start_date());
         mItemTvEndDatePredict.setText(dataInfo.getExpect_end_date());
         mItemTvEndDateReality.setText(dataInfo.getActual_end_date());
+
+        mWorkerTypeLayout.setVisibility(TextUtils.isEmpty(dataInfo.getWorker_type()) ? View.GONE : View.VISIBLE);
 
         String status = "";
         switch (dataInfo.getStatus()) {

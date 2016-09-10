@@ -50,7 +50,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
  * Created by ChenHai--霜华 on 2016/6/20. 09:45
  * 邮箱：248866527@qq.com
  */
-public class WorkerChooseFragment extends BaseBackFragment_Swip implements SearchViewCut.SearchViewListener{
+public class WorkerChooseFragment extends BaseBackFragment_Swip implements SearchViewCut.SearchViewListener {
     private static final String ARG_ITEM = "arg_item";
 
     private String mProjectCode;
@@ -71,7 +71,9 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
     private WorkerChooseAdapter mAdapter;
 
     private View mContentView;
-    /**************下拉菜单*************/
+    /**************
+     * 下拉菜单
+     *************/
     private DropDownMenu mDropDownMenu;
     private String headers[] = {"工种(全部)", "工龄(全部)", "星级(全部)"};
     private List<View> popupViews = new ArrayList<>();
@@ -82,10 +84,10 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
     //private BtnDropDownAdapter gradeAdapter;
     private StarsDropAdapter starAdapter;
 
-//    private String types[] = {"不限", "放线员", "拆墙工", "普瓦", "辅工", "木工", "油漆工", "水电工", "专业防水", "质检员", "专业配送", "瓦工",
+    //    private String types[] = {"不限", "放线员", "拆墙工", "普瓦", "辅工", "木工", "油漆工", "水电工", "专业防水", "质检员", "专业配送", "瓦工",
 //            "木门安装工", "保洁工", "地板安装工", "成保员", "集成吊顶安装工","淋浴房安装工", "橱柜安装工", "浴室柜安装工", "台面安装工", "精修工"};
     private String types[] = {"不限"};
-    private String ages[] = {"不限", "1年以下", "1年-3年", "3年-5年","5年-10年", "10年-20年", "20年以上"};
+    private String ages[] = {"不限", "1年以下", "1年-3年", "3年-5年", "5年-10年", "10年-20年", "20年以上"};
     //private String constellations[] = {"不限", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "摩羯座", "水瓶座", "双鱼座"};
     private String stars[] = {"不限", "0", "1", "2", "3", "4", "5"};
 
@@ -97,10 +99,12 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
     //private int constellationPosition = 0;
     private int starPosition = 0;
     /*********************************************/
-    /**搜索view*/
+    /**
+     * 搜索view
+     */
     private SearchViewCut searchView;
 
-    public static WorkerChooseFragment newInstance(String projectCode,String workerType) {
+    public static WorkerChooseFragment newInstance(String projectCode, String workerType) {
 
         Bundle args = new Bundle();
         args.putString(ARG_ITEM, projectCode);
@@ -156,10 +160,18 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mWorkerBtnChooseFactory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().chooseProjectWorkerFactory(new ProgressSubscriber(mOnSuccessChooseWorkerFactory, _mActivity), user_code, access_token,mProjectCode,
-                        mDropDownType);//mWorkerType
+                if (mWorkerType.equals("108")) {
+                    new SweetAlertDialog(_mActivity, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("错误")
+                            .setContentText("质检员不能选择驻场工人！")
+                            .setConfirmText("关闭")
+                            .show();
+                } else {
+                    String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                    String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                    HttpMethods.getInstance().chooseProjectWorkerFactory(new ProgressSubscriber(mOnSuccessChooseWorkerFactory, _mActivity), user_code, access_token, mProjectCode,
+                            mDropDownType);//mWorkerType
+                }
             }
         });
 
@@ -172,9 +184,9 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view) {
-                String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-                String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-                HttpMethods.getInstance().chooseProjectWorker(new ProgressSubscriber(mOnSuccessChooseWorker, _mActivity), user_code, access_token,mProjectCode, mAdapter.getItem(position).getWorkerCode(),mDropDownType);//mWorkerType
+                String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+                String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+                HttpMethods.getInstance().chooseProjectWorker(new ProgressSubscriber(mOnSuccessChooseWorker, _mActivity), user_code, access_token, mProjectCode, mAdapter.getItem(position).getWorkerCode(), mDropDownType);//mWorkerType
             }
         });
 
@@ -182,20 +194,20 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<ChooseWorkerEntity>>() {
             @Override
             public void onSuccess(HttpResult<ChooseWorkerEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     List<ChooseWorkerEntity.WorkerBean> projects = result.getInfo().getWorker();
                     List<WorkerChooseInfo> list = new ArrayList<>();
-                    for (int i=0 ;i<projects.size() ;i++){
+                    for (int i = 0; i < projects.size(); i++) {
                         WorkerChooseInfo pageInfo = new WorkerChooseInfo();
                         ChooseWorkerEntity.WorkerBean nodeInfo = projects.get(i);
 
                         String types = "(" + nodeInfo.getTitle() + ")";
                         pageInfo.setWorkerAllTypes(types);
                         String headPath = "";
-                        if(nodeInfo.getHeadimg() != null) {
+                        if (nodeInfo.getHeadimg() != null) {
                             headPath = HttpMethods.BASE_ROOT_URL + nodeInfo.getHeadimg();
                         }
                         pageInfo.setImg_portraitPath(headPath);
@@ -203,7 +215,7 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                         pageInfo.setWorkerCode(nodeInfo.getWorker_code());
                         pageInfo.setWorkerStars(nodeInfo.getScore());
                         String workerAge = nodeInfo.getWorker_age();
-                        workerAge = workerAge.replace("年","");
+                        workerAge = workerAge.replace("年", "");
                         pageInfo.setWorkerYear(workerAge);
 
                         list.add(pageInfo);
@@ -215,12 +227,14 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                     mRefreshPtrFrameLayout.refreshComplete();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 mRefreshPtrFrameLayout.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 mRefreshPtrFrameLayout.refreshComplete();
             }
         };
@@ -228,14 +242,14 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mOnSuccessWorkerTypes = new SubscriberOnSuccessListener<HttpResult<WorkerTypesEntity>>() {
             @Override
             public void onSuccess(HttpResult<WorkerTypesEntity> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
                     mTypeList = result.getInfo().getWorktype();
                     List<String> list = new ArrayList<>();
                     list.add("不限");
-                    for (int i=0 ;i<mTypeList.size() ;i++){
+                    for (int i = 0; i < mTypeList.size(); i++) {
                         String type;
                         WorkerTypesEntity.WorktypeBean nodeInfo = mTypeList.get(i);
                         type = nodeInfo.getTitle();
@@ -250,8 +264,8 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
 
                     //出于流程考虑，暂时禁止点击，防止选错工种，工种由外部传入
                     int temPosition = 0;
-                    for (int i=0; i<list.size(); i++){
-                        if(list.get(i).equals(mWorkerType)){
+                    for (int i = 0; i < list.size(); i++) {
+                        if (list.get(i).equals(mWorkerType)) {
                             temPosition = i;
                         }
                     }
@@ -261,10 +275,10 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                     mDropDownMenu.setTabText(temPosition == 0 ? headers[0] : types[temPosition]);
                     mDropDownMenu.setTabText(types[temPosition]);
 
-                    if(mTypeList.size()!=0 && temPosition!=0){
-                        mDropDownType = mTypeList.get(temPosition-1).getId();
+                    if (mTypeList.size() != 0 && temPosition != 0) {
+                        mDropDownType = mTypeList.get(temPosition - 1).getId();
                     } else {
-                        mDropDownType="";
+                        mDropDownType = "";
                     }
                     //mDropDownMenu.getChildAt(0).setEnabled(false);
                     //////////////////////////////////////////////////////////////////
@@ -274,12 +288,14 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                     refreshData();
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
                 mRefreshPtrFrameLayout.refreshComplete();
             }
+
             @Override
-            public void onError(){
+            public void onError() {
                 mRefreshPtrFrameLayout.refreshComplete();
             }
         };
@@ -287,11 +303,11 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mOnSuccessChooseWorker = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("提示")
                             .setContentText("选择已提交！")
                             .setConfirmText("关闭")
@@ -299,7 +315,7 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                                 @Override
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("result","已选择");
+                                    bundle.putString("result", "已选择");
                                     setFramgentResult(RESULT_OK, bundle);
                                     pop();
 
@@ -310,23 +326,25 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
 
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
         mOnSuccessChooseWorkerFactory = new SubscriberOnSuccessListener<HttpResult<Object>>() {
             @Override
             public void onSuccess(HttpResult<Object> result) {
-                if(result.getCode() == 3015) {
-                    Toast.makeText(_mActivity,"登录验证失效，请重新登录！！",Toast.LENGTH_SHORT).show();
+                if (result.getCode() == 3015) {
+                    Toast.makeText(_mActivity, "登录验证失效，请重新登录！！", Toast.LENGTH_SHORT).show();
                     UIHelper.showLoginErrorAgain(_mActivity);
                 } else {
-                    new SweetAlertDialog(_mActivity,SweetAlertDialog.SUCCESS_TYPE)
+                    new SweetAlertDialog(_mActivity, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("提示")
                             .setContentText("选择已提交！")
                             .setConfirmText("关闭")
@@ -335,7 +353,7 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
 
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("result","已选择");
+                                    bundle.putString("result", "已选择");
                                     setFramgentResult(RESULT_OK, bundle);
                                     pop();
 
@@ -346,12 +364,14 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
 
                 }
             }
+
             @Override
-            public void onCompleted(){
+            public void onCompleted() {
 
             }
+
             @Override
-            public void onError(){
+            public void onError() {
 
             }
         };
@@ -362,15 +382,15 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
 
     }
 
-    private void refreshData(){
-        String user_code = PreferencesUtils.getString(_mActivity,"user_code");
-        String access_token =  PreferencesUtils.getString(_mActivity,"access_token");
-        HttpMethods.getInstance().doSearchWorkers(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token,mProjectCode,mDropDownType,
-                mDropDownAges,mDropDownStars,searchView.getEtInputText());
+    private void refreshData() {
+        String user_code = PreferencesUtils.getString(_mActivity, "user_code");
+        String access_token = PreferencesUtils.getString(_mActivity, "access_token");
+        HttpMethods.getInstance().doSearchWorkers(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, mProjectCode, mDropDownType,
+                mDropDownAges, mDropDownStars, searchView.getEtInputText());
     }
 
-    private void initDropDownMenu(View view){
-        mDropDownMenu = (DropDownMenu) view.findViewById(R.id.dropDownMenu) ;
+    private void initDropDownMenu(View view) {
+        mDropDownMenu = (DropDownMenu) view.findViewById(R.id.dropDownMenu);
 
 
         //init city menu
@@ -397,9 +417,9 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
             @Override
             public void onClick(View v) {
                 //mDropDownMenu.setTabText((starPosition == 0 ? headers[2] : stars[starPosition]) + "星");
-                if(starPosition == 0){
+                if (starPosition == 0) {
                     mDropDownMenu.setTabText((headers[2]));
-                }else {
+                } else {
                     mDropDownMenu.setTabText(stars[starPosition] + "星");
                 }
                 mDropDownMenu.closeMenu();
@@ -430,10 +450,10 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 typeAdapter.setCheckItem(position);
 
-                if(mTypeList.size()!=0 && position!=0){
-                    mDropDownType = mTypeList.get(position-1).getId();
+                if (mTypeList.size() != 0 && position != 0) {
+                    mDropDownType = mTypeList.get(position - 1).getId();
                 } else {
-                    mDropDownType="";
+                    mDropDownType = "";
                 }
 
                 mDropDownMenu.setTabText(position == 0 ? headers[0] : types[position]);
@@ -446,10 +466,10 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ageAdapter.setCheckItem(position);
 
-                if(position != 0){
+                if (position != 0) {
                     mDropDownAges = String.valueOf(position);
                 } else {
-                    mDropDownAges="";
+                    mDropDownAges = "";
                 }
 
                 mDropDownMenu.setTabText(position == 0 ? headers[1] : ages[position]);
@@ -464,10 +484,10 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
                 starAdapter.setCheckItem(position);
                 starPosition = position;
 
-                if(position != 0){
-                    mDropDownStars = String.valueOf(position-1);
+                if (position != 0) {
+                    mDropDownStars = String.valueOf(position - 1);
                 } else {
-                    mDropDownStars="";
+                    mDropDownStars = "";
                 }
             }
         });
@@ -531,7 +551,7 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
         mAdapter.setDatas(list);
     }
 
-    private void initPullRefresh(){
+    private void initPullRefresh() {
         //view.setBackgroundColor(getResources().getColor(R.color.gray));
         //mRefreshPtrFrameLayout = (PtrClassicFrameLayout) view.findViewById(R.id.rotate_header_refresh);
 
@@ -615,6 +635,7 @@ public class WorkerChooseFragment extends BaseBackFragment_Swip implements Searc
 
     /**
      * 点击搜索键时edit text触发的回调
+     *
      * @param text
      */
     @Override

@@ -381,21 +381,6 @@ public class DetailIndexFragment extends BaseBackFragment {
         mDetailManagerPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                new AlertDialog.Builder(_mActivity)
-//                        .setTitle("拨打电话")
-//                        .setMessage( mDetailManagerPhone.getText())
-//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                String phone = mDetailManagerPhone.getText().toString();
-//                                //用intent启动拨打电话
-//                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
-//                                startActivity(intent);
-//                            }
-//                        })
-//                        .setNegativeButton("关闭", null)
-//                        .setCancelable(true)
-//                        .show();
                 new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")
                         .setContentText(mDetailManagerPhone.getText().toString())
@@ -419,21 +404,6 @@ public class DetailIndexFragment extends BaseBackFragment {
         mDetailDesignPhoneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                new AlertDialog.Builder(_mActivity)
-//                        .setTitle("拨打电话")
-//                        .setMessage( mDetailDesignPhone.getText())
-//                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                String phone = mDetailDesignPhone.getText().toString();
-//                                //用intent启动拨打电话
-//                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ phone));
-//                                startActivity(intent);
-//                            }
-//                        })
-//                        .setNegativeButton("关闭", null)
-//                        .setCancelable(true)
-//                        .show();
 
                 new SweetAlertDialog(_mActivity, SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("拨打电话")

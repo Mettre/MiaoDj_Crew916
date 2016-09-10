@@ -53,6 +53,7 @@
                     android:textSize="26px" />
 
                 <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/item_tv_workertypeLayout"
                     android:layout_width="121px"
                     android:layout_height="51px"
                     android:layout_marginLeft="550px"
