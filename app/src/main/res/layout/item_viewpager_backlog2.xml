@@ -32,6 +32,7 @@
                 android:layout_marginLeft="30px"
                 android:layout_marginStart="30px"
                 android:layout_marginTop="35px"
+                android:visibility="gone"
                 android:background="@drawable/ic_red_point"/>
 
             <TextView

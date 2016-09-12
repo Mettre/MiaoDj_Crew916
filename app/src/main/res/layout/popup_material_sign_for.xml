@@ -8,7 +8,7 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="601px"
-        android:layout_height="696px"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="29px"
                     android:layout_marginStart="29px"
-                    android:text="签收总数："
+                    android:text="应签收总数："
                     android:textColor="@color/text_color_black_2"
                     android:textSize="24px" />
 
@@ -108,6 +108,7 @@
 
 
             <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/et_popup_realityLl"
                 android:layout_width="521px"
                 android:layout_height="81px"
                 android:layout_marginLeft="41px"
@@ -122,12 +123,12 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="26px"
                     android:layout_marginStart="26px"
-                    android:text="其中完整数量："
+                    android:text="实际签收数量："
                     android:textColor="@color/text_color_black_2"
                     android:textSize="24px" />
 
                 <EditText
-                    android:id="@+id/et_popup_full_num"
+                    android:id="@+id/et_popup_reality_num"
                     android:layout_width="wrap_content"
                     android:layout_height="71px"
                     android:layout_gravity="center"
@@ -144,7 +145,7 @@
                     android:textSize="28px" />
 
                 <TextView
-                    android:id="@+id/tv_popup_full_num_unit"
+                    android:id="@+id/tv_popup_reality_numUnit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -157,6 +158,121 @@
                     android:textSize="22px" />
 
             </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/et_popup_damagedLl"
+                android:layout_width="521px"
+                android:layout_height="81px"
+                android:layout_marginLeft="41px"
+                android:layout_marginStart="41px"
+                android:layout_marginTop="32px"
+                android:background="@color/gray_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginStart="26px"
+                    android:text="破损数量："
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="24px" />
+
+                <EditText
+                    android:id="@+id/et_popup_damaged_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="71px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginStart="5px"
+                    android:layout_weight="1"
+                    android:background="@color/gray_white"
+                    android:gravity="end|center_vertical"
+                    android:inputType="numberDecimal"
+                    android:maxWidth="332px"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/colorPrimary1"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_popup_damaged_numUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="30px"
+                    android:layout_marginLeft="3px"
+                    android:layout_marginRight="30px"
+                    android:layout_marginStart="3px"
+                    android:text="片"
+                    android:textColor="@color/text_color_black_light"
+                    android:textSize="22px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/et_popup_shortageLl"
+                android:layout_width="521px"
+                android:layout_height="81px"
+                android:layout_marginLeft="41px"
+                android:layout_marginStart="41px"
+                android:layout_marginTop="32px"
+                android:background="@color/gray_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginStart="26px"
+                    android:text="短缺数量："
+                    android:textColor="@color/text_color_black_2"
+                    android:textSize="24px" />
+
+                <EditText
+                    android:id="@+id/et_popup_shortage_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="71px"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5px"
+                    android:layout_marginStart="5px"
+                    android:layout_weight="1"
+                    android:background="@color/gray_white"
+                    android:gravity="end|center_vertical"
+                    android:inputType="numberDecimal"
+                    android:maxWidth="332px"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/colorPrimary1"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_popup_shortage_numUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="30px"
+                    android:layout_marginLeft="3px"
+                    android:layout_marginRight="30px"
+                    android:layout_marginStart="3px"
+                    android:text="片"
+                    android:textColor="@color/text_color_black_light"
+                    android:textSize="22px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/tv_popup_hintcalculateTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27px"
+                android:gravity="center_horizontal"
+                android:text="应签收总数=实际签收数量+破损数量+短缺数量"
+                android:textColor="@color/colorPrimary1"
+                android:textSize="10sp"
+                android:visibility="gone" />
 
 
             <com.zhy.autolayout.AutoLinearLayout
@@ -231,19 +347,19 @@
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:text="--M/--M"
-                    android:visibility="gone"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:visibility="gone" />
 
                 <cn.chenhai.miaodj_monitor.ui.view_custom.NumberProgressBar xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/pbProgress"
                     android:layout_width="200px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:visibility="gone"
                     app:progress_reached_bar_height="1.5dp"
                     app:progress_reached_color="#3498DB"
                     app:progress_text_color="#3498DB"
                     app:progress_text_size="10sp"
-                    android:visibility="gone"
                     app:progress_unreached_bar_height="0.75dp"
                     app:progress_unreached_color="#CCCCCC" />
 
@@ -254,9 +370,9 @@
                     android:layout_gravity="right"
                     android:layout_marginRight="30dp"
                     android:text="未上传"
-                    android:visibility="gone"
                     android:textColor="@color/colorAccent1"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
             </com.zhy.autolayout.AutoLinearLayout>
 
             <Button
@@ -291,22 +407,24 @@
                     android:textSize="20px" />
 
                 <TextView
+                    android:id="@+id/tv_popup_hint1Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12px"
                     android:gravity="center_vertical"
                     android:maxWidth="660px"
-                    android:text="请仔细检查货物数量及损坏情况，准确填写签收完整数量；"
+                    android:text="请仔细检查货物数量及缺损情况，准确填写数量；"
                     android:textColor="@color/text_color_black_light"
                     android:textSize="20px" />
 
                 <TextView
+                    android:id="@+id/tv_popup_hint2Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12px"
                     android:gravity="center_vertical"
                     android:maxWidth="670px"
-                    android:text="拍照后上传签收单图片。"
+                    android:text="并拍照后上传签收单图片。"
                     android:textColor="@color/text_color_black_light"
                     android:textSize="20px" />
 

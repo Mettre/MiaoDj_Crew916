@@ -34,6 +34,7 @@ import com.google.gson.Gson;
 import com.lzy.okhttputils.OkHttpUtils;
 import com.lzy.okhttputils.callback.AbsCallback;
 import com.lzy.okhttputils.request.BaseRequest;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import org.json.JSONObject;
 
@@ -228,7 +229,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mOrder_code, mMaterial_code,space_id, material_type, mData);
+                HttpMethods.getInstance().doStartDeliver(new ProgressSubscriber(mOnSuccessDeliver, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id, material_type, mData);
             }
         });
 
@@ -372,7 +373,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                             mLLCardLayoutProcess.setVisibility(View.GONE);
                         }
 
-                        space_id=beanInfo.getSpace_id();
+                        space_id = beanInfo.getSpace_id();
 
                         //直接配送
                         mTvSelectionNum.setText(String.valueOf(totalAmount - cutAmount));
@@ -708,18 +709,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         switch (viewId) {
 
             case R.id.iv_popup_pic_upload: {
-                //Intent intent = new Intent(MainActivity.this, PhotoPickerActivity.class);
-                //PhotoPickerIntent.setPhotoCount(intent, 1);
-                //PhotoPickerIntent.setShowCamera(intent, true);
-                //startActivityForResult(intent, REQUEST_CODE);
-
-//                PhotoPicker.builder()
-//                        .setPhotoCount(1)
-//                        .setGridColumnCount(3)
-//                        .start(_mActivity, DetailSelectionList_Auxilary.this);
-
                 Bundle mPickerOptionsBundle = new Bundle();
-                ;
                 Intent mPickerIntent = new Intent();
                 mPickerIntent.setClass(_mActivity, PhotoPickerActivity.class);
                 mPickerOptionsBundle.putInt("MAX_COUNT", 1);
@@ -760,11 +750,13 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             UploadImgResult info = (UploadImgResult) s;
             mSignForPicturePath = info.getPicnamefile();
 
-            String fullNum = mEtPopupFullNum.getText().toString().trim();
+            String realityNum = mRealityNum.getText().toString().trim();
+            String damagedNum = mDamagedNum.getText().toString().trim();
+            String shortageNum = mShortageNum.getText().toString().trim();
             if (!mSignForPicturePath.equals("")) {
                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id,material_type, fullNum, mSignForPicturePath);
+                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id, material_type, realityNum, damagedNum, shortageNum, mSignForPicturePath);
             }
         }
 
@@ -842,9 +834,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
     private LinearLayout mLlPopupClose;
     private TextView mTvPopupSignNum;
-    private EditText mEtPopupFullNum;
+    //    private EditText mEtPopupFullNum;
     private TextView mTvPopupSignNumUnit;
-    private TextView mTvPopupFullNumUnit;
+    //    private TextView mTvPopupFullNumUnit;
     private ImageView mIvPopupPicUpload;
     private LinearLayout mLlPopupPic;
     private ImageView mIvPopupPic;
@@ -854,6 +846,24 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
     private TextView mTvProgress;
     private Button mBtnPopupDone;
 
+    //实际签收数量
+    private AutoLinearLayout mRealityLl;
+    private EditText mRealityNum;
+    private TextView mRealityNumUnit;
+
+    //破损数量
+    private AutoLinearLayout mDamagedLl;
+    private EditText mShortageNum;
+    private TextView mShortageNumUnit;
+
+    //短缺数量
+    private AutoLinearLayout mShortageLl;
+    private EditText mDamagedNum;
+    private TextView mDamagedNumUnit;
+
+    private TextView mHintCalculate;
+    private TextView mHintOne;
+    private TextView mHintTwo;
 
     /**---------------------------PoputWindow--------------------------------*/
     /**
@@ -873,9 +883,9 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
         mLlPopupClose = (LinearLayout) popView.findViewById(R.id.ll_popup_close);
         mTvPopupSignNum = (TextView) popView.findViewById(R.id.tv_popup_sign_num);
-        mEtPopupFullNum = (EditText) popView.findViewById(R.id.et_popup_full_num);
+//        mEtPopupFullNum = (EditText) popView.findViewById(R.id.et_popup_full_num);
         mTvPopupSignNumUnit = (TextView) popView.findViewById(R.id.tv_popup_sign_num_unit);
-        mTvPopupFullNumUnit = (TextView) popView.findViewById(R.id.tv_popup_full_num_unit);
+//        mTvPopupFullNumUnit = (TextView) popView.findViewById(R.id.tv_popup_full_num_unit);
         mIvPopupPicUpload = (ImageView) popView.findViewById(R.id.iv_popup_pic_upload);
         mLlPopupPic = (LinearLayout) popView.findViewById(R.id.ll_popup_pic);
         mIvPopupPic = (ImageView) popView.findViewById(R.id.iv_popup_pic);
@@ -885,6 +895,27 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mTvProgress = (TextView) popView.findViewById(R.id.tvProgress);
         mBtnPopupDone = (Button) popView.findViewById(R.id.btn_popup_done);
 
+        //实际签收数量
+        mRealityLl = (AutoLinearLayout) popView.findViewById(R.id.et_popup_realityLl);
+        mRealityNum = (EditText) popView.findViewById(R.id.et_popup_reality_num);
+        mRealityNumUnit = (TextView) popView.findViewById(R.id.tv_popup_reality_numUnit);
+
+        //破损数量
+        mDamagedLl = (AutoLinearLayout) popView.findViewById(R.id.et_popup_damagedLl);
+        mDamagedNum = (EditText) popView.findViewById(R.id.et_popup_damaged_num);
+        mDamagedNumUnit = (TextView) popView.findViewById(R.id.tv_popup_damaged_numUnit);
+
+        //短缺数量
+        mShortageLl = (AutoLinearLayout) popView.findViewById(R.id.et_popup_shortageLl);
+        mShortageNum = (EditText) popView.findViewById(R.id.et_popup_shortage_num);
+        mShortageNumUnit = (TextView) popView.findViewById(R.id.tv_popup_shortage_numUnit);
+
+        //数量计算提示
+        mHintCalculate = (TextView) popView.findViewById(R.id.tv_popup_hintcalculateTv);
+
+        //签收说明
+        mHintOne = (TextView) popView.findViewById(R.id.tv_popup_hint1Tv);
+        mHintTwo = (TextView) popView.findViewById(R.id.tv_popup_hint2Tv);
     }
 
     /**
@@ -927,7 +958,36 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
         mTvPopupSignNum.setText(signNum);
         mTvPopupSignNumUnit.setText(signNumUnit);
-        mTvPopupFullNumUnit.setText(signNumUnit);
+        mRealityNumUnit.setText(signNumUnit);
+        mDamagedNumUnit.setText(signNumUnit);
+        mShortageNumUnit.setText(signNumUnit);
+        mDamagedNum.setText("0");
+        mShortageNum.setText("0");
+
+        if (TextUtils.equals(material_type, "1")) {
+            //直接配送
+            mRealityLl.setVisibility(View.VISIBLE);
+            mDamagedLl.setVisibility(View.VISIBLE);
+            mShortageLl.setVisibility(View.VISIBLE);
+            mHintCalculate.setVisibility(View.VISIBLE);
+
+            mHintOne.setText("请仔细检查货物数量及缺损情况，准确填写数量；");
+            mHintTwo.setText("并拍照后上传签收单图片。");
+            mHintTwo.setVisibility(View.VISIBLE);
+
+        } else {
+            //加工配送
+            mRealityLl.setVisibility(View.GONE);
+            mDamagedLl.setVisibility(View.GONE);
+            mShortageLl.setVisibility(View.GONE);
+            mHintCalculate.setVisibility(View.GONE);
+
+            mHintOne.setText("请仔细检查货物数量及缺损情况，拍照后上传签收单图片。");
+            mHintTwo.setVisibility(View.GONE);
+
+        }
+
+
         // 设置按钮的点击事件
         mLlPopupClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -963,42 +1023,56 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
 
         mBtnPopupDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String strNum = mEtPopupFullNum.getText().toString();
-                if (TextUtils.isEmpty(strNum.trim())) {
-                    Toast.makeText(_mActivity, "请输入签收完整数量！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (mIvPopupPicUpload.getVisibility() == View.VISIBLE) {
-                    Toast.makeText(_mActivity, "请选择要上传的签收单！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                                             @Override
+                                             public void onClick(View v) {
+                                                 if (TextUtils.equals(material_type, "1")) {
+                                                     String realityNum = mRealityNum.getText().toString();
+                                                     if (TextUtils.isEmpty(realityNum.trim())) {
+                                                         Toast.makeText(_mActivity, "请输入实际签收数量！", Toast.LENGTH_SHORT).show();
+                                                         return;
+                                                     }
+                                                     String damagedNum = mDamagedNum.getText().toString();
+                                                     if (TextUtils.isEmpty(damagedNum.trim())) {
+                                                         Toast.makeText(_mActivity, "请输入破损数量！", Toast.LENGTH_SHORT).show();
+                                                         return;
+                                                     }
+                                                     String shortageNum = mShortageNum.getText().toString();
+                                                     if (TextUtils.isEmpty(shortageNum.trim())) {
+                                                         Toast.makeText(_mActivity, "请输入短缺数量！", Toast.LENGTH_SHORT).show();
+                                                         return;
+                                                     }
+                                                 }
+                                                 if (mIvPopupPicUpload.getVisibility() == View.VISIBLE) {
+                                                     Toast.makeText(_mActivity, "请选择要上传的签收单！", Toast.LENGTH_SHORT).show();
+                                                     return;
+                                                 }
 
-                ArrayList<File> files = new ArrayList<>();
-                if (mPhotoPaths != null && mPhotoPaths.size() > 0) {
-                    for (int i = 0; i < mPhotoPaths.size(); i++) {
-                        files.add(new File(mPhotoPaths.get(i)));
-                    }
-                }
+                                                 ArrayList<File> files = new ArrayList<>();
+                                                 if (mPhotoPaths != null && mPhotoPaths.size() > 0) {
+                                                     for (int i = 0; i < mPhotoPaths.size(); i++) {
+                                                         files.add(new File(mPhotoPaths.get(i)));
+                                                     }
+                                                 }
 
-                String url = HttpMethods.BASE_URL + "App/Public/upload_imgs";
-                //拼接参数
-                OkHttpUtils.post(url)//
-                        .tag(this)//
-                        .headers("header1", "headerValue1")//
-                        .headers("header2", "headerValue2")//
-                        .params("param1", "paramValue1")//
-                        .params("param2", "paramValue2")//
+                                                 String url = HttpMethods.BASE_URL + "App/Public/upload_imgs";
+                                                 //拼接参数
+                                                 OkHttpUtils.post(url)//
+                                                         .tag(this)//
+                                                         .headers("header1", "headerValue1")//
+                                                         .headers("header2", "headerValue2")//
+                                                         .params("param1", "paramValue1")//
+                                                         .params("param2", "paramValue2")//
 //                .params("file1",new File("文件路径"))   //这种方式为一个key，对应一个文件
 //                .params("file2",new File("文件路径"))
 //                .params("file3",new File("文件路径"))
-                        .addFileParams("file", files)           // 这种方式为同一个key，上传多个文件
-                        .execute(new ProgressUpCallBack<>(_mActivity, UploadImgResult.class));
+                                                         .addFileParams("file", files)           // 这种方式为同一个key，上传多个文件
+                                                         .execute(new ProgressUpCallBack<>(_mActivity, UploadImgResult.class));
 
 
-            }
-        });
+                                             }
+                                         }
+
+        );
 
 
         /** 禁止点击外部区域取消popup windows*/
@@ -1006,17 +1080,21 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
                 .findViewById(R.id.popup_material_sign_for);
         layouttemp.setFocusable(true);
         layouttemp.setFocusableInTouchMode(true);
-        layouttemp.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                // 手机键盘上的返回键
-                switch (keyCode) {
-                    case KeyEvent.KEYCODE_BACK:
-                        mPopupWindow.dismiss();
-                        break;
-                }
-                return false;
-            }
-        });
+        layouttemp.setOnKeyListener(new View.OnKeyListener()
+
+                                    {
+                                        public boolean onKey(View v, int keyCode, KeyEvent event) {
+                                            // 手机键盘上的返回键
+                                            switch (keyCode) {
+                                                case KeyEvent.KEYCODE_BACK:
+                                                    mPopupWindow.dismiss();
+                                                    break;
+                                            }
+                                            return false;
+                                        }
+                                    }
+
+        );
         /** ----------------------------------------------*/
 
         mPopupWindow.setTouchable(true);
@@ -1025,13 +1103,20 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
         mPopupWindow.setFocusable(true);
 
         backgroundAlpha(0.3f, 1f);//透明度
+
         mPopupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         //添加pop窗口关闭事件
-        mPopupWindow.setOnDismissListener(new poponDismissListener());
+        mPopupWindow.setOnDismissListener(new
+
+                poponDismissListener()
+
+        );
 
         mPopupWindow.update();
-        if (!mPopupWindow.isShowing()) {
+        if (!mPopupWindow.isShowing())
+
+        {
             //设置显示位置
             mPopupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         }

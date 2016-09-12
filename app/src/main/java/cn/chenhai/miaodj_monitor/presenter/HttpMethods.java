@@ -343,13 +343,13 @@ public class HttpMethods {
     /**
      * 发起配送
      */
-    public void doStartDeliver(Subscriber<EmptyEntity> subscriber, String user_code, String access_token, String order_code, String material_code, String space_id,String material_type, String expect_arrive_time) {
+    public void doStartDeliver(Subscriber<EmptyEntity> subscriber, String user_code, String access_token, String order_code, String material_code, String space_id, String material_type, String expect_arrive_time) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
         map.put("order_code", order_code);
         map.put("material_code", material_code);
-        map.put("space_id",space_id);
+        map.put("space_id", space_id);
         map.put("material_type", material_type);
         map.put("expect_arrive_time", expect_arrive_time);
 
@@ -377,7 +377,7 @@ public class HttpMethods {
      * 签收货物
      */
     public void signForMainMaterial(Subscriber<Account> subscriber, String user_code, String access_token, String order_code,
-                                    String material_code, String space_id, String material_type, String sign_amount, String sign_pic) {
+                                    String material_code, String space_id, String material_type, String sign_amount, String torn_amount, String lack_amount, String sign_pic) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
@@ -386,6 +386,8 @@ public class HttpMethods {
         map.put("space_id", space_id);
         map.put("material_type", material_type);
         map.put("sign_amount", sign_amount);
+        map.put("torn_amount", torn_amount);
+        map.put("lack_amount", lack_amount);
         map.put("sign_pic", sign_pic);
 
         Observable observable = serviceInterface.signForMainMaterial(map)

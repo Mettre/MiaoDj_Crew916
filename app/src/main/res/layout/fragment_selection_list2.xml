@@ -33,6 +33,7 @@
                 android:layout_marginRight="25px"
                 android:layout_marginStart="24px"
                 android:layout_marginTop="24px"
+                android:visibility="gone"
                 android:background="@drawable/copy_cardview"
                 android:orientation="vertical">
 
