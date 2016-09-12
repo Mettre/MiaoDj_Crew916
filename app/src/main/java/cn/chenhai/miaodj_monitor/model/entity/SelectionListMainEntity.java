@@ -8,7 +8,7 @@ public class SelectionListMainEntity {
 
 
     /**
-     * keep_msg : 
+     * keep_msg :
      * material : {"id":"2270","order_code":"CM320501201608180001","customer_code":"CA201608000004","category_code":"11","class_code":"106","brand_code":"102","material_code":"1110610210005","amount":"261.000","cut_amount":"0","unit":"㎡","source":null,"status":"1","createtime":null,"space_id":"3","prepare_time":null,"start_deliver_time":null,"deliver_time":null,"expect_arrive_time":"2016-09-25","cut_prepare_time":null,"cut_reworking_time":null,"cut_reworked_time":null,"cut_start_deliver_time":null,"cut_deliver_time":null,"cut_expect_arrive_time":null,"cut_status":"1","type":"STANDARD","price_amount":"0","memo":"","material_type":"1","min_order_amount":"0.000","hear_time":null,"cut_hear_time":null,"choose_status":"3","title":"大自然实木复合地板","image_count":null,"code":"1110610210005","serial_no":"10005","specs":"910*126*15/0.6","quality":"","model":"海棠木DSJ03Z","color_no":"","color":"","min_order_unit":"㎡","cost_unit":"支","min_delivery_unit":"件","min_purchase_unit":"件","min_cost_count":null,"min_dilivery_count":null,"min_purchase_count":null,"volume_weight":"","unit_weight":"","unit_volume":"","is_wood_floor":"N","safe_stock":null,"area":"","length":"910.00","width":"126.00","height":"15.00","volume":"1719.90","weight":"0.00","is_example":"N","min_stock_unit":"","order_stock_ratio":"","updatetime":null,"is_delete":"N","isset_gift":"N","tail_no":"","min_count":"1","extra_nature":"","synchro_image":"0","is_personal":null,"is_single":"1","rate_order":"0.1150","rate_purchase":"0.1150","category_name":"地板","class_name":"地板","brand_name":"大自然","sign_time":null,"cut_sign_time":null}
      */
 
@@ -41,7 +41,7 @@ public class SelectionListMainEntity {
      * cut_status : 1
      * type : STANDARD
      * price_amount : 0
-     * memo : 
+     * memo :
      * material_type : 1
      * min_order_amount : 0.000
      * hear_time : null
@@ -52,10 +52,10 @@ public class SelectionListMainEntity {
      * code : 1110610210005
      * serial_no : 10005
      * specs : 910*126*15/0.6
-     * quality : 
+     * quality :
      * model : 海棠木DSJ03Z
-     * color_no : 
-     * color : 
+     * color_no :
+     * color :
      * min_order_unit : ㎡
      * cost_unit : 支
      * min_delivery_unit : 件
@@ -63,26 +63,26 @@ public class SelectionListMainEntity {
      * min_cost_count : null
      * min_dilivery_count : null
      * min_purchase_count : null
-     * volume_weight : 
-     * unit_weight : 
-     * unit_volume : 
+     * volume_weight :
+     * unit_weight :
+     * unit_volume :
      * is_wood_floor : N
      * safe_stock : null
-     * area : 
+     * area :
      * length : 910.00
      * width : 126.00
      * height : 15.00
      * volume : 1719.90
      * weight : 0.00
      * is_example : N
-     * min_stock_unit : 
-     * order_stock_ratio : 
+     * min_stock_unit :
+     * order_stock_ratio :
      * updatetime : null
      * is_delete : N
      * isset_gift : N
-     * tail_no : 
+     * tail_no :
      * min_count : 1
-     * extra_nature : 
+     * extra_nature :
      * synchro_image : 0
      * is_personal : null
      * is_single : 1
@@ -193,6 +193,15 @@ public class SelectionListMainEntity {
         private String brand_name;
         private String sign_time;
         private String cut_sign_time;
+        private String purchase_amount;
+
+        public String getPurchase_amount() {
+            return purchase_amount;
+        }
+
+        public void setPurchase_amount(String purchase_amount) {
+            this.purchase_amount = purchase_amount;
+        }
 
         public String getId() {
             return id;

@@ -288,8 +288,8 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                         float totalAmount = 0;
                         float cutAmount = 0;
-                        if (beanInfo.getAmount() != null) {
-                            totalAmount = Float.valueOf(beanInfo.getAmount());
+                        if (beanInfo.getPurchase_amount() != null) {
+                            totalAmount = Float.valueOf(beanInfo.getPurchase_amount());
                         }
                         if (beanInfo.getCut_amount() != null) {
                             cutAmount = Float.valueOf(beanInfo.getCut_amount());
@@ -756,7 +756,11 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
             if (!mSignForPicturePath.equals("")) {
                 String user_code = PreferencesUtils.getString(_mActivity, "user_code");
                 String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-                HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id, material_type, realityNum, damagedNum, shortageNum, mSignForPicturePath);
+                if (TextUtils.equals(material_type, "1")) {
+                    HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id, material_type, realityNum, damagedNum, shortageNum, mSignForPicturePath);
+                } else {
+                    HttpMethods.getInstance().signForMainMaterial(new ProgressSubscriber(mOnSuccessSignFor, _mActivity), user_code, access_token, mOrder_code, mMaterial_code, space_id, material_type, "0", "0", "0", mSignForPicturePath);
+                }
             }
         }
 
