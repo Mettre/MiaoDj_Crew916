@@ -96,17 +96,17 @@ public class PersonalBacklogPagerAdapter extends RecyclerView.Adapter<PersonalBa
             });
         }
 
-        if (holder.mIsNew) {
-            holder.mIvBacklogRedPoint.setVisibility(View.VISIBLE);
-            holder.mTvBacklogTitle.setTextColor(0xffD95311);
-            holder.mTvBacklogContent.setTextColor(0xff585858);
-            holder.mTvBacklogTime.setTextColor(0xff585858);
-        } else {
-            holder.mIvBacklogRedPoint.setVisibility(View.GONE);
-            holder.mTvBacklogTitle.setTextColor(0xff9C9C9C);
-            holder.mTvBacklogContent.setTextColor(0xff9C9C9C);
-            holder.mTvBacklogTime.setTextColor(0xff9C9C9C);
-        }
+//        if (holder.mIsNew) {
+//            holder.mIvBacklogRedPoint.setVisibility(View.VISIBLE);
+//            holder.mTvBacklogTitle.setTextColor(0xffD95311);
+//            holder.mTvBacklogContent.setTextColor(0xff585858);
+//            holder.mTvBacklogTime.setTextColor(0xff585858);
+//        } else {
+//            holder.mIvBacklogRedPoint.setVisibility(View.GONE);
+//            holder.mTvBacklogTitle.setTextColor(0xff9C9C9C);
+//            holder.mTvBacklogContent.setTextColor(0xff9C9C9C);
+//            holder.mTvBacklogTime.setTextColor(0xff9C9C9C);
+//        }
 
     }
 
