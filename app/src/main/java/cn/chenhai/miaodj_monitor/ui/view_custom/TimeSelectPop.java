@@ -53,6 +53,7 @@ public class TimeSelectPop extends PopupWindow {
     private TextView mPopupTimePickHintOne;
     private TextView mPopupTimePickHintTwe;
     private AutoFrameLayout mPopupTimePickRootView;
+    private AutoFrameLayout mSelectTime;
 
     SubmitOnClickListener mSubmit;
 
@@ -131,7 +132,7 @@ public class TimeSelectPop extends PopupWindow {
             }
         });
 
-        mPopupTimePickDateTv.setOnClickListener(new View.OnClickListener() {
+        mSelectTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog dateDlg = new DatePickerDialog(mContext,
@@ -167,6 +168,7 @@ public class TimeSelectPop extends PopupWindow {
         mPopupTimePickRootView.setFocusable(true);
         mPopupTimePickRootView.setFocusableInTouchMode(true);
         mPopupTimePickRootView.setOnKeyListener(new View.OnKeyListener() {
+
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 // 手机键盘上的返回键
                 switch (keyCode) {
@@ -227,6 +229,7 @@ public class TimeSelectPop extends PopupWindow {
         mPopupTimePickHintOne = (TextView) popView.findViewById(R.id.popup_time_pick_hintOne);
         mPopupTimePickHintTwe = (TextView) popView.findViewById(R.id.popup_time_pick_hintTwe);
         mPopupTimePickRootView = (AutoFrameLayout) popView.findViewById(R.id.popup_time_pick_rootView);
+        mSelectTime=(AutoFrameLayout)popView.findViewById(R.id.popup_time_pick_dateLayout);
 
     }
 

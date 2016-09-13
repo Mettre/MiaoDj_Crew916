@@ -514,8 +514,10 @@ public class DetailPointProgressFragment extends BaseBackFragment_Swip {
                                 .setTitleText("提示")
                                 .setContentText("已确认完成!")
                                 .show();
-                        if (mPopupWindow.isShowing()) {
-                            mPopupWindow.dismiss();
+                        if (mPopupWindow != null) {
+                            if (mPopupWindow.isShowing()) {
+                                mPopupWindow.dismiss();
+                            }
                         }
                         refreshData();
                     }

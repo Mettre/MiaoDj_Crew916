@@ -58,12 +58,12 @@ import rx.subjects.Subject;
 public class HttpMethods {
 
     //public static final String BASE_ROOT_URL = "http://release.miaodj.cn/";
-//    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
-    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
+    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
+//    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
 
     //public static final String BASE_URL = "http://release.miaodj.cn/index.php/";
-//    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
-    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
+    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
+//    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 

@@ -68,6 +68,7 @@
             android:background="@drawable/ic_red_star" />
 
         <com.zhy.autolayout.AutoFrameLayout
+            android:id="@+id/popup_time_pick_dateLayout"
             android:layout_width="521px"
             android:layout_height="71px"
             android:layout_marginLeft="41px"

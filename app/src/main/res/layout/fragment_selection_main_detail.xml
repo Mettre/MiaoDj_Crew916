@@ -201,7 +201,7 @@
                         android:singleLine="true"
                         android:textColor="@color/text_color_black_3"
                         android:textSize="24px"
-                        android:text="名称："/>
+                        android:text="规格："/>
 
                     <TextView
                         android:id="@+id/tv_selection_standard"

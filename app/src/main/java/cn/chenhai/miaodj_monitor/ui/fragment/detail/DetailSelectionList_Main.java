@@ -377,7 +377,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                         //直接配送
                         mTvSelectionNum.setText(String.valueOf(totalAmount - cutAmount));
-                        mTvSelectionNumUnit.setText(beanInfo.getUnit());
+                        mTvSelectionNumUnit.setText(beanInfo.getCost_unit());
                         mTvSelectionStatusDirect.setText(directStatus);
                         if (beanInfo.getHear_time() != null) {
                             mLayoutDirectHide0.setVisibility(View.VISIBLE);
@@ -416,7 +416,7 @@ public class DetailSelectionList_Main extends BaseBackFragment_Swip {
 
                         //加工时间
                         mTvSelectionNum2.setText(String.valueOf(cutAmount));
-                        mTvSelectionNum2Unit.setText(beanInfo.getUnit());
+                        mTvSelectionNum2Unit.setText(beanInfo.getCost_unit());
                         mTvSelectionStatusProcess.setText(processStatus);
                         if (beanInfo.getCut_hear_time() != null) {
                             mLayoutProcessHide0.setVisibility(View.VISIBLE);

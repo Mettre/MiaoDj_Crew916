@@ -613,6 +613,7 @@ public class DetailStartFragment extends BaseBackFragment {
     private ImageButton mApplyImgClose;
     private TextView mPublishTvDate;
     private Button mPublishBtn;
+    private AutoFrameLayout mSelectTime;
 
     /**
      * 初始化popWindow
@@ -633,6 +634,7 @@ public class DetailStartFragment extends BaseBackFragment {
 
         mApplyImgClose = (ImageButton) popView.findViewById(R.id.apply_img_close);
         mPublishBtn = (Button) popView.findViewById(R.id.publish_btn);
+        mSelectTime = (AutoFrameLayout) popView.findViewById(R.id.publish_tv_dateLayout);
 
     }
 
@@ -682,7 +684,7 @@ public class DetailStartFragment extends BaseBackFragment {
             }
         });
 
-        mPublishTvDate.setOnClickListener(new View.OnClickListener() {
+        mSelectTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog dateDlg = new DatePickerDialog(_mActivity,
