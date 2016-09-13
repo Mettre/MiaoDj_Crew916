@@ -54,6 +54,9 @@ public class PersonalBacklogPager2 extends BaseFragment {
 
     private List<Backlog_Info> mdataList = new ArrayList<>();
 
+    private int pageSize = 10;
+    private int pageIndex = 1;
+
 
     public static PersonalBacklogPager2 newInstance(int from, String mProjectCode) {
         Bundle args = new Bundle();
@@ -99,33 +102,6 @@ public class PersonalBacklogPager2 extends BaseFragment {
         mRecycler.setLayoutManager(mLLmanager);
         mRecycler.setAdapter(mAdapter);
 
-//        mAdapter.setOnItemClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position, View view) {
-//                //((MainActivity)getActivity()).getResideLayout().setIfSlide(true);
-//                TimerTask task = new TimerTask(){
-//                    public void run(){
-//                        //execute the task
-//                        if (getParentFragment() instanceof PersonalBacklogFragment) {
-//                            //((HomeFragment) getParentFragment()).start(DetailAgreeFragment.newInstance("测试单号111"));
-//                            ((PersonalBacklogFragment) getParentFragment()).start(CycleFragment.newInstance(1));
-//                        }
-//                    }
-//                };
-//                Timer timer = new Timer();
-//                timer.schedule(task, 260);
-//            }
-//        });
-//        mAdapter.setOnItemBtnClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position, View view) {
-//                if (getParentFragment() instanceof PersonalBacklogFragment) {
-//                    ((PersonalBacklogFragment) getParentFragment()).start(CycleFragment.newInstance(1));
-//                }
-//            }
-//        });
-
-
         mOnSuccessInit = new SubscriberOnSuccessListener<HttpResult<BackLogNewMsgEntity>>() {
             @Override
             public void onSuccess(HttpResult<BackLogNewMsgEntity> result) {
@@ -137,12 +113,11 @@ public class PersonalBacklogPager2 extends BaseFragment {
                         ACache mCache = ACache.get(_mActivity);
                         mCache.put("PersonalBacklogPager2", result, 10 * 60);//保存10分钟，如果超过10分钟去获取这个key，将为null
                     }
-                    List<BackLogNewMsgEntity.CommonMessageBean> projectsCommon = result.getInfo().getCommon_message();
-                    List<BackLogNewMsgEntity.SingleMessageBean> projectsSingle = result.getInfo().getSingle_message();
+                    List<BackLogNewMsgEntity.MessageBean> projectsCommon = result.getInfo().getMessage();
 
                     List<Backlog_Info> list = new ArrayList<>();
 
-                    if (projectsCommon.size() == 0 && projectsSingle.size() == 0) {
+                    if (projectsCommon == null || projectsCommon.size() == 0) {
                         mEmptyViewLayout.setVisibility(View.VISIBLE);
                         mRecycler.setVisibility(View.GONE);
                         ((PersonalBacklogFragment) getParentFragment()).hideNewDot(1);
@@ -154,20 +129,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
 
                     for (int i = 0; i < projectsCommon.size(); i++) {
                         Backlog_Info pageInfo = new Backlog_Info();
-                        BackLogNewMsgEntity.CommonMessageBean nodeInfo = projectsCommon.get(i);
-
-                        pageInfo.setIsNew(true);
-                        pageInfo.setMessageTitle(nodeInfo.getTitle());
-                        pageInfo.setMessageDetail(nodeInfo.getContent());
-                        pageInfo.setMessageTime(nodeInfo.getCreatetime());
-
-
-                        list.add(pageInfo);
-                    }
-
-                    for (int i = 0; i < projectsSingle.size(); i++) {
-                        Backlog_Info pageInfo = new Backlog_Info();
-                        BackLogNewMsgEntity.SingleMessageBean nodeInfo = projectsSingle.get(i);
+                        BackLogNewMsgEntity.MessageBean nodeInfo = projectsCommon.get(i);
 
                         pageInfo.setIsNew(true);
                         pageInfo.setMessageTitle(nodeInfo.getTitle());
@@ -180,7 +142,20 @@ public class PersonalBacklogPager2 extends BaseFragment {
 
                     mdataList = list;
 
-                    mAdapter.refreshDatas(mdataList);
+                    if (pageIndex == 1) {
+                        mAdapter.refreshDatas(mdataList);
+                    } else {
+                        mAdapter.addDatas(mdataList);
+                    }
+
+                    if (list.size() >= pageSize) {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.BOTH);
+                    } else {
+                        mRefreshPtrFrameLayout.setMode(PtrFrameLayout.Mode.REFRESH);
+                    }
+
+                    pageIndex++;
+
                 }
             }
 
@@ -219,7 +194,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
         ifSaveCache = true;
         String user_code = PreferencesUtils.getString(_mActivity, "user_code");
         String access_token = PreferencesUtils.getString(_mActivity, "access_token");
-        HttpMethods.getInstance().getMyMessage(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, "0", "0");
+        HttpMethods.getInstance().getMyMessage(new ProgressSubscriber(mOnSuccessInit, _mActivity), user_code, access_token, pageIndex, pageSize);
     }
 
     private void initDataTemp() {
@@ -281,6 +256,7 @@ public class PersonalBacklogPager2 extends BaseFragment {
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        pageIndex = 1;
                         refreshData();
                     }
                 }, 300);

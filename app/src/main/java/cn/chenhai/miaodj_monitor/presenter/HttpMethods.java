@@ -957,12 +957,12 @@ public class HttpMethods {
     /**
      * 消息通知
      */
-    public void getMyMessage(Subscriber<BackLogNewMsgEntity> subscriber, String user_code, String access_token, String single_message_id, String common_message_id) {
+    public void getMyMessage(Subscriber<BackLogNewMsgEntity> subscriber, String user_code, String access_token, int page, int page_size) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("user_code", user_code);
         map.put("access_token", access_token);
-        map.put("single_message_id", single_message_id);
-        map.put("common_message_id", common_message_id);
+        map.put("page", page + "");
+        map.put("page_size", page_size + "");
 
         Observable observable = serviceInterface.getMyMessage(map)
                 .map(new HttpResultAll<BackLogNewMsgEntity>());
