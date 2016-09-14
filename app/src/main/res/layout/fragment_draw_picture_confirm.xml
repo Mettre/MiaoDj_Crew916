@@ -119,8 +119,20 @@
                 app:ael_duration="400"
                 app:ael_expanded="true">
 
+                <GridView
+                    android:id="@+id/fragment_draw_gridView"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="30dp"
+                    android:numColumns="3"
+                    android:layout_marginBottom="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></GridView>
+
+
                 <cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView
                     android:id="@+id/fiveGrid"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"

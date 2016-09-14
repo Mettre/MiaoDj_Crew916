@@ -20,6 +20,7 @@ import cn.chenhai.miaodj_monitor.ui.module.preview.FiveGridView;
 import cn.chenhai.miaodj_monitor.ui.view_custom.image.DemoDuiTangImageReSizer;
 import cn.chenhai.miaodj_monitor.ui.view_custom.image.PtrImageLoadHandler;
 import cn.chenhai.miaodj_monitor.utils.CollectUtils;
+import cn.chenhai.miaodj_monitor.utils.ImageLoader2;
 import cn.jpush.android.api.JPushInterface;
 import in.srain.cube.Cube;
 import in.srain.cube.image.ImageLoaderFactory;
@@ -68,6 +69,7 @@ public class MyApplication extends MultiDexApplication {
         super.onCreate();
         instance=this;
         context = getApplicationContext();
+        ImageLoader2.init(context);
 
         CollectUtils.initialize(this);
         CollectUtils.setDebug(true, "MiaoDongJia_Test");

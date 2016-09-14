@@ -116,6 +116,7 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
         mLlPictureArrow = (ImageView) view.findViewById(R.id.ll_picture_arrow);
         mPictureExpandableLayout1 = (ExpandableLinearLayout) view.findViewById(R.id.picture_expandableLayout1);
         mFiveGrid = (FiveGridView) view.findViewById(R.id.fiveGrid);
+        pictureGridView = (GridView) view.findViewById(R.id.fragment_draw_gridView);
         // mNineGrid = (NineGridView) view.findViewById(R.id.nineGrid);
 
         mOnSuccessListener = new SubscriberOnSuccessListener<HttpResult<CheckPictureEntity>>() {

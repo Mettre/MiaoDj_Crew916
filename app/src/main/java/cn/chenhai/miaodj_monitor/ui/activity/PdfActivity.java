@@ -58,18 +58,6 @@ public class PdfActivity extends BaseActivity implements DownServer.DownComplete
 
         refreshData();
 
-
-//        pdfView.fromAsset("HT32050120160819001.pdf")
-//                .enableSwipe(true)
-//                .swipeHorizontal(false)
-//                .enableDoubletap(true)
-//                .defaultPage(0)
-//                .enableAnnotationRendering(false)
-//                .password(null)
-//                .scrollHandle(null)
-//                .load();
-
-
     }
 
     protected void initToolbarNav(Toolbar toolbar) {
