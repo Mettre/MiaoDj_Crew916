@@ -108,4 +108,8 @@ public class Utils {
     static String getString(Context context, int resId){
         return context.getResources().getString(resId);
     }
+
+    public static String subString(String str) {
+        return str.substring(str.lastIndexOf("/") + 1, str.lastIndexOf("."));
+    }
 }

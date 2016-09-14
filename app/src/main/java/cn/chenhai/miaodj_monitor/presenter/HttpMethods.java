@@ -23,6 +23,7 @@ import cn.chenhai.miaodj_monitor.model.entity.CheckWorkersEntity;
 import cn.chenhai.miaodj_monitor.model.entity.ChooseWorkerEntity;
 import cn.chenhai.miaodj_monitor.model.entity.ConfirmDrawPicEntity;
 import cn.chenhai.miaodj_monitor.model.entity.EmptyEntity;
+import cn.chenhai.miaodj_monitor.model.entity.GetBargainDetailEntity;
 import cn.chenhai.miaodj_monitor.model.entity.MyProjectsDetailEntity;
 import cn.chenhai.miaodj_monitor.model.entity.MyProjectsEntity;
 import cn.chenhai.miaodj_monitor.model.entity.NewVersionEntity;
@@ -58,12 +59,12 @@ import rx.subjects.Subject;
 public class HttpMethods {
 
     //public static final String BASE_ROOT_URL = "http://release.miaodj.cn/";
-    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
-//    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
+//    public static final String BASE_ROOT_URL = "http://api.miaodj.cn/";
+    public static final String BASE_ROOT_URL = "http://test.miaodj.cn/";
 
     //public static final String BASE_URL = "http://release.miaodj.cn/index.php/";
-    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
-//    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
+//    public static final String BASE_URL = "http://api.miaodj.cn/index.php/";
+    public static final String BASE_URL = "http://test.miaodj.cn/index.php/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 
@@ -1111,6 +1112,21 @@ public class HttpMethods {
 
         Observable observable = serviceInterface.doFeedBack(map)
                 .map(new HttpResultAll<EmptyEntity>());
+
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 查看合同详情
+     */
+    public void getBargainDetail(Subscriber<GetBargainDetailEntity> subscriber, String user_code, String access_token, String bargain_code) {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("user_code", user_code);
+        map.put("access_token", access_token);
+        map.put("bargain_code", bargain_code);
+
+        Observable observable = serviceInterface.getBargainDetail(map)
+                .map(new HttpResultAll<GetBargainDetailEntity>());
 
         toSubscribe(observable, subscriber);
     }

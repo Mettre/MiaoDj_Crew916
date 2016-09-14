@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ import cn.chenhai.miaodj_monitor.presenter.subscribers.ProgressSubscriber;
 import cn.chenhai.miaodj_monitor.presenter.subscribers.SubscriberOnSuccessListener;
 import cn.chenhai.miaodj_monitor.service.commonlib.utils.PreferencesUtils;
 import cn.chenhai.miaodj_monitor.service.helper.UIHelper;
+import cn.chenhai.miaodj_monitor.ui.activity.PdfActivity;
 import cn.chenhai.miaodj_monitor.ui.adapter.BargainAdapter;
 import cn.chenhai.miaodj_monitor.ui.base.BaseFragment;
 
@@ -136,6 +139,13 @@ public class DetailBargainFragment extends BaseFragment implements SwipeRefreshL
             View emptyView = getActivity().getLayoutInflater().inflate(R.layout.empty_view, (ViewGroup) mRecyclerView.getParent(), false);
             mAdapter.setEmptyView(emptyView);
             mRecyclerView.setAdapter(mAdapter);
+
+            mAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
+                @Override
+                public void onItemClick(View view, int i) {
+                    PdfActivity.startActivity(getActivity(), publicDataResults.get(i).getCode());
+                }
+            });
         } else {
             mAdapter.updateDatas(publicDataResults);
         }

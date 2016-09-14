@@ -120,6 +120,13 @@
             android:name="me.iwf.photopicker.PhotoPagerActivity"
             />
 
+        <activity android:name=".ui.activity.AlbumPhotoActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.activity.PdfActivity"
+            android:screenOrientation="portrait"/>
+
+
 
 
 

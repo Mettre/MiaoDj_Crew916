@@ -8,6 +8,7 @@ import cn.chenhai.miaodj_monitor.model.HttpResult;
 import cn.chenhai.miaodj_monitor.model.TestResult;
 import cn.chenhai.miaodj_monitor.model.entity.BargainEntity;
 import cn.chenhai.miaodj_monitor.model.entity.BargainPayEntity;
+import cn.chenhai.miaodj_monitor.model.entity.GetBargainDetailEntity;
 import cn.chenhai.miaodj_monitor.model.entity.ProvinceCityDistrictBean;
 import cn.chenhai.miaodj_monitor.model.entity.Account;
 import cn.chenhai.miaodj_monitor.model.entity.BackLogEntity;
@@ -309,5 +310,10 @@ public interface ServiceApi {
     /**意见反馈*/
     @POST("App/Project/push_opinion")
     Observable<HttpResult<EmptyEntity>> doFeedBack(@Body HashMap<String, String> body);
+
+    /**查看合同详情*/
+    @POST("App/Project/get_bargain_detail")
+    Observable<HttpResult<GetBargainDetailEntity>> getBargainDetail(@Body HashMap<String, String> body);
+
 
 }

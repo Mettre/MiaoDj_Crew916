@@ -8,7 +8,9 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.chenhai.miaodj_monitor.ui.activity.AlbumPhotoActivity;
+import cn.chenhai.miaodj_monitor.ui.module.preview.PictureGridViewAdapter;
 import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLayout;
 import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLayoutListenerAdapter;
 import cn.chenhai.miaodj_monitor.ui.view_custom.ExpandableLayout.ExpandableLinearLayout;
@@ -63,6 +67,8 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
     private ImageView mLlPictureArrow;
     private ExpandableLinearLayout mPictureExpandableLayout1;
     private FiveGridView mFiveGrid;
+    private GridView pictureGridView;
+    private PictureGridViewAdapter pictureGridViewAdapter;
     // private NineGridView mNineGrid;
 
     //负责存储布尔值的pair
@@ -121,6 +127,7 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
                 } else {
                     List<CheckPictureEntity.DrawingBean> projects = result.getInfo().getDrawing();
                     ArrayList<ImageInfo> imageInfoList = new ArrayList<>();
+                    ArrayList<String> pictures = new ArrayList<>();
                     for (int i = 0; i < projects.size(); i++) {
                         ImageInfo info1 = new ImageInfo();
                         CheckPictureEntity.DrawingBean drawInfo = projects.get(i);
@@ -129,11 +136,20 @@ public class DetailConfirmDrawPicture extends BaseBackFragment {
                         info1.setBigImageUrl(HttpMethods.BASE_ROOT_URL + drawInfo.getImgurl());
 
                         imageInfoList.add(info1);
+                        pictures.add(HttpMethods.BASE_ROOT_URL + drawInfo.getImgurl());
                     }
 
                     mLlPictureTitle.setText("图纸内容(" + imageInfoList.size() + ")");
 
-                    mFiveGrid.setAdapter(new FiveGridViewClickAdapter(_mActivity, imageInfoList));
+                   //mFiveGrid.setAdapter(new FiveGridViewClickAdapter(_mActivity, imageInfoList));
+                    pictureGridViewAdapter = new PictureGridViewAdapter(_mActivity, projects);
+                    pictureGridView.setAdapter(pictureGridViewAdapter);
+                    pictureGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            AlbumPhotoActivity.startActivity(getActivity(),pictures,position);
+                        }
+                    });
                     //mNineGrid.setAdapter(new NineGridViewClickAdapter(_mActivity, imageInfoList));
 
                     switch (result.getInfo().getDrawing_status()) {

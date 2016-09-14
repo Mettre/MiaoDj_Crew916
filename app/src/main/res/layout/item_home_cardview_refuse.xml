@@ -35,6 +35,7 @@
         android:layout_height="27px"
         android:layout_marginTop="46px"
         android:layout_marginLeft="640px"
+        android:visibility="gone"
         android:background="@drawable/ic_arrow_right2"/>
 
 
