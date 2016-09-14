@@ -4,12 +4,12 @@
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
-        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_lines.xml",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\res\\merged\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\toolslibrary\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_view_list_nav_layout.xml",

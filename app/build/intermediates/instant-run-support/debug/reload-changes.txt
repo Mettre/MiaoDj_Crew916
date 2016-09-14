@@ -1,6 +1,0 @@
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\chenhai\miaodj_monitor\presenter\HttpMethods$HttpResultAll$override.class
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\chenhai\miaodj_monitor\presenter\HttpMethods$SingletonHolder$override.class
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\chenhai\miaodj_monitor\presenter\HttpMethods$HttpResultFunc$override.class
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\chenhai\miaodj_monitor\presenter\HttpMethods$override.class
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
-CHANGED,D:\WorkSpace\MiaoDJ_Monitor\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\chenhai\miaodj_monitor\presenter\HttpMethods$HttpResultTest$override.class

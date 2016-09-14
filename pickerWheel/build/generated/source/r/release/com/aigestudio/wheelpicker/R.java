@@ -9,7 +9,53 @@ package com.aigestudio.wheelpicker;
 
 public final class R {
     public static final class array {
+        /** <item>天津市</item>
+<item>河北省</item>
+<item>山西省</item>
+<item>内蒙古自治区</item>
+<item>辽宁省</item>
+<item>吉林省</item>
+<item>黑龙江省</item>
+<item>上海市</item>
+<item>江苏省</item>
+<item>浙江省</item>
+<item>安徽省</item>
+<item>天津市</item>
+<item>河北省</item>
+<item>山西省</item>
+<item>内蒙古自治区</item>
+<item>辽宁省</item>
+<item>吉林省</item>
+<item>黑龙江省</item>
+<item>上海市</item>
+<item>江苏省</item>
+<item>浙江省</item>
+<item>安徽省</item>
+         */
         public static int WheelArrayConstellation=0x7f030000;
+        /** <item>天津市</item>
+<item>河北省</item>
+<item>山西省</item>
+<item>内蒙古自治区</item>
+<item>辽宁省</item>
+<item>吉林省</item>
+<item>黑龙江省</item>
+<item>上海市</item>
+<item>江苏省</item>
+<item>浙江省</item>
+<item>安徽省</item>
+<item>天津市</item>
+<item>河北省</item>
+<item>山西省</item>
+<item>内蒙古自治区</item>
+<item>辽宁省</item>
+<item>吉林省</item>
+<item>黑龙江省</item>
+<item>上海市</item>
+<item>江苏省</item>
+<item>浙江省</item>
+<item>安徽省</item>
+         */
         public static int WheelArrayDefault=0x7f030001;
         public static int WheelArrayZodiac=0x7f030002;
     }

@@ -20,12 +20,12 @@
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
@@ -60,12 +60,12 @@
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "D:\\WorkSpace\\MiaoDJ_Monitor\\autolayoutlib\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
