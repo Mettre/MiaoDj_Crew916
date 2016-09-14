@@ -26,17 +26,18 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
     private List<DetailPointInfo> mdataList = new ArrayList<>();
     private LayoutInflater mInflater;
     private OnItemClickListener mClickListener;
-    private int mCount=0;
+    private int mCount = 0;
 
     public DetailPointAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
     }
 
-    public void setDatas(List<DetailPointInfo> items,int count) {
+    public void setDatas(List<DetailPointInfo> items, int count) {
         //mdataList.clear();
         mdataList.addAll(items);
         mCount = count;
     }
+
     public void removeAllDataList() {
         this.mdataList.removeAll(mdataList);
         //mdataList.clear();
@@ -72,6 +73,7 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
 //            holder.tvProgress.setTextColor(0xffff6600);
 //        }
         holder.tvStartDate.setText(item.getStartDate());
+        holder.tvStartDate.setVisibility(View.VISIBLE);
         holder.ivPointCircle.setColorFilter(R.color.colorAccent1);
         //holder.ivStatusBtn.setText(item.getBtnStatus());
 
@@ -82,7 +84,7 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
 
         holder.tvStatus.setText(item.getBtnStatus());
 
-        switch (item.getBtnStatus()){
+        switch (item.getBtnStatus()) {
             case "已完成":
                 showLineUp = true;
                 showLineDown = true;
@@ -130,6 +132,7 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
                 showArrow = true;
                 holder.tvStatus.setBackgroundResource(R.drawable.text_bg_red);
                 holder.ivPointCircle.setBackgroundResource(R.drawable.ic_point_red);
+                holder.tvStartDate.setVisibility(View.GONE);
                 break;
             case "后场加工":
                 showArrow = true;
@@ -146,25 +149,27 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
                 break;
         }
 
-        if(showLineUp && position!=0) holder.isShowLineUp.setVisibility(View.VISIBLE);
+        if (showLineUp && position != 0) holder.isShowLineUp.setVisibility(View.VISIBLE);
         else holder.isShowLineUp.setVisibility(View.INVISIBLE);
 
-        if(showLineDown && position!=(mCount-1)) holder.isShowLineDown.setVisibility(View.VISIBLE);
+        if (showLineDown && position != (mCount - 1))
+            holder.isShowLineDown.setVisibility(View.VISIBLE);
         else holder.isShowLineDown.setVisibility(View.INVISIBLE);
 
-        if(showLineOut && position!=(mCount-1)) holder.isShowLineOut.setVisibility(View.VISIBLE);
+        if (showLineOut && position != (mCount - 1))
+            holder.isShowLineOut.setVisibility(View.VISIBLE);
         else holder.isShowLineOut.setVisibility(View.INVISIBLE);
 
-        if(showArrow) holder.ivArrow.setVisibility(View.VISIBLE);
+        if (showArrow) holder.ivArrow.setVisibility(View.VISIBLE);
         else holder.ivArrow.setVisibility(View.GONE);
 
 
         holder.tvEvaluate.setText(item.getEvaluate());
-        if(item.getEvaluate().equals("已评价")){
+        if (item.getEvaluate().equals("已评价")) {
             holder.tvEvaluate.setTextColor(0xFF84D133);
-        }else holder.tvEvaluate.setTextColor(0xFF5f5f60);
+        } else holder.tvEvaluate.setTextColor(0xFF5f5f60);
 
-        if(showArrow){
+        if (showArrow) {
             holder.mHomeCardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -174,7 +179,7 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
                     }
                 }
             });
-        }else {
+        } else {
             holder.mHomeCardview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -188,15 +193,16 @@ public class DetailPointAdapter extends RecyclerView.Adapter<DetailPointAdapter.
     public int getItemCount() {
         return mdataList.size();
     }
+
     public DetailPointInfo getItem(int position) {
         return mdataList.get(position);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvItemIndex,tvItemName ,tvStartDate ,tvEvaluate;
+        private TextView tvItemIndex, tvItemName, tvStartDate, tvEvaluate;
         //private Button btnStatus;
         private TextView tvStatus;
-        private ImageView ivArrow ,ivPointCircle; //,ivStatusBtn
+        private ImageView ivArrow, ivPointCircle; //,ivStatusBtn
         private View isShowLineUp, isShowLineDown, isShowLineOut;
         private AutoCardView mHomeCardview;
 

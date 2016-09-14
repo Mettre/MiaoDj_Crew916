@@ -64,9 +64,35 @@ public class PictureGridViewAdapter extends BaseAdapter {
             holder = (ViewHolder1) convertView.getTag();
 
         }
-        holder.textView.setText(projects.get(position).getResidential());
+        String mName = "";
 
-        ImageLoader2.displayImage(HttpMethods.BASE_ROOT_URL + projects.get(position).getImgurl(),holder.imageView);
+        String type = projects.get(position).getType();
+        switch (type) {
+            case "1":
+                mName = "房型图";
+                break;
+            case "2":
+                mName = "拆砌图";
+                break;
+            case "3":
+                mName = "平面布置图";
+                break;
+            case "4":
+                mName = "水电布置图";
+                break;
+            case "5":
+                mName = "吊顶布置图";
+                break;
+            case "6":
+                mName = "立面造型图";
+                break;
+            default:
+                break;
+        }
+
+        holder.textView.setText(mName);
+
+        ImageLoader2.displayImage(HttpMethods.BASE_ROOT_URL + projects.get(position).getImgurl(), holder.imageView);
         return convertView;
     }
 

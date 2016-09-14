@@ -71,12 +71,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:gravity="center_vertical"
                 android:layout_weight="1">
 
                 <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35px"
                     android:layout_marginLeft="33px"
                     android:layout_marginStart="33px"
                     android:orientation="horizontal">
