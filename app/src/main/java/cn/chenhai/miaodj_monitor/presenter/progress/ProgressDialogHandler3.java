@@ -18,7 +18,6 @@ public class ProgressDialogHandler3 extends Handler {
     public static final int SHOW_PROGRESS_DIALOG = 1;
     public static final int DISMISS_PROGRESS_DIALOG = 2;
 
-    //private SweetAlertDialog pd;
     private ProgressDialog pd;
 
     private Context context;
