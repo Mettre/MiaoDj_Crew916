@@ -367,11 +367,6 @@ public class ItemPointFragment extends SupportFragment {
      */
     private void initPopWindow(View popView, PopupWindow popupWindow) {
 
-        //popupWindow = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
-        // 我觉得这里是API的一个bug
-        //popupWindow.setBackgroundDrawable(getResources().getDrawable(R.color.white));
-        //popupWindow.setBackgroundDrawable(new ColorDrawable(0));
         //设置popwindow出现和消失动画
         popupWindow.setAnimationStyle(R.style.PopupAnimation);
         //popupWindow.setAnimationStyle(android.R.style.Animation_Dialog);
